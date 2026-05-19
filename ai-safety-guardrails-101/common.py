@@ -55,10 +55,10 @@ TOXIC_KEYWORDS = {
 FORBIDDEN_PHRASES = ["make a bomb", "폭탄 만드는 법", "password is"]
 
 PII_PATTERNS = {
-    "email": re.compile(r"\b[\w.+-]+@[\w-]+\.[\w.-]+\b"),
-    "phone": re.compile(r"\b01[016-9][-\s]?\d{3,4}[-\s]?\d{4}\b"),
-    "ssn": re.compile(r"\b\d{3}-\d{2}-\d{4}\b"),
-    "credit_card": re.compile(r"\b(?:\d[ -]*?){13,19}\b"),
+    "email": re.compile(r"\b[\w.+-]+@[\w-]+\.[\w.-]+\b", re.IGNORECASE),
+    "phone": re.compile(r"\b01[016-9][-\s]?\d{3,4}[-\s]?\d{4}\b", re.IGNORECASE),
+    "ssn": re.compile(r"\b\d{3}-\d{2}-\d{4}\b", re.IGNORECASE),
+    "credit_card": re.compile(r"\b(?:\d[ -]*?){13,19}\b", re.IGNORECASE),
 }
 
 

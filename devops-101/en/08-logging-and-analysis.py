@@ -16,8 +16,7 @@ def latency_percentile(logs: list[dict[str, object]], percentile: int) -> float:
     latencies = sorted(float(log["latency_ms"]) for log in logs)
     if not latencies:
         return 0.0
-    index = max(0, int(round((percentile / 100) * len(latencies) + 0.5)) - 1)
-    index = min(index, len(latencies) - 1)
+    index = min(int(percentile / 100 * len(latencies)), len(latencies) - 1)
     return latencies[index]
 
 

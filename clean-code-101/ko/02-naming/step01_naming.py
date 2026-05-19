@@ -4,7 +4,7 @@ SECONDS_PER_DAY = 86_400
 
 
 def first_completed_order(orders: list[dict[str, object]]) -> dict[str, object]:
-    """First completed order."""
+    """First order."""
     return orders[0]
 
 

@@ -11,6 +11,7 @@ from ko.common import ReplicaSet
 
 def cp_write(replica: ReplicaSet, partitioned: bool, key: str, value: int) -> bool:
     # CP 모드: 과반이 없으면 쓰기를 거절해 일관성을 지킵니다.
+    # 파티션 모델은 단순화를 위해 partitioned=True일 때 노드 2개 손실로 가정합니다.
     """Cp write."""
     total = len(replica.nodes)
     available = total - (2 if partitioned else 0)

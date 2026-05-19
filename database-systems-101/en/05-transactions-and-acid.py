@@ -22,17 +22,23 @@ def transfer(
     db_path: Path, src: int, dst: int, amount: int, fail_midway: bool = False
 ) -> None:
     """Transfer."""
+    if amount <= 0:
+        raise ValueError("amount must be positive")
     with sqlite3.connect(db_path) as db:
         try:
             db.execute("BEGIN")
-            db.execute(
+            src_update = db.execute(
                 "UPDATE accounts SET balance = balance - ? WHERE id = ?", (amount, src)
             )
+            if src_update.rowcount != 1:
+                raise ValueError("source account not found")
             if fail_midway:
                 raise RuntimeError("simulated failure")
-            db.execute(
+            dst_update = db.execute(
                 "UPDATE accounts SET balance = balance + ? WHERE id = ?", (amount, dst)
             )
+            if dst_update.rowcount != 1:
+                raise ValueError("destination account not found")
             db.execute("COMMIT")
         except Exception:
             db.execute("ROLLBACK")
@@ -45,6 +51,7 @@ class ToyWAL:
     def __init__(self):
         self.state = {"Alice": 1000, "Bob": 1000}
         self.log: list[tuple[str, str, int]] = []
+        self._applied_pos = 0
 
     def append_transfer(self, src: str, dst: str, amount: int) -> None:
         """Append transfer."""
@@ -52,9 +59,10 @@ class ToyWAL:
 
     def apply(self) -> None:
         """Apply."""
-        for src, dst, amount in self.log:
+        for src, dst, amount in self.log[self._applied_pos :]:
             self.state[src] -= amount
             self.state[dst] += amount
+        self._applied_pos = len(self.log)
 
 
 def balances(db_path: Path) -> dict[str, int]:

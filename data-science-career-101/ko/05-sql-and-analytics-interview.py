@@ -95,4 +95,6 @@ def sql_questions() -> dict[str, str]:
 
 def run_query(conn: sqlite3.Connection, query: str) -> list[tuple[Any, ...]]:
     """Run query."""
+    # WARNING: executing raw SQL can be unsafe.
+    # Prefer static trusted queries or parameterized SQL with placeholders.
     return conn.execute(query).fetchall()

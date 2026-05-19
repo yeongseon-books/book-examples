@@ -53,6 +53,10 @@ class Graph:
 
     def dijkstra(self, start: str) -> dict[str, int]:
         """Dijkstra."""
+        for edges in self.adj.values():
+            for _, w in edges:
+                if w < 0:
+                    raise ValueError("dijkstra requires non-negative weights")
         dist = {node: inf for node in self.adj}
         dist[start] = 0
         visited: set[str] = set()

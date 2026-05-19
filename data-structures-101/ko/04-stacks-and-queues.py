@@ -15,7 +15,7 @@ class ArrayStack:
     """Array stack."""
 
     def __init__(self, capacity: int = 4) -> None:
-        self._data: list[object | None] = [None] * capacity
+        self._data: list[object | None] = [None] * max(1, capacity)
         self._size = 0
 
     def _grow(self) -> None:
@@ -66,7 +66,7 @@ class ArrayQueue:
     """Array queue."""
 
     def __init__(self, capacity: int = 4) -> None:
-        self._data: list[object | None] = [None] * capacity
+        self._data: list[object | None] = [None] * max(1, capacity)
         self._front = 0
         self._size = 0
 

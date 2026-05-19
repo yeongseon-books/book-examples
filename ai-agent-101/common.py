@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import ast
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -40,7 +41,46 @@ def safe_calculate(expression: str) -> float:
     allowed = set("0123456789+-*/(). ")
     if not set(expression) <= allowed:
         raise ValueError("unsafe expression")
-    return float(eval(expression, {"__builtins__": {}}, {}))
+    node = ast.parse(expression, mode="eval")
+    if any(
+        not isinstance(
+            n,
+            ast.Expression
+            | ast.BinOp
+            | ast.UnaryOp
+            | ast.Constant
+            | ast.Add
+            | ast.Sub
+            | ast.Mult
+            | ast.Div
+            | ast.USub
+            | ast.UAdd,
+        )
+        for n in ast.walk(node)
+    ):
+        raise ValueError("unsafe expression")
+
+    def _eval(n: ast.AST) -> float:
+        if isinstance(n, ast.Constant) and isinstance(n.value, int | float):
+            return float(n.value)
+        if isinstance(n, ast.UnaryOp) and isinstance(n.op, ast.UAdd | ast.USub):
+            value = _eval(n.operand)
+            return value if isinstance(n.op, ast.UAdd) else -value
+        if isinstance(n, ast.BinOp) and isinstance(
+            n.op, ast.Add | ast.Sub | ast.Mult | ast.Div
+        ):
+            left = _eval(n.left)
+            right = _eval(n.right)
+            if isinstance(n.op, ast.Add):
+                return left + right
+            if isinstance(n.op, ast.Sub):
+                return left - right
+            if isinstance(n.op, ast.Mult):
+                return left * right
+            return left / right
+        raise ValueError("unsafe expression")
+
+    return _eval(node.body)
 
 
 def deterministic_score(text: str) -> float:

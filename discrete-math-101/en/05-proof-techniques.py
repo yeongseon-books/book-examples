@@ -5,7 +5,7 @@ import math
 
 
 def verify_induction(formula, direct, n_max=1000):
-    """Verify induction."""
+    """Check finite cases only; this is not a full induction proof."""
     return all(formula(n) == direct(n) for n in range(1, n_max + 1))
 
 

@@ -24,6 +24,8 @@ def list_idioms(values: list[int]) -> dict[str, list[int] | int]:
     """List idioms."""
     copied = values[:]
     comp = [x * 2 for x in values if x % 2 == 0]
+    if not copied:
+        raise ValueError("values must not be empty")
     return {"slice": values[1:4], "copy_first": copied[0], "comp": comp}
 
 

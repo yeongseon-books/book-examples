@@ -40,10 +40,11 @@ def run_pipeline(output_dir: str | Path, seed: int = 42) -> dict[str, object]:
 
     model_path = out / "data_science_101_model.joblib"
     joblib.dump(model, model_path)
+    # WARNING: joblib.load deserializes pickle data and can execute arbitrary code.
+    # Only load files from trusted sources.
     loaded = joblib.load(model_path)
-    same_preds = bool(
-        (model.predict(X_test.head(20)) == loaded.predict(X_test.head(20))).all()
-    )
+    sample = X_test[:20]
+    same_preds = bool((model.predict(sample) == loaded.predict(sample)).all())
 
     return {
         "accuracy": acc,

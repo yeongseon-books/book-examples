@@ -52,7 +52,11 @@ class ReportFactory:
 
     def create(self, kind: str):
         """Create."""
-        return PdfReport() if kind == "pdf" else HtmlReport()
+        if kind == "pdf":
+            return PdfReport()
+        if kind == "html":
+            return HtmlReport()
+        raise ValueError(f"unknown report kind: {kind}")
 
 
 class Button:

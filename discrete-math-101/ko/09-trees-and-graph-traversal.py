@@ -66,6 +66,8 @@ def topo_sort(g):
             indeg[u] -= 1
             if indeg[u] == 0:
                 q.append(u)
+    if len(out) != len(indeg):
+        raise ValueError("cycle detected")
     return out
 
 

@@ -20,17 +20,18 @@ class Query:
 def parse_sql(sql: str) -> Query:
     """Parse sql."""
     tokens = sql.strip().replace(",", " , ").split()
-    s = tokens.index("SELECT")
-    f = tokens.index("FROM")
+    upper_tokens = [token.upper() for token in tokens]
+    s = upper_tokens.index("SELECT")
+    f = upper_tokens.index("FROM")
     columns = [t for t in tokens[s + 1 : f] if t != ","]
     table = tokens[f + 1]
     where_col = where_val = order_by = None
-    if "WHERE" in tokens:
-        w = tokens.index("WHERE")
+    if "WHERE" in upper_tokens:
+        w = upper_tokens.index("WHERE")
         where_col = tokens[w + 1]
         where_val = tokens[w + 3].strip("'\"")
-    if "ORDER" in tokens:
-        o = tokens.index("BY")
+    if "ORDER" in upper_tokens:
+        o = upper_tokens.index("BY")
         order_by = tokens[o + 1]
     return Query(
         columns=columns,

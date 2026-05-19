@@ -12,6 +12,8 @@ def dijkstra(graph: dict[str, list[tuple[str, int]]], start: str) -> dict[str, i
         if cost > dist.get(node, 10**18):
             continue
         for neighbor, weight in graph[node]:
+            if weight < 0:
+                raise ValueError("negative weights not supported")
             new_cost = cost + weight
             if new_cost < dist.get(neighbor, 10**18):
                 dist[neighbor] = new_cost

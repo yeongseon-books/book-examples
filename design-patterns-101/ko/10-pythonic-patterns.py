@@ -29,8 +29,7 @@ def managed_file(res):
         res.close()
 
 
-def classic_iterator(values):
-    """Classic iterator."""
+def classic_collect(values):
     out = []
     i = 0
     while i < len(values):
@@ -39,9 +38,18 @@ def classic_iterator(values):
     return out
 
 
+def pythonic_collect(values):
+    return [x for x in values]
+
+
+def classic_iterator(values):
+    """Classic iterator."""
+    return classic_collect(values)
+
+
 def pythonic_iterator(values):
     """Pythonic iterator."""
-    return [x for x in values]
+    return pythonic_collect(values)
 
 
 def strategy_class(kind, value):
@@ -61,7 +69,12 @@ def strategy_class(kind, value):
             """Apply."""
             return v * 2
 
-    strategy = AddOne() if kind == "add" else Double()
+    if kind == "add":
+        strategy = AddOne()
+    elif kind == "double":
+        strategy = Double()
+    else:
+        raise ValueError(f"unknown strategy kind: {kind}")
     return strategy.apply(value)
 
 

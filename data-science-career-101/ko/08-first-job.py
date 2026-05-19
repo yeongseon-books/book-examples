@@ -13,10 +13,10 @@ def generate_onboarding_tasks(role: str, week: int) -> list[str]:
     """Generate onboarding tasks."""
     base = ROLE_TASKS[role]
     if week <= 1:
-        return ["1:1 미팅 5건", "데이터 접근 권한 확인", *base[:1]]
+        return ["1:1 미팅 5건", "데이터 지도 작성", *base[:1]]
     if week <= 2:
-        return [*base, "작은 개선안 1건"]
-    return [*base, "30/60/90 문서 업데이트", "리스크 공유"]
+        return [*base, "작은 승리 1건"]
+    return [*base, "30/60/90 문서 업데이트", "결정 기록 문서"]
 
 
 def validate_first_month_checklist(items: list[str]) -> dict[str, object]:

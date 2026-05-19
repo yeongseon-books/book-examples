@@ -11,6 +11,8 @@ def linear_search(data: list[int], target: int) -> int:
 
 def binary_search(sorted_data: list[int], target: int) -> int:
     """Binary search."""
+    if not sorted_data:
+        return -1
     left, right = 0, len(sorted_data) - 1
     while left <= right:
         mid = (left + right) // 2

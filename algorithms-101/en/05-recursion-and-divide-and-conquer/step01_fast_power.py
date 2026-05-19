@@ -5,6 +5,8 @@ from __future__ import annotations
 
 def fast_power(base: int, exp: int) -> int:
     """Fast power."""
+    if exp < 0:
+        raise ValueError("negative exponent not supported")
     if exp == 0:
         return 1
     half = fast_power(base, exp // 2)

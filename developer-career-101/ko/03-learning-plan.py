@@ -13,13 +13,18 @@ def topo_order(prereqs: dict[str, list[str]]) -> list[str]:
     """Topo order."""
     order: list[str] = []
     visited: set[str] = set()
+    visiting: set[str] = set()
 
     def visit(node: str) -> None:
         """Visit."""
         if node in visited:
             return
+        if node in visiting:
+            raise ValueError("cycle detected")
+        visiting.add(node)
         for dep in prereqs[node]:
             visit(dep)
+        visiting.remove(node)
         visited.add(node)
         order.append(node)
 

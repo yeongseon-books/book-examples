@@ -64,4 +64,20 @@ def run_workload(structure: str, n: int = 1000) -> dict[str, int]:
                 ops += 1
                 if k == i:
                     break
+    elif structure == "heap":
+        heap_data: list[int] = []
+        for i in range(n):
+            heap_data.append(i)
+            heap_data.sort()
+            ops += 1
+        while heap_data:
+            heap_data.pop(0)
+            ops += 1
+    elif structure == "bst":
+        bst_data: set[int] = set()
+        for i in range(n):
+            bst_data.add(i)
+            ops += 1
+        for _ in sorted(bst_data):
+            ops += 1
     return {"ops": ops}

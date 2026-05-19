@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -28,6 +29,12 @@ def main() -> None:
     doc_b = write_text(workspace / "ops.txt", "운영 문서: 증분 인덱싱과 변경 감지")
 
     changes = incremental_scan([doc_a, doc_b], store)
+    records_path = workspace / "index_items.json"
+    existing_records = (
+        json.loads(records_path.read_text(encoding="utf-8"))
+        if records_path.exists()
+        else []
+    )
     changed_records = [
         {
             "text": change["path"].read_text(encoding="utf-8"),
@@ -35,8 +42,16 @@ def main() -> None:
         }
         for change in changes
     ]
-    index, items = build_faiss_index(changed_records)
-    hits = search_faiss(index, items, "변경 감지 인덱싱", top_k=2)
+    items = [*existing_records, *changed_records]
+    records_path.parent.mkdir(parents=True, exist_ok=True)
+    records_path.write_text(
+        json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    if items:
+        index, items = build_faiss_index(items)
+        hits = search_faiss(index, items, "변경 감지 인덱싱", top_k=2)
+    else:
+        hits = []
 
     print("이번 배치에서 다시 인덱싱한 문서")
     for change in changes:

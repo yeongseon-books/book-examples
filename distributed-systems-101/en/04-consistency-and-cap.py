@@ -11,6 +11,7 @@ from en.common import ReplicaSet
 
 def cp_write(replica: ReplicaSet, partitioned: bool, key: str, value: int) -> bool:
     # In CP mode, reject writes without majority.
+    # Partition is simplified as losing exactly two nodes when partitioned=True.
     """Cp write."""
     total = len(replica.nodes)
     available = total - (2 if partitioned else 0)

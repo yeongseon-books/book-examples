@@ -11,7 +11,9 @@ def sum_of_squares_imperative(n: int) -> int:
 
 def sum_of_squares_recursive(n: int) -> int:
     """Sum of squares recursive."""
-    if n <= 0:
+    if n < 0:
+        raise ValueError("negative input not supported")
+    if n == 0:
         return 0
     return n * n + sum_of_squares_recursive(n - 1)
 

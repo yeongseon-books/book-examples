@@ -31,12 +31,14 @@ class Relation:
 
     def union(self, other: Relation):
         """Union."""
-        assert self.schema == other.schema
+        if self.schema != other.schema:
+            raise ValueError("schemas must match for union")
         return Relation(self.schema, self.rows | other.rows)
 
     def difference(self, other: Relation):
         """Difference."""
-        assert self.schema == other.schema
+        if self.schema != other.schema:
+            raise ValueError("schemas must match for difference")
         return Relation(self.schema, self.rows - other.rows)
 
     def join(self, other: Relation, left_key: str, right_key: str):

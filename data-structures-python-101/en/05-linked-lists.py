@@ -37,6 +37,8 @@ def deque_rotation(values: list[int], steps: int) -> list[int]:
 
 def sliding_window(values: list[int], window: int) -> list[int]:
     """Sliding window."""
+    if window <= 0:
+        raise ValueError("window must be positive")
     dq: deque[int] = deque(maxlen=window)
     sums: list[int] = []
     for v in values:

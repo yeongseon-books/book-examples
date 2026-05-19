@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import re
 from pathlib import Path
 
 
@@ -36,8 +37,9 @@ def load_config(
 def redact_secrets(values: dict[str, str]) -> dict[str, str]:
     """Redact secrets."""
     redacted = {}
+    pattern = re.compile(r"password|token|secret", re.IGNORECASE)
     for key, value in values.items():
-        if "PASSWORD" in key or "TOKEN" in key or "SECRET" in key:
+        if pattern.search(key):
             redacted[key] = "***REDACTED***"
         else:
             redacted[key] = value

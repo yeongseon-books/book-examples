@@ -53,6 +53,8 @@ class VersionedKVStore:
         if level == "read_uncommitted":
             return versions[-1].value if versions else None
         visible = [v for v in versions if v.committed]
+        # 교육용 단순화를 위해 repeatable_read와 serializable을 동일한
+        # 스냅샷 가시성 규칙으로 처리합니다.
         if level == "repeatable_read" and snapshot_tx is not None:
             visible = [v for v in visible if v.txid <= snapshot_tx]
         if level == "serializable" and snapshot_tx is not None:

@@ -47,7 +47,7 @@ class TinyHashSet:
     """Tiny hash set."""
 
     def __init__(self, capacity: int = 16) -> None:
-        self._buckets: list[list[int]] = [[] for _ in range(capacity)]
+        self._buckets: list[list[int]] = [[] for _ in range(max(1, capacity))]
 
     def _index(self, value: int) -> int:
         """Index."""

@@ -32,6 +32,8 @@ class BankTransferStrategy(PaymentStrategy):
 
     def pay(self, amount):
         """Pay."""
+        if amount <= 1.5:
+            raise ValueError("amount must be greater than transfer fee")
         return round(amount - 1.5, 2)
 
 

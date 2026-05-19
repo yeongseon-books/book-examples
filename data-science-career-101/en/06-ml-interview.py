@@ -14,6 +14,8 @@ def train_test_split_indices(
     n: int, test_ratio: float = 0.2, seed: int = 42
 ) -> tuple[NDArray[np.int_], NDArray[np.int_]]:
     """Train test split indices."""
+    if n < 2:
+        raise ValueError("n must be at least 2")
     rng = np.random.default_rng(seed)
     idx = np.arange(n)
     rng.shuffle(idx)
@@ -25,6 +27,10 @@ def k_fold_indices(
     n: int, k: int = 5, seed: int = 42
 ) -> list[tuple[NDArray[np.int_], NDArray[np.int_]]]:
     """K fold indices."""
+    if n < 2:
+        raise ValueError("n must be at least 2")
+    if k <= 1 or k > n:
+        raise ValueError("k must satisfy 1 < k <= n")
     rng = np.random.default_rng(seed)
     idx = np.arange(n)
     rng.shuffle(idx)
@@ -76,5 +82,7 @@ def accuracy(y_true: Iterable[int], y_pred: Iterable[int]) -> float:
     """Accuracy."""
     true = list(y_true)
     pred = list(y_pred)
+    if len(true) != len(pred):
+        raise ValueError("y_true and y_pred must have the same length")
     correct = sum(1 for a, b in zip(true, pred, strict=False) if a == b)
     return correct / max(1, len(true))

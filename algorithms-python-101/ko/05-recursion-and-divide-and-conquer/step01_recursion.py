@@ -3,6 +3,8 @@
 
 def power(base: int, exp: int) -> int:
     """Power."""
+    if exp < 0:
+        raise ValueError("negative exponent not supported")
     if exp == 0:
         return 1
     if exp % 2 == 0:

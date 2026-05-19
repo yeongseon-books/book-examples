@@ -121,7 +121,8 @@ class Pipeline:
 
     def process(self, req):
         """Process."""
-        return self.parse(req) + self.transform(req)
+        parsed = self.parse(req)
+        return parsed + self.transform(parsed)
 
     def parse(self, req):
         """Parse."""

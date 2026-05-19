@@ -46,7 +46,7 @@ def manual_regression_metrics(
     rmse = float(math.sqrt((errors**2).mean()))
     sst = float(((y_true - y_true.mean()) ** 2).sum())
     ssr = float(((y_true - y_pred) ** 2).sum())
-    r2 = 1.0 - ssr / sst
+    r2 = 0.0 if sst == 0.0 else 1.0 - ssr / sst
     return {"mae": mae, "rmse": rmse, "r2": r2}
 
 
@@ -61,7 +61,7 @@ def compare_metrics(seed: int = 42) -> dict[str, float]:
     pred = clf.predict(Xte)
     proba = clf.predict_proba(Xte)[:, 1]
 
-    m_cls = manual_classification_metrics(yte.to_numpy(), pred)
+    m_cls = manual_classification_metrics(np.asarray(yte), pred)
     s_cls = {
         "accuracy": accuracy_score(yte, pred),
         "precision": precision_score(yte, pred),
@@ -76,7 +76,7 @@ def compare_metrics(seed: int = 42) -> dict[str, float]:
     reg = LinearRegression().fit(Xtr, ytr)
     ypred = reg.predict(Xte)
 
-    m_reg = manual_regression_metrics(yte.to_numpy(), ypred)
+    m_reg = manual_regression_metrics(np.asarray(yte), ypred)
     s_reg = {
         "mae": mean_absolute_error(yte, ypred),
         "rmse": math.sqrt(mean_squared_error(yte, ypred)),

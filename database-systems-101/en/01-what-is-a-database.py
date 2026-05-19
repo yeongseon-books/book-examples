@@ -9,6 +9,8 @@ from pathlib import Path
 
 def flat_file_deposit(path: Path, user_id: str, amount: int) -> None:
     """Flat file deposit."""
+    if amount <= 0:
+        raise ValueError("amount must be positive")
     data = json.loads(path.read_text()) if path.exists() else {}
     data[user_id] = data.get(user_id, 0) + amount
     path.write_text(json.dumps(data))

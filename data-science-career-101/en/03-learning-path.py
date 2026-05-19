@@ -53,6 +53,8 @@ def topo_sort(topics: list[str]) -> list[str]:
             indegree[nxt] -= 1
             if indegree[nxt] == 0:
                 queue.append(nxt)
+    if len(order) != len(indegree):
+        raise ValueError("cycle detected")
     return order
 
 
@@ -64,7 +66,8 @@ def generate_12_week_plan(
     ordered = [topic for topic in topo_sort(topics) if topic not in current_skills]
     if not ordered:
         ordered = topics[:]
-    hours_per_topic = max(2, weekly_hours // max(1, len(ordered)))
+    budget = max(0, weekly_hours)
+    hours_per_topic = min(max(2, budget // max(1, len(ordered))), budget)
     plan = []
     for week in range(1, 13):
         topic = ordered[(week - 1) % len(ordered)]

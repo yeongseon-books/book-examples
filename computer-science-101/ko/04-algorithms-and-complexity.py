@@ -13,6 +13,8 @@ def linear_search_count(arr: list[int], target: int) -> int:
 
 def binary_search_count(arr: list[int], target: int) -> int:
     """Binary search count."""
+    if not arr:
+        return -1
     lo, hi = 0, len(arr) - 1
     comparisons = 0
     while lo <= hi:

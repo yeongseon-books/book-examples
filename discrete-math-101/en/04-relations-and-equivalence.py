@@ -26,7 +26,7 @@ class Relation:
         )
 
     def equivalence_classes(self):
-        """Equivalence classes."""
+        """Equivalence classes; input pairs should already form an equivalence relation."""
         uf = UnionFind(self.universe)
         for a, b in self.pairs:
             uf.union(a, b)
