@@ -51,18 +51,24 @@ def build_graph():
     builder.add_node("assistant", assistant_node)
     builder.add_node("tools", ToolNode([lookup_blog_metric]))
     builder.add_edge(START, "assistant")
-    builder.add_conditional_edges("assistant", should_continue, {"tools": "tools", END: END})
+    builder.add_conditional_edges(
+        "assistant", should_continue, {"tools": "tools", END: END}
+    )
     builder.add_edge("tools", "assistant")
     return builder.compile(checkpointer=MemorySaver())
 
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast(RunnableConfig, {"configurable": {"thread_id": "ko-stream-demo"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "ko-stream-demo"}})
     seen = 0
 
     for event in graph.stream(
-        {"messages": [HumanMessage(content="방문자와 구독자 지표를 차례대로 알려주세요.")]},
+        {
+            "messages": [
+                HumanMessage(content="방문자와 구독자 지표를 차례대로 알려주세요.")
+            ]
+        },
         config=config,
         stream_mode="values",
     ):

@@ -84,7 +84,7 @@ def ep03_structure_lint(text: str) -> dict:
     has_h1 = any(re.match(r"^#\s+", line) for line in lines)
     levels = _heading_levels(text)
     skipped = False
-    for prev, cur in zip(levels, levels[1:]):
+    for prev, cur in zip(levels, levels[1:], strict=False):
         if cur > prev + 1:
             skipped = True
             break

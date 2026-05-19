@@ -31,7 +31,7 @@ def count_docstrings(path: str | Path) -> int:
     tree = ast.parse(read_text(path))
     count = 1 if ast.get_docstring(tree) else 0
     for node in ast.walk(tree):
-        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+        if isinstance(node, ast.FunctionDef | ast.AsyncFunctionDef | ast.ClassDef):
             if ast.get_docstring(node):
                 count += 1
     return count

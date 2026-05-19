@@ -4,7 +4,6 @@ from typing import Any, cast
 
 from groq import Groq
 
-
 TOOLS = [
     {
         "type": "function",
@@ -74,8 +73,8 @@ def run_loop(client: Groq, user_message: str) -> str:
     while True:
         response = client.chat.completions.create(
             model="llama-3.1-8b-instant",
-            messages=cast(Any, messages),
-            tools=cast(Any, TOOLS),
+            messages=cast("Any", messages),
+            tools=cast("Any", TOOLS),
             tool_choice="auto",
         )
         choice = response.choices[0]

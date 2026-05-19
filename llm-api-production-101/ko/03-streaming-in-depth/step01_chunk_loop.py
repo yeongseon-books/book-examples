@@ -8,7 +8,10 @@ def main() -> None:
     stream = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
-            {"role": "user", "content": "TCP/IP 4계층을 각 층마다 한 줄씩 설명해 주세요."}
+            {
+                "role": "user",
+                "content": "TCP/IP 4계층을 각 층마다 한 줄씩 설명해 주세요.",
+            }
         ],
         stream=True,
     )

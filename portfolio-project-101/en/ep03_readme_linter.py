@@ -1,1 +1,0 @@
-from ko.ep03_readme_linter import lint_readme_sections

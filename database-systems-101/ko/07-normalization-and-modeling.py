@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from itertools import combinations
 
-
 FD = tuple[frozenset[str], frozenset[str]]
 
 

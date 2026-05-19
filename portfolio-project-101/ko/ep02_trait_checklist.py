@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 REQUIRED_TRAITS = ("solving_real_problem", "scoped", "deployable")
 
 

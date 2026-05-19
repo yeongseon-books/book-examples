@@ -1,7 +1,6 @@
+from common import make_clf_dataset
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
-
-from common import make_clf_dataset
 
 
 def run() -> dict[str, float]:

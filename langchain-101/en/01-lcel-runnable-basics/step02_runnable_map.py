@@ -13,17 +13,17 @@ def build_chain():
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
-        api_key=cast(Any, os.environ["GROQ_API_KEY"]),
+        api_key=cast("Any", os.environ["GROQ_API_KEY"]),
         stop_sequences=None,
     )
     parser = StrOutputParser()
 
     inputs = RunnableMap(
         {
-            "topic": RunnableLambda(lambda data: cast(dict[str, Any], data)["topic"]),
+            "topic": RunnableLambda(lambda data: cast("dict[str, Any]", data)["topic"]),
             "level": RunnableLambda(
                 lambda data: "beginner"
-                if cast(dict[str, Any], data).get("is_beginner", True)
+                if cast("dict[str, Any]", data).get("is_beginner", True)
                 else "intermediate"
             ),
         }

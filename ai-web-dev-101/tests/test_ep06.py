@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 module = load_module("ko/06-deploy/step01_deploy_checklist.py", "ep06")
 deployment_checklist = module.deployment_checklist
 estimate_monthly_cost = module.estimate_monthly_cost

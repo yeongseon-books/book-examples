@@ -1,4 +1,3 @@
-\
 """
 Step 06 — Complete CLI chatbot
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Combine an input loop, summary compression,
 and token budget management into one practical CLI chatbot.
 """
+
 import os
 from typing import TypedDict
 
@@ -73,7 +73,12 @@ def build_messages(
 ) -> list[ChatCompletionMessageParam]:
     messages: list[ChatCompletionMessageParam] = [system_message]
     if summary_text:
-        messages.append({"role": "system", "content": f"Previous conversation summary:\n{summary_text}"})
+        messages.append(
+            {
+                "role": "system",
+                "content": f"Previous conversation summary:\n{summary_text}",
+            }
+        )
     messages.extend(recent_turns)
     messages.append({"role": "user", "content": user_text})
     return messages
@@ -87,7 +92,9 @@ def compress_if_needed(
 ) -> None:
     summary_text = state["summary_text"]
     recent_turns = state["recent_turns"]
-    messages = build_messages(system_message, summary_text, recent_turns, next_user_text)
+    messages = build_messages(
+        system_message, summary_text, recent_turns, next_user_text
+    )
     if rough_token_count(messages) <= MAX_INPUT_TOKENS:
         return
 
@@ -98,7 +105,9 @@ def compress_if_needed(
         summary_text = state["summary_text"]
         recent_turns = state["recent_turns"]
 
-    messages = build_messages(system_message, summary_text, recent_turns, next_user_text)
+    messages = build_messages(
+        system_message, summary_text, recent_turns, next_user_text
+    )
     if rough_token_count(messages) > MAX_INPUT_TOKENS:
         raise ValueError("The input is too long. Start a new session with /reset.")
 
@@ -110,7 +119,9 @@ def ask(
     user_text: str,
 ) -> str:
     compress_if_needed(client, system_message, user_text, state)
-    messages = build_messages(system_message, state["summary_text"], state["recent_turns"], user_text)
+    messages = build_messages(
+        system_message, state["summary_text"], state["recent_turns"], user_text
+    )
     completion = client.chat.completions.create(
         model=MODEL,
         messages=messages,

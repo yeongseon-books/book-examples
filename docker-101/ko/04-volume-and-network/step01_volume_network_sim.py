@@ -4,11 +4,15 @@ from __future__ import annotations
 
 # 한국어 주석: 오프라인 검증 예제입니다.
 
+
 def run() -> dict[str, object]:
     named_volume_persists = True
     bridge_dns = {"api": "10.10.0.2", "db": "10.10.0.3"}
     can_resolve_db = "db" in bridge_dns
-    return {"success": named_volume_persists and can_resolve_db, "bridge_dns": bridge_dns}
+    return {
+        "success": named_volume_persists and can_resolve_db,
+        "bridge_dns": bridge_dns,
+    }
 
 
 if __name__ == "__main__":

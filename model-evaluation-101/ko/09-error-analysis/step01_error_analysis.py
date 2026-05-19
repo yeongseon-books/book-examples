@@ -1,10 +1,9 @@
 from __future__ import annotations
 
 import numpy as np
+from common import make_imbalanced, print_confusion, safe_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
-
-from common import make_imbalanced, print_confusion, safe_split
 
 
 def run(seed: int = 42) -> dict[str, object]:

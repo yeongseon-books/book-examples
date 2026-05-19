@@ -18,7 +18,9 @@ def main() -> None:
     print(f"벡터 차원: {vectors.shape[1]}")
     print()
 
-    for index, (sentence, vector) in enumerate(zip(SENTENCES, vectors, strict=False), start=1):
+    for index, (sentence, vector) in enumerate(
+        zip(SENTENCES, vectors, strict=False), start=1
+    ):
         print(f"[{index}] 문장: {sentence}")
         print(f"    벡터 norm: {np.linalg.norm(vector):.4f}")
         print(f"    앞 5개 값: {vector[:5].tolist()}")

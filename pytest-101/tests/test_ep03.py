@@ -1,5 +1,4 @@
 import pytest
-
 from en.ep03_risky import divide_positive
 
 

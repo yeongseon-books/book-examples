@@ -1,7 +1,12 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 SYSTEM_PROMPT = "You are a helpful AI tutor. Continue the conversation and answer in concise English."
 

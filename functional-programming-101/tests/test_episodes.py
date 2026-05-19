@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from conftest import load_module
 
-
 common = load_module("common.py", "common_mod")
 
 

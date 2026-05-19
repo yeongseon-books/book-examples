@@ -1,6 +1,8 @@
 from conftest import load_module
 
-run = load_module("ko/10-production-multimodal-app/step01_production_app.py", "ep10").run
+run = load_module(
+    "ko/10-production-multimodal-app/step01_production_app.py", "ep10"
+).run
 
 
 def test_ep10_end_to_end_app() -> None:

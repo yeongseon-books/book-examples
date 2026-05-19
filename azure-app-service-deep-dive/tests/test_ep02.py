@@ -1,7 +1,5 @@
-from fastapi.testclient import TestClient
-
 from conftest import load_module
-
+from fastapi.testclient import TestClient
 
 create_app = load_module(
     "ko/02-front-end-and-arr/step01_arr_affinity_demo.py", "ep02"

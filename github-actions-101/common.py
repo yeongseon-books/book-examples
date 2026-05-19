@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import itertools
+import re
 from collections import defaultdict, deque
 from dataclasses import dataclass
-import itertools
 from pathlib import Path
-import re
 from typing import Any
 
 import yaml
@@ -172,7 +172,9 @@ class MatrixExpander:
             return [{}]
         keys = sorted(matrix.keys())
         values = [matrix[k] for k in keys]
-        return [dict(zip(keys, combo)) for combo in itertools.product(*values)]
+        return [
+            dict(zip(keys, combo, strict=False)) for combo in itertools.product(*values)
+        ]
 
 
 class ActionUsageLinter:

@@ -1,5 +1,4 @@
 import pytest
-
 from en.ep06_incident_response import next_state, should_page
 
 

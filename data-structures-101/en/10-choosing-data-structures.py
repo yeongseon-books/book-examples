@@ -34,7 +34,7 @@ def run_workload(structure: str, n: int = 1000) -> dict[str, int]:
     elif structure == "linked_list":
 
         class Node:
-            def __init__(self, value: int, next: "Node | None" = None) -> None:
+            def __init__(self, value: int, next: Node | None = None) -> None:
                 self.value = value
                 self.next = next
 

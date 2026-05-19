@@ -1,4 +1,3 @@
-\
 """
 Step 05 — 스트림을 파일에 쓰기
 ======================================================
@@ -8,6 +7,7 @@ Step 05 — 스트림을 파일에 쓰기
 생성되는 토큰을 파일에 즉시 쓰고,
 문장 단위로 consumer에 전달하는 파이프 패턴을 함께 보여줍니다.
 """
+
 import os
 from collections.abc import Generator
 from pathlib import Path
@@ -55,7 +55,9 @@ def main() -> None:
     print("\n=== 문장 단위 파이프 ===")
     pipe_stream = client.chat.completions.create(
         model="llama-3.1-8b-instant",
-        messages=[{"role": "user", "content": "벡터 데이터베이스를 쉽게 설명해 주세요."}],
+        messages=[
+            {"role": "user", "content": "벡터 데이터베이스를 쉽게 설명해 주세요."}
+        ],
         stream=True,
     )
     for sentence in sentence_chunks(pipe_stream):

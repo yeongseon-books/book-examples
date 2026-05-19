@@ -1,5 +1,4 @@
 import pytest
-
 from ko.ep04_bayes_theorem import run
 
 

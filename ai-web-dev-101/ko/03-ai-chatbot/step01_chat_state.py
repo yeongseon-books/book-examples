@@ -19,8 +19,8 @@ class ChatSession:
         self.messages.append({"role": "user", "content": text})
         llm = MockLLM()
         resp = llm.chat(self.system_prompt, text)
-        choices = cast(list[dict[str, object]], resp["choices"])
-        message = cast(dict[str, object], choices[0]["message"])
+        choices = cast("list[dict[str, object]]", resp["choices"])
+        message = cast("dict[str, object]", choices[0]["message"])
         answer = str(message["content"])
         self.messages.append({"role": "assistant", "content": answer})
         return answer

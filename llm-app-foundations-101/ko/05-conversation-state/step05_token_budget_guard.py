@@ -1,4 +1,3 @@
-\
 """
 Step 05 — 토큰 예산 초과 감지
 ======================================================
@@ -34,7 +33,10 @@ def enforce_budget(
 def main() -> None:
     system = {"role": "system", "content": "당신은 도우미입니다."}
     short_history = [system] + [
-        {"role": "user" if index % 2 == 0 else "assistant", "content": f"메시지 {index}"}
+        {
+            "role": "user" if index % 2 == 0 else "assistant",
+            "content": f"메시지 {index}",
+        }
         for index in range(10)
     ]
     long_history = [system] + [

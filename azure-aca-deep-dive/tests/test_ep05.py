@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module("ko/05-dapr-sidecar-internals/step01_dapr_sidecar.py", "ep05").run
 
 

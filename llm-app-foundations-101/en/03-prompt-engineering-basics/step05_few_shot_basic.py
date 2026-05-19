@@ -1,4 +1,3 @@
-\
 """
 Step 05 — Put few-shot examples into the messages list
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Place user and assistant examples before the final request
 to demonstrate a target answer pattern.
 """
+
 import os
 from typing import Any
 

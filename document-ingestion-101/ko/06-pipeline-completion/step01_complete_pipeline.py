@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
@@ -19,7 +19,10 @@ from shared.ingestion_examples import (
 
 
 def prepare_sources(base: Path) -> list[Path]:
-    txt_path = write_text(base / "handbook.txt", "문서 수집 파이프라인은 파서, 청커, 인덱서, 상태 저장소로 구성됩니다.")
+    txt_path = write_text(
+        base / "handbook.txt",
+        "문서 수집 파이프라인은 파서, 청커, 인덱서, 상태 저장소로 구성됩니다.",
+    )
     md_path = write_text(
         base / "ops.md",
         "# 운영 메모\n\n## 변경 감지\n파일 해시를 비교합니다.\n\n## 재처리\n변경된 파일만 다시 임베딩합니다.\n",
@@ -47,7 +50,9 @@ def main() -> None:
     records = []
     for change in changes:
         for document in route_document(change["path"]):
-            document["metadata"] = document["metadata"] | {"change_status": change["status"]}
+            document["metadata"] = document["metadata"] | {
+                "change_status": change["status"]
+            }
             records.append(document)
 
     index, items = build_faiss_index(records)
@@ -61,7 +66,9 @@ def main() -> None:
     print("검색 결과")
     for hit in hits:
         metadata = hit.metadata["metadata"]
-        print(f"score={hit.score:.4f} source={metadata['source']} format={metadata.get('format', 'txt')}")
+        print(
+            f"score={hit.score:.4f} source={metadata['source']} format={metadata.get('format', 'txt')}"
+        )
         print(hit.metadata["text"])
         print()
 

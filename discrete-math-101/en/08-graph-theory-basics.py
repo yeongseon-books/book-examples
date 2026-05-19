@@ -1,5 +1,6 @@
 # English runnable example
 from collections import defaultdict
+
 from common import is_bipartite
 
 
@@ -16,6 +17,7 @@ class Graph:
 
     def has_cycle(self):
         seen = set()
+
         def dfs(v, p):
             seen.add(v)
             for u in self.adj[v]:
@@ -24,6 +26,7 @@ class Graph:
                 if u in seen or dfs(u, v):
                     return True
             return False
+
         return any(dfs(v, None) for v in list(self.adj) if v not in seen)
 
     def is_bipartite(self):

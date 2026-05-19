@@ -1,7 +1,6 @@
 # pyright: reportAny=false
 from conftest import load_module
 
-
 run = load_module("ko/08-database-with-app/step01_db_compose_check.py", "ep08").run
 
 

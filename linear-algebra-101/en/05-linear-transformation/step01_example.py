@@ -9,9 +9,15 @@ def run():
     sh = np.array([[1.0, 0.7], [0.0, 1.0]])
     pts = np.array([[1.0, 0.0], [0.0, 1.0], [1.0, 1.0], [-1.0, 1.0]])
     transformed = (sh @ s @ r @ pts.T).T
-    print('first point:', transformed[0])
-    return {'rotation': r, 'scale': s, 'shear': sh, 'points': pts, 'transformed': transformed}
+    print("first point:", transformed[0])
+    return {
+        "rotation": r,
+        "scale": s,
+        "shear": sh,
+        "points": pts,
+        "transformed": transformed,
+    }
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()

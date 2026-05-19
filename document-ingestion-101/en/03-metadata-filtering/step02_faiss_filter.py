@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
@@ -26,7 +26,9 @@ def main() -> None:
         },
     ]
     index, items = build_faiss_index(records)
-    hits = search_faiss(index, items, "chunking and PDF parsing", top_k=2, filters={"team": "platform"})
+    hits = search_faiss(
+        index, items, "chunking and PDF parsing", top_k=2, filters={"team": "platform"}
+    )
 
     print("Search results filtered to platform team documents")
     for hit in hits:

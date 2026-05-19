@@ -11,7 +11,11 @@ def deployment_commands(app: str, rg: str, sa: str, loc: str) -> list[str]:
 
 
 def run() -> dict[str, list[str]]:
-    return {"commands": deployment_commands("func-hello-100", "rg-hello", "sthello100", "koreacentral")}
+    return {
+        "commands": deployment_commands(
+            "func-hello-100", "rg-hello", "sthello100", "koreacentral"
+        )
+    }
 
 
 if __name__ == "__main__":

@@ -8,8 +8,8 @@ if str(ROOT) not in sys.path:
 
 
 def load_episode(ep: str):
-    path = ROOT / 'en' / ep / 'step01_example.py'
-    spec = importlib.util.spec_from_file_location(f'ep_{ep.replace("-", "_")}', path)
+    path = ROOT / "en" / ep / "step01_example.py"
+    spec = importlib.util.spec_from_file_location(f"ep_{ep.replace('-', '_')}", path)
     module = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
     spec.loader.exec_module(module)

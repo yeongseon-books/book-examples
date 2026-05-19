@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from .conftest import load_module
 
-
 mod = load_module("ko/02-analyst-scientist-engineer.py")
 
 

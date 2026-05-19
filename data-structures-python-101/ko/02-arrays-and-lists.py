@@ -1,7 +1,8 @@
 from array import array
 from collections import deque
+from collections.abc import Callable
 from time import perf_counter
-from typing import Any, Callable
+from typing import Any
 
 
 def time_op(

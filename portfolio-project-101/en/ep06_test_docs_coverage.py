@@ -1,1 +1,0 @@
-from ko.ep06_test_docs_coverage import generate_coverage_report

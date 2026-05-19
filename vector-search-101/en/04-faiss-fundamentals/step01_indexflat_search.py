@@ -14,8 +14,12 @@ CORPUS = [
 ]
 
 
-def build_index(model: SentenceTransformer, corpus: list[str]) -> tuple[faiss.IndexFlatIP, NDArray[np.float32]]:
-    vectors = model.encode(corpus, normalize_embeddings=True, convert_to_numpy=True).astype("float32")
+def build_index(
+    model: SentenceTransformer, corpus: list[str]
+) -> tuple[faiss.IndexFlatIP, NDArray[np.float32]]:
+    vectors = model.encode(
+        corpus, normalize_embeddings=True, convert_to_numpy=True
+    ).astype("float32")
     index = faiss.IndexFlatIP(vectors.shape[1])
     index.add(vectors)  # pyright: ignore[reportCallIssue]
     return index, vectors
@@ -27,7 +31,9 @@ def search(
     query: str,
     top_k: int = 3,
 ) -> list[tuple[int, float]]:
-    query_vector = model.encode([query], normalize_embeddings=True, convert_to_numpy=True).astype("float32")
+    query_vector = model.encode(
+        [query], normalize_embeddings=True, convert_to_numpy=True
+    ).astype("float32")
     scores, indices = index.search(query_vector, top_k)  # pyright: ignore[reportCallIssue]
     return list(zip(indices[0].tolist(), scores[0].tolist(), strict=False))
 

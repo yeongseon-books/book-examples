@@ -1,7 +1,7 @@
 """에피소드 04: service layer로 비즈니스 규칙을 모으는 예제입니다."""
 
+from collections.abc import Mapping
 from dataclasses import dataclass
-from typing import Mapping
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel

@@ -1,7 +1,6 @@
+from common import make_clf_dataset
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
-
-from common import make_clf_dataset
 
 
 def run() -> dict[str, float]:

@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 first_ai_call = load_module(
     "ko/01-hello-ai-api/step01_first_call.py", "ep01"
 ).first_ai_call

@@ -4,12 +4,10 @@ import json
 import os
 import sqlite3
 import time
-from typing import Dict
 from html.parser import HTMLParser
 from pathlib import Path
 
 from flask import Flask, g, jsonify, make_response, request, session
-
 
 ROOT = Path(__file__).parent
 
@@ -108,7 +106,7 @@ def query_by_class(node, class_name):
 def ep04_rest_app():
     app = Flask(__name__)
     app.config["JSON_SORT_KEYS"] = False
-    items: Dict[int, Dict[str, object]] = {1: {"id": 1, "name": "book"}}
+    items: dict[int, dict[str, object]] = {1: {"id": 1, "name": "book"}}
 
     @app.get("/api/v1/items")
     def get_items():
@@ -153,7 +151,7 @@ def ep05_split_app():
 def ep06_auth_app():
     app = Flask(__name__)
     app.secret_key = "dev-secret"
-    users = {"alice": hashlib.sha256("pw123".encode()).hexdigest()}
+    users = {"alice": hashlib.sha256(b"pw123").hexdigest()}
 
     @app.post("/login")
     def login():

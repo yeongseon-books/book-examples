@@ -1,5 +1,4 @@
 import faiss
-import numpy as np
 from sentence_transformers import SentenceTransformer
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
@@ -21,7 +20,9 @@ class VectorSearchPipeline:
 
     def build(self, documents: list[str]) -> None:
         self._documents = documents
-        vectors = self._model.encode(documents, normalize_embeddings=True, convert_to_numpy=True).astype("float32")
+        vectors = self._model.encode(
+            documents, normalize_embeddings=True, convert_to_numpy=True
+        ).astype("float32")
         self._index = faiss.IndexFlatIP(vectors.shape[1])
         self._index.add(vectors)  # pyright: ignore[reportCallIssue]
         print(f"Index built: {len(documents)} documents, dimension {vectors.shape[1]}")
@@ -30,7 +31,9 @@ class VectorSearchPipeline:
         if self._index is None:
             raise RuntimeError("Call build() first.")
 
-        query_vector = self._model.encode([query], normalize_embeddings=True, convert_to_numpy=True).astype("float32")
+        query_vector = self._model.encode(
+            [query], normalize_embeddings=True, convert_to_numpy=True
+        ).astype("float32")
         scores, indices = self._index.search(query_vector, top_k)  # pyright: ignore[reportCallIssue]
 
         results: list[dict[str, float | str]] = []

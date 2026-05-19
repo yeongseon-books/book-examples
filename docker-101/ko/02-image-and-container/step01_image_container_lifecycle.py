@@ -4,6 +4,7 @@ from __future__ import annotations
 
 # 한국어 주석: 오프라인 검증 예제입니다.
 
+
 def run() -> dict[str, object]:
     lifecycle = ["created", "running", "stopped", "removed"]
     immutable_image = True

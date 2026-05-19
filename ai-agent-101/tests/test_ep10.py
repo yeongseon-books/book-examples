@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module("ko/10-building-first-agent/step01_capstone_agent.py", "ep10").run
 
 

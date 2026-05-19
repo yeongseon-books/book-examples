@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/02-environment-app-revision/step01_revision_model.py", "ep02")
 
 

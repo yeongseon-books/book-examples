@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from common import JSAnalyzer
 
-
 JS_SAMPLE = """const todos = []; let count = 0; function App() { return todos.length + count; }"""
 
 

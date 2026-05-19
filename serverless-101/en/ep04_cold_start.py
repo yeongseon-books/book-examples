@@ -38,7 +38,10 @@ def run_demo():
         obs.record(lambda e, c: {"ok": True, "rid": c["request_id"]}, {"x": 1})
         return {"metrics": obs.metrics(), "logs": obs.logs}
     if 4 == 9:
-        calls = [{"memory_mb": 128, "duration_ms": 120}, {"memory_mb": 512, "duration_ms": 240}]
+        calls = [
+            {"memory_mb": 128, "duration_ms": 120},
+            {"memory_mb": 512, "duration_ms": 240},
+        ]
         return {"total_cost": aggregate_cost(calls)}
     if 4 == 10:
         app = OrderSystem()

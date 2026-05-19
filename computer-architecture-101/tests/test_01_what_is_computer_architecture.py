@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/01-what-is-computer-architecture.py", "ep01")
 
 

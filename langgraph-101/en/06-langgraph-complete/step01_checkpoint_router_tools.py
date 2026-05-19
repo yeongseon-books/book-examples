@@ -47,7 +47,11 @@ def assistant_node(state: WorkflowState):
     tools = [get_order_status, get_shipping_eta]
     model = build_model().bind_tools(tools)
     response = model.invoke(
-        [SystemMessage(content="Always answer in English and use the right tool before replying about an order.")]
+        [
+            SystemMessage(
+                content="Always answer in English and use the right tool before replying about an order."
+            )
+        ]
         + state["messages"]
     )
     return {"messages": [response]}
@@ -66,18 +70,27 @@ def build_graph():
     builder.add_node("assistant", assistant_node)
     builder.add_node("tools", ToolNode(tools))
     builder.add_edge(START, "assistant")
-    builder.add_conditional_edges("assistant", should_continue, {"tools": "tools", END: END})
+    builder.add_conditional_edges(
+        "assistant", should_continue, {"tools": "tools", END: END}
+    )
     builder.add_edge("tools", "assistant")
     return builder.compile(checkpointer=MemorySaver())
 
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast(RunnableConfig, {"configurable": {"thread_id": "en-complete-demo"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "en-complete-demo"}})
 
-    graph.invoke({"messages": [HumanMessage(content="Please check the status of order 1001.")]}, config=config)
+    graph.invoke(
+        {"messages": [HumanMessage(content="Please check the status of order 1001.")]},
+        config=config,
+    )
     second_result = graph.invoke(
-        {"messages": [HumanMessage(content="Now tell me the ETA for that same order.")]},
+        {
+            "messages": [
+                HumanMessage(content="Now tell me the ETA for that same order.")
+            ]
+        },
         config=config,
     )
 

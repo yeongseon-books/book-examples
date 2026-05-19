@@ -14,7 +14,10 @@ from en.shared import CORPUS, FULL_CONFIGS, PIPELINE_CASES
 
 def main() -> None:
     print("Running the complete RAG benchmark")
-    results = [run_pipeline_benchmark("en", CORPUS, PIPELINE_CASES, config).summary() for config in FULL_CONFIGS]
+    results = [
+        run_pipeline_benchmark("en", CORPUS, PIPELINE_CASES, config).summary()
+        for config in FULL_CONFIGS
+    ]
     results.sort(key=lambda row: row["overall_score"], reverse=True)
     print(json.dumps(results, indent=2))
 

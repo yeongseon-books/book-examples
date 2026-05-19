@@ -5,7 +5,7 @@ import time
 
 
 def vector_add_sequential(a: list[int], b: list[int]) -> list[int]:
-    return [x + y for x, y in zip(a, b)]
+    return [x + y for x, y in zip(a, b, strict=False)]
 
 
 def vector_add_threaded(a: list[int], b: list[int], workers: int = 4) -> list[int]:

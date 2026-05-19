@@ -1,5 +1,4 @@
 import numpy as np
-
 from common import Embedding, positional_encoding
 
 

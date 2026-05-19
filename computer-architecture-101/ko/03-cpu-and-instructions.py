@@ -3,7 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Literal, TypedDict
 
-
 Opcode = Literal["LOAD", "STORE", "ADD", "SUB", "JMP", "HLT"]
 
 

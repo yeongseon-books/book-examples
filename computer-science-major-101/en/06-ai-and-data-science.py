@@ -14,8 +14,8 @@ def train_logistic_regression(
     for _ in range(epochs):
         grad_w = [0.0 for _ in weights]
         grad_b = 0.0
-        for x, y in zip(features, labels):
-            z = sum(w * xi for w, xi in zip(weights, x)) + bias
+        for x, y in zip(features, labels, strict=False):
+            z = sum(w * xi for w, xi in zip(weights, x, strict=False)) + bias
             pred = sigmoid(z)
             err = pred - y
             for idx in range(len(weights)):
@@ -28,7 +28,7 @@ def train_logistic_regression(
 
 
 def predict_probability(x: list[float], weights: list[float], bias: float) -> float:
-    return sigmoid(sum(w * xi for w, xi in zip(weights, x)) + bias)
+    return sigmoid(sum(w * xi for w, xi in zip(weights, x, strict=False)) + bias)
 
 
 if __name__ == "__main__":

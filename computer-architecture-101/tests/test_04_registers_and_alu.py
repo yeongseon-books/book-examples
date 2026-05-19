@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/04-registers-and-alu.py", "ep04")
 
 

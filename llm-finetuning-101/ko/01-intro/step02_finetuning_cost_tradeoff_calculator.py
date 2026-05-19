@@ -16,7 +16,7 @@ class Scenario:
 
 
 def estimate_vram_gb(parameters_billion: float, bytes_per_param: int = 2) -> float:
-    return parameters_billion * 1_000_000_000 * bytes_per_param / 1024 ** 3
+    return parameters_billion * 1_000_000_000 * bytes_per_param / 1024**3
 
 
 def estimate_training_cost(hours: float, gpu_hour_price: float) -> float:
@@ -25,13 +25,13 @@ def estimate_training_cost(hours: float, gpu_hour_price: float) -> float:
 
 def main() -> None:
     scenarios = [
-        Scenario('7B full fine-tuning', 7.0, 18.0, 2.9, 0.18, 5),
-        Scenario('7B LoRA', 7.0, 4.0, 2.9, 0.12, 2),
-        Scenario('RAG + prompt tuning only', 7.0, 0.0, 2.9, 0.07, 3),
+        Scenario("7B full fine-tuning", 7.0, 18.0, 2.9, 0.18, 5),
+        Scenario("7B LoRA", 7.0, 4.0, 2.9, 0.12, 2),
+        Scenario("RAG + prompt tuning only", 7.0, 0.0, 2.9, 0.07, 3),
     ]
 
-    print('파인튜닝 전략 비교')
-    print('=' * 80)
+    print("파인튜닝 전략 비교")
+    print("=" * 80)
     for item in scenarios:
         vram = estimate_vram_gb(item.parameters_billion)
         cost = estimate_training_cost(item.hours, item.gpu_hour_price)
@@ -44,8 +44,10 @@ def main() -> None:
         print(f"  - 개발 난이도 점수: {score:.3f}")
         print()
 
-    print('해석: LoRA는 비용 대비 효율이 높고, 풀 파인튜닝은 가장 비싸며, RAG만으로 해결되는 문제라면 학습을 생략하는 편이 유리합니다.')
+    print(
+        "해석: LoRA는 비용 대비 효율이 높고, 풀 파인튜닝은 가장 비싸며, RAG만으로 해결되는 문제라면 학습을 생략하는 편이 유리합니다."
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

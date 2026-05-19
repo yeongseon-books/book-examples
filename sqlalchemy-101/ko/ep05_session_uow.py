@@ -1,7 +1,6 @@
+from common import User, create_schema, sync_engine
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
-
-from common import User, create_schema, sync_engine
 
 
 def run() -> tuple[int, bool]:

@@ -3,7 +3,6 @@ import os
 
 from groq import Groq
 
-
 SCHEMA_INSTRUCTION = """
 다음 스키마에 정확히 맞는 JSON으로만 응답하세요:
 {

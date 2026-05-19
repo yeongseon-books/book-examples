@@ -1,4 +1,5 @@
 """Episode 08: Query optimization. Runnable example in English."""
+
 from __future__ import annotations
 
 import random

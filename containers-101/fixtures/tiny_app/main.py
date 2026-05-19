@@ -1,1 +1,1 @@
-print("tiny app")\n
+print("tiny app")

@@ -33,14 +33,14 @@ def start_kv_server(
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((host, port))
     server.listen(5)
-    sockname = cast(tuple[str, int], server.getsockname())
+    sockname = cast("tuple[str, int]", server.getsockname())
     bound_port = sockname[1]
 
     def _serve() -> None:
         while True:
             try:
                 conn, _addr = cast(
-                    tuple[socket.socket, tuple[str, int]], server.accept()
+                    "tuple[socket.socket, tuple[str, int]]", server.accept()
                 )
             except OSError:
                 return

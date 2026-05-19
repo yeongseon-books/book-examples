@@ -8,7 +8,7 @@ class TreeNode:
         self.value = value
         self.children: list[TreeNode] = []
 
-    def add(self, child: "TreeNode") -> "TreeNode":
+    def add(self, child: TreeNode) -> TreeNode:
         self.children.append(child)
         return child
 

@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from fastapi import FastAPI, Response
-
 from common import warmup_is_ready
+from fastapi import FastAPI, Response
 
 
 def create_app(is_ready: bool) -> FastAPI:

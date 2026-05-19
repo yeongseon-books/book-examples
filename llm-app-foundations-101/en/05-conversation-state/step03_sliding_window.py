@@ -1,4 +1,3 @@
-\
 """
 Step 03 — Sliding window pattern
 ======================================================
@@ -8,9 +7,9 @@ Run:
 Keep only the most recent three turns
 to stabilize the prompt token budget.
 """
+
 import os
 from collections import deque
-from typing import Any
 
 from groq import Groq
 from groq.types.chat import ChatCompletionMessageParam, ChatCompletionSystemMessageParam

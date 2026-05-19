@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 DOMAIN_MAP = {
     "fintech": {
         "metrics": ["승인율", "연체율", "거래 성공률"],

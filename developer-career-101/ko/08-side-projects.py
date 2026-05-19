@@ -1,6 +1,5 @@
 from common import RubricScorer
 
-
 SCORER = RubricScorer(
     {
         "skill_fit": 0.25,

@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 ko = load_module("ko/06-dynamic-programming/step01_knapsack_dp.py", "ko_ep06")
 
 

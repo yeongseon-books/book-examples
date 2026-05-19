@@ -1,6 +1,5 @@
-from typing_extensions import TypedDict
-
 from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
 
 
 class GraphState(TypedDict):
@@ -16,7 +15,9 @@ def normalize_input(state: GraphState):
 
 
 def create_reply(state: GraphState):
-    reply = f"Hello. Let's start LangGraph with the topic '{state['normalized_input']}'."
+    reply = (
+        f"Hello. Let's start LangGraph with the topic '{state['normalized_input']}'."
+    )
     print(f"[create_reply] generated reply: {reply}")
     return {"reply": reply}
 

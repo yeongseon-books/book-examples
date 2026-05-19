@@ -1,1 +1,1 @@
-from ko._10_build_a_container_app import *\n
+from ko._10_build_a_container_app import *

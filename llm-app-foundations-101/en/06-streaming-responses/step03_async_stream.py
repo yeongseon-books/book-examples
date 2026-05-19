@@ -1,4 +1,3 @@
-\
 """
 Step 03 — Asynchronous streaming
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Use AsyncGroq and async for to process a streaming response.
 This is the baseline pattern for async server environments such as FastAPI.
 """
+
 import asyncio
 import os
 

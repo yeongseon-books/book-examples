@@ -1,1 +1,0 @@
-from ko.ep02_embed_index import InMemoryVectorIndex

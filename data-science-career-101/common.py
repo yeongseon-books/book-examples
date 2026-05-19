@@ -1,8 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
-from typing import Dict, Iterable, Mapping
-
 
 Track = str
 
@@ -10,7 +9,7 @@ Track = str
 @dataclass(frozen=True)
 class LikertQuestion:
     prompt: str
-    weights: Dict[Track, float]
+    weights: dict[Track, float]
 
 
 def clamp_likert(value: int) -> int:
@@ -21,7 +20,7 @@ def weighted_likert_score(
     answers: Mapping[str, int],
     questions: Mapping[str, LikertQuestion],
     tracks: Iterable[Track],
-) -> Dict[Track, float]:
+) -> dict[Track, float]:
     totals = {track: 0.0 for track in tracks}
     for key, question in questions.items():
         answer = clamp_likert(answers.get(key, 3))
@@ -37,8 +36,8 @@ def top_track(scores: Mapping[Track, float]) -> Track:
 
 def score_rubric(
     scores: Mapping[str, float], weak_threshold: float = 2.5
-) -> Dict[str, str]:
-    result: Dict[str, str] = {}
+) -> dict[str, str]:
+    result: dict[str, str] = {}
     for key, score in scores.items():
         if score >= 4.0:
             result[key] = "strong"

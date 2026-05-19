@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from collections import defaultdict, deque
-from dataclasses import dataclass, field
 import heapq
 import random
+from collections import deque
+from dataclasses import dataclass, field
 from typing import Any
 
 

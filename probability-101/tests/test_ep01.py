@@ -1,5 +1,4 @@
 import pytest
-
 from ko.ep01_monte_carlo import run
 
 

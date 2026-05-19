@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from math import sqrt
-from typing import Iterable
 
 import numpy as np
 from numpy.typing import NDArray
@@ -50,7 +50,7 @@ class KNNClassifier:
         assert self.x_train is not None and self.y_train is not None
         distances = [
             (self._distance(x, row), int(label))
-            for row, label in zip(self.x_train, self.y_train)
+            for row, label in zip(self.x_train, self.y_train, strict=False)
         ]
         neighbors = sorted(distances, key=lambda item: item[0])[: self.k]
         votes: dict[int, int] = {}
@@ -65,5 +65,5 @@ class KNNClassifier:
 def accuracy(y_true: Iterable[int], y_pred: Iterable[int]) -> float:
     true = list(y_true)
     pred = list(y_pred)
-    correct = sum(1 for a, b in zip(true, pred) if a == b)
+    correct = sum(1 for a, b in zip(true, pred, strict=False) if a == b)
     return correct / max(1, len(true))

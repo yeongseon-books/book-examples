@@ -1,4 +1,3 @@
-\
 """
 Step 01 — usage 필드 읽기
 ======================================================
@@ -8,6 +7,7 @@ Step 01 — usage 필드 읽기
 API 호출 후 usage.prompt_tokens / completion_tokens / total_tokens를
 읽고 finish_reason을 함께 출력합니다.
 """
+
 import os
 
 from groq import Groq

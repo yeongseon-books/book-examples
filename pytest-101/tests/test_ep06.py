@@ -1,7 +1,6 @@
 from unittest.mock import Mock
 
 import pytest
-
 from common import ApiResponse
 from en.ep06_external import fetch_exchange_rate
 

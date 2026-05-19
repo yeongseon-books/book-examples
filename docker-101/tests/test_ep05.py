@@ -1,7 +1,6 @@
 # pyright: reportAny=false
 from conftest import load_module
 
-
 run = load_module("ko/05-docker-compose/step01_compose_validate.py", "ep05").run
 
 

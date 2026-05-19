@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run_agent = load_module("ko/05-ai-agent/step01_tool_agent.py", "ep05").run_agent
 
 

@@ -1,7 +1,11 @@
 from conftest import load_module
 
-ko_run = load_module("ko/06-cold-start-placeholder/step01_placeholder.py", "ko_ep06").run
-en_run = load_module("en/06-cold-start-placeholder/step01_placeholder.py", "en_ep06").run
+ko_run = load_module(
+    "ko/06-cold-start-placeholder/step01_placeholder.py", "ko_ep06"
+).run
+en_run = load_module(
+    "en/06-cold-start-placeholder/step01_placeholder.py", "en_ep06"
+).run
 
 
 def test_ep06_placeholder_specialization_paths() -> None:

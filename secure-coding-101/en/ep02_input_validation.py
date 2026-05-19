@@ -2,7 +2,6 @@ import re
 
 from common import assert_demo
 
-
 USERNAME_RE = re.compile(r"^[a-z0-9_]{3,16}$")
 ROLE_ALLOWLIST = {"viewer", "editor", "admin"}
 
@@ -16,9 +15,7 @@ def safe_validate(payload: dict) -> bool:
     role = payload.get("role", "")
     if not isinstance(username, str) or not USERNAME_RE.match(username):
         return False
-    if role not in ROLE_ALLOWLIST:
-        return False
-    return True
+    return role in ROLE_ALLOWLIST
 
 
 def run_demo():

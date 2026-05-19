@@ -1,5 +1,4 @@
 import pytest
-
 from en.ep06_confidence_interval import run_demo
 
 

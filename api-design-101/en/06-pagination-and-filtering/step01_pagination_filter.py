@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from fastapi import FastAPI, Query
-
 from common import decode_cursor, encode_cursor
-
+from fastapi import FastAPI, Query
 
 ITEMS = [
     {"id": i, "status": "paid" if i % 2 == 0 else "pending"} for i in range(1, 101)

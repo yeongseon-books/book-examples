@@ -16,7 +16,7 @@ def safe_eval_arith(expr: str) -> float:
             raise ValueError("operator not allowed")
         if isinstance(n, ast.UnaryOp) and not isinstance(n.op, _ALLOWED_UNARY):
             raise ValueError("unary operator not allowed")
-        if isinstance(n, ast.Constant) and not isinstance(n.value, (int, float)):
+        if isinstance(n, ast.Constant) and not isinstance(n.value, int | float):
             raise ValueError("only numbers are allowed")
     return eval(compile(node, "<safe-arith>", "eval"), {"__builtins__": {}}, {})
 

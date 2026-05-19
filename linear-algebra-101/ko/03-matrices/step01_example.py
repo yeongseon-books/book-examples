@@ -9,10 +9,10 @@ def run():
     ab = a @ b
     inv = np.linalg.inv(a)
     det = float(np.linalg.det(a))
-    print('det(A):', det)
-    print('A @ inv(A):', a @ inv)
-    return {'a': a, 'at': at, 'ab': ab, 'inv': inv, 'det': det}
+    print("det(A):", det)
+    print("A @ inv(A):", a @ inv)
+    return {"a": a, "at": at, "ab": ab, "inv": inv, "det": det}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()

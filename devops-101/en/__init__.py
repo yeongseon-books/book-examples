@@ -1,10 +1,12 @@
-from . import _01_what_is_devops
-from . import _02_ci_pipeline
-from . import _03_cd_and_deployment
-from . import _04_environments_and_config
-from . import _05_infrastructure_as_code
-from . import _06_containers_and_build
-from . import _07_monitoring_and_alerting
-from . import _08_logging_and_analysis
-from . import _09_incident_and_oncall
-from . import _10_operable_devops_flow
+from . import (
+    _01_what_is_devops,
+    _02_ci_pipeline,
+    _03_cd_and_deployment,
+    _04_environments_and_config,
+    _05_infrastructure_as_code,
+    _06_containers_and_build,
+    _07_monitoring_and_alerting,
+    _08_logging_and_analysis,
+    _09_incident_and_oncall,
+    _10_operable_devops_flow,
+)

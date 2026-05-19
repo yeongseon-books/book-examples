@@ -1,4 +1,3 @@
-\
 """
 Step 02 — tiktoken으로 토큰 수 사전 추정
 ======================================================
@@ -8,6 +7,7 @@ Step 02 — tiktoken으로 토큰 수 사전 추정
 tiktoken cl100k_base 인코딩으로 문자열과 메시지 목록의
 토큰 수를 미리 추정합니다. Groq 청구값의 근사치입니다.
 """
+
 import tiktoken
 
 
@@ -38,7 +38,10 @@ def main() -> None:
     messages = [
         {"role": "system", "content": "당신은 간결하게 설명하는 파이썬 튜터입니다."},
         {"role": "user", "content": "리스트와 튜플의 차이를 설명해 주세요."},
-        {"role": "assistant", "content": "리스트는 변경 가능하고, 튜플은 변경 불가능합니다."},
+        {
+            "role": "assistant",
+            "content": "리스트는 변경 가능하고, 튜플은 변경 불가능합니다.",
+        },
         {"role": "user", "content": "예제 코드도 짧게 덧붙여 주세요."},
     ]
 

@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 ko = load_module(
     "ko/05-recursion-and-divide-and-conquer/step01_fast_power.py", "ko_ep05"
 )

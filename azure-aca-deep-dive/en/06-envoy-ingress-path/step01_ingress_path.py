@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+from common import as_json
 from fastapi import FastAPI, Request
 from fastapi.testclient import TestClient
-
-from common import as_json
 
 
 def create_app() -> FastAPI:

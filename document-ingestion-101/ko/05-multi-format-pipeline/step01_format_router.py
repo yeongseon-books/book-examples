@@ -1,13 +1,19 @@
 from __future__ import annotations
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from shared.ingestion_examples import make_demo_pdf, route_document, write_csv, write_json, write_text
+from shared.ingestion_examples import (
+    make_demo_pdf,
+    route_document,
+    write_csv,
+    write_json,
+    write_text,
+)
 
 
 def prepare_files(base: Path) -> list[Path]:
@@ -16,7 +22,9 @@ def prepare_files(base: Path) -> list[Path]:
         base / "architecture.md",
         "# 수집 파이프라인\n\n## 파싱\nPyMuPDF로 PDF를 읽습니다.\n\n## 청킹\n헤딩 기준으로 나눕니다.\n",
     )
-    json_path = write_json(base / "meta.json", [{"source": "handbook", "team": "platform"}])
+    json_path = write_json(
+        base / "meta.json", [{"source": "handbook", "team": "platform"}]
+    )
     csv_path = write_csv(base / "inventory.csv", [{"name": "guide", "owner": "ops"}])
     pdf_path = make_demo_pdf(
         base / "sample.pdf",

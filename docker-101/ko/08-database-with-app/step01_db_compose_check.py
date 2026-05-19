@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
-
 from common import ComposeValidator
 
 # 한국어 주석: 오프라인 검증 예제입니다.
+
 
 def run() -> dict[str, object]:
     compose_yaml = """services:

@@ -1,14 +1,17 @@
 import ipaddress
+
 from tests._loader import load_ko
 
 
 def test_longest_prefix_match() -> None:
     ep = load_ko("07-routing-and-nat")
-    table = ep.RoutingTable([
-        ep.Route(ipaddress.ip_network("0.0.0.0/0"), "gw-default"),
-        ep.Route(ipaddress.ip_network("10.0.0.0/8"), "gw-10"),
-        ep.Route(ipaddress.ip_network("10.1.0.0/16"), "gw-10-1"),
-    ])
+    table = ep.RoutingTable(
+        [
+            ep.Route(ipaddress.ip_network("0.0.0.0/0"), "gw-default"),
+            ep.Route(ipaddress.ip_network("10.0.0.0/8"), "gw-10"),
+            ep.Route(ipaddress.ip_network("10.1.0.0/16"), "gw-10-1"),
+        ]
+    )
     assert table.lookup("10.1.2.3").next_hop == "gw-10-1"
 
 

@@ -1,1 +1,0 @@
-from ko.ep09_star_points import generate_star_talking_points

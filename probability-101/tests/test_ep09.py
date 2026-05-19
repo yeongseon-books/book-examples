@@ -1,5 +1,4 @@
 import pytest
-
 from ko.ep09_lln_clt import run
 
 

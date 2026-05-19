@@ -1,7 +1,6 @@
+from common import async_memory_engine
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from common import async_memory_engine
 
 
 async def run() -> int:

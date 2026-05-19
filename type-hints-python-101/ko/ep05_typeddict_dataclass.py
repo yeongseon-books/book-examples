@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import TypedDict
+
 from typing_extensions import NotRequired, Required
 
 
@@ -15,5 +16,5 @@ class Point:
 
 
 def profile_greeting(profile: UserProfile) -> str:
-    age = profile.get('age')
-    return f"{profile['name']}({age})" if age is not None else profile['name']
+    age = profile.get("age")
+    return f"{profile['name']}({age})" if age is not None else profile["name"]

@@ -7,6 +7,7 @@ Run:
 Call the same prompt with temperature=0.0 and 0.9
 to compare consistency and variety.
 """
+
 import os
 
 from groq import Groq

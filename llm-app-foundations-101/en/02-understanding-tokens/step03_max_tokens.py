@@ -1,4 +1,3 @@
-\
 """
 Step 03 — Control output length with max_tokens
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Intentionally truncate a response with a small max_tokens value,
 then inspect completion_tokens and finish_reason.
 """
+
 import os
 
 from groq import Groq

@@ -1,4 +1,3 @@
-\
 """
 Step 01 — 기본 few-shot 분류
 ======================================================
@@ -8,6 +7,7 @@ Step 01 — 기본 few-shot 분류
 system 프롬프트와 예시 쌍을 사용해 고객 문의를
 category, priority, reason 형식으로 분류합니다.
 """
+
 import os
 from typing import Any
 

@@ -1,4 +1,5 @@
 """Episode 10: OLTP and OLAP. Runnable example in English."""
+
 from __future__ import annotations
 
 import random

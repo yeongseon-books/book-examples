@@ -28,7 +28,7 @@ def make_sales_df(rows: int = 120, seed: int = 42) -> pd.DataFrame:
             "discount": discount,
         }
     )
-    df["revenue"] = (df["quantity"] * df["price"] * (1 - df["discount"]))
+    df["revenue"] = df["quantity"] * df["price"] * (1 - df["discount"])
     return df
 
 
@@ -36,5 +36,10 @@ def make_students_df(seed: int = 42) -> pd.DataFrame:
     gen = rng(seed)
     names = ["Kim", "Lee", "Park", "Choi", "Han", "Jung", "Seo", "Lim"]
     scores = gen.integers(55, 100, size=len(names))
-    grades = pd.cut(scores, bins=[0, 69, 79, 89, 100], labels=["D", "C", "B", "A"], include_lowest=True)
+    grades = pd.cut(
+        scores,
+        bins=[0, 69, 79, 89, 100],
+        labels=["D", "C", "B", "A"],
+        include_lowest=True,
+    )
     return pd.DataFrame({"name": names, "score": scores, "grade": grades.astype(str)})

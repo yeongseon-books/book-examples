@@ -15,7 +15,7 @@ class Function:
     def image(self):
         out = {self.rule(x) for x in self.domain}
         if not out <= self.codomain:
-            raise ValueError('range must be subset of codomain')
+            raise ValueError("range must be subset of codomain")
         return out
 
     def is_injective(self):

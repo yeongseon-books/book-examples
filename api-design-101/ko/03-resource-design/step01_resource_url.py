@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException
 
-
 USERS = {42: {"id": 42, "name": "yeongseon"}}
 ORDERS = {(42, 9): {"id": 9, "user_id": 42, "status": "paid"}}
 

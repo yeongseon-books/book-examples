@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from common import extract_markdown_sections
 
-
 REQUIRED_SECTIONS = {
     "Overview",
     "Install",

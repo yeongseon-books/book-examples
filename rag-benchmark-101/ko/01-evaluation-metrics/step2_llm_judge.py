@@ -20,7 +20,13 @@ def main() -> None:
         answer=GENERATION_CASE.answer,
         language="ko",
     )
-    print(json.dumps({name: score.__dict__ for name, score in result.items()}, indent=2, ensure_ascii=False))
+    print(
+        json.dumps(
+            {name: score.__dict__ for name, score in result.items()},
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
 
 
 if __name__ == "__main__":

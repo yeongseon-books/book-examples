@@ -1,4 +1,3 @@
-\
 """
 Step 05 — few-shot 예시를 messages 배열에 넣기
 ======================================================
@@ -8,6 +7,7 @@ Step 05 — few-shot 예시를 messages 배열에 넣기
 user와 assistant 예시 쌍을 앞에 배치해 원하는 답변 패턴을
 모델에게 보여주는 기본 few-shot 예제입니다.
 """
+
 import os
 from typing import Any
 

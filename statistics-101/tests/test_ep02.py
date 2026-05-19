@@ -1,5 +1,4 @@
 import pytest
-
 from en.ep02_mean_median_variance_std_mode import run_demo as en_run
 from ko.ep02_mean_median_variance_std_mode import run_demo as ko_run
 

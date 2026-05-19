@@ -1,5 +1,4 @@
 import pytest
-
 from en.ep08_calculator import classify_score, discount_price
 
 

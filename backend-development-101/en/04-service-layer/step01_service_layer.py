@@ -1,7 +1,7 @@
 """Episode 04: Business rules in a service layer."""
 
+from collections.abc import Mapping
 from dataclasses import dataclass
-from typing import Mapping
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel

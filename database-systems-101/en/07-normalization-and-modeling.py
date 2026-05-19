@@ -1,8 +1,8 @@
 """Episode 07: Normalization and modeling. Runnable example in English."""
+
 from __future__ import annotations
 
 from itertools import combinations
-
 
 FD = tuple[frozenset[str], frozenset[str]]
 

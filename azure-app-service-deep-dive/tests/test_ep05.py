@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 evaluate = load_module(
     "ko/05-scaling-internals/step01_autoscale_loop.py", "ep05"
 ).evaluate

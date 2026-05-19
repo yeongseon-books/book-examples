@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from .conftest import load_module
 
-
 mod = load_module("ko/09-domain-expertise.py")
 
 

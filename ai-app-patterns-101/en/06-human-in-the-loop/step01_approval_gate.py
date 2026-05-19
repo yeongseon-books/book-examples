@@ -1,7 +1,12 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 CASES = [
     {
@@ -20,7 +25,11 @@ def run_hitl_workflow() -> None:
 
     for case in CASES:
         requires_human = case["confidence"] < 0.75
-        decision = "human approval required" if requires_human else "safe for automatic handling"
+        decision = (
+            "human approval required"
+            if requires_human
+            else "safe for automatic handling"
+        )
         messages = [
             {
                 "role": "system",
@@ -31,7 +40,9 @@ def run_hitl_workflow() -> None:
                 "content": f"Request: {case['request']}\nConfidence: {case['confidence']}\nExpected path: {decision}",
             },
         ]
-        response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.1)
+        response = client.chat.completions.create(
+            model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.1
+        )
 
         print_section(decision)
         print(case["request"])

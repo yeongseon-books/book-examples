@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 ko = load_module("ko/08-graph-algorithms/step01_bfs_shortest_reach.py", "ko_ep08")
 
 

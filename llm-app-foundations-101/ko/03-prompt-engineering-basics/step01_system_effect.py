@@ -7,6 +7,7 @@ Step 01 — system 메시지 유무 비교
 같은 질문을 system 없이 또는 system과 함께 보내서
 응답 스타일 차이를 확인합니다.
 """
+
 import os
 
 from groq import Groq

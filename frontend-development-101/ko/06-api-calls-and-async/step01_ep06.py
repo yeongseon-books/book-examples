@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from common import JSAnalyzer, MockFetch
 
-
 JS_SAMPLE = """async function load(){ const r = await fetch('/api/users'); return await r.json(); }"""
 
 

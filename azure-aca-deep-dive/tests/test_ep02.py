@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module(
     "ko/02-environment-internals/step01_environment_boundary.py", "ep02"
 ).run

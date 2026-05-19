@@ -10,12 +10,19 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 
-
 DOCS = [
-    Document(page_content="LCEL은 LangChain의 구성 요소를 파이프로 연결해 체인을 조립하는 방식입니다."),
-    Document(page_content="Retriever는 관련 문서를 검색해 RAG 답변의 근거를 제공합니다."),
-    Document(page_content="Tool calling은 모델이 외부 함수를 호출해 최신 정보나 계산 결과를 가져오게 합니다."),
-    Document(page_content="Streaming은 첫 토큰을 빨리 보여 주어 대기 시간을 짧게 느끼게 합니다."),
+    Document(
+        page_content="LCEL은 LangChain의 구성 요소를 파이프로 연결해 체인을 조립하는 방식입니다."
+    ),
+    Document(
+        page_content="Retriever는 관련 문서를 검색해 RAG 답변의 근거를 제공합니다."
+    ),
+    Document(
+        page_content="Tool calling은 모델이 외부 함수를 호출해 최신 정보나 계산 결과를 가져오게 합니다."
+    ),
+    Document(
+        page_content="Streaming은 첫 토큰을 빨리 보여 주어 대기 시간을 짧게 느끼게 합니다."
+    ),
 ]
 
 
@@ -27,13 +34,17 @@ def format_history(chat_history):
     if not chat_history:
         return "이전 대화 없음"
     return "\n".join(
-        f"사용자: {message.content}" if isinstance(message, HumanMessage) else f"도우미: {message.content}"
+        f"사용자: {message.content}"
+        if isinstance(message, HumanMessage)
+        else f"도우미: {message.content}"
         for message in chat_history
     )
 
 
 def build_chain():
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
     vectorstore = FAISS.from_documents(DOCS, embeddings)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
@@ -46,7 +57,7 @@ def build_chain():
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
-        api_key=cast(Any, os.environ["GROQ_API_KEY"]),
+        api_key=cast("Any", os.environ["GROQ_API_KEY"]),
         stop_sequences=None,
     )
     parser = StrOutputParser()

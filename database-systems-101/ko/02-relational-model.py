@@ -12,22 +12,26 @@ class Relation:
     def select(self, predicate):
         return Relation(
             self.schema,
-            frozenset(r for r in self.rows if predicate(dict(zip(self.schema, r)))),
+            frozenset(
+                r
+                for r in self.rows
+                if predicate(dict(zip(self.schema, r, strict=False)))
+            ),
         )
 
     def project(self, columns: tuple[str, ...]):
         idx = [self.schema.index(c) for c in columns]
         return Relation(columns, frozenset(tuple(r[i] for i in idx) for r in self.rows))
 
-    def union(self, other: "Relation"):
+    def union(self, other: Relation):
         assert self.schema == other.schema
         return Relation(self.schema, self.rows | other.rows)
 
-    def difference(self, other: "Relation"):
+    def difference(self, other: Relation):
         assert self.schema == other.schema
         return Relation(self.schema, self.rows - other.rows)
 
-    def join(self, other: "Relation", left_key: str, right_key: str):
+    def join(self, other: Relation, left_key: str, right_key: str):
         li = self.schema.index(left_key)
         ri = other.schema.index(right_key)
         out_schema = self.schema + tuple(c for c in other.schema if c != right_key)

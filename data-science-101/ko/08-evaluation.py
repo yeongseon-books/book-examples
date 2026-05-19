@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 
 import numpy as np
+from common import make_synthetic_classification, make_synthetic_regression
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
@@ -16,10 +17,10 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 
-from common import make_synthetic_classification, make_synthetic_regression
 
-
-def manual_classification_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
+def manual_classification_metrics(
+    y_true: np.ndarray, y_pred: np.ndarray
+) -> dict[str, float]:
     tp = int(((y_true == 1) & (y_pred == 1)).sum())
     tn = int(((y_true == 0) & (y_pred == 0)).sum())
     fp = int(((y_true == 0) & (y_pred == 1)).sum())
@@ -27,11 +28,15 @@ def manual_classification_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dic
     accuracy = (tp + tn) / (tp + tn + fp + fn)
     precision = tp / (tp + fp) if (tp + fp) else 0.0
     recall = tp / (tp + fn) if (tp + fn) else 0.0
-    f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
+    f1 = (
+        (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
+    )
     return {"accuracy": accuracy, "precision": precision, "recall": recall, "f1": f1}
 
 
-def manual_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
+def manual_regression_metrics(
+    y_true: np.ndarray, y_pred: np.ndarray
+) -> dict[str, float]:
     errors = y_true - y_pred
     mae = float(np.abs(errors).mean())
     rmse = float(math.sqrt((errors**2).mean()))
@@ -44,7 +49,9 @@ def manual_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict[st
 def compare_metrics(seed: int = 42) -> dict[str, float]:
     cdf = make_synthetic_classification(seed=seed, n=700)
     Xc, yc = cdf.drop(columns=["target"]), cdf["target"]
-    Xtr, Xte, ytr, yte = train_test_split(Xc, yc, test_size=0.2, random_state=seed, stratify=yc)
+    Xtr, Xte, ytr, yte = train_test_split(
+        Xc, yc, test_size=0.2, random_state=seed, stratify=yc
+    )
     clf = LogisticRegression(max_iter=1000, random_state=seed).fit(Xtr, ytr)
     pred = clf.predict(Xte)
     proba = clf.predict_proba(Xte)[:, 1]

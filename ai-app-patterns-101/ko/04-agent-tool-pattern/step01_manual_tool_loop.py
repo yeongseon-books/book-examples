@@ -2,7 +2,14 @@ from __future__ import annotations
 
 import json
 
-from common import DEFAULT_MODEL, as_messages, as_tools, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    as_tools,
+    build_client,
+    print_section,
+    response_text,
+)
 
 
 def lookup_shipping_status(order_id: str) -> str:
@@ -34,7 +41,10 @@ TOOLS = [
 def run_agent() -> None:
     client = build_client()
     messages: list[dict] = [
-        {"role": "system", "content": "당신은 고객 지원 에이전트입니다. 필요한 경우 도구를 사용하세요."},
+        {
+            "role": "system",
+            "content": "당신은 고객 지원 에이전트입니다. 필요한 경우 도구를 사용하세요.",
+        },
         {"role": "user", "content": "ORD-100 주문 배송 상태를 알려 주세요."},
     ]
 
@@ -77,7 +87,9 @@ def run_agent() -> None:
             }
         )
 
-    final = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0)
+    final = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0
+    )
     print_section("최종 답변")
     print(response_text(final.choices[0].message))
 

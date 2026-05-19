@@ -45,7 +45,11 @@ def assistant_node(state: AgentState):
     tools = [search_team_calendar, lookup_lunch_menu]
     model = build_model().bind_tools(tools)
     response = model.invoke(
-        [SystemMessage(content="일정과 식단 질문에 답할 때 필요한 도구를 먼저 사용하고, 마지막 답변은 한국어로 정리하세요.")]
+        [
+            SystemMessage(
+                content="일정과 식단 질문에 답할 때 필요한 도구를 먼저 사용하고, 마지막 답변은 한국어로 정리하세요."
+            )
+        ]
         + state["messages"]
     )
     return {"messages": [response]}
@@ -64,7 +68,9 @@ def build_graph():
     builder.add_node("assistant", assistant_node)
     builder.add_node("tools", ToolNode(tools))
     builder.add_edge(START, "assistant")
-    builder.add_conditional_edges("assistant", should_continue, {"tools": "tools", END: END})
+    builder.add_conditional_edges(
+        "assistant", should_continue, {"tools": "tools", END: END}
+    )
     builder.add_edge("tools", "assistant")
     return builder.compile()
 
@@ -72,7 +78,13 @@ def build_graph():
 if __name__ == "__main__":
     graph = build_graph()
     result = graph.invoke(
-        {"messages": [HumanMessage(content="플랫폼 팀 이번 주 일정과 수요일 점심 메뉴를 알려주세요.")]}
+        {
+            "messages": [
+                HumanMessage(
+                    content="플랫폼 팀 이번 주 일정과 수요일 점심 메뉴를 알려주세요."
+                )
+            ]
+        }
     )
 
     print("\n에이전트 루프 결과")

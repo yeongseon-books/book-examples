@@ -1,6 +1,6 @@
 from __future__ import annotations
-# pyright: reportMissingTypeArgument=false, reportUnknownParameterType=false, reportUnknownVariableType=false, reportUnusedCallResult=false, reportUnknownArgumentType=false
 
+# pyright: reportMissingTypeArgument=false, reportUnknownParameterType=false, reportUnknownVariableType=false, reportUnusedCallResult=false, reportUnknownArgumentType=false
 from dataclasses import dataclass
 
 

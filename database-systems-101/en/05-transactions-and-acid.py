@@ -1,4 +1,5 @@
 """Episode 05: Transactions and ACID. Runnable example in English."""
+
 from __future__ import annotations
 
 import sqlite3

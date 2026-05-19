@@ -41,7 +41,7 @@ def dijkstra(adj, start):
             continue
         for u, w in adj.get(v, []):
             nd = d + w
-            if nd < dist.get(u, float('inf')):
+            if nd < dist.get(u, float("inf")):
                 dist[u] = nd
                 heapq.heappush(pq, (nd, u))
     return dist

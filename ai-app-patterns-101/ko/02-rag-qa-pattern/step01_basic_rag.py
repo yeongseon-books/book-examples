@@ -1,8 +1,13 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 from retrieval import SimpleVectorStore
-
 
 DOCUMENTS = [
     {
@@ -31,7 +36,9 @@ def run_basic_rag() -> None:
         {"role": "system", "content": "주어진 문맥만 근거로 한국어 답변을 작성하세요."},
         {"role": "user", "content": f"질문: {question}\n\n문맥:\n{context}"},
     ]
-    response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2)
+    response = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2
+    )
     answer = response_text(response.choices[0].message)
 
     print_section("검색된 문서")

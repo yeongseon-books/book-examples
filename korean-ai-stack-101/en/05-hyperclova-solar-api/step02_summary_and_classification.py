@@ -32,13 +32,19 @@ def main() -> None:
     response = client.chat.completions.create(
         model=MODEL_NAME,
         messages=[
-            {"role": "system", "content": "You are an assistant that returns structured document outputs."},
+            {
+                "role": "system",
+                "content": "You are an assistant that returns structured document outputs.",
+            },
             {"role": "user", "content": prompt},
         ],
         temperature=0.2,
         response_format={"type": "json_object"},
     )
-    content = response.choices[0].message.content or '{"summary": "No response", "category": "unknown"}'
+    content = (
+        response.choices[0].message.content
+        or '{"summary": "No response", "category": "unknown"}'
+    )
     parsed = json.loads(content)
     print("Summarization and classification result")
     print("=" * 40)

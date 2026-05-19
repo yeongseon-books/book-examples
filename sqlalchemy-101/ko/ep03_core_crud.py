@@ -1,4 +1,15 @@
-from sqlalchemy import Column, Integer, MetaData, String, Table, create_engine, delete, insert, select, update
+from sqlalchemy import (
+    Column,
+    Integer,
+    MetaData,
+    String,
+    Table,
+    create_engine,
+    delete,
+    insert,
+    select,
+    update,
+)
 
 
 def run() -> dict[str, str]:

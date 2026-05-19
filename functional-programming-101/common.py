@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from collections.abc import Callable, Iterable, Iterator
 from dataclasses import dataclass, replace
 from functools import reduce
 from itertools import count, islice
 from operator import add
-from typing import Callable, Generic, Iterable, Iterator, TypeVar
+from typing import Generic, TypeVar
 
 T = TypeVar("T")
 U = TypeVar("U")
@@ -71,7 +72,7 @@ def immutable_append(state: ImmutableState, value: int) -> ImmutableState:
 
 def impossible_mutation(state: ImmutableState) -> type[Exception] | None:
     try:
-        setattr(state, "values", (*state.values, 999))
+        state.values = *state.values, 999
     except Exception as exc:
         return type(exc)
     return None

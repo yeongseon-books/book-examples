@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 module = load_module("ko/02-prompt-engineering/step01_prompt_builder.py", "ep02")
 build_prompt = module.build_prompt
 choose_temperature = module.choose_temperature

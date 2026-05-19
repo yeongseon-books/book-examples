@@ -9,11 +9,16 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 
-
 DOCS = [
-    Document(page_content="A LangChain retriever searches for documents related to the question and injects them into the prompt."),
-    Document(page_content="FAISS is a lightweight vector store commonly used for similarity search."),
-    Document(page_content="RAG generates more grounded answers by using retrieved context."),
+    Document(
+        page_content="A LangChain retriever searches for documents related to the question and injects them into the prompt."
+    ),
+    Document(
+        page_content="FAISS is a lightweight vector store commonly used for similarity search."
+    ),
+    Document(
+        page_content="RAG generates more grounded answers by using retrieved context."
+    ),
 ]
 
 
@@ -22,7 +27,9 @@ def format_docs(docs):
 
 
 def build_chain():
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
     vectorstore = FAISS.from_documents(DOCS, embeddings)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
@@ -34,7 +41,7 @@ def build_chain():
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
-        api_key=cast(Any, os.environ["GROQ_API_KEY"]),
+        api_key=cast("Any", os.environ["GROQ_API_KEY"]),
         stop_sequences=None,
     )
     parser = StrOutputParser()

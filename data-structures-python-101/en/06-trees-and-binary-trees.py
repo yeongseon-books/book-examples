@@ -1,6 +1,6 @@
+import xml.etree.ElementTree as ET
 from collections import deque
 from dataclasses import dataclass, field
-import xml.etree.ElementTree as ET
 
 
 @dataclass

@@ -1,4 +1,3 @@
-\
 """
 Step 05 — Write the stream to a file
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Write generated tokens to a file immediately,
 then forward sentence-sized chunks to a consumer.
 """
+
 import os
 from collections.abc import Generator
 from pathlib import Path
@@ -55,7 +55,9 @@ def main() -> None:
     print("\n=== sentence pipeline ===")
     pipe_stream = client.chat.completions.create(
         model="llama-3.1-8b-instant",
-        messages=[{"role": "user", "content": "Explain vector databases in simple terms."}],
+        messages=[
+            {"role": "user", "content": "Explain vector databases in simple terms."}
+        ],
         stream=True,
     )
     for sentence in sentence_chunks(pipe_stream):

@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 import numpy as np
-from scipy.stats import expon, norm, uniform
-
 from common import make_rng
+from scipy.stats import expon, norm, uniform
 
 
 def run(n: int = 100_000) -> dict[str, float]:

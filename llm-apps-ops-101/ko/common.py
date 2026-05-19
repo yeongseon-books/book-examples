@@ -10,7 +10,7 @@ from typing import Any
 
 from groq import Groq
 
-DEFAULT_MODEL = 'llama-3.1-8b-instant'
+DEFAULT_MODEL = "llama-3.1-8b-instant"
 DEFAULT_INPUT_RATE = 0.05
 DEFAULT_OUTPUT_RATE = 0.08
 
@@ -18,16 +18,16 @@ DEFAULT_OUTPUT_RATE = 0.08
 class JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         payload: dict[str, Any] = {
-            'ts': utc_now(),
-            'level': record.levelname,
-            'logger': record.name,
-            'message': record.getMessage(),
+            "ts": utc_now(),
+            "level": record.levelname,
+            "logger": record.name,
+            "message": record.getMessage(),
         }
-        extra = getattr(record, 'payload', None)
+        extra = getattr(record, "payload", None)
         if isinstance(extra, dict):
             payload.update(extra)
         if record.exc_info:
-            payload['exception'] = self.formatException(record.exc_info)
+            payload["exception"] = self.formatException(record.exc_info)
         return json.dumps(payload, ensure_ascii=False)
 
 
@@ -43,20 +43,20 @@ def build_logger(name: str) -> logging.Logger:
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
 def estimate_tokens(text: str) -> int:
-    cleaned = ' '.join(text.split())
+    cleaned = " ".join(text.split())
     if not cleaned:
         return 0
     return max(1, len(cleaned) // 4)
 
 
 def build_client() -> Groq:
-    api_key = os.environ.get('GROQ_API_KEY')
+    api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
-        raise RuntimeError('GROQ_API_KEY 환경 변수가 필요합니다.')
+        raise RuntimeError("GROQ_API_KEY 환경 변수가 필요합니다.")
     return Groq(api_key=api_key)
 
 
@@ -94,15 +94,15 @@ def call_groq(
         temperature=temperature,
         max_tokens=max_tokens,
         messages=[
-            {'role': 'system', 'content': system_prompt},
-            {'role': 'user', 'content': user_prompt},
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
         ],
     )
     latency_ms = (time.perf_counter() - start) * 1000
-    content = response.choices[0].message.content or ''
+    content = response.choices[0].message.content or ""
     usage = response.usage
-    input_tokens = int(getattr(usage, 'prompt_tokens', 0) or 0)
-    output_tokens = int(getattr(usage, 'completion_tokens', 0) or 0)
+    input_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
+    output_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
     return CompletionResult(
         text=content,
         input_tokens=input_tokens,

@@ -16,4 +16,4 @@ def bayes(p_b_given_a, p_a, p_b):
 
 
 def expected_value(values, probs):
-    return sum(v * p for v, p in zip(values, probs))
+    return sum(v * p for v, p in zip(values, probs, strict=False))

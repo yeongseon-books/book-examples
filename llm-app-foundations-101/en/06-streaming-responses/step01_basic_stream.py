@@ -7,6 +7,7 @@ Run:
 Add stream=True and iterate over the stream
 to inspect each chunk object directly.
 """
+
 import os
 
 from groq import Groq

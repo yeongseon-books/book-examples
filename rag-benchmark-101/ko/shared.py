@@ -1,26 +1,77 @@
 from __future__ import annotations
 
-from common.models import BenchmarkConfig, EmbeddingCandidate, GenerationCase, PipelineCase, QueryGroundTruth, VectorIndexCandidate
+from common.models import (
+    BenchmarkConfig,
+    EmbeddingCandidate,
+    GenerationCase,
+    PipelineCase,
+    QueryGroundTruth,
+    VectorIndexCandidate,
+)
 
 CORPUS = [
-    {"id": "d01", "text": "벡터 데이터베이스는 임베딩 벡터를 저장하고 유사도 검색을 지원합니다.", "topic": "vectordb"},
-    {"id": "d02", "text": "FAISS는 Facebook AI Research에서 만든 고성능 벡터 검색 라이브러리입니다.", "topic": "faiss"},
-    {"id": "d03", "text": "IndexFlatIP는 내적 기반의 정확한 검색을 제공합니다.", "topic": "faiss"},
-    {"id": "d04", "text": "코사인 유사도는 두 벡터 방향의 유사성을 측정합니다.", "topic": "similarity"},
-    {"id": "d05", "text": "HNSW는 그래프 기반 ANN 인덱스로 빠른 근사 검색에 적합합니다.", "topic": "ann"},
-    {"id": "d06", "text": "임베딩 모델은 텍스트를 숫자 벡터로 바꿔 의미 공간에 배치합니다.", "topic": "embedding"},
-    {"id": "d07", "text": "all-MiniLM-L6-v2는 가볍고 빠른 384차원 임베딩 모델입니다.", "topic": "embedding"},
-    {"id": "d08", "text": "청크 크기가 너무 작으면 문맥이 끊기고 너무 크면 잡음이 늘어납니다.", "topic": "chunking"},
-    {"id": "d09", "text": "하이브리드 검색은 키워드 검색과 벡터 검색을 결합해 재현율을 높입니다.", "topic": "hybrid"},
-    {"id": "d10", "text": "리랭킹은 1차 검색 결과의 순서를 다시 정렬해 정밀도를 높입니다.", "topic": "reranking"},
+    {
+        "id": "d01",
+        "text": "벡터 데이터베이스는 임베딩 벡터를 저장하고 유사도 검색을 지원합니다.",
+        "topic": "vectordb",
+    },
+    {
+        "id": "d02",
+        "text": "FAISS는 Facebook AI Research에서 만든 고성능 벡터 검색 라이브러리입니다.",
+        "topic": "faiss",
+    },
+    {
+        "id": "d03",
+        "text": "IndexFlatIP는 내적 기반의 정확한 검색을 제공합니다.",
+        "topic": "faiss",
+    },
+    {
+        "id": "d04",
+        "text": "코사인 유사도는 두 벡터 방향의 유사성을 측정합니다.",
+        "topic": "similarity",
+    },
+    {
+        "id": "d05",
+        "text": "HNSW는 그래프 기반 ANN 인덱스로 빠른 근사 검색에 적합합니다.",
+        "topic": "ann",
+    },
+    {
+        "id": "d06",
+        "text": "임베딩 모델은 텍스트를 숫자 벡터로 바꿔 의미 공간에 배치합니다.",
+        "topic": "embedding",
+    },
+    {
+        "id": "d07",
+        "text": "all-MiniLM-L6-v2는 가볍고 빠른 384차원 임베딩 모델입니다.",
+        "topic": "embedding",
+    },
+    {
+        "id": "d08",
+        "text": "청크 크기가 너무 작으면 문맥이 끊기고 너무 크면 잡음이 늘어납니다.",
+        "topic": "chunking",
+    },
+    {
+        "id": "d09",
+        "text": "하이브리드 검색은 키워드 검색과 벡터 검색을 결합해 재현율을 높입니다.",
+        "topic": "hybrid",
+    },
+    {
+        "id": "d10",
+        "text": "리랭킹은 1차 검색 결과의 순서를 다시 정렬해 정밀도를 높입니다.",
+        "topic": "reranking",
+    },
 ]
 
 QUERIES = [
     QueryGroundTruth("FAISS란 무엇인가요?", {"d02", "d03"}, "faiss"),
     QueryGroundTruth("임베딩 모델은 어떻게 동작하나요?", {"d06", "d07"}, "embedding"),
-    QueryGroundTruth("코사인 유사도와 내적은 어떤 관계인가요?", {"d03", "d04"}, "similarity"),
+    QueryGroundTruth(
+        "코사인 유사도와 내적은 어떤 관계인가요?", {"d03", "d04"}, "similarity"
+    ),
     QueryGroundTruth("HNSW는 어떤 인덱스인가요?", {"d05"}, "ann"),
-    QueryGroundTruth("청크 크기는 검색 품질에 어떤 영향을 주나요?", {"d08"}, "chunking"),
+    QueryGroundTruth(
+        "청크 크기는 검색 품질에 어떤 영향을 주나요?", {"d08"}, "chunking"
+    ),
     QueryGroundTruth("하이브리드 검색은 왜 쓰나요?", {"d09"}, "hybrid"),
 ]
 
@@ -31,14 +82,29 @@ GENERATION_CASE = GenerationCase(
 )
 
 PIPELINE_CASES = [
-    PipelineCase("FAISS란 무엇인가요?", {"d02", "d03"}, "FAISS는 고성능 벡터 검색 라이브러리입니다."),
-    PipelineCase("임베딩 모델은 어떻게 동작하나요?", {"d06", "d07"}, "임베딩 모델은 텍스트를 의미 벡터로 변환합니다."),
-    PipelineCase("하이브리드 검색은 왜 쓰나요?", {"d09"}, "하이브리드 검색은 커버리지를 높이기 위해 키워드와 벡터 검색을 함께 사용합니다."),
+    PipelineCase(
+        "FAISS란 무엇인가요?",
+        {"d02", "d03"},
+        "FAISS는 고성능 벡터 검색 라이브러리입니다.",
+    ),
+    PipelineCase(
+        "임베딩 모델은 어떻게 동작하나요?",
+        {"d06", "d07"},
+        "임베딩 모델은 텍스트를 의미 벡터로 변환합니다.",
+    ),
+    PipelineCase(
+        "하이브리드 검색은 왜 쓰나요?",
+        {"d09"},
+        "하이브리드 검색은 커버리지를 높이기 위해 키워드와 벡터 검색을 함께 사용합니다.",
+    ),
 ]
 
 EMBEDDING_MODELS = [
     EmbeddingCandidate("minilm", "sentence-transformers/all-MiniLM-L6-v2"),
-    EmbeddingCandidate("multilingual-minilm", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"),
+    EmbeddingCandidate(
+        "multilingual-minilm",
+        "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    ),
 ]
 
 VECTOR_INDEXES = [

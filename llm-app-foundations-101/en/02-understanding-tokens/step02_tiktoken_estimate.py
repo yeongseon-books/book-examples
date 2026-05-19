@@ -1,4 +1,3 @@
-\
 """
 Step 02 — Estimate token counts with tiktoken
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Estimate token counts for strings and message lists
 with the cl100k_base encoding.
 """
+
 import tiktoken
 
 
@@ -37,8 +37,14 @@ def main() -> None:
 
     messages = [
         {"role": "system", "content": "You are a concise Python tutor."},
-        {"role": "user", "content": "Explain the difference between a list and a tuple."},
-        {"role": "assistant", "content": "A list is mutable, while a tuple is immutable."},
+        {
+            "role": "user",
+            "content": "Explain the difference between a list and a tuple.",
+        },
+        {
+            "role": "assistant",
+            "content": "A list is mutable, while a tuple is immutable.",
+        },
         {"role": "user", "content": "Please add a short code example too."},
     ]
 

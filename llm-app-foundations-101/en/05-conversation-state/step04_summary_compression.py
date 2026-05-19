@@ -1,4 +1,3 @@
-\
 """
 Step 04 — Summary-based compression
 ======================================================
@@ -8,8 +7,8 @@ Run:
 Summarize older conversation turns with the LLM,
 keep the summary in summary_text, and retain only recent raw turns.
 """
+
 import os
-from typing import Any
 
 from groq import Groq
 from groq.types.chat import ChatCompletionMessageParam, ChatCompletionSystemMessageParam
@@ -52,7 +51,12 @@ def build_messages(
 ) -> list[ChatCompletionMessageParam]:
     messages: list[ChatCompletionMessageParam] = [system_message]
     if summary_text:
-        messages.append({"role": "system", "content": f"Previous conversation summary:\n{summary_text}"})
+        messages.append(
+            {
+                "role": "system",
+                "content": f"Previous conversation summary:\n{summary_text}",
+            }
+        )
     messages.extend(recent_turns)
     messages.append({"role": "user", "content": user_text})
     return messages

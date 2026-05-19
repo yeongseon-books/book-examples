@@ -1,4 +1,3 @@
-\
 """
 Step 02 — delta.content 추출과 누적
 ======================================================
@@ -8,6 +7,7 @@ Step 02 — delta.content 추출과 누적
 delta.content를 읽어 즉시 출력하고,
 parts 리스트에 누적해 최종 텍스트를 만드는 실용 패턴입니다.
 """
+
 import os
 
 from groq import Groq

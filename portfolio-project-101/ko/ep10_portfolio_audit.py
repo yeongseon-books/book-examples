@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from common import read_text
+
 from ko.ep01_portfolio_scorer import score_portfolio_project
 from ko.ep03_readme_linter import lint_readme_sections
 from ko.ep05_deployment_readiness import check_deployment_readiness

@@ -182,7 +182,7 @@ def ep08_in_memory_fs() -> dict[str, object]:
         real_path = os.path.join(td, "real.txt")
         with open(real_path, "w", encoding="utf-8") as handle:
             handle.write("real")
-        with open(real_path, "r", encoding="utf-8") as handle:
+        with open(real_path, encoding="utf-8") as handle:
             real_content = handle.read()
     return {
         "listing": listing,

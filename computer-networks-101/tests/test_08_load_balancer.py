@@ -15,5 +15,7 @@ def test_weighted_and_least_connections() -> None:
     weighted = ep.WeightedRoundRobinBalancer([ep.Backend("a", 1), ep.Backend("b", 2)])
     picks = [weighted.pick().name for _ in range(6)]
     assert picks.count("b") == 4
-    least = ep.LeastConnectionsBalancer([ep.Backend("x", active_connections=3), ep.Backend("y", active_connections=1)])
+    least = ep.LeastConnectionsBalancer(
+        [ep.Backend("x", active_connections=3), ep.Backend("y", active_connections=1)]
+    )
     assert least.pick().name == "y"

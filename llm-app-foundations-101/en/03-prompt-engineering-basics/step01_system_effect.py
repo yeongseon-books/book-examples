@@ -7,6 +7,7 @@ Run:
 Send the same question with and without a system message
 to compare how the response style changes.
 """
+
 import os
 
 from groq import Groq

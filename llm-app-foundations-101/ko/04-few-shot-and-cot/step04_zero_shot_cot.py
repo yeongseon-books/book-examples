@@ -7,6 +7,7 @@ Step 04 — zero-shot Chain-of-Thought
 단계적으로 생각해 달라는 한 문장으로 복합 계산 문제의
 중간 추론 단계를 끌어내는 패턴입니다.
 """
+
 import os
 
 from groq import Groq
@@ -29,7 +30,8 @@ def main() -> None:
             },
             {
                 "role": "user",
-                "content": question + " 단계적으로 생각해 주세요. 마지막 줄에는 final_answer: <숫자>원 형식으로만 적어 주세요.",
+                "content": question
+                + " 단계적으로 생각해 주세요. 마지막 줄에는 final_answer: <숫자>원 형식으로만 적어 주세요.",
             },
         ],
         temperature=0.0,

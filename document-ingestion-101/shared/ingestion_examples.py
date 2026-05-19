@@ -5,9 +5,10 @@ import hashlib
 import json
 import math
 import re
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 import faiss
 import fitz  # pyright: ignore[reportMissingImports]
@@ -100,7 +101,9 @@ def recursive_chunks(text: str, *, size: int, overlap: int) -> list[str]:
                 current = [" ".join(current)] if current else []
                 current_words = len(current[0].split()) if current else 0
                 if len(sentence_words) >= size:
-                    chunks.extend(word_windows(sentence_words, size=size, overlap=overlap))
+                    chunks.extend(
+                        word_windows(sentence_words, size=size, overlap=overlap)
+                    )
                     current = []
                     current_words = 0
                 else:
@@ -232,7 +235,9 @@ def hash_text(text: str, *, dim: int = 64) -> list[float]:
     return [value / norm for value in vector]
 
 
-def build_faiss_index(items: list[dict[str, Any]], *, text_key: str = "text") -> tuple[faiss.IndexFlatIP, list[dict[str, Any]]]:
+def build_faiss_index(
+    items: list[dict[str, Any]], *, text_key: str = "text"
+) -> tuple[faiss.IndexFlatIP, list[dict[str, Any]]]:
     if not items:
         raise ValueError("items must not be empty")
     vectors = [hash_text(str(item[text_key])) for item in items]
@@ -258,7 +263,9 @@ def search_faiss(
             continue
         item = items[int(position)]
         metadata = item.get("metadata", {})
-        if filters and any(metadata.get(key) != value for key, value in filters.items()):
+        if filters and any(
+            metadata.get(key) != value for key, value in filters.items()
+        ):
             continue
         hits.append(SearchHit(score=float(score), metadata=item))
         if len(hits) == top_k:
@@ -301,7 +308,12 @@ def detect_change(current_hash: str, previous_hash: str | None) -> str:
 
 def load_text_document(path: Path) -> list[dict[str, Any]]:
     text = path.read_text(encoding="utf-8")
-    return [{"text": text, "metadata": {"source": str(path), "format": path.suffix.lstrip(".")}}]
+    return [
+        {
+            "text": text,
+            "metadata": {"source": str(path), "format": path.suffix.lstrip(".")},
+        }
+    ]
 
 
 def load_markdown_document(path: Path) -> list[dict[str, Any]]:
@@ -353,7 +365,10 @@ def load_csv_document(path: Path) -> list[dict[str, Any]]:
 
 def load_pdf_document(path: Path) -> list[dict[str, Any]]:
     _, pages = extract_pdf_pages(path)
-    return [{"text": page["text"], "metadata": page["metadata"] | {"format": "pdf"}} for page in pages]
+    return [
+        {"text": page["text"], "metadata": page["metadata"] | {"format": "pdf"}}
+        for page in pages
+    ]
 
 
 def route_document(path: Path) -> list[dict[str, Any]]:
@@ -371,7 +386,9 @@ def route_document(path: Path) -> list[dict[str, Any]]:
     return loader(path)
 
 
-def incremental_scan(paths: Iterable[Path], store: JsonStateStore) -> list[dict[str, Any]]:
+def incremental_scan(
+    paths: Iterable[Path], store: JsonStateStore
+) -> list[dict[str, Any]]:
     previous = store.load()
     changes: list[dict[str, Any]] = []
     for path in paths:

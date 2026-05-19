@@ -5,6 +5,7 @@ def simulate_ref_count(edges: dict):
             counts[r] += 1
     return counts
 
+
 def mark_and_sweep(edges: dict, roots: list):
     marked = set()
     stack = list(roots)

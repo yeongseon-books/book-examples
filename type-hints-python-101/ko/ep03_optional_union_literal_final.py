@@ -1,6 +1,6 @@
 from typing import Final, Literal
 
-VERSION: Final[str] = '1.0'
+VERSION: Final[str] = "1.0"
 
 
 def parse_maybe_int(value: int | str | None) -> int | None:
@@ -11,6 +11,6 @@ def parse_maybe_int(value: int | str | None) -> int | None:
     return int(value) if value.isdigit() else None
 
 
-def traffic_action(light: Literal['red', 'yellow', 'green']) -> str:
-    mapping = {'red': 'stop', 'yellow': 'slow', 'green': 'go'}
+def traffic_action(light: Literal["red", "yellow", "green"]) -> str:
+    mapping = {"red": "stop", "yellow": "slow", "green": "go"}
     return mapping[light]

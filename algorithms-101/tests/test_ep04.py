@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 ko = load_module("ko/04-sorting-algorithms/step01_timsort_and_multikey.py", "ko_ep04")
 
 

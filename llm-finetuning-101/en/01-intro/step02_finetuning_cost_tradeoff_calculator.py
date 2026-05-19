@@ -16,7 +16,7 @@ class Scenario:
 
 
 def estimate_vram_gb(parameters_billion: float, bytes_per_param: int = 2) -> float:
-    return parameters_billion * 1_000_000_000 * bytes_per_param / 1024 ** 3
+    return parameters_billion * 1_000_000_000 * bytes_per_param / 1024**3
 
 
 def estimate_training_cost(hours: float, gpu_hour_price: float) -> float:
@@ -25,13 +25,13 @@ def estimate_training_cost(hours: float, gpu_hour_price: float) -> float:
 
 def main() -> None:
     scenarios = [
-        Scenario('7B full fine-tuning', 7.0, 18.0, 2.9, 0.18, 5),
-        Scenario('7B LoRA', 7.0, 4.0, 2.9, 0.12, 2),
-        Scenario('RAG + prompt tuning only', 7.0, 0.0, 2.9, 0.07, 3),
+        Scenario("7B full fine-tuning", 7.0, 18.0, 2.9, 0.18, 5),
+        Scenario("7B LoRA", 7.0, 4.0, 2.9, 0.12, 2),
+        Scenario("RAG + prompt tuning only", 7.0, 0.0, 2.9, 0.07, 3),
     ]
 
-    print('Fine-tuning strategy comparison')
-    print('=' * 80)
+    print("Fine-tuning strategy comparison")
+    print("=" * 80)
     for item in scenarios:
         vram = estimate_vram_gb(item.parameters_billion)
         cost = estimate_training_cost(item.hours, item.gpu_hour_price)
@@ -44,8 +44,10 @@ def main() -> None:
         print(f"  - Engineering effort score: {score:.3f}")
         print()
 
-    print('Interpretation: LoRA tends to deliver the best cost-to-quality ratio, full fine-tuning is the most expensive, and if RAG already solves the problem, skipping training is often better.')
+    print(
+        "Interpretation: LoRA tends to deliver the best cost-to-quality ratio, full fine-tuning is the most expensive, and if RAG already solves the problem, skipping training is often better."
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

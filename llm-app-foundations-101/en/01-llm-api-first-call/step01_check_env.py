@@ -7,6 +7,7 @@ Run:
 Verify that GROQ_API_KEY is set.
 The script prints only the first six characters of the key.
 """
+
 import os
 
 

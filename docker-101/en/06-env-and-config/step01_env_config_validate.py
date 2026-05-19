@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
-
 from common import EnvParser
 
 # English note: offline validation example.
+
 
 def run() -> dict[str, object]:
     env_content = """LOG_LEVEL=INFO

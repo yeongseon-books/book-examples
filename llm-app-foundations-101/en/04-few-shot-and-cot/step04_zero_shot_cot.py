@@ -7,6 +7,7 @@ Run:
 Use a single step-by-step instruction to encourage
 intermediate reasoning for a calculation task.
 """
+
 import os
 
 from groq import Groq
@@ -29,7 +30,8 @@ def main() -> None:
             },
             {
                 "role": "user",
-                "content": question + " Think step by step. On the last line, write only final_answer: <number> won.",
+                "content": question
+                + " Think step by step. On the last line, write only final_answer: <number> won.",
             },
         ],
         temperature=0.0,

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import re
 
-
 REQUIRED_SECTIONS = ["about", "projects", "skills", "contact"]
 PROJECT_REQUIRED = ["problem", "data", "method", "result", "code"]
 

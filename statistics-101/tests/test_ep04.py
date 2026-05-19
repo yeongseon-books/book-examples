@@ -1,5 +1,4 @@
 import pytest
-
 from en.ep04_sample_vs_population import run_demo
 
 

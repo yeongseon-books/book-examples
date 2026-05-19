@@ -14,9 +14,9 @@ def first_ai_call(user_prompt: str) -> dict[str, object]:
     response = llm.chat(
         system="너는 친절한 번역가입니다.", user=user_prompt, temperature=0.2
     )
-    choices = cast(list[dict[str, object]], response["choices"])
-    message = cast(dict[str, object], choices[0]["message"])
-    usage = cast(dict[str, int], response["usage"])
+    choices = cast("list[dict[str, object]]", response["choices"])
+    message = cast("dict[str, object]", choices[0]["message"])
+    usage = cast("dict[str, int]", response["usage"])
     answer = str(message["content"])
     return {
         "answer": answer,

@@ -15,15 +15,15 @@ def main() -> None:
     for epoch in range(1, 16):
         pred = weight * x + bias
         error = pred - y
-        loss = float(np.mean(error ** 2))
+        loss = float(np.mean(error**2))
         grad_w = float(np.mean(2 * error * x))
         grad_b = float(np.mean(2 * error))
         weight -= learning_rate * grad_w
         bias -= learning_rate * grad_b
         print(f"epoch={epoch:02d} loss={loss:.4f} weight={weight:.4f} bias={bias:.4f}")
 
-    print('Notice how the loss decreases as the optimization progresses.')
+    print("Notice how the loss decreases as the optimization progresses.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

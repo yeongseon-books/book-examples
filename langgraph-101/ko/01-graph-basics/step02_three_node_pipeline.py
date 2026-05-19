@@ -1,6 +1,5 @@
-from typing_extensions import TypedDict
-
 from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
 
 
 class PipelineState(TypedDict):
@@ -44,7 +43,9 @@ def build_graph():
 if __name__ == "__main__":
     graph = build_graph()
     final_state = graph.invoke(
-        {"raw_text": "LangGraph는 상태, 노드, 엣지를 함께 다루는 그래프 오케스트레이터입니다."}
+        {
+            "raw_text": "LangGraph는 상태, 노드, 엣지를 함께 다루는 그래프 오케스트레이터입니다."
+        }
     )
 
     print("\n최종 상태")

@@ -1,4 +1,5 @@
 """Episode 01: What is a database. Runnable example in English."""
+
 from __future__ import annotations
 
 import json

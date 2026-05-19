@@ -1,10 +1,9 @@
 from __future__ import annotations
 
+from common import make_imbalanced, safe_split
 from sklearn.calibration import CalibratedClassifierCV, calibration_curve
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import brier_score_loss
-
-from common import make_imbalanced, safe_split
 
 
 def run(seed: int = 42) -> dict[str, float | int]:

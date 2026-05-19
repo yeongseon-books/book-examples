@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 module = load_module("ko/04-rag-intro/step01_simple_rag.py", "ep04")
 search = module.search
 answer_with_rag = module.answer_with_rag

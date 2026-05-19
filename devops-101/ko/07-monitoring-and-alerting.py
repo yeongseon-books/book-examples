@@ -21,7 +21,7 @@ class MetricStore:
 
 
 class AlertRule:
-    def __init__(self, metric: str, threshold: float, mode: str = 'above') -> None:
+    def __init__(self, metric: str, threshold: float, mode: str = "above") -> None:
         self.metric = metric
         self.threshold = threshold
         self.mode = mode
@@ -31,6 +31,6 @@ class AlertRule:
         if not samples:
             return False
         average = sum(samples) / len(samples)
-        if self.mode == 'above':
+        if self.mode == "above":
             return average > self.threshold
         return average < self.threshold

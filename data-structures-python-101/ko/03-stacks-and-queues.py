@@ -7,9 +7,8 @@ def is_balanced_parentheses(text: str) -> bool:
     for ch in text:
         if ch in "([{":
             stack.append(ch)
-        elif ch in pairs:
-            if not stack or stack.pop() != pairs[ch]:
-                return False
+        elif ch in pairs and (not stack or stack.pop() != pairs[ch]):
+            return False
     return not stack
 
 

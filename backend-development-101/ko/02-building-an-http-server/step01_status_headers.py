@@ -11,6 +11,8 @@ def build_app() -> FastAPI:
     def get_item(item_id: int):
         if item_id < 0:
             raise HTTPException(status_code=400, detail="item_id must be >= 0")
-        return JSONResponse(content={"item_id": item_id}, headers={"X-App": "backend-101"})
+        return JSONResponse(
+            content={"item_id": item_id}, headers={"X-App": "backend-101"}
+        )
 
     return app

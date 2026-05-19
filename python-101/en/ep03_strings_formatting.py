@@ -7,8 +7,8 @@ def main() -> None:
     name = "Python"
     version = 3.12
     print(f"f-string: {name} {version}")
-    print("format: {} {:.1f}".format(name, version))
-    print("percent: %s %.1f" % (name, version))
+    print(f"format: {name} {version:.1f}")
+    print(f"percent: {name} {version:.1f}")
     words = normalize_words(" apple, Banana , , cherry ")
     print("|".join(words))
 

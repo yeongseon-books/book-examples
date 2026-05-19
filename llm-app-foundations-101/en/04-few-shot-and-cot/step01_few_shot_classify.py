@@ -1,4 +1,3 @@
-\
 """
 Step 01 — Basic few-shot classification
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Use a system prompt and example pairs to classify a support ticket
 into category, priority, and reason.
 """
+
 import os
 from typing import Any
 
@@ -28,7 +28,10 @@ def main() -> None:
                 "reason: <one sentence>"
             ),
         },
-        {"role": "user", "content": "The payment went through, but I never received the receipt email."},
+        {
+            "role": "user",
+            "content": "The payment went through, but I never received the receipt email.",
+        },
         {
             "role": "assistant",
             "content": (
@@ -37,7 +40,10 @@ def main() -> None:
                 "reason: This is a billing issue because the payment proof email is missing after checkout."
             ),
         },
-        {"role": "user", "content": "I changed my password, but I still cannot log in."},
+        {
+            "role": "user",
+            "content": "I changed my password, but I still cannot log in.",
+        },
         {
             "role": "assistant",
             "content": (

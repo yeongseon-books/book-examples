@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from sklearn.linear_model import LogisticRegression
-
 from common import compute_pr_at_threshold, make_imbalanced, safe_split
+from sklearn.linear_model import LogisticRegression
 
 
 def run(seed: int = 42) -> dict[str, dict[str, float]]:

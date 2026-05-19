@@ -9,11 +9,11 @@ def run_demo(message: bytes = b"hello network") -> bytes:
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind(("127.0.0.1", 0))
     server.listen(1)
-    addr = cast(tuple[str, int], server.getsockname())
+    addr = cast("tuple[str, int]", server.getsockname())
     port = addr[1]
 
     def serve() -> None:
-        conn, _addr = cast(tuple[socket.socket, tuple[str, int]], server.accept())
+        conn, _addr = cast("tuple[socket.socket, tuple[str, int]]", server.accept())
         with conn:
             data = conn.recv(4096)
             conn.sendall(data)

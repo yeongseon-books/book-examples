@@ -19,10 +19,10 @@ def run():
     preds = (1 / (1 + np.exp(-(x2 @ w_clf))) > 0.5).astype(float)
     acc = float((preds == y2).mean())
 
-    print('linreg weights:', w_hat)
-    print('logistic accuracy:', acc)
-    return {'w_true': w_true, 'w_hat': w_hat, 'clf_w': w_clf, 'acc': acc}
+    print("linreg weights:", w_hat)
+    print("logistic accuracy:", acc)
+    return {"w_true": w_true, "w_hat": w_hat, "clf_w": w_clf, "acc": acc}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()

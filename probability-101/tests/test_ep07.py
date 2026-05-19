@@ -1,5 +1,4 @@
 import pytest
-
 from ko.ep07_discrete_distributions import run
 
 

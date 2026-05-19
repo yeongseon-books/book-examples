@@ -4,7 +4,6 @@ import numpy as np
 
 from .conftest import load_module
 
-
 mod = load_module("ko/06-ml-interview.py")
 
 

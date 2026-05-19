@@ -10,12 +10,19 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 
-
 DOCS = [
-    Document(page_content="LCEL assembles LangChain building blocks by piping them together."),
-    Document(page_content="A retriever searches for relevant documents and provides evidence for RAG answers."),
-    Document(page_content="Tool calling lets a model use external functions for fresh data or calculations."),
-    Document(page_content="Streaming improves perceived latency by showing the first tokens early."),
+    Document(
+        page_content="LCEL assembles LangChain building blocks by piping them together."
+    ),
+    Document(
+        page_content="A retriever searches for relevant documents and provides evidence for RAG answers."
+    ),
+    Document(
+        page_content="Tool calling lets a model use external functions for fresh data or calculations."
+    ),
+    Document(
+        page_content="Streaming improves perceived latency by showing the first tokens early."
+    ),
 ]
 
 
@@ -27,13 +34,17 @@ def format_history(chat_history):
     if not chat_history:
         return "No prior conversation"
     return "\n".join(
-        f"User: {message.content}" if isinstance(message, HumanMessage) else f"Assistant: {message.content}"
+        f"User: {message.content}"
+        if isinstance(message, HumanMessage)
+        else f"Assistant: {message.content}"
         for message in chat_history
     )
 
 
 def build_chain():
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
     vectorstore = FAISS.from_documents(DOCS, embeddings)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
@@ -46,7 +57,7 @@ def build_chain():
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
-        api_key=cast(Any, os.environ["GROQ_API_KEY"]),
+        api_key=cast("Any", os.environ["GROQ_API_KEY"]),
         stop_sequences=None,
     )
     parser = StrOutputParser()

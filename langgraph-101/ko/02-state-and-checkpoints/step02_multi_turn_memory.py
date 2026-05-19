@@ -47,10 +47,15 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast(RunnableConfig, {"configurable": {"thread_id": "ko-chat-thread"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "ko-chat-thread"}})
 
-    graph.invoke({"messages": [HumanMessage(content="제 이름은 민준입니다.")]}, config=config)
-    graph.invoke({"messages": [HumanMessage(content="방금 말한 내 이름이 뭐였죠?")]}, config=config)
+    graph.invoke(
+        {"messages": [HumanMessage(content="제 이름은 민준입니다.")]}, config=config
+    )
+    graph.invoke(
+        {"messages": [HumanMessage(content="방금 말한 내 이름이 뭐였죠?")]},
+        config=config,
+    )
 
     snapshot = graph.get_state(config)
 

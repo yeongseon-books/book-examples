@@ -32,13 +32,19 @@ def main() -> None:
     response = client.chat.completions.create(
         model=MODEL_NAME,
         messages=[
-            {"role": "system", "content": "당신은 한국어 문서를 구조화해서 응답하는 도우미입니다."},
+            {
+                "role": "system",
+                "content": "당신은 한국어 문서를 구조화해서 응답하는 도우미입니다.",
+            },
             {"role": "user", "content": prompt},
         ],
         temperature=0.2,
         response_format={"type": "json_object"},
     )
-    content = response.choices[0].message.content or '{"summary": "응답 없음", "category": "unknown"}'
+    content = (
+        response.choices[0].message.content
+        or '{"summary": "응답 없음", "category": "unknown"}'
+    )
     parsed = json.loads(content)
     print("한국어 요약 및 분류 결과")
     print("=" * 40)

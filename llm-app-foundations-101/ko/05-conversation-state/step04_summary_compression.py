@@ -1,4 +1,3 @@
-\
 """
 Step 04 — 요약 기반 압축 패턴
 ======================================================
@@ -8,8 +7,8 @@ Step 04 — 요약 기반 압축 패턴
 오래된 대화 이력을 LLM으로 요약해 summary_text에 보존하고
 최근 raw 턴만 원문으로 유지하는 압축 패턴입니다.
 """
+
 import os
-from typing import Any
 
 from groq import Groq
 from groq.types.chat import ChatCompletionMessageParam, ChatCompletionSystemMessageParam
@@ -52,7 +51,9 @@ def build_messages(
 ) -> list[ChatCompletionMessageParam]:
     messages: list[ChatCompletionMessageParam] = [system_message]
     if summary_text:
-        messages.append({"role": "system", "content": f"이전 대화 요약:\n{summary_text}"})
+        messages.append(
+            {"role": "system", "content": f"이전 대화 요약:\n{summary_text}"}
+        )
     messages.extend(recent_turns)
     messages.append({"role": "user", "content": user_text})
     return messages

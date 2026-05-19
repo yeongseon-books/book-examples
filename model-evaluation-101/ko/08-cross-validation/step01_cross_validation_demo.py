@@ -1,10 +1,9 @@
 from __future__ import annotations
 
 import numpy as np
+from common import make_imbalanced
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold, cross_val_score
-
-from common import make_imbalanced
 
 
 def run(seed: int = 42) -> dict[str, float | int]:

@@ -1,7 +1,5 @@
-from fastapi.testclient import TestClient
-
 from conftest import load_module
-
+from fastapi.testclient import TestClient
 
 module = load_module("ko/06-cold-start-and-warmup/step01_warmup_contract.py", "ep06")
 create_app = module.create_app

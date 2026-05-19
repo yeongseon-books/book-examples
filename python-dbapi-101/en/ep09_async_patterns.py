@@ -1,5 +1,4 @@
 import asyncio
-import sqlite3
 
 from common import setup_demo_db
 

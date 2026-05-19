@@ -10,7 +10,6 @@ if str(ROOT) not in sys.path:
 from common.rag_pipeline import answer_with_groq
 from en.shared import CORPUS, PIPELINE_CASES
 
-
 PROMPT = "Answer the question using only the context below. If the answer is missing, say so clearly.\n\nContext:\n{context}\n\nQuestion:\n{question}"
 
 

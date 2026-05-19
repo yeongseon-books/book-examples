@@ -1,8 +1,13 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 from retrieval import SimpleVectorStore
-
 
 DOCUMENTS = [
     {
@@ -25,7 +30,9 @@ def run_rag_with_sources() -> None:
     store = SimpleVectorStore(DOCUMENTS)
     question = "운영 중인 RAG 서비스에서 출처 표기가 왜 중요한가요?"
     retrieved = store.search(question, top_k=3)
-    context = "\n\n".join(f"출처: {item.source}\n내용: {item.content}" for item in retrieved)
+    context = "\n\n".join(
+        f"출처: {item.source}\n내용: {item.content}" for item in retrieved
+    )
 
     messages = [
         {
@@ -34,7 +41,9 @@ def run_rag_with_sources() -> None:
         },
         {"role": "user", "content": f"질문: {question}\n\n참고 문맥:\n{context}"},
     ]
-    response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2)
+    response = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2
+    )
     answer = response_text(response.choices[0].message)
 
     print_section("질문")

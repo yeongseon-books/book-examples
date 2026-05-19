@@ -1,4 +1,3 @@
-\
 """
 Step 06 — few-shot CoT와 정책 판정
 ======================================================
@@ -8,6 +7,7 @@ Step 06 — few-shot CoT와 정책 판정
 환불 정책을 policy_check, decision, reason 형식으로
 판정하는 few-shot CoT 완성 예제입니다.
 """
+
 import os
 
 from groq import Groq

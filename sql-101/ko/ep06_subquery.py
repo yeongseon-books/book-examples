@@ -36,8 +36,8 @@ def run_demo():
 
     conn.close()
     return {
-        'scalar': scalar,
-        'in_subquery': [r[0] for r in in_subquery],
-        'correlated': [r[0] for r in correlated],
-        'exists': [r[0] for r in exists],
+        "scalar": scalar,
+        "in_subquery": [r[0] for r in in_subquery],
+        "correlated": [r[0] for r in correlated],
+        "exists": [r[0] for r in exists],
     }

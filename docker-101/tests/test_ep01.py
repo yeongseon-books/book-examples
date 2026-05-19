@@ -1,7 +1,6 @@
 # pyright: reportAny=false
 from conftest import load_module
 
-
 run = load_module("ko/01-what-is-docker/step01_manual_loop.py", "ep01").run
 
 

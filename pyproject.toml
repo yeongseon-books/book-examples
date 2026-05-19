@@ -1,0 +1,46 @@
+[project]
+name = "book-examples"
+requires-python = ">=3.10"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+fix = true
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "SIM",  # flake8-simplify
+
+]
+ignore = [
+    "E501",   # line too long (교육용 코드에서 유연하게)
+    "E402",   # module-level import not at top (교육용 순서 의도적)
+    "E701",   # multiple statements on one line
+    "E702",   # multiple statements on one line (semicolon)
+    "E741",   # ambiguous variable name (수학 코드에서 l, O 등 사용)
+    "F401",   # unused import (교육용 re-export 패턴)
+    "F403",   # star import used
+    "F405",   # undefined name from star import
+    "W292",   # no newline at end of file
+    "B008",   # function call in default arg (FastAPI pattern)
+    "B011",   # assert False (교육용 테스트 패턴)
+    "B023",   # function uses loop variable (교육용 예제)
+    "SIM102", # collapsible if (가독성 우선)
+    "SIM108", # ternary operator (가독성 우선)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = []
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+check_untyped_defs = true

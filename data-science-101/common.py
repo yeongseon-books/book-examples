@@ -41,7 +41,9 @@ def make_dirty_dataset(seed: int = 42, n: int = 300) -> pd.DataFrame:
         {
             "user_id": [f"U{i:04d}" for i in range(n)],
             "age": rng.integers(18, 70, size=n).astype(float),
-            "country": rng.choice(["KR", "US", "JP", None], size=n, p=[0.4, 0.3, 0.2, 0.1]),
+            "country": rng.choice(
+                ["KR", "US", "JP", None], size=n, p=[0.4, 0.3, 0.2, 0.1]
+            ),
             "amount": rng.normal(120.0, 35.0, size=n),
         }
     )

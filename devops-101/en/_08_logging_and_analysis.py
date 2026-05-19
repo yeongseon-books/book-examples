@@ -9,7 +9,7 @@ def parse_json_logs(lines: list[str]) -> list[dict[str, object]]:
 
 
 def latency_percentile(logs: list[dict[str, object]], percentile: int) -> float:
-    latencies = sorted(float(log['latency_ms']) for log in logs)
+    latencies = sorted(float(log["latency_ms"]) for log in logs)
     if not latencies:
         return 0.0
     index = max(0, int(round((percentile / 100) * len(latencies) + 0.5)) - 1)
@@ -17,6 +17,12 @@ def latency_percentile(logs: list[dict[str, object]], percentile: int) -> float:
     return latencies[index]
 
 
-def top_error_patterns(logs: list[dict[str, object]], n: int = 3) -> list[tuple[str, int]]:
-    counter = Counter(str(log.get('error_code', 'UNKNOWN')) for log in logs if log.get('level') == 'ERROR')
+def top_error_patterns(
+    logs: list[dict[str, object]], n: int = 3
+) -> list[tuple[str, int]]:
+    counter = Counter(
+        str(log.get("error_code", "UNKNOWN"))
+        for log in logs
+        if log.get("level") == "ERROR"
+    )
     return counter.most_common(n)

@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module("ko/01-platform-architecture/step01_architecture_map.py", "ep01").run
 
 

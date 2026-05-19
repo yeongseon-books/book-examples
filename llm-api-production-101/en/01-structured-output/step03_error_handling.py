@@ -35,7 +35,7 @@ def extract_product(client: Groq, text: str) -> dict:
     if missing:
         raise SchemaError(f"Missing required fields: {sorted(missing)}; data={data}")
 
-    if not isinstance(data["price"], (int, float)):
+    if not isinstance(data["price"], int | float):
         raise SchemaError(f"price must be numeric: {data['price']!r}")
 
     return data

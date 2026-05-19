@@ -13,13 +13,15 @@ def search_docs(keyword: str) -> str:
         "retriever": "Retriever는 질문과 관련된 문서를 먼저 찾은 뒤 LLM에 전달합니다.",
         "stream": "Streaming은 응답이 완성되기 전에 토큰을 순차적으로 보여 줍니다.",
     }
-    return corpus.get(keyword.lower(), f"{keyword} 키워드에 대한 문서를 찾지 못했습니다.")
+    return corpus.get(
+        keyword.lower(), f"{keyword} 키워드에 대한 문서를 찾지 못했습니다."
+    )
 
 
 def run_tool_loop(question: str) -> str:
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
-        api_key=cast(Any, os.environ["GROQ_API_KEY"]),
+        api_key=cast("Any", os.environ["GROQ_API_KEY"]),
         stop_sequences=None,
     )
     llm_with_tools: Any = llm.bind_tools([search_docs])
@@ -28,13 +30,15 @@ def run_tool_loop(question: str) -> str:
     for _ in range(3):
         response: Any = llm_with_tools.invoke(messages)
         messages.append(response)
-        tool_calls = cast(list[dict[str, Any]], getattr(response, "tool_calls", []))
+        tool_calls = cast("list[dict[str, Any]]", getattr(response, "tool_calls", []))
         if not tool_calls:
             content = response.content
             return content if isinstance(content, str) else str(content)
 
         for tool_call in tool_calls:
-            result = cast(Any, search_docs).invoke(cast(dict[str, Any], tool_call["args"]))
+            result = cast("Any", search_docs).invoke(
+                cast("dict[str, Any]", tool_call["args"])
+            )
             messages.append(
                 ToolMessage(
                     content=result,

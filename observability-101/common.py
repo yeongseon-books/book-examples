@@ -1,15 +1,15 @@
 from __future__ import annotations
 
-from collections import defaultdict, deque
-from contextlib import contextmanager
-from dataclasses import dataclass, field
-from datetime import datetime, timedelta, timezone
 import json
 import math
 import random
 import statistics
 import time
 import uuid
+from collections import defaultdict, deque
+from contextlib import contextmanager
+from dataclasses import dataclass, field
+from datetime import datetime, timedelta, timezone
 
 
 class Counter:
@@ -113,7 +113,7 @@ class StructuredLogger:
         self.lines: list[str] = []
         self._rng = random.Random(7)
 
-    def with_context(self, **kwargs: str) -> "StructuredLogger":
+    def with_context(self, **kwargs: str) -> StructuredLogger:
         clone = StructuredLogger(self.level, self.sample_rate)
         clone.lines = self.lines
         clone._context = {**self._context, **kwargs}

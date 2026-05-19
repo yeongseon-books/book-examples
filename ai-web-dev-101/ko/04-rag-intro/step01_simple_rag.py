@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import math
 
-
 FAQ_DATA = [
     "영업시간은 평일 오전 9시부터 오후 6시까지입니다.",
     "환불은 구매 후 7일 이내 고객센터를 통해 신청 가능합니다.",

@@ -13,7 +13,9 @@ class TTLCache:
         self._ttl = ttl_seconds
 
     def _make_key(self, messages: list[dict], model: str) -> str:
-        payload = json.dumps({"model": model, "messages": messages}, ensure_ascii=False, sort_keys=True)
+        payload = json.dumps(
+            {"model": model, "messages": messages}, ensure_ascii=False, sort_keys=True
+        )
         return hashlib.sha256(payload.encode()).hexdigest()
 
     def get(self, messages: list[dict], model: str) -> str | None:
@@ -36,7 +38,9 @@ class TTLCache:
 _cache = TTLCache(ttl_seconds=120)
 
 
-def cached_chat(client: Groq, messages: list[dict], model: str = "llama-3.1-8b-instant") -> str:
+def cached_chat(
+    client: Groq, messages: list[dict], model: str = "llama-3.1-8b-instant"
+) -> str:
     cached = _cache.get(messages, model)
     if cached is not None:
         print("[cache HIT]")
@@ -45,7 +49,7 @@ def cached_chat(client: Groq, messages: list[dict], model: str = "llama-3.1-8b-i
     print("[cache MISS] API를 호출합니다.")
     completion = client.chat.completions.create(
         model=model,
-        messages=cast(Any, messages),
+        messages=cast("Any", messages),
         temperature=0.0,
     )
     result = completion.choices[0].message.content or ""

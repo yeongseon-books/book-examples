@@ -1,6 +1,6 @@
-from dataclasses import dataclass
 import random
 import time
+from dataclasses import dataclass
 
 
 class ConfigError(Exception):

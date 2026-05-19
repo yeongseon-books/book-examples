@@ -14,12 +14,22 @@ DOCUMENTS = [
 ]
 
 
-def semantic_search(query: str, documents: list[str], model_name: str) -> list[tuple[str, float]]:
+def semantic_search(
+    query: str, documents: list[str], model_name: str
+) -> list[tuple[str, float]]:
     model = SentenceTransformer(model_name)
-    query_embedding = model.encode([query], normalize_embeddings=True, convert_to_numpy=True)[0]
-    document_embeddings = model.encode(documents, normalize_embeddings=True, convert_to_numpy=True)
+    query_embedding = model.encode(
+        [query], normalize_embeddings=True, convert_to_numpy=True
+    )[0]
+    document_embeddings = model.encode(
+        documents, normalize_embeddings=True, convert_to_numpy=True
+    )
     scores = document_embeddings @ query_embedding
-    ranked = sorted(zip(documents, scores.tolist()), key=lambda item: item[1], reverse=True)
+    ranked = sorted(
+        zip(documents, scores.tolist(), strict=False),
+        key=lambda item: item[1],
+        reverse=True,
+    )
     return ranked
 
 
@@ -27,7 +37,9 @@ def main() -> None:
     print("Semantic sentence search results")
     print(f"Query: {QUERY}")
     print("=" * 60)
-    for rank, (document, score) in enumerate(semantic_search(QUERY, DOCUMENTS, MODEL_NAME), start=1):
+    for rank, (document, score) in enumerate(
+        semantic_search(QUERY, DOCUMENTS, MODEL_NAME), start=1
+    ):
         print(f"{rank}. Score {score:.4f} | {document}")
 
 

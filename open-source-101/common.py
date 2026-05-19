@@ -3,15 +3,16 @@ from __future__ import annotations
 import json
 import re
 import tempfile
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Tuple
 
-
-SPDX_PATTERNS: Dict[str, re.Pattern[str]] = {
+SPDX_PATTERNS: dict[str, re.Pattern[str]] = {
     "MIT": re.compile(r"spdx-license-identifier:\s*mit", re.IGNORECASE),
     "Apache-2.0": re.compile(r"spdx-license-identifier:\s*apache-2\.0", re.IGNORECASE),
-    "GPL-3.0-only": re.compile(r"spdx-license-identifier:\s*gpl-3\.0-only", re.IGNORECASE),
+    "GPL-3.0-only": re.compile(
+        r"spdx-license-identifier:\s*gpl-3\.0-only", re.IGNORECASE
+    ),
 }
 
 
@@ -36,7 +37,7 @@ def is_license_compatible(project_license: str, dependency_license: str) -> bool
     return COMPATIBILITY.get((project_license, dependency_license), False)
 
 
-def parse_markdown_front_matter(text: str) -> Dict[str, str]:
+def parse_markdown_front_matter(text: str) -> dict[str, str]:
     lines = text.splitlines()
     if len(lines) < 3 or lines[0].strip() != "---":
         return {}
@@ -47,7 +48,7 @@ def parse_markdown_front_matter(text: str) -> Dict[str, str]:
             break
     if end is None:
         return {}
-    result: Dict[str, str] = {}
+    result: dict[str, str] = {}
     for line in lines[1:end]:
         if ":" not in line:
             continue
@@ -56,8 +57,8 @@ def parse_markdown_front_matter(text: str) -> Dict[str, str]:
     return result
 
 
-def validate_pr_description(text: str) -> List[str]:
-    errors: List[str] = []
+def validate_pr_description(text: str) -> list[str]:
+    errors: list[str] = []
     if not re.search(r"Closes\s+#\d+", text):
         errors.append("missing_closes")
     if "## Summary" not in text:
@@ -81,7 +82,7 @@ def score_readme(text: str) -> int:
 SEMVER_RE = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$")
 
 
-def parse_semver(version: str) -> Tuple[int, int, int]:
+def parse_semver(version: str) -> tuple[int, int, int]:
     m = SEMVER_RE.match(version)
     if not m:
         raise ValueError(f"Invalid semver: {version}")
@@ -99,7 +100,9 @@ def bump_semver(version: str, part: str) -> str:
     raise ValueError("part must be major/minor/patch")
 
 
-def validate_contributing_files(contributing_text: str, has_coc: bool) -> Dict[str, bool]:
+def validate_contributing_files(
+    contributing_text: str, has_coc: bool
+) -> dict[str, bool]:
     return {
         "has_steps": "pull request" in contributing_text.lower(),
         "has_code_of_conduct": has_coc,
@@ -110,10 +113,10 @@ def validate_contributing_files(contributing_text: str, has_coc: bool) -> Dict[s
 class Issue:
     id: int
     title: str
-    labels: List[str]
+    labels: list[str]
 
 
-def triage_issues(issues: Iterable[Issue]) -> Dict[str, int]:
+def triage_issues(issues: Iterable[Issue]) -> dict[str, int]:
     summary = {"bug": 0, "enhancement": 0, "question": 0, "other": 0}
     for issue in issues:
         mapped = "other"
@@ -144,13 +147,15 @@ def initialize_python_project(package_name: str) -> Path:
     pkg_dir.mkdir(parents=True, exist_ok=True)
     tests_dir.mkdir(parents=True, exist_ok=True)
     (pkg_dir / "__init__.py").write_text('__version__ = "0.1.0"\n', encoding="utf-8")
-    (pkg_dir / "core.py").write_text("def hello():\n    return \"hello\"\n", encoding="utf-8")
+    (pkg_dir / "core.py").write_text(
+        'def hello():\n    return "hello"\n', encoding="utf-8"
+    )
     (tests_dir / "test_core.py").write_text(
-        f"from {package_name}.core import hello\n\n\ndef test_hello():\n    assert hello() == \"hello\"\n",
+        f'from {package_name}.core import hello\n\n\ndef test_hello():\n    assert hello() == "hello"\n',
         encoding="utf-8",
     )
     (base / "pyproject.toml").write_text(
-        "[project]\nname = \"" + package_name + "\"\nversion = \"0.1.0\"\n",
+        '[project]\nname = "' + package_name + '"\nversion = "0.1.0"\n',
         encoding="utf-8",
     )
     return base

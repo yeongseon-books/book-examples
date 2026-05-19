@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 ko = load_module(
     "ko/03-search-algorithms/step01_binary_search_and_bounds.py", "ko_ep03"
 )

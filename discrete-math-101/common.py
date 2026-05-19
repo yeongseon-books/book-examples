@@ -31,7 +31,7 @@ class UnionFind:
 def bool_table(variables, func):
     rows = []
     for vals in product([False, True], repeat=len(variables)):
-        env = dict(zip(variables, vals))
+        env = dict(zip(variables, vals, strict=False))
         rows.append((env, func(**env)))
     return rows
 

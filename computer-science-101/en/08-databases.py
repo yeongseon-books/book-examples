@@ -11,7 +11,9 @@ class Table:
     def where(self, predicate):
         return Table([row for row in self.rows if predicate(row)])
 
-    def join(self, other: "Table", left_key: str, right_key: str, prefix_right: str = "r_") -> "Table":
+    def join(
+        self, other: "Table", left_key: str, right_key: str, prefix_right: str = "r_"
+    ) -> "Table":
         index: dict[object, list[dict]] = {}
         for row in other.rows:
             index.setdefault(row[right_key], []).append(row)

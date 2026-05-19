@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import sqlite3
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 
 def build_connection() -> sqlite3.Connection:
@@ -57,7 +57,7 @@ def build_connection() -> sqlite3.Connection:
     return conn
 
 
-def sql_questions() -> Dict[str, str]:
+def sql_questions() -> dict[str, str]:
     return {
         "top_country_by_revenue": """
             SELECT u.country, SUM(o.amount) AS revenue
@@ -89,5 +89,5 @@ def sql_questions() -> Dict[str, str]:
     }
 
 
-def run_query(conn: sqlite3.Connection, query: str) -> List[Tuple[Any, ...]]:
+def run_query(conn: sqlite3.Connection, query: str) -> list[tuple[Any, ...]]:
     return conn.execute(query).fetchall()

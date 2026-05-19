@@ -8,7 +8,7 @@ class Comparable(Protocol):
 
 def pick_smallest(items: list[Comparable]) -> Comparable:
     if not items:
-        raise ValueError('items must not be empty')
+        raise ValueError("items must not be empty")
     smallest = items[0]
     for item in items[1:]:
         if item < smallest:

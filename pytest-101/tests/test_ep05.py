@@ -1,5 +1,4 @@
 import pytest
-
 from en.ep05_validator import is_valid_password
 
 

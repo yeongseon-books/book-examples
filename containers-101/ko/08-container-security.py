@@ -1,1 +1,1 @@
-from ko._08_container_security import *\n
+from ko._08_container_security import *

@@ -1,4 +1,5 @@
-from ko.ep09_static_dynamic import static_check, dynamic_run
+from ko.ep09_static_dynamic import dynamic_run, static_check
+
 
 def test_ep09_static_dynamic_compare():
     expr = ("add", ("num", 1), ("num", 2))

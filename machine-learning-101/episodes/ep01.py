@@ -1,6 +1,5 @@
-from sklearn.linear_model import LogisticRegression
-
 from common import make_clf_dataset
+from sklearn.linear_model import LogisticRegression
 
 
 def run() -> dict[str, float]:

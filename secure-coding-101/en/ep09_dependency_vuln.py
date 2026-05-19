@@ -1,6 +1,5 @@
 from common import assert_demo
 
-
 FAKE_CVE_DB = {
     "flask": {"0.12", "1.0"},
     "requests": {"2.19.0"},

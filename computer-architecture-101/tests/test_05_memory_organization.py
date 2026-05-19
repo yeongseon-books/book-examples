@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/05-memory-organization.py", "ep05")
 
 

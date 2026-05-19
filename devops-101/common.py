@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Callable
 
 
 def now_iso() -> str:
@@ -40,7 +39,7 @@ class MockCommandRunner:
 
     def run(self, command: str) -> tuple[int, str, str]:
         self.calls.append(command)
-        return self.outcomes.get(command, (0, 'ok', ''))
+        return self.outcomes.get(command, (0, "ok", ""))
 
 
 def parse_iso(value: str) -> datetime:

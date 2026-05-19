@@ -37,8 +37,8 @@ class BSTNode:
     def __init__(self, key: int, value: str) -> None:
         self.key: int = key
         self.value: str = value
-        self.left: "BSTNode | None" = None
-        self.right: "BSTNode | None" = None
+        self.left: BSTNode | None = None
+        self.right: BSTNode | None = None
 
 
 class BinarySearchTree:

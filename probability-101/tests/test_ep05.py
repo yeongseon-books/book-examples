@@ -1,5 +1,4 @@
 import pytest
-
 from ko.ep05_random_variable import run
 
 

@@ -20,6 +20,6 @@ def test_ep10_end_to_end_audit(tmp_path: Path) -> None:
     (tmp_path / "test_api.py").write_text(
         "def test_api():\n    assert True\n", encoding="utf-8"
     )
-    report = cast(dict[str, Any], run_portfolio_audit(tmp_path))
+    report = cast("dict[str, Any]", run_portfolio_audit(tmp_path))
     assert report["score"] >= 70
     assert report["readme_ok"] is True

@@ -1,11 +1,10 @@
 from operator import add
 from typing import Annotated, cast
 
-from typing_extensions import TypedDict
-
 from langchain_core.runnables import RunnableConfig
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
 
 
 class SessionState(TypedDict):
@@ -31,14 +30,22 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast(RunnableConfig, {"configurable": {"thread_id": "ko-memory-demo"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "ko-memory-demo"}})
 
     first_result = graph.invoke(
-        {"session_name": "학습 세션", "turn_count": 0, "notes": ["첫 번째 체크포인트 저장"]},
+        {
+            "session_name": "학습 세션",
+            "turn_count": 0,
+            "notes": ["첫 번째 체크포인트 저장"],
+        },
         config=config,
     )
     second_result = graph.invoke(
-        {"session_name": "학습 세션", "turn_count": 0, "notes": ["같은 thread_id로 이어서 실행"]},
+        {
+            "session_name": "학습 세션",
+            "turn_count": 0,
+            "notes": ["같은 thread_id로 이어서 실행"],
+        },
         config=config,
     )
 

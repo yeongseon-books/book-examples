@@ -47,7 +47,11 @@ def assistant_node(state: WorkflowState):
     tools = [get_order_status, get_shipping_eta]
     model = build_model().bind_tools(tools)
     response = model.invoke(
-        [SystemMessage(content="항상 한국어로 답하고, 주문 조회가 필요하면 먼저 적절한 도구를 사용하세요.")]
+        [
+            SystemMessage(
+                content="항상 한국어로 답하고, 주문 조회가 필요하면 먼저 적절한 도구를 사용하세요."
+            )
+        ]
         + state["messages"]
     )
     return {"messages": [response]}
@@ -66,18 +70,27 @@ def build_graph():
     builder.add_node("assistant", assistant_node)
     builder.add_node("tools", ToolNode(tools))
     builder.add_edge(START, "assistant")
-    builder.add_conditional_edges("assistant", should_continue, {"tools": "tools", END: END})
+    builder.add_conditional_edges(
+        "assistant", should_continue, {"tools": "tools", END: END}
+    )
     builder.add_edge("tools", "assistant")
     return builder.compile(checkpointer=MemorySaver())
 
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast(RunnableConfig, {"configurable": {"thread_id": "ko-complete-demo"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "ko-complete-demo"}})
 
-    graph.invoke({"messages": [HumanMessage(content="주문번호 1001 상태를 알려주세요.")]}, config=config)
+    graph.invoke(
+        {"messages": [HumanMessage(content="주문번호 1001 상태를 알려주세요.")]},
+        config=config,
+    )
     second_result = graph.invoke(
-        {"messages": [HumanMessage(content="그 주문의 도착 예정일도 이어서 알려주세요.")]},
+        {
+            "messages": [
+                HumanMessage(content="그 주문의 도착 예정일도 이어서 알려주세요.")
+            ]
+        },
         config=config,
     )
 

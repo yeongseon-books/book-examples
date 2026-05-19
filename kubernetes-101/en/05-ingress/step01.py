@@ -6,9 +6,9 @@ from common import ManifestParser
 
 
 def run() -> list[dict[str, object]]:
-    path = Path(__file__).with_name('ingress.yaml')
+    path = Path(__file__).with_name("ingress.yaml")
     return ManifestParser().extract(path.read_text())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(run())

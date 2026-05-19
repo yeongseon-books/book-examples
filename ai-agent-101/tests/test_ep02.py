@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 build_context = load_module(
     "ko/02-context-engineering/step01_context_builder.py", "ep02"
 ).build_context

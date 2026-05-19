@@ -4,6 +4,7 @@ from __future__ import annotations
 
 # English note: offline validation example.
 
+
 def run() -> dict[str, object]:
     lifecycle = ["created", "running", "stopped", "removed"]
     immutable_image = True

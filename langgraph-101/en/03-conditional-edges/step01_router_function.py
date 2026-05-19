@@ -1,6 +1,7 @@
-from typing_extensions import Literal, TypedDict
+from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
 
 
 class RouteState(TypedDict):
@@ -12,7 +13,11 @@ class RouteState(TypedDict):
 def classify_text(state: RouteState):
     positive_keywords = ["good", "great", "love", "recommend"]
     lowered = state["text"].lower()
-    route = "positive" if any(keyword in lowered for keyword in positive_keywords) else "negative"
+    route = (
+        "positive"
+        if any(keyword in lowered for keyword in positive_keywords)
+        else "negative"
+    )
     print(f"[classify_text] route: {route}")
     return {"route": route}
 
@@ -22,11 +27,15 @@ def route_selector(state: RouteState) -> str:
 
 
 def positive_path(state: RouteState):
-    return {"result": f"Moved to the positive path: '{state['text']}' was classified as positive."}
+    return {
+        "result": f"Moved to the positive path: '{state['text']}' was classified as positive."
+    }
 
 
 def negative_path(state: RouteState):
-    return {"result": f"Moved to the negative path: '{state['text']}' needs more review."}
+    return {
+        "result": f"Moved to the negative path: '{state['text']}' needs more review."
+    }
 
 
 def build_graph():
@@ -35,7 +44,11 @@ def build_graph():
     builder.add_node("positive", positive_path)
     builder.add_node("negative", negative_path)
     builder.add_edge(START, "classify_text")
-    builder.add_conditional_edges("classify_text", route_selector, {"positive": "positive", "negative": "negative"})
+    builder.add_conditional_edges(
+        "classify_text",
+        route_selector,
+        {"positive": "positive", "negative": "negative"},
+    )
     builder.add_edge("positive", END)
     builder.add_edge("negative", END)
     return builder.compile()
@@ -44,7 +57,10 @@ def build_graph():
 if __name__ == "__main__":
     graph = build_graph()
 
-    for sample in ["I love how easy this graph example is.", "The explanation feels incomplete."]:
+    for sample in [
+        "I love how easy this graph example is.",
+        "The explanation feels incomplete.",
+    ]:
         final_state = graph.invoke({"text": sample})
         print("\nExecution result")
         print(final_state["result"])

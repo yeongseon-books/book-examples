@@ -1,5 +1,4 @@
 import pytest
-
 from ko.ep03_conditional_probability import run
 
 

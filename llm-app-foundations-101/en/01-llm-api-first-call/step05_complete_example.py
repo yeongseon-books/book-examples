@@ -1,4 +1,3 @@
-\
 """
 Step 05 — Complete example
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Combine the core ideas of lesson 01 in one file:
 system message, user message, answer text, and usage metadata.
 """
+
 import os
 
 from groq import Groq

@@ -1,8 +1,9 @@
 # pyright: reportAny=false
 from conftest import load_module
 
-
-run = load_module("ko/10-production-docker/step01_production_policy_check.py", "ep10").run
+run = load_module(
+    "ko/10-production-docker/step01_production_policy_check.py", "ep10"
+).run
 
 
 def test_ep10() -> None:

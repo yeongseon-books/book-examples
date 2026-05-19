@@ -1,4 +1,3 @@
-\
 """
 Step 06 — Few-shot CoT policy decision
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Apply a refund policy with a few-shot reasoning pattern
 that outputs policy_check, decision, and reason.
 """
+
 import os
 
 from groq import Groq

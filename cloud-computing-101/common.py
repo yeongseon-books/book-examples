@@ -22,5 +22,5 @@ class MockCloud:
 
 def latest_call(mock: MockCloud) -> Call:
     if not mock.calls:
-        raise RuntimeError('no recorded calls')
+        raise RuntimeError("no recorded calls")
     return mock.calls[-1]

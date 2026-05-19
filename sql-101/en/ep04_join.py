@@ -27,9 +27,9 @@ def run_demo():
 
     conn.close()
     return {
-        'inner_count': inner_count,
-        'left_nulls': left_nulls,
-        'right_emulated': right_emulated,
-        'cross_sample': cross_sample,
-        'self_pairs': self_pairs,
+        "inner_count": inner_count,
+        "left_nulls": left_nulls,
+        "right_emulated": right_emulated,
+        "cross_sample": cross_sample,
+        "self_pairs": self_pairs,
     }

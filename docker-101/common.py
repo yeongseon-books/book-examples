@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import re
+from dataclasses import dataclass
 from typing import Any
 
 import yaml
@@ -24,7 +24,9 @@ class DockerfileParser:
             parts = line.split(maxsplit=1)
             keyword = parts[0].upper()
             value = parts[1] if len(parts) > 1 else ""
-            instructions.append(DockerInstruction(keyword=keyword, value=value, raw=line))
+            instructions.append(
+                DockerInstruction(keyword=keyword, value=value, raw=line)
+            )
         return instructions
 
 
@@ -71,7 +73,9 @@ class ImageLayerSimulator:
     def estimate_size_mb(self, layers: list[dict[str, int]]) -> int:
         return sum(layer.get("size_mb", 0) for layer in layers)
 
-    def compare_multistage(self, builder_layers: list[dict[str, int]], runtime_layers: list[dict[str, int]]) -> dict[str, int]:
+    def compare_multistage(
+        self, builder_layers: list[dict[str, int]], runtime_layers: list[dict[str, int]]
+    ) -> dict[str, int]:
         full = self.estimate_size_mb(builder_layers + runtime_layers)
         optimized = self.estimate_size_mb(runtime_layers)
         return {
@@ -104,7 +108,9 @@ class SecurityPolicyChecker:
 
 class HealthcheckVerifier:
     def has_healthcheck(self, dockerfile_content: str) -> bool:
-        return bool(re.search(r"^HEALTHCHECK\b", dockerfile_content, flags=re.MULTILINE))
+        return bool(
+            re.search(r"^HEALTHCHECK\b", dockerfile_content, flags=re.MULTILINE)
+        )
 
 
 def parse_yaml(content: str) -> dict[str, Any]:

@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/06-cache-and-locality.py", "ep06")
 
 

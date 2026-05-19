@@ -4,8 +4,8 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 from common import (
-    AuditLog,
     KB,
+    AuditLog,
     MockLLM,
     detect_jailbreak,
     detect_prompt_injection,

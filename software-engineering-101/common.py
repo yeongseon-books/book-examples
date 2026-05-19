@@ -8,7 +8,6 @@ from pathlib import Path
 from statistics import mean
 from typing import Any
 
-
 SECTION_HEADERS = [
     "## Context",
     "## Problem",
@@ -34,7 +33,7 @@ def parse_markdown_table(text: str) -> list[dict[str, str]]:
         cols = [c.strip() for c in row.strip("|").split("|")]
         if len(cols) != len(headers):
             continue
-        items.append(dict(zip(headers, cols)))
+        items.append(dict(zip(headers, cols, strict=False)))
     return items
 
 
@@ -51,7 +50,11 @@ def semver_bump(version: str, part: str) -> str:
 
 def python_functions_with_docstrings(code: str) -> tuple[int, int]:
     tree = ast.parse(code)
-    funcs = [n for n in ast.walk(tree) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+    funcs = [
+        n
+        for n in ast.walk(tree)
+        if isinstance(n, ast.FunctionDef | ast.AsyncFunctionDef)
+    ]
     with_docs = sum(1 for f in funcs if ast.get_docstring(f))
     return len(funcs), with_docs
 

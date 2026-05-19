@@ -1,4 +1,3 @@
-\
 """
 Step 05 — Few-shot Chain-of-Thought
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Include reasoning steps inside the example answer
 to stabilize the final_answer format.
 """
+
 import os
 
 from groq import Groq

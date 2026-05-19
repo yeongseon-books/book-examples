@@ -33,7 +33,9 @@ def resolve_worker_configs(configs: list[dict[str, str]]) -> dict[str, dict[str,
     return {item["language"]: item for item in configs}
 
 
-def startup_handshake(worker_id: str, host_capabilities: set[str], worker_capabilities: set[str]) -> dict[str, object]:
+def startup_handshake(
+    worker_id: str, host_capabilities: set[str], worker_capabilities: set[str]
+) -> dict[str, object]:
     negotiated = sorted(host_capabilities.intersection(worker_capabilities))
     return {
         "start_stream": {"worker_id": worker_id},
@@ -46,18 +48,24 @@ def fan_out_fan_in(tasks: list[int]) -> int:
 
 
 def route_invocation(trigger: str, payload: dict[str, object]) -> MockHttpResponse:
-    req = MockHttpRequest(method="POST", url=f"/api/{trigger}", body=str(payload).encode())
+    req = MockHttpRequest(
+        method="POST", url=f"/api/{trigger}", body=str(payload).encode()
+    )
     if trigger == "http":
         return MockHttpResponse(status_code=200, body=f"ok:{req.url}")
     return MockHttpResponse(status_code=202, body="accepted")
 
 
-def target_based_instances(backlog: int, target_per_instance: int, current_instances: int) -> int:
+def target_based_instances(
+    backlog: int, target_per_instance: int, current_instances: int
+) -> int:
     desired = (backlog + target_per_instance - 1) // target_per_instance
     return max(current_instances, desired)
 
 
-def specialize_placeholder(container_ready: bool, first_request: bool) -> dict[str, object]:
+def specialize_placeholder(
+    container_ready: bool, first_request: bool
+) -> dict[str, object]:
     if not container_ready:
         return {"specialized": False, "path": "standby"}
     if first_request:

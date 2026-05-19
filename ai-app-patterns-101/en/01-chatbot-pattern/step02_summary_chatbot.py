@@ -1,14 +1,22 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 SYSTEM_PROMPT = "You are an AI coach. Use the running summary to keep answers consistent across turns."
 
 
 def summarize_history(client, history: list[dict[str, str]]) -> str:
     summary_messages = [
-        {"role": "system", "content": "Compress the conversation into an English summary with at most five sentences."},
+        {
+            "role": "system",
+            "content": "Compress the conversation into an English summary with at most five sentences.",
+        },
         {"role": "user", "content": str(history)},
     ]
     response = client.chat.completions.create(
@@ -35,7 +43,10 @@ def run_summary_chatbot() -> None:
             rolling_summary = summarize_history(client, history[1:])
             history = [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "system", "content": f"Conversation summary: {rolling_summary}"},
+                {
+                    "role": "system",
+                    "content": f"Conversation summary: {rolling_summary}",
+                },
             ]
 
         history.append({"role": "user", "content": turn})

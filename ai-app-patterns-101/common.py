@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Iterable, cast
+from collections.abc import Iterable
+from typing import Any, cast
 
 from groq import Groq
 
@@ -34,8 +35,8 @@ def print_section(title: str) -> None:
 
 
 def as_messages(messages: list[dict[str, Any]]) -> Any:
-    return cast(Any, messages)
+    return cast("Any", messages)
 
 
 def as_tools(tools: list[dict[str, Any]]) -> Any:
-    return cast(Any, tools)
+    return cast("Any", tools)

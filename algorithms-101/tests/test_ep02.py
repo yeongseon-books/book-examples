@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 ko = load_module(
     "ko/02-time-and-space-complexity/step01_complexity_playground.py", "ko_ep02"
 )

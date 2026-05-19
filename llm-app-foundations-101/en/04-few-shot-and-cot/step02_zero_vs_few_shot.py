@@ -1,4 +1,3 @@
-\
 """
 Step 02 — Compare zero-shot and few-shot prompting
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Send the same ticket with zero-shot and few-shot prompts
 to compare output format stability.
 """
+
 import os
 
 from groq import Groq
@@ -20,7 +20,9 @@ SYSTEM_PROMPT = (
     "reason: <one sentence>"
 )
 
-TICKET = "We are on the team plan, but this month's bill is almost twice what we expected."
+TICKET = (
+    "We are on the team plan, but this month's bill is almost twice what we expected."
+)
 
 
 def main() -> None:
@@ -39,7 +41,10 @@ def main() -> None:
         model="llama-3.1-8b-instant",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": "A refund still has not appeared on my card statement."},
+            {
+                "role": "user",
+                "content": "A refund still has not appeared on my card statement.",
+            },
             {
                 "role": "assistant",
                 "content": (
@@ -48,7 +53,10 @@ def main() -> None:
                     "reason: A delayed refund is a billing follow-up issue after payment."
                 ),
             },
-            {"role": "user", "content": "I receive the two-factor code, but the login still fails."},
+            {
+                "role": "user",
+                "content": "I receive the two-factor code, but the login still fails.",
+            },
             {
                 "role": "assistant",
                 "content": (

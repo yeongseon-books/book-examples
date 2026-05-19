@@ -1,7 +1,12 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 DOCUMENT = """
 회의 제목: 5월 결제 전환 개선 리뷰
@@ -20,7 +25,9 @@ def run_document_assistant() -> None:
         {"role": "system", "content": "문서를 3문장으로 한국어 요약하세요."},
         {"role": "user", "content": DOCUMENT},
     ]
-    summary_response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(summary_messages), temperature=0.1)
+    summary_response = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(summary_messages), temperature=0.1
+    )
 
     extract_messages = [
         {
@@ -29,7 +36,9 @@ def run_document_assistant() -> None:
         },
         {"role": "user", "content": DOCUMENT},
     ]
-    extract_response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(extract_messages), temperature=0.1)
+    extract_response = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(extract_messages), temperature=0.1
+    )
 
     print_section("문서 요약")
     print(response_text(summary_response.choices[0].message))

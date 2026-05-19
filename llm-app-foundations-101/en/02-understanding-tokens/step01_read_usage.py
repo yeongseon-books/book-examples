@@ -1,4 +1,3 @@
-\
 """
 Step 01 — Read the usage fields
 ======================================================
@@ -8,6 +7,7 @@ Run:
 After an API call, print usage.prompt_tokens,
 completion_tokens, total_tokens, and finish_reason.
 """
+
 import os
 
 from groq import Groq

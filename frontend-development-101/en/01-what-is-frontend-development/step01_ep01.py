@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from common import HTMLAnalyzer
 
-
 HTML_SAMPLE = """<!doctype html><html lang="ko"><body><header><main><h1>Hi</h1><button id="b">go</button><img src="a.png" alt="설명"></main><footer></footer></body></html>"""
 
 

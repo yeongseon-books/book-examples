@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from .helpers import client_for
-from .helpers import load_module
+from .helpers import client_for, load_module
 
 
 def test_ep07_problem_json_envelope() -> None:

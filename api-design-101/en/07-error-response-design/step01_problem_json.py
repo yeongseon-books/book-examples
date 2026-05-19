@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+from common import problem
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-
-from common import problem
 
 
 def build_app() -> FastAPI:

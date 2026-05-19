@@ -1,4 +1,3 @@
-\
 """
 Step 03 — 응답 구조 해부
 ======================================================
@@ -8,6 +7,7 @@ Step 03 — 응답 구조 해부
 응답 전체를 JSON으로 출력하고,
 content / usage / model / finish_reason 필드를 읽습니다.
 """
+
 import json
 import os
 

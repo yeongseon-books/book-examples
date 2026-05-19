@@ -4,9 +4,14 @@ import time
 from dataclasses import dataclass, field
 from typing import Any
 
-from ko.common import DEFAULT_INPUT_RATE, DEFAULT_OUTPUT_RATE, build_logger, estimate_tokens
+from ko.common import (
+    DEFAULT_INPUT_RATE,
+    DEFAULT_OUTPUT_RATE,
+    build_logger,
+    estimate_tokens,
+)
 
-logger = build_logger('ko.cost')
+logger = build_logger("ko.cost")
 
 
 @dataclass(slots=True)
@@ -37,19 +42,39 @@ class CostTracker:
     def track(self, feature: str, prompt: str, response: str) -> CostRecord:
         input_tokens = estimate_tokens(prompt)
         output_tokens = estimate_tokens(response)
-        cost_usd = self.pricing.calculate(input_tokens=input_tokens, output_tokens=output_tokens)
-        record = CostRecord(feature=feature, input_tokens=input_tokens, output_tokens=output_tokens, cost_usd=cost_usd)
+        cost_usd = self.pricing.calculate(
+            input_tokens=input_tokens, output_tokens=output_tokens
+        )
+        record = CostRecord(
+            feature=feature,
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
+            cost_usd=cost_usd,
+        )
         self.records.append(record)
         logger.info(
-            '비용 이벤트를 기록했습니다.',
-            extra={'payload': {'feature': feature, 'input_tokens': input_tokens, 'output_tokens': output_tokens, 'cost_usd': cost_usd}},
+            "비용 이벤트를 기록했습니다.",
+            extra={
+                "payload": {
+                    "feature": feature,
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "cost_usd": cost_usd,
+                }
+            },
         )
         return record
 
     def summary(self) -> dict[str, Any]:
         total_cost = round(sum(item.cost_usd for item in self.records), 8)
-        total_tokens = sum(item.input_tokens + item.output_tokens for item in self.records)
-        return {'requests': len(self.records), 'total_tokens': total_tokens, 'total_cost_usd': total_cost}
+        total_tokens = sum(
+            item.input_tokens + item.output_tokens for item in self.records
+        )
+        return {
+            "requests": len(self.records),
+            "total_tokens": total_tokens,
+            "total_cost_usd": total_cost,
+        }
 
 
 class TTLCache:
@@ -64,25 +89,30 @@ class TTLCache:
         expires_at, value = item
         if time.time() >= expires_at:
             self._store.pop(key, None)
-            logger.info('TTL 캐시가 만료되었습니다.', extra={'payload': {'key': key}})
+            logger.info("TTL 캐시가 만료되었습니다.", extra={"payload": {"key": key}})
             return None
         return value
 
     def set(self, key: str, value: str) -> None:
         self._store[key] = (time.time() + self.ttl_seconds, value)
-        logger.info('TTL 캐시에 응답을 저장했습니다.', extra={'payload': {'key': key, 'ttl_seconds': self.ttl_seconds}})
+        logger.info(
+            "TTL 캐시에 응답을 저장했습니다.",
+            extra={"payload": {"key": key, "ttl_seconds": self.ttl_seconds}},
+        )
 
 
 def demo() -> None:
     tracker = CostTracker(PricingTable())
     cache = TTLCache(ttl_seconds=10)
-    prompt = '이번 주 장애 회고를 세 문장으로 요약해 주세요.'
-    response = '이번 주 장애는 캐시 미스 증가와 데이터베이스 지연이 함께 겹치며 발생했습니다.'
-    tracker.track('incident-summary', prompt, response)
+    prompt = "이번 주 장애 회고를 세 문장으로 요약해 주세요."
+    response = (
+        "이번 주 장애는 캐시 미스 증가와 데이터베이스 지연이 함께 겹치며 발생했습니다."
+    )
+    tracker.track("incident-summary", prompt, response)
     cache.set(prompt, response)
     print(tracker.summary())
     print(cache.get(prompt))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     demo()

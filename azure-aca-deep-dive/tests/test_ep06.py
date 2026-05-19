@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module("ko/06-envoy-ingress-path/step01_ingress_path.py", "ep06").run
 
 

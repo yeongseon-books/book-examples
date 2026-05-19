@@ -1,4 +1,3 @@
-\
 """
 Step 04 — Split instruction, context, and output format
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Structure the user message into instruction, context,
 and output format blocks for more repeatable prompting.
 """
+
 import os
 
 from groq import Groq

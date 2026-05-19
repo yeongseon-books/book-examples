@@ -8,7 +8,9 @@ def run() -> dict[str, float]:
     expected_tools = ["read_calendar", "read_emails", "summarize", "send_email"]
     actual_tools = ["read_calendar", "read_emails", "summarize", "send_email"]
     success = 1.0 if actual_tools[-1] == "send_email" else 0.0
-    matched = sum(1 for a, e in zip(actual_tools, expected_tools) if a == e)
+    matched = sum(
+        1 for a, e in zip(actual_tools, expected_tools, strict=False) if a == e
+    )
     step_match = matched / len(expected_tools)
     overhead = len(actual_tools) / len(expected_tools)
     return {

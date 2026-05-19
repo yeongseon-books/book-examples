@@ -7,7 +7,7 @@ def collection_snapshot() -> dict[str, object]:
     items = ["a", "b"]
     items.append("c")
     pair = (10, 20)
-    tags = {"python", "python", "basic"}
+    tags = {"python", "basic"}
     mapping = {"lang": "python"}
     mapping["level"] = "beginner"
     return {"list": items, "tuple": pair, "set": tags, "dict": mapping}

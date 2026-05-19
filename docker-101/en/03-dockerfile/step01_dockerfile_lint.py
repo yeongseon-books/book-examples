@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
-
 from common import DockerfileLinter
 
 # English note: offline validation example.
+
 
 def run() -> dict[str, object]:
     dockerfile = """FROM python:3.12-slim

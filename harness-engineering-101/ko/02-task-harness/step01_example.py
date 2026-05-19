@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+
 from common import (
     ApprovalGate,
     ConstraintHarness,
@@ -19,14 +20,16 @@ from common import (
 
 
 def _tools() -> ToolHarness:
-    return ToolHarness([
-        ToolSpec(
-            name="lookup",
-            required_args={"key"},
-            output_keys={"value"},
-            fn=lambda key: {"value": f"resolved:{key}"},
-        )
-    ])
+    return ToolHarness(
+        [
+            ToolSpec(
+                name="lookup",
+                required_args={"key"},
+                output_keys={"value"},
+                fn=lambda key: {"value": f"resolved:{key}"},
+            )
+        ]
+    )
 
 
 def what_is_harness_engineering_example() -> dict:
@@ -64,7 +67,9 @@ def test_harness_example() -> list[dict]:
 
 def feedback_loop_example() -> tuple[str, int]:
     loop = FeedbackLoop(max_iterations=3)
-    return loop.run("draft", lambda _: "improved output", lambda x: 1 if "improved" in x else 0)
+    return loop.run(
+        "draft", lambda _: "improved output", lambda x: 1 if "improved" in x else 0
+    )
 
 
 def approval_gate_example() -> str:
@@ -88,5 +93,14 @@ def production_harness_example(log_path: Path) -> dict:
         approval=ApprovalGate("auto-approve"),
         observability=Observability(log_path),
     )
-    spec = TaskSpec(goal="email summary", inputs={"ticket": 1}, output_keys=["status", "context", "tool", "output"])
-    return ph.run(spec, ["email policy", "ticket context", "email policy"], "lookup", {"key": "ticket-1"})
+    spec = TaskSpec(
+        goal="email summary",
+        inputs={"ticket": 1},
+        output_keys=["status", "context", "tool", "output"],
+    )
+    return ph.run(
+        spec,
+        ["email policy", "ticket context", "email policy"],
+        "lookup",
+        {"key": "ticket-1"},
+    )

@@ -1,7 +1,12 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 DOCUMENTS = [
     "A customer sent the payment failure screen and error timestamp. The team needs to inspect gateway logs.",
@@ -19,7 +24,9 @@ def classify_documents() -> None:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": document},
         ]
-        response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.1)
+        response = client.chat.completions.create(
+            model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.1
+        )
         print_section(f"Document {idx}")
         print(document)
         print(response_text(response.choices[0].message))

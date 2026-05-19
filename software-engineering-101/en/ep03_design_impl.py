@@ -13,4 +13,4 @@ def generate_impl_skeleton(feature_name: str) -> str:
     return f"""def implement_{feature_name}(input_data):
     \"\"\"Implementation skeleton generated from design checkpoint.\"\"\"
     raise NotImplementedError(\"define business logic\")
-""" 
+"""

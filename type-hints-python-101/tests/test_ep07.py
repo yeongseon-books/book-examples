@@ -7,5 +7,5 @@ def test_ep07_generics_stack_and_paramspec() -> None:
     assert st.pop() == 10
     assert clamp_to_zero(-3) == 0
     status, result = call_with_log(lambda x, y: x + y, 2, 5)
-    assert status == 'called'
+    assert status == "called"
     assert result == 7

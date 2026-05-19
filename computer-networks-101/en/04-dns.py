@@ -11,7 +11,10 @@ class Record:
 ZONE = {
     ".": {"com": Record("NS", "a.gtld-servers.local")},
     "com": {"example": Record("NS", "ns1.example.local")},
-    "example.com": {"@": Record("A", "93.184.216.34"), "www": Record("CNAME", "example.com")},
+    "example.com": {
+        "@": Record("A", "93.184.216.34"),
+        "www": Record("CNAME", "example.com"),
+    },
 }
 
 

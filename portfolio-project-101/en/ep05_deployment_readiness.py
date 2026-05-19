@@ -1,1 +1,0 @@
-from ko.ep05_deployment_readiness import check_deployment_readiness

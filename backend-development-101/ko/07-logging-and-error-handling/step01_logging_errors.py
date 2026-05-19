@@ -10,7 +10,6 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 from common import domain_error_handlers, request_id_middleware
 
-
 log = logging.getLogger("backend101")
 
 

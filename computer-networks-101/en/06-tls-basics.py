@@ -1,8 +1,13 @@
 # English mirror of the corresponding episode demo
 from dataclasses import dataclass
 
-
-VALID_SEQUENCE = ["ClientHello", "ServerHello", "Certificate", "KeyExchange", "Finished"]
+VALID_SEQUENCE = [
+    "ClientHello",
+    "ServerHello",
+    "Certificate",
+    "KeyExchange",
+    "Finished",
+]
 
 
 @dataclass

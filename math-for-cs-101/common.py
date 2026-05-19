@@ -70,7 +70,11 @@ def entropy(probs):
 
 
 def kl_divergence(p, q):
-    return sum(pi * math.log2(pi / qi) for pi, qi in zip(p, q) if pi > 0 and qi > 0)
+    return sum(
+        pi * math.log2(pi / qi)
+        for pi, qi in zip(p, q, strict=False)
+        if pi > 0 and qi > 0
+    )
 
 
 def gcd(a, b):
@@ -82,7 +86,7 @@ def gcd(a, b):
 
 def fast_power(base, exp, mod=None):
     if exp < 0:
-        raise ValueError('exp must be non-negative')
+        raise ValueError("exp must be non-negative")
     result = 1
     b = base if mod is None else base % mod
     e = exp

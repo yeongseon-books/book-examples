@@ -1,7 +1,12 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 REQUESTS = [
     "결제 장애 공지를 고객에게 보낼 짧은 안내문을 만들어 주세요.",
@@ -18,7 +23,13 @@ def route_request(client, request: str) -> tuple[str, str]:
         {"role": "user", "content": request},
     ]
     route = response_text(
-        client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(classifier_messages), temperature=0).choices[0].message
+        client.chat.completions.create(
+            model=DEFAULT_MODEL,
+            messages=as_messages(classifier_messages),
+            temperature=0,
+        )
+        .choices[0]
+        .message
     ).lower()
 
     if "incident" in route:
@@ -33,7 +44,11 @@ def route_request(client, request: str) -> tuple[str, str]:
         {"role": "user", "content": request},
     ]
     result = response_text(
-        client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(writer_messages), temperature=0.3).choices[0].message
+        client.chat.completions.create(
+            model=DEFAULT_MODEL, messages=as_messages(writer_messages), temperature=0.3
+        )
+        .choices[0]
+        .message
     )
     return label, result
 

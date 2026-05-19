@@ -1,4 +1,3 @@
-\
 """
 Step 04 — Sync vs async patterns
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Compare synchronous and asynchronous Groq calls,
 then run three async requests in parallel with asyncio.gather.
 """
+
 import asyncio
 import os
 

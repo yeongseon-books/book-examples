@@ -7,6 +7,7 @@ Step 01 — stateless 확인
 첫 요청에서 이름을 알려준 뒤, 두 번째 요청에서
 이력을 보내지 않으면 모델이 기억하지 못함을 보여줍니다.
 """
+
 import os
 
 from groq import Groq

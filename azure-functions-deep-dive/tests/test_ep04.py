@@ -1,7 +1,11 @@
 from conftest import load_module
 
-ko_run = load_module("ko/04-dispatcher-and-invocation/step01_dispatcher.py", "ko_ep04").run
-en_run = load_module("en/04-dispatcher-and-invocation/step01_dispatcher.py", "en_ep04").run
+ko_run = load_module(
+    "ko/04-dispatcher-and-invocation/step01_dispatcher.py", "ko_ep04"
+).run
+en_run = load_module(
+    "en/04-dispatcher-and-invocation/step01_dispatcher.py", "en_ep04"
+).run
 
 
 def test_ep04_dispatcher_http_and_non_http() -> None:

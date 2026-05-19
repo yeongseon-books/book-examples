@@ -1,8 +1,13 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 from retrieval import SimpleVectorStore
-
 
 DOCUMENTS = [
     {
@@ -28,10 +33,15 @@ def run_basic_rag() -> None:
     context = "\n\n".join(f"[{item.source}] {item.content}" for item in retrieved)
 
     messages = [
-        {"role": "system", "content": "Answer in English using only the provided context."},
+        {
+            "role": "system",
+            "content": "Answer in English using only the provided context.",
+        },
         {"role": "user", "content": f"Question: {question}\n\nContext:\n{context}"},
     ]
-    response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2)
+    response = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2
+    )
     answer = response_text(response.choices[0].message)
 
     print_section("Retrieved documents")

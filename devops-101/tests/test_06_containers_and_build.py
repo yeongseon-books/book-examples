@@ -10,7 +10,7 @@ COPY . .
 USER root
 """.strip()
     result = ep06.lint_dockerfile(dockerfile)
-    assert result['has_multistage'] is True
-    text = ' '.join(result['warnings'])
-    assert 'latest' in text.lower()
-    assert 'non-root' in text.lower()
+    assert result["has_multistage"] is True
+    text = " ".join(result["warnings"])
+    assert "latest" in text.lower()
+    assert "non-root" in text.lower()

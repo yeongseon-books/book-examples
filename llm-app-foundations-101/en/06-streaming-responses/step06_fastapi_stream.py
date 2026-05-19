@@ -1,4 +1,3 @@
-\
 """
 Step 06 — FastAPI StreamingResponse
 ======================================================
@@ -7,6 +6,7 @@ Run:
 
 Expose a Groq stream as an SSE endpoint for the browser or curl.
 """
+
 import os
 
 from fastapi import FastAPI

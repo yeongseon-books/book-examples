@@ -1,9 +1,16 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
-
-SYSTEM_PROMPT = "당신은 한국어로 답하는 친절한 AI 튜터입니다. 맥락을 이어서 짧고 명확하게 답하세요."
+SYSTEM_PROMPT = (
+    "당신은 한국어로 답하는 친절한 AI 튜터입니다. 맥락을 이어서 짧고 명확하게 답하세요."
+)
 
 
 def run_session_chatbot() -> None:

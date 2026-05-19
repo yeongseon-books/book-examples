@@ -159,14 +159,14 @@ class SemVer:
     prerelease: str | None = None
 
     @classmethod
-    def parse(cls, value: str) -> "SemVer":
+    def parse(cls, value: str) -> SemVer:
         m = re.match(r"^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?$", value)
         if not m:
             raise ValueError(f"invalid semver: {value}")
         major, minor, patch, prerelease = m.groups()
         return cls(int(major), int(minor), int(patch), prerelease)
 
-    def bump(self, part: str, prerelease: str | None = None) -> "SemVer":
+    def bump(self, part: str, prerelease: str | None = None) -> SemVer:
         if part == "major":
             return SemVer(self.major + 1, 0, 0, prerelease)
         if part == "minor":

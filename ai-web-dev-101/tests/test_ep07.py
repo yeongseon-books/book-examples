@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 module = load_module("ko/07-eval-improve/step01_eval_loop.py", "ep07")
 keyword_score = module.keyword_score
 evaluate_cases = module.evaluate_cases

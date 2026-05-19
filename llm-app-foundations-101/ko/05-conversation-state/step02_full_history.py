@@ -1,4 +1,3 @@
-\
 """
 Step 02 — 전체 이력 누적 패턴
 ======================================================
@@ -8,8 +7,8 @@ Step 02 — 전체 이력 누적 패턴
 history 리스트에 모든 user와 assistant 턴을 누적해
 멀티턴 대화 맥락을 이어가는 가장 단순한 패턴입니다.
 """
+
 import os
-from typing import Any
 
 from groq import Groq
 from groq.types.chat import ChatCompletionMessageParam

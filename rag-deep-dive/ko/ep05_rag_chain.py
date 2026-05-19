@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from common import load_markdown_fixtures, mock_llm_answer
+
 from ko.ep01_loader_chunking import sentence_aware_chunks
 from ko.ep03_retriever_mmr import top_k_retrieve
 from ko.ep04_prompt_builder import build_prompt

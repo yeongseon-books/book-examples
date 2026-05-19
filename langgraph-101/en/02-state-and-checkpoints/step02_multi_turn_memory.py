@@ -47,10 +47,14 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast(RunnableConfig, {"configurable": {"thread_id": "en-chat-thread"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "en-chat-thread"}})
 
-    graph.invoke({"messages": [HumanMessage(content="My name is Mina.")]}, config=config)
-    graph.invoke({"messages": [HumanMessage(content="What was my name again?")]}, config=config)
+    graph.invoke(
+        {"messages": [HumanMessage(content="My name is Mina.")]}, config=config
+    )
+    graph.invoke(
+        {"messages": [HumanMessage(content="What was my name again?")]}, config=config
+    )
 
     snapshot = graph.get_state(config)
 

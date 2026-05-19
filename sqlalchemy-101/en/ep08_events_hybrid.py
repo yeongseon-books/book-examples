@@ -1,8 +1,7 @@
+from common import sync_engine
 from sqlalchemy import Integer, String, event, select
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
-
-from common import sync_engine
 
 
 class Base(DeclarativeBase):

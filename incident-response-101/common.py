@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Final, cast
-import json
 
 
 def now_iso() -> str:
@@ -170,7 +170,7 @@ class RunbookExecutor:
         parsed_raw = json.loads(text)  # pyright: ignore[reportAny]
         if not isinstance(parsed_raw, dict):
             raise ValueError("runbook must be an object")
-        parsed = cast(dict[str, object], parsed_raw)
+        parsed = cast("dict[str, object]", parsed_raw)
         if "steps" not in parsed:
             raise ValueError("runbook missing steps")
         return parsed
@@ -186,7 +186,7 @@ class RunbookExecutor:
         for step_raw in steps:  # pyright: ignore[reportUnknownVariableType]
             if not isinstance(step_raw, dict):
                 raise ValueError("step must be an object")
-            step = cast(dict[str, object], step_raw)
+            step = cast("dict[str, object]", step_raw)
             condition = step.get("when")
             if isinstance(condition, str) and context.get(condition) is not True:
                 outcomes.append(

@@ -6,7 +6,6 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 
-
 Record = dict[str, str]
 
 

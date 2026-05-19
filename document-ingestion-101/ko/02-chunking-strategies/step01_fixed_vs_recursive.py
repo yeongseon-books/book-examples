@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from shared.ingestion_examples import fixed_chunks, recursive_chunks
-
 
 TEXT = """문서 수집 파이프라인은 파서, 청커, 인덱서로 나뉩니다.
 

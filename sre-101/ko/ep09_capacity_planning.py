@@ -10,7 +10,9 @@ def forecast_next(load_series: list[float]) -> float:
     return float(intercept + slope * len(load_series))
 
 
-def headroom_ok(current_load: float, capacity: float, min_headroom_ratio: float = 0.2) -> bool:
+def headroom_ok(
+    current_load: float, capacity: float, min_headroom_ratio: float = 0.2
+) -> bool:
     if capacity <= 0:
         return False
     return (capacity - current_load) / capacity >= min_headroom_ratio

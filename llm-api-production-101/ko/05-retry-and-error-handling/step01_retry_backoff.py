@@ -31,7 +31,7 @@ def call_with_retry(
         try:
             completion = client.chat.completions.create(
                 model="llama-3.1-8b-instant",
-                messages=cast(Any, messages),
+                messages=cast("Any", messages),
                 temperature=0.2,
             )
             return completion.choices[0].message.content or ""
@@ -39,10 +39,14 @@ def call_with_retry(
             last_exc = exc
             error_type = classify_error(exc)
             if error_type is PermanentError:
-                raise PermanentError(f"영구 오류가 발생했습니다. status={exc.status_code}") from exc
+                raise PermanentError(
+                    f"영구 오류가 발생했습니다. status={exc.status_code}"
+                ) from exc
             if attempt < max_retries:
                 delay = base_delay * (2**attempt)
-                print(f"[재시도 {attempt + 1}] status={exc.status_code}, {delay:.1f}초 뒤 재시도합니다.")
+                print(
+                    f"[재시도 {attempt + 1}] status={exc.status_code}, {delay:.1f}초 뒤 재시도합니다."
+                )
                 time.sleep(delay)
         except Exception as exc:
             last_exc = exc

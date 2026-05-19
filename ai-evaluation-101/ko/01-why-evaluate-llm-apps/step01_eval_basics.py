@@ -9,7 +9,7 @@ from common import exact_match
 def run() -> dict[str, float]:
     references = ["seoul", "retrieval augmented generation", "python"]
     predictions = ["Seoul", "RAG means retrieval augmented generation", "python"]
-    hit = sum(exact_match(p, r) for p, r in zip(predictions, references))
+    hit = sum(exact_match(p, r) for p, r in zip(predictions, references, strict=False))
     accuracy = hit / len(references)
     return {"accuracy": accuracy, "has_regression_risk": float(accuracy < 1.0)}
 

@@ -1,6 +1,5 @@
 from common import keyword_score
 
-
 ROLE_KEYWORDS = {
     "frontend": ["react", "css", "ui", "web vitals", "lcp"],
     "backend": ["api", "python", "sql", "latency", "distributed"],

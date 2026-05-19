@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module(
     "ko/03-revision-and-traffic-split/step01_revision_split.py", "ep03"
 ).run

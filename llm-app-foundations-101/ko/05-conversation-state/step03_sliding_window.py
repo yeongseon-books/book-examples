@@ -1,4 +1,3 @@
-\
 """
 Step 03 — sliding window 패턴
 ======================================================
@@ -8,9 +7,9 @@ Step 03 — sliding window 패턴
 최근 세 턴만 유지해 토큰 예산을 고정하는
 sliding window 패턴입니다.
 """
+
 import os
 from collections import deque
-from typing import Any
 
 from groq import Groq
 from groq.types.chat import ChatCompletionMessageParam, ChatCompletionSystemMessageParam

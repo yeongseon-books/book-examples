@@ -58,9 +58,8 @@ def find_duplicates_hash(values: list[int]) -> tuple[list[int], int]:
     out: list[int] = []
     for value in values:
         counter.inc("read")
-        if not seen.add(value):
-            if dup.add(value):
-                out.append(value)
+        if not seen.add(value) and dup.add(value):
+            out.append(value)
     return out, counter.total()
 
 

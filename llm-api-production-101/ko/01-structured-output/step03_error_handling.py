@@ -35,7 +35,7 @@ def extract_product(client: Groq, text: str) -> dict:
     if missing:
         raise SchemaError(f"필수 필드가 누락되었습니다: {sorted(missing)}; data={data}")
 
-    if not isinstance(data["price"], (int, float)):
+    if not isinstance(data["price"], int | float):
         raise SchemaError(f"price는 숫자여야 합니다: {data['price']!r}")
 
     return data

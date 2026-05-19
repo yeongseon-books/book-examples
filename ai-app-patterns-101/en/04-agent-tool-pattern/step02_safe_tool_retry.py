@@ -2,7 +2,14 @@ from __future__ import annotations
 
 import json
 
-from common import DEFAULT_MODEL, as_messages, as_tools, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    as_tools,
+    build_client,
+    print_section,
+    response_text,
+)
 
 
 def lookup_order_total(order_id: str) -> str:
@@ -35,7 +42,10 @@ TOOLS = [
 def run_safe_agent() -> None:
     client = build_client()
     messages: list[dict] = [
-        {"role": "system", "content": "If a tool fails, explain the issue and ask for a corrected input."},
+        {
+            "role": "system",
+            "content": "If a tool fails, explain the issue and ask for a corrected input.",
+        },
         {"role": "user", "content": "Please check the amount for order ORD-999."},
     ]
 
@@ -81,7 +91,9 @@ def run_safe_agent() -> None:
             }
         )
 
-    final = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0)
+    final = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0
+    )
     print_section("Recovery answer")
     print(response_text(final.choices[0].message))
 

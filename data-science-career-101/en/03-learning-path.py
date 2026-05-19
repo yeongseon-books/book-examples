@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from collections import defaultdict, deque
 
-
 ROLE_TOPICS = {
     "analyst": ["sql_basics", "analytics_sql", "dashboard", "ab_test", "storytelling"],
     "scientist": [

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 # pyright: reportUnusedFunction=false
-
 import os
 
 from fastapi import FastAPI

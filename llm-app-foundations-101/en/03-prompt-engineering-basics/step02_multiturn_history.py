@@ -1,4 +1,3 @@
-\
 """
 Step 02 — Build multi-turn history with assistant messages
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Add the first answer back into the messages list as an assistant turn,
 then continue the conversation with the previous context.
 """
+
 import os
 from typing import Any
 

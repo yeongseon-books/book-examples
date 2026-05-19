@@ -12,7 +12,9 @@ def run_demo() -> dict[str, str]:
     result = {}
 
     try:
-        conn.execute("INSERT INTO users(name, email) VALUES (?, ?)", ("B", "a@example.com"))
+        conn.execute(
+            "INSERT INTO users(name, email) VALUES (?, ?)", ("B", "a@example.com")
+        )
         conn.commit()
     except sqlite3.IntegrityError:
         result["integrity"] = "caught"

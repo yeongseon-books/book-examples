@@ -27,13 +27,15 @@ def main() -> None:
             return cosine_ranking(query_vector, doc_vectors, doc_ids, limit)
 
         benchmark = run_retrieval_benchmark(QUERIES, search, [3])
-        summary = cast(dict[str, Any], benchmark["summary"])
-        rows.append({
-            "model": candidate.label,
-            "model_name": candidate.model_name,
-            "embedding_ms": round(embed_ms, 2),
-            **summary,
-        })
+        summary = cast("dict[str, Any]", benchmark["summary"])
+        rows.append(
+            {
+                "model": candidate.label,
+                "model_name": candidate.model_name,
+                "embedding_ms": round(embed_ms, 2),
+                **summary,
+            }
+        )
     print(json.dumps(rows, indent=2, ensure_ascii=False))
 
 

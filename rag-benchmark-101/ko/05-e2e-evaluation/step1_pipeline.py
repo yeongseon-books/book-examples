@@ -10,7 +10,6 @@ if str(ROOT) not in sys.path:
 from common.rag_pipeline import answer_with_groq
 from ko.shared import CORPUS, PIPELINE_CASES
 
-
 PROMPT = "다음 컨텍스트만 사용해 질문에 답하세요. 정보가 없으면 없다고 말하세요.\n\n컨텍스트:\n{context}\n\n질문:\n{question}"
 
 

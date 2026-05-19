@@ -2,7 +2,7 @@ from __future__ import annotations
 
 
 class SymbolTable:
-    def __init__(self, parent: "SymbolTable | None" = None):
+    def __init__(self, parent: SymbolTable | None = None):
         self.parent: SymbolTable | None = parent
         self.table: dict[str, str] = {}
 

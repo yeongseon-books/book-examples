@@ -3,7 +3,9 @@ from pathlib import Path
 
 
 def load(name: str, rel: str):
-    spec = importlib.util.spec_from_file_location(name, Path(__file__).parent.parent / rel)
+    spec = importlib.util.spec_from_file_location(
+        name, Path(__file__).parent.parent / rel
+    )
     mod = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(mod)

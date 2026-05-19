@@ -1,4 +1,3 @@
-\
 """
 Step 04 — Read usage from the last chunk
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Track the final chunk and read token usage
 from x_groq.usage when it is available.
 """
+
 import os
 
 from groq import Groq

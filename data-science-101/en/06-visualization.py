@@ -6,7 +6,6 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-
 from common import ensure_dir, make_synthetic_classification
 
 

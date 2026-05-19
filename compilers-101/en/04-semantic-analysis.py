@@ -40,5 +40,8 @@ def check_program(program: list[tuple]) -> dict[str, str]:
 
 
 if __name__ == "__main__":
-    sample = [("let", "x", ("num", 1)), ("expr", ("bin", "+", ("var", "x"), ("num", 2)))]
+    sample = [
+        ("let", "x", ("num", 1)),
+        ("expr", ("bin", "+", ("var", "x"), ("num", 2))),
+    ]
     print(check_program(sample))

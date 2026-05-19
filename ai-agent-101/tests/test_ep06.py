@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 supervisor = load_module(
     "ko/06-multi-agent-systems/step01_supervisor_handoff.py", "ep06"
 ).supervisor

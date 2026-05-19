@@ -6,11 +6,15 @@ def run_demo() -> dict[str, object]:
     initialize_schema(conn)
 
     conn.execute("BEGIN")
-    conn.execute("INSERT INTO users(name, email) VALUES (?, ?)", ("TxA", "txa@example.com"))
+    conn.execute(
+        "INSERT INTO users(name, email) VALUES (?, ?)", ("TxA", "txa@example.com")
+    )
     conn.rollback()
 
     conn.execute("BEGIN")
-    conn.execute("INSERT INTO users(name, email) VALUES (?, ?)", ("TxB", "txb@example.com"))
+    conn.execute(
+        "INSERT INTO users(name, email) VALUES (?, ?)", ("TxB", "txb@example.com")
+    )
     conn.commit()
 
     cur = conn.execute("SELECT COUNT(*) FROM users")

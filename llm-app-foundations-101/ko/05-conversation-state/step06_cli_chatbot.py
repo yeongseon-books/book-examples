@@ -1,4 +1,3 @@
-\
 """
 Step 06 — 완성 CLI 챗봇
 ======================================================
@@ -8,6 +7,7 @@ Step 06 — 완성 CLI 챗봇
 입력 루프, 요약 압축, 토큰 예산 관리를 하나로 합친
 실용적인 CLI 챗봇 예제입니다.
 """
+
 import os
 from typing import TypedDict
 
@@ -73,7 +73,9 @@ def build_messages(
 ) -> list[ChatCompletionMessageParam]:
     messages: list[ChatCompletionMessageParam] = [system_message]
     if summary_text:
-        messages.append({"role": "system", "content": f"이전 대화 요약:\n{summary_text}"})
+        messages.append(
+            {"role": "system", "content": f"이전 대화 요약:\n{summary_text}"}
+        )
     messages.extend(recent_turns)
     messages.append({"role": "user", "content": user_text})
     return messages
@@ -87,7 +89,9 @@ def compress_if_needed(
 ) -> None:
     summary_text = state["summary_text"]
     recent_turns = state["recent_turns"]
-    messages = build_messages(system_message, summary_text, recent_turns, next_user_text)
+    messages = build_messages(
+        system_message, summary_text, recent_turns, next_user_text
+    )
     if rough_token_count(messages) <= MAX_INPUT_TOKENS:
         return
 
@@ -98,7 +102,9 @@ def compress_if_needed(
         summary_text = state["summary_text"]
         recent_turns = state["recent_turns"]
 
-    messages = build_messages(system_message, summary_text, recent_turns, next_user_text)
+    messages = build_messages(
+        system_message, summary_text, recent_turns, next_user_text
+    )
     if rough_token_count(messages) > MAX_INPUT_TOKENS:
         raise ValueError("입력이 너무 깁니다. /reset으로 새 세션을 시작하세요.")
 
@@ -110,7 +116,9 @@ def ask(
     user_text: str,
 ) -> str:
     compress_if_needed(client, system_message, user_text, state)
-    messages = build_messages(system_message, state["summary_text"], state["recent_turns"], user_text)
+    messages = build_messages(
+        system_message, state["summary_text"], state["recent_turns"], user_text
+    )
     completion = client.chat.completions.create(
         model=MODEL,
         messages=messages,

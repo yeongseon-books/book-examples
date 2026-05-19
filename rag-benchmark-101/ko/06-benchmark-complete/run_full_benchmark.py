@@ -14,7 +14,10 @@ from ko.shared import CORPUS, FULL_CONFIGS, PIPELINE_CASES
 
 def main() -> None:
     print("완전한 RAG 벤치마크 실행")
-    results = [run_pipeline_benchmark("ko", CORPUS, PIPELINE_CASES, config).summary() for config in FULL_CONFIGS]
+    results = [
+        run_pipeline_benchmark("ko", CORPUS, PIPELINE_CASES, config).summary()
+        for config in FULL_CONFIGS
+    ]
     results.sort(key=lambda row: row["overall_score"], reverse=True)
     print(json.dumps(results, indent=2, ensure_ascii=False))
 

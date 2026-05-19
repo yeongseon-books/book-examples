@@ -38,7 +38,11 @@ def run_demo() -> dict[str, int]:
     with transaction(conn):
         conn.executemany(
             "INSERT INTO users(name, email) VALUES (?, ?)",
-            [("R1", "r1@example.com"), ("R2", "r2@example.com"), ("R3", "r3@example.com")],
+            [
+                ("R1", "r1@example.com"),
+                ("R2", "r2@example.com"),
+                ("R3", "r3@example.com"),
+            ],
         )
 
     execute_with_retry(conn, "SELECT 1")

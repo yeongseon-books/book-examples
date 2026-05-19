@@ -13,7 +13,9 @@ def build_embeddings(texts: list[str], model_name: str) -> np.ndarray:
     return np.asarray(vectors, dtype="float32")
 
 
-def cosine_ranking(query_vector: np.ndarray, doc_vectors: np.ndarray, doc_ids: list[str], limit: int) -> list[str]:
+def cosine_ranking(
+    query_vector: np.ndarray, doc_vectors: np.ndarray, doc_ids: list[str], limit: int
+) -> list[str]:
     scores = np.dot(doc_vectors, query_vector)
     indices = np.argsort(scores)[::-1][:limit]
     return [doc_ids[index] for index in indices]

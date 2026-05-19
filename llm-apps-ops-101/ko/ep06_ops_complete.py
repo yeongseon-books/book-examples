@@ -8,7 +8,7 @@ from ko.ep02_cost_tracking import CostTracker, PricingTable, TTLCache
 from ko.ep03_evaluation import EvaluationCase, LLMJudge
 from ko.ep04_security import InputValidator, OutputFilter
 
-app = FastAPI(title='llm-apps-ops-101 ko complete')
+app = FastAPI(title="llm-apps-ops-101 ko complete")
 validator = InputValidator(max_length=1200)
 filter_ = OutputFilter()
 cache = TTLCache(ttl_seconds=60)
@@ -21,12 +21,12 @@ class OpsRequest(BaseModel):
     evaluate: bool = True
 
 
-@app.get('/health')
+@app.get("/health")
 def health() -> dict[str, str]:
-    return {'status': 'ok', 'ts': utc_now()}
+    return {"status": "ok", "ts": utc_now()}
 
 
-@app.post('/answer')
+@app.post("/answer")
 def answer(request: OpsRequest) -> dict[str, object]:
     validation = validator.validate(request.prompt)
     if not validation.accepted:
@@ -36,25 +36,27 @@ def answer(request: OpsRequest) -> dict[str, object]:
     cache_hit = cached is not None
     if cache_hit:
         answer_text = cached
-        usage = {'input_tokens': 0, 'output_tokens': 0, 'total_tokens': 0}
+        usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
         estimated_cost_usd = 0.0
         latency_ms = 0.0
     else:
         try:
             result = call_groq(
-                system_prompt='당신은 장애 대응을 돕는 한국어 운영 어시스턴트입니다.',
+                system_prompt="당신은 장애 대응을 돕는 한국어 운영 어시스턴트입니다.",
                 user_prompt=request.prompt,
                 max_tokens=300,
             )
         except Exception as exc:
-            raise HTTPException(status_code=502, detail=f'Groq 호출 실패: {exc}') from exc
+            raise HTTPException(
+                status_code=502, detail=f"Groq 호출 실패: {exc}"
+            ) from exc
         answer_text = filter_.redact(result.text)
         cache.set(request.prompt, answer_text)
-        tracker.track('ops-complete', request.prompt, answer_text)
+        tracker.track("ops-complete", request.prompt, answer_text)
         usage = {
-            'input_tokens': result.input_tokens,
-            'output_tokens': result.output_tokens,
-            'total_tokens': result.total_tokens,
+            "input_tokens": result.input_tokens,
+            "output_tokens": result.output_tokens,
+            "total_tokens": result.total_tokens,
         }
         estimated_cost_usd = result.estimated_cost_usd
         latency_ms = round(result.latency_ms, 1)
@@ -65,16 +67,16 @@ def answer(request: OpsRequest) -> dict[str, object]:
             EvaluationCase(
                 question=request.prompt,
                 answer=answer_text,
-                reference='운영 어시스턴트는 원인과 대응 방안을 분리해 간결하게 설명해야 합니다.',
+                reference="운영 어시스턴트는 원인과 대응 방안을 분리해 간결하게 설명해야 합니다.",
             )
         )
 
     return {
-        'answer': answer_text,
-        'cache_hit': cache_hit,
-        'usage': usage,
-        'estimated_cost_usd': estimated_cost_usd,
-        'latency_ms': latency_ms,
-        'evaluation': evaluation,
-        'cost_summary': tracker.summary(),
+        "answer": answer_text,
+        "cache_hit": cache_hit,
+        "usage": usage,
+        "estimated_cost_usd": estimated_cost_usd,
+        "latency_ms": latency_ms,
+        "evaluation": evaluation,
+        "cost_summary": tracker.summary(),
     }

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import pandas as pd
-
 from common import make_dirty_dataset
 
 

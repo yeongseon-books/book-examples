@@ -1,4 +1,5 @@
-from ko.ep08_interpreter_compiler import interpret, compile_bytecode
+from ko.ep08_interpreter_compiler import compile_bytecode, interpret
+
 
 def test_ep08_interpret_and_compile():
     expr = ("add", ("num", 1), ("num", 2))

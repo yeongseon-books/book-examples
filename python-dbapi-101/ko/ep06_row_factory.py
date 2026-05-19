@@ -13,7 +13,7 @@ class UserRecord:
 
 def dataclass_factory(cursor, row):
     columns = [col[0] for col in cursor.description]
-    data = dict(zip(columns, row))
+    data = dict(zip(columns, row, strict=False))
     return UserRecord(**data)
 
 
@@ -28,7 +28,11 @@ def run_demo() -> dict[str, object]:
     record = conn.execute("SELECT id, name, email FROM users WHERE id = 2").fetchone()
 
     conn.close()
-    return {"row_name": row_name, "record_type": type(record).__name__, "record_name": record.name}
+    return {
+        "row_name": row_name,
+        "record_type": type(record).__name__,
+        "record_name": record.name,
+    }
 
 
 if __name__ == "__main__":

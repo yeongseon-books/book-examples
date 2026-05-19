@@ -13,7 +13,15 @@ def invest_checklist(markdown_text: str) -> list[dict[str, object]]:
             "valuable": bool(row.get("benefit")),
             "estimable": len(row.get("goal", "")) < 80,
             "small": len(row.get("goal", "").split()) <= 8,
-            "testable": row.get("goal", "").startswith(("reset", "export", "create", "update")),
+            "testable": row.get("goal", "").startswith(
+                ("reset", "export", "create", "update")
+            ),
         }
-        out.append({"story": row.get("story", ""), "checks": checks, "score": sum(checks.values())})
+        out.append(
+            {
+                "story": row.get("story", ""),
+                "checks": checks,
+                "score": sum(checks.values()),
+            }
+        )
     return out

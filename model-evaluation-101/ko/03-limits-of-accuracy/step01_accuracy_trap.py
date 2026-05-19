@@ -1,10 +1,9 @@
 from __future__ import annotations
 
+from common import make_imbalanced, safe_split
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, recall_score
-
-from common import make_imbalanced, safe_split
 
 
 def run(seed: int = 42) -> dict[str, float]:

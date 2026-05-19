@@ -4,12 +4,18 @@ from __future__ import annotations
 
 import math
 
-REFERENCES = ['the audit log is stored for ninety days on the pro plan', 'password reset requires email verification']
-HYPOTHESES = ['the audit log remains available for ninety days on pro', 'reset the password with an email verification step']
+REFERENCES = [
+    "the audit log is stored for ninety days on the pro plan",
+    "password reset requires email verification",
+]
+HYPOTHESES = [
+    "the audit log remains available for ninety days on pro",
+    "reset the password with an email verification step",
+]
 
 
 def ngrams(tokens, n):
-    return [tuple(tokens[index:index + n]) for index in range(len(tokens) - n + 1)]
+    return [tuple(tokens[index : index + n]) for index in range(len(tokens) - n + 1)]
 
 
 def bleu_score(reference: str, hypothesis: str, max_n: int = 2) -> float:
@@ -17,7 +23,10 @@ def bleu_score(reference: str, hypothesis: str, max_n: int = 2) -> float:
     hyp_tokens = hypothesis.split()
     precisions = []
     for n in range(1, max_n + 1):
-        ref_counts = {gram: ngrams(ref_tokens, n).count(gram) for gram in set(ngrams(ref_tokens, n))}
+        ref_counts = {
+            gram: ngrams(ref_tokens, n).count(gram)
+            for gram in set(ngrams(ref_tokens, n))
+        }
         hyp_list = ngrams(hyp_tokens, n)
         hyp_counts = {gram: hyp_list.count(gram) for gram in set(hyp_list)}
         overlap = 0
@@ -25,7 +34,11 @@ def bleu_score(reference: str, hypothesis: str, max_n: int = 2) -> float:
         for gram, count in hyp_counts.items():
             overlap += min(count, ref_counts.get(gram, 0))
         precisions.append(max(overlap / total, 1e-9))
-    brevity_penalty = 1.0 if len(hyp_tokens) > len(ref_tokens) else math.exp(1 - len(ref_tokens) / max(len(hyp_tokens), 1))
+    brevity_penalty = (
+        1.0
+        if len(hyp_tokens) > len(ref_tokens)
+        else math.exp(1 - len(ref_tokens) / max(len(hyp_tokens), 1))
+    )
     return brevity_penalty * math.exp(sum(math.log(p) for p in precisions) / max_n)
 
 
@@ -48,12 +61,16 @@ def rouge_l(reference: str, hypothesis: str) -> float:
 
 
 def main() -> None:
-    for index, (reference, hypothesis) in enumerate(zip(REFERENCES, HYPOTHESES), start=1):
+    for index, (reference, hypothesis) in enumerate(
+        zip(REFERENCES, HYPOTHESES, strict=False), start=1
+    ):
         bleu = bleu_score(reference, hypothesis)
         rouge = rouge_l(reference, hypothesis)
         print(f"sample={index} bleu={bleu:.4f} rouge_l={rouge:.4f}")
-    print('BLEU tracks n-gram precision, while ROUGE-L measures overlap through the longest common subsequence.')
+    print(
+        "BLEU tracks n-gram precision, while ROUGE-L measures overlap through the longest common subsequence."
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

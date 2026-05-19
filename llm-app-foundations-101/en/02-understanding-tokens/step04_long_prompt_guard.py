@@ -1,4 +1,3 @@
-\
 """
 Step 04 — Long prompt guard and finish_reason
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Estimate a long prompt first, call the API,
 then compare usage and inspect finish_reason.
 """
+
 import os
 
 import tiktoken
@@ -23,9 +23,14 @@ def main() -> None:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     long_text = " ".join(
-        ["Explain why a Python web application should keep both request logs and exception logs."] * 200
+        [
+            "Explain why a Python web application should keep both request logs and exception logs."
+        ]
+        * 200
     )
-    instruction = "Read the text below and summarize only the key points in ten bullet points."
+    instruction = (
+        "Read the text below and summarize only the key points in ten bullet points."
+    )
     user_content = instruction + "\n\n" + long_text
 
     estimated = estimate_tokens(user_content)

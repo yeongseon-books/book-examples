@@ -45,7 +45,7 @@ def run_demo():
 
     conn.close()
     return {
-        'top_customers': [dict(r) for r in top_customers],
-        'monthly': [dict(r) for r in monthly],
-        'cohort': [dict(r) for r in cohort],
+        "top_customers": [dict(r) for r in top_customers],
+        "monthly": [dict(r) for r in monthly],
+        "cohort": [dict(r) for r in cohort],
     }

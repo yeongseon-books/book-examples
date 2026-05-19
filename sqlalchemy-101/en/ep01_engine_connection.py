@@ -1,6 +1,5 @@
-from sqlalchemy import text
-
 from common import sync_engine
+from sqlalchemy import text
 
 
 def run() -> int:

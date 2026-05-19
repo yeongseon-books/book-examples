@@ -34,7 +34,12 @@ def build_model() -> ChatGroq:
 def assistant_node(state: AgentState):
     model = build_model().bind_tools([get_meeting_room_status])
     response = model.invoke(
-        [SystemMessage(content="항상 한국어로 답하고, 필요한 경우 도구를 먼저 사용하세요.")] + state["messages"]
+        [
+            SystemMessage(
+                content="항상 한국어로 답하고, 필요한 경우 도구를 먼저 사용하세요."
+            )
+        ]
+        + state["messages"]
     )
     return {"messages": [response]}
 
@@ -51,7 +56,9 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    result = graph.invoke({"messages": [HumanMessage(content="노바 회의실 지금 쓸 수 있나요?")]})
+    result = graph.invoke(
+        {"messages": [HumanMessage(content="노바 회의실 지금 쓸 수 있나요?")]}
+    )
 
     print("\n메시지 로그")
     for message in result["messages"]:

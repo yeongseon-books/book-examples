@@ -1,5 +1,4 @@
 import pytest
-
 from ko.ep06_expectation_variance import run
 
 

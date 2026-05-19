@@ -38,12 +38,21 @@ def score_documents(vector: np.ndarray, matrix: np.ndarray) -> np.ndarray:
 def benchmark_model(label: str, model_name: str) -> BenchmarkResult:
     started = time.perf_counter()
     model = SentenceTransformer(model_name)
-    query_embedding = model.encode([QUERY], normalize_embeddings=True, convert_to_numpy=True)[0]
-    corpus_embeddings = model.encode(CORPUS, normalize_embeddings=True, convert_to_numpy=True)
+    query_embedding = model.encode(
+        [QUERY], normalize_embeddings=True, convert_to_numpy=True
+    )[0]
+    corpus_embeddings = model.encode(
+        CORPUS, normalize_embeddings=True, convert_to_numpy=True
+    )
     scores = score_documents(query_embedding, corpus_embeddings)
     latency_ms = (time.perf_counter() - started) * 1000
     best_index = int(np.argmax(scores))
-    return BenchmarkResult(label=label, best_index=best_index, best_score=float(scores[best_index]), latency_ms=latency_ms)
+    return BenchmarkResult(
+        label=label,
+        best_index=best_index,
+        best_score=float(scores[best_index]),
+        latency_ms=latency_ms,
+    )
 
 
 def main() -> None:

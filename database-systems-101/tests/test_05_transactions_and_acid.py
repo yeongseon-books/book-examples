@@ -1,3 +1,4 @@
+import contextlib
 from pathlib import Path
 
 from conftest import load_ko_module
@@ -9,10 +10,8 @@ def test_rollback_and_commit(tmp_path: Path):
     m.init_bank(db_path)
     m.transfer(db_path, 1, 2, 100)
     assert m.balances(db_path) == {"Alice": 900, "Bob": 1100}
-    try:
+    with contextlib.suppress(RuntimeError):
         m.transfer(db_path, 1, 2, 50, fail_midway=True)
-    except RuntimeError:
-        pass
     assert m.balances(db_path) == {"Alice": 900, "Bob": 1100}
 
 

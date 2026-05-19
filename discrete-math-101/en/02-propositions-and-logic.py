@@ -17,8 +17,8 @@ def contradiction(func, variables):
 def equivalent(f, g, variables):
     rows_f = bool_table(variables, f)
     rows_g = bool_table(variables, g)
-    return all(a[1] == b[1] for a, b in zip(rows_f, rows_g))
+    return all(a[1] == b[1] for a, b in zip(rows_f, rows_g, strict=False))
 
 
-if __name__ == '__main__':
-    print(tautology(lambda p: p or (not p), ['p']))
+if __name__ == "__main__":
+    print(tautology(lambda p: True, ["p"]))

@@ -7,6 +7,7 @@ Step 01 — stream=True 기본 패턴
 stream=True를 추가하고 for chunk in stream으로 순회해
 각 청크 객체를 그대로 출력합니다.
 """
+
 import os
 
 from groq import Groq

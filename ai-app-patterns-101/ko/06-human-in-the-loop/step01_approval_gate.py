@@ -1,7 +1,12 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 CASES = [
     {
@@ -31,7 +36,9 @@ def run_hitl_workflow() -> None:
                 "content": f"요청: {case['request']}\n신뢰도: {case['confidence']}\n예상 경로: {decision}",
             },
         ]
-        response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.1)
+        response = client.chat.completions.create(
+            model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.1
+        )
 
         print_section(decision)
         print(case["request"])

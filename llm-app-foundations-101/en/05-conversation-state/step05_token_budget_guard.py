@@ -1,4 +1,3 @@
-\
 """
 Step 05 — Detect token budget overflow
 ======================================================
@@ -28,13 +27,18 @@ def enforce_budget(
         print(f"Trimmed {len(messages) - len(trimmed)} messages from the history.")
         return trimmed
 
-    raise ValueError("The conversation history is too long. You need a more aggressive summary.")
+    raise ValueError(
+        "The conversation history is too long. You need a more aggressive summary."
+    )
 
 
 def main() -> None:
     system = {"role": "system", "content": "You are a helpful assistant."}
     short_history = [system] + [
-        {"role": "user" if index % 2 == 0 else "assistant", "content": f"Message {index}"}
+        {
+            "role": "user" if index % 2 == 0 else "assistant",
+            "content": f"Message {index}",
+        }
         for index in range(10)
     ]
     long_history = [system] + [

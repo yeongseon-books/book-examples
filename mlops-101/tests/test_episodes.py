@@ -3,7 +3,6 @@ from __future__ import annotations
 import tempfile
 
 import numpy as np
-
 from conftest import load_module
 
 common = load_module("common.py", "common")

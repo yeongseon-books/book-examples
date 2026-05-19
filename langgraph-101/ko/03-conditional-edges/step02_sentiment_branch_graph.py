@@ -1,6 +1,7 @@
-from typing_extensions import Literal, TypedDict
+from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
 
 
 class ReviewState(TypedDict):
@@ -12,7 +13,11 @@ class ReviewState(TypedDict):
 
 def classify_review(state: ReviewState):
     positive_keywords = ["최고", "빠르", "편하", "만족"]
-    sentiment = "positive" if any(keyword in state["review"] for keyword in positive_keywords) else "negative"
+    sentiment = (
+        "positive"
+        if any(keyword in state["review"] for keyword in positive_keywords)
+        else "negative"
+    )
     print(f"[classify_review] 감정 분류: {sentiment}")
     return {"sentiment": sentiment}
 
@@ -55,7 +60,9 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    final_state = graph.invoke({"review": "배송은 조금 늦었지만 사용감은 만족스럽습니다."})
+    final_state = graph.invoke(
+        {"review": "배송은 조금 늦었지만 사용감은 만족스럽습니다."}
+    )
 
     print("\n최종 상태")
     print(final_state)

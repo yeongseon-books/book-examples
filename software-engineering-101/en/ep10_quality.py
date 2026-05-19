@@ -10,7 +10,9 @@ def combined_quality_report(code_text: str) -> dict[str, float]:
     debt_penalty = debt["TODO"] * 0.05 + debt["FIXME"] * 0.1
     lines = [line for line in code_text.splitlines() if line.strip()]
     readability = readability_score(lines) / 100
-    maintainability = max(0.0, min(1.0, 0.5 * doc_cov + 0.5 * readability - debt_penalty))
+    maintainability = max(
+        0.0, min(1.0, 0.5 * doc_cov + 0.5 * readability - debt_penalty)
+    )
     return {
         "testability": round(doc_cov, 2),
         "readability": round(readability, 2),

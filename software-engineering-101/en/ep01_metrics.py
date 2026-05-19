@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from datetime import datetime
 import json
+from datetime import datetime
 from pathlib import Path
 
 
@@ -16,4 +16,7 @@ def compute_process_metrics(path: str) -> dict[str, float]:
         review = datetime.fromisoformat(e["ready_for_review"])
         lead_times.append((deployed - started).total_seconds() / 3600)
         cycle_times.append((review - first_commit).total_seconds() / 3600)
-    return {"lead_time_hours": sum(lead_times) / len(lead_times), "cycle_time_hours": sum(cycle_times) / len(cycle_times)}
+    return {
+        "lead_time_hours": sum(lead_times) / len(lead_times),
+        "cycle_time_hours": sum(cycle_times) / len(cycle_times),
+    }

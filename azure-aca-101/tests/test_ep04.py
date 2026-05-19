@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/04-ingress-and-traffic-split/step01_ingress_split.py", "ep04")
 
 

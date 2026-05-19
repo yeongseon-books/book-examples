@@ -20,7 +20,9 @@ def gram_schmidt(vectors: np.ndarray, tol: float = 1e-12) -> np.ndarray:
     return np.vstack(basis)
 
 
-def power_iteration(a: np.ndarray, num_iter: int = 200, seed: int = 0) -> tuple[float, np.ndarray]:
+def power_iteration(
+    a: np.ndarray, num_iter: int = 200, seed: int = 0
+) -> tuple[float, np.ndarray]:
     rng = np.random.default_rng(seed)
     b_k = rng.normal(size=(a.shape[1],))
     b_k = b_k / np.linalg.norm(b_k)
@@ -34,12 +36,14 @@ def power_iteration(a: np.ndarray, num_iter: int = 200, seed: int = 0) -> tuple[
     return eigenvalue, b_k
 
 
-def pca_fit(x: np.ndarray, n_components: int) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+def pca_fit(
+    x: np.ndarray, n_components: int
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     x_centered = x - x.mean(axis=0)
     _, s, vt = np.linalg.svd(x_centered, full_matrices=False)
     components = vt[:n_components]
     transformed = x_centered @ components.T
-    var_ratio = (s ** 2) / np.sum(s ** 2)
+    var_ratio = (s**2) / np.sum(s**2)
     return components, transformed, var_ratio, x_centered
 
 
@@ -49,7 +53,7 @@ def text_histogram(values: np.ndarray, bins: int = 8, width: int = 24) -> list[s
     lines = []
     for i, c in enumerate(hist):
         bar_len = int(width * (c / max_count)) if max_count else 0
-        lines.append(f"[{edges[i]:6.2f}, {edges[i+1]:6.2f}) | " + ('#' * bar_len))
+        lines.append(f"[{edges[i]:6.2f}, {edges[i + 1]:6.2f}) | " + ("#" * bar_len))
     return lines
 
 

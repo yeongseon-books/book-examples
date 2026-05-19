@@ -1,4 +1,5 @@
 """Episode 06: Isolation levels. Runnable example in English."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass

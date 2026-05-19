@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/08-io-and-devices.py", "ep08")
 
 

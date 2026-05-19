@@ -1,15 +1,17 @@
 from __future__ import annotations
 
-from typing import Callable, cast
+from collections.abc import Callable
+from typing import cast
+
 from conftest import load_module
 
-mod = load_module('ko/02-iaas-paas-saas/step01_shared_responsibility.py', 'ep02_ko')
-fn = cast(Callable[..., object], getattr(mod, 'shared_responsibility'))
+mod = load_module("ko/02-iaas-paas-saas/step01_shared_responsibility.py", "ep02_ko")
+fn = cast("Callable[..., object]", mod.shared_responsibility)
 
 
 def test_ep02_behavior() -> None:
-    result_obj = fn(model='PaaS')
-    result = cast(dict[str, object], result_obj)
-    payload = cast(dict[str, object], result['payload'])
-    assert payload['customer_scope'] == ['app']
-    assert result['ok'] is True
+    result_obj = fn(model="PaaS")
+    result = cast("dict[str, object]", result_obj)
+    payload = cast("dict[str, object]", result["payload"])
+    assert payload["customer_scope"] == ["app"]
+    assert result["ok"] is True

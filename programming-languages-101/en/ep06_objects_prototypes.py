@@ -1,6 +1,7 @@
 def create_object(proto=None, **props):
     return {"__proto__": proto, **props}
 
+
 def get(obj, key):
     cur = obj
     while cur is not None:

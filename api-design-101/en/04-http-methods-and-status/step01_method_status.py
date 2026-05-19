@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException, Response
 
-
 USERS: dict[int, dict[str, int | str]] = {42: {"id": 42, "name": "Y"}}
 
 

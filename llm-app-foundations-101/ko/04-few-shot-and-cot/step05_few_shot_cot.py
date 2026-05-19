@@ -1,4 +1,3 @@
-\
 """
 Step 05 — few-shot Chain-of-Thought
 ======================================================
@@ -8,6 +7,7 @@ Step 05 — few-shot Chain-of-Thought
 예시 답변 안에 추론 단계까지 포함한 few-shot CoT 패턴입니다.
 풀이 순서를 고정해 final_answer 형식을 안정시킵니다.
 """
+
 import os
 
 from groq import Groq

@@ -1,38 +1,37 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict
 
 
 @dataclass
 class VirtualContainer:
     name: str
     root: str
-    host_fs: Dict[str, str]
+    host_fs: dict[str, str]
 
-    def list_visible_files(self) -> Dict[str, str]:
-        prefix = self.root.rstrip('/') + '/'
-        visible: Dict[str, str] = {}
+    def list_visible_files(self) -> dict[str, str]:
+        prefix = self.root.rstrip("/") + "/"
+        visible: dict[str, str] = {}
         for path, content in self.host_fs.items():
             if path == self.root or path.startswith(prefix):
-                key = path[len(self.root):] or '/'
+                key = path[len(self.root) :] or "/"
                 visible[key] = content
         return visible
 
     def can_access(self, path: str) -> bool:
-        p = path if path.startswith('/') else '/' + path
-        return p == self.root or p.startswith(self.root.rstrip('/') + '/')
+        p = path if path.startswith("/") else "/" + path
+        return p == self.root or p.startswith(self.root.rstrip("/") + "/")
 
 
 def run_isolation_demo() -> dict[str, object]:
     host = {
-        '/sandbox/app/main.py': 'print("hello")',
-        '/sandbox/data/config.json': '{}',
-        '/etc/shadow': 'restricted',
+        "/sandbox/app/main.py": 'print("hello")',
+        "/sandbox/data/config.json": "{}",
+        "/etc/shadow": "restricted",
     }
-    container = VirtualContainer('web', '/sandbox', host)
+    container = VirtualContainer("web", "/sandbox", host)
     return {
-        'visible': container.list_visible_files(),
-        'can_read_shadow': container.can_access('/etc/shadow'),
-        'can_read_app': container.can_access('/sandbox/app/main.py'),
+        "visible": container.list_visible_files(),
+        "can_read_shadow": container.can_access("/etc/shadow"),
+        "can_read_app": container.can_access("/sandbox/app/main.py"),
     }

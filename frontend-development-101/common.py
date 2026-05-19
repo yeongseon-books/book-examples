@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from html.parser import HTMLParser
 import json
 import re
-from typing import Callable
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from html.parser import HTMLParser
 
 
 class _TagCollector(HTMLParser):
@@ -57,7 +57,9 @@ class CSSAnalyzer:
     def selector_specificity(self, selector: str) -> tuple[int, int, int]:
         a = selector.count("#")
         b = selector.count(".") + selector.count("[")
-        c = sum(1 for tok in re.split(r"\s+|>|\+|~", selector) if tok and tok[0].isalpha())
+        c = sum(
+            1 for tok in re.split(r"\s+|>|\+|~", selector) if tok and tok[0].isalpha()
+        )
         return a, b, c
 
     def unused_selectors(self, html: str) -> list[str]:
@@ -75,11 +77,15 @@ class CSSAnalyzer:
         unused: list[str] = []
         for raw_sel, _ in self.rules:
             selector = raw_sel.strip().split(",")[0].strip()
-            if selector.startswith(".") and selector[1:] not in classes:
-                unused.append(selector)
-            elif selector.startswith("#") and selector[1:] not in ids:
-                unused.append(selector)
-            elif selector and selector[0].isalpha() and selector not in tags:
+            if (
+                selector.startswith(".")
+                and selector[1:] not in classes
+                or selector.startswith("#")
+                and selector[1:] not in ids
+                or selector
+                and selector[0].isalpha()
+                and selector not in tags
+            ):
                 unused.append(selector)
         return unused
 
@@ -147,7 +153,7 @@ class RouterSim:
                     continue
                 params: dict[str, str] = {}
                 ok = True
-                for a, b in zip(pp, cp):
+                for a, b in zip(pp, cp, strict=False):
                     if a.startswith(":"):
                         params[a[1:]] = b
                     elif a != b:

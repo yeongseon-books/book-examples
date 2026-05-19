@@ -26,7 +26,9 @@ def cosine_similarity(left: NDArray[np.float32], right: NDArray[np.float32]) -> 
 def main() -> None:
     model = SentenceTransformer(MODEL_NAME)
     flat_sentences = [sentence for pair in PAIRS for sentence in pair]
-    embeddings = model.encode(flat_sentences, normalize_embeddings=True, convert_to_numpy=True)
+    embeddings = model.encode(
+        flat_sentences, normalize_embeddings=True, convert_to_numpy=True
+    )
 
     print(f"모델: {MODEL_NAME}")
     print(f"한 번에 임베딩한 문장 수: {len(flat_sentences)}")

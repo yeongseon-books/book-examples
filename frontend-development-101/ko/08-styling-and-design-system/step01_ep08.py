@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from common import DesignTokenChecker
 
-
-TOKENS = '{"color.primary": "#1d72ff", "spacing.gutter": "1rem", "font.body": "Pretendard"}'
+TOKENS = (
+    '{"color.primary": "#1d72ff", "spacing.gutter": "1rem", "font.body": "Pretendard"}'
+)
 
 
 def run_demo() -> list[str]:

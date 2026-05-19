@@ -1,7 +1,6 @@
+from common import make_reg_dataset
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
-
-from common import make_reg_dataset
 
 
 def run() -> dict[str, float]:

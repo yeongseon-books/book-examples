@@ -1,4 +1,3 @@
-\
 """
 Step 02 — Read and collect delta.content
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Print delta.content immediately,
 then collect the parts into a final response string.
 """
+
 import os
 
 from groq import Groq

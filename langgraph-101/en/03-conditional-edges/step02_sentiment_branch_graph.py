@@ -1,6 +1,7 @@
-from typing_extensions import Literal, TypedDict
+from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
 
 
 class ReviewState(TypedDict):
@@ -13,7 +14,11 @@ class ReviewState(TypedDict):
 def classify_review(state: ReviewState):
     positive_keywords = ["great", "fast", "easy", "satisfied"]
     lowered = state["review"].lower()
-    sentiment = "positive" if any(keyword in lowered for keyword in positive_keywords) else "negative"
+    sentiment = (
+        "positive"
+        if any(keyword in lowered for keyword in positive_keywords)
+        else "negative"
+    )
     print(f"[classify_review] sentiment: {sentiment}")
     return {"sentiment": sentiment}
 
@@ -31,7 +36,9 @@ def handle_negative(state: ReviewState):
 
 
 def finalize_response(state: ReviewState):
-    response = f"Branch complete: {state['action']} | original review: {state['review']}"
+    response = (
+        f"Branch complete: {state['action']} | original review: {state['review']}"
+    )
     print(f"[finalize_response] {response}")
     return {"response": response}
 
@@ -56,7 +63,9 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    final_state = graph.invoke({"review": "Delivery was a bit slow, but the overall experience was easy."})
+    final_state = graph.invoke(
+        {"review": "Delivery was a bit slow, but the overall experience was easy."}
+    )
 
     print("\nFinal state")
     print(final_state)

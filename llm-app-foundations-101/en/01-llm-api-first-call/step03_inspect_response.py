@@ -1,4 +1,3 @@
-\
 """
 Step 03 — Inspect the response structure
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Print the full response as JSON,
 then read content, usage, model, and finish_reason.
 """
+
 import json
 import os
 

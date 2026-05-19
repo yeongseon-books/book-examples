@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 ROLE_TASKS = {
     "analyst": ["핵심 대시보드 학습", "지표 정의 문서화", "SQL 성능 점검"],
     "scientist": ["데이터 품질 검증", "베이스라인 모델 작성", "실험 로그 검토"],

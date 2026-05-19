@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 import numpy as np
-from scipy import stats
-
 from common import rng
+from scipy import stats
 
 
 def sample_size_two_proportions(

@@ -7,6 +7,7 @@ Step 02 — 첫 번째 API 호출
 Groq 클라이언트를 만들고 llama-3.1-8b-instant에
 메시지를 보낸 뒤 응답 본문을 출력합니다.
 """
+
 import os
 
 from groq import Groq

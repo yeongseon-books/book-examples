@@ -1,5 +1,3 @@
-import os
-
 from en.ep08_deployment import app_factory, gunicorn_fixture_text, readiness_check
 
 

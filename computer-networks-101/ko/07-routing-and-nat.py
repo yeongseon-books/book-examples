@@ -41,8 +41,10 @@ class NatTable:
 
 
 if __name__ == "__main__":
-    table = RoutingTable([
-        Route(ipaddress.ip_network("0.0.0.0/0"), "192.168.0.1"),
-        Route(ipaddress.ip_network("10.0.0.0/8"), "10.0.0.1"),
-    ])
+    table = RoutingTable(
+        [
+            Route(ipaddress.ip_network("0.0.0.0/0"), "192.168.0.1"),
+            Route(ipaddress.ip_network("10.0.0.0/8"), "10.0.0.1"),
+        ]
+    )
     print(table.lookup("10.20.30.40"))

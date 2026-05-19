@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module("ko/04-keda-in-aca/step01_keda_translation.py", "ep04").run
 
 

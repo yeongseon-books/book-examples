@@ -19,7 +19,7 @@ def get_course_status(topic: str) -> str:
 if __name__ == "__main__":
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
-        api_key=cast(Any, os.environ["GROQ_API_KEY"]),
+        api_key=cast("Any", os.environ["GROQ_API_KEY"]),
         stop_sequences=None,
     )
     llm_with_tools = llm.bind_tools([get_course_status])

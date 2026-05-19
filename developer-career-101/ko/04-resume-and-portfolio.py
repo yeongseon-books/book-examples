@@ -1,6 +1,5 @@
 from common import has_star_bullet, parse_markdown_sections
 
-
 REQUIRED = ["Summary", "Experience", "Skills", "Projects", "Education"]
 
 

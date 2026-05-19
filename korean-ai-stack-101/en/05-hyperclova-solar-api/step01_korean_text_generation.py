@@ -8,7 +8,9 @@ from groq import Groq
 
 MODEL_NAME = "llama-3.1-8b-instant"
 SYSTEM_PROMPT = "You write concise product descriptions in natural English."
-USER_PROMPT = "Write a three-sentence introduction for a sparkling tangerine drink from Jeju."
+USER_PROMPT = (
+    "Write a three-sentence introduction for a sparkling tangerine drink from Jeju."
+)
 
 
 def require_api_key() -> str:

@@ -3,7 +3,6 @@ import os
 
 from groq import Groq
 
-
 SCHEMA_INSTRUCTION = """
 Respond with JSON matching this schema exactly:
 {

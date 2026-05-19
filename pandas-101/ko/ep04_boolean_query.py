@@ -5,14 +5,19 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-
 from common import make_sales_df, make_students_df
 
 
 def run() -> dict[str, object]:
     # EP01
-    s = pd.Series([10, 20, 30], name="sales")
-    df1 = pd.DataFrame({"product": ["A", "B", "C", "D"], "qty": [3, 5, 2, 7], "price": [12.0, 8.0, 15.0, 5.0]})
+    pd.Series([10, 20, 30], name="sales")
+    df1 = pd.DataFrame(
+        {
+            "product": ["A", "B", "C", "D"],
+            "qty": [3, 5, 2, 7],
+            "price": [12.0, 8.0, 15.0, 5.0],
+        }
+    )
     dtypes = df1.dtypes.astype(str).to_dict()
     shape = df1.shape
     describe_mean = float(df1[["qty", "price"]].describe().loc["mean", "qty"])
@@ -24,7 +29,9 @@ def run() -> dict[str, object]:
     high = indexed[indexed["score"] >= 80]
 
     # EP03
-    csv_df = pd.DataFrame({"id": [1, 2, 3], "name": ["alpha", "beta", "gamma"], "value": [2.5, 3.0, 4.5]})
+    csv_df = pd.DataFrame(
+        {"id": [1, 2, 3], "name": ["alpha", "beta", "gamma"], "value": [2.5, 3.0, 4.5]}
+    )
     with tempfile.TemporaryDirectory() as tmp:
         csv_path = Path(tmp) / "sample.csv"
         xlsx_path = Path(tmp) / "sample.xlsx"
@@ -40,7 +47,9 @@ def run() -> dict[str, object]:
     isin_rows = sales[sales["category"].isin(["A", "C"])]
 
     # EP05
-    na_df = pd.DataFrame({"a": [1.0, np.nan, 3.0, np.nan], "b": [np.nan, 2.0, np.nan, 4.0]})
+    na_df = pd.DataFrame(
+        {"a": [1.0, np.nan, 3.0, np.nan], "b": [np.nan, 2.0, np.nan, 4.0]}
+    )
     na_count = int(na_df.isna().sum().sum())
     fill_mean = na_df.fillna(na_df.mean(numeric_only=True))
     fill_ffill = na_df.ffill()
@@ -53,7 +62,9 @@ def run() -> dict[str, object]:
         avg_price=("price", "mean"),
         total_revenue=("revenue", "sum"),
     )
-    sales["region_revenue_share"] = sales["revenue"] / sales.groupby("region")["revenue"].transform("sum")
+    sales["region_revenue_share"] = sales["revenue"] / sales.groupby("region")[
+        "revenue"
+    ].transform("sum")
 
     # EP07
     left = pd.DataFrame({"id": [1, 2, 3], "name": ["A", "B", "C"]})
@@ -72,32 +83,80 @@ def run() -> dict[str, object]:
 
     # EP09
     cost_df = sales[["quantity", "price", "discount"]].copy()
-    applied = cost_df.apply(lambda r: r["quantity"] * r["price"] * (1 - r["discount"]), axis=1)
+    applied = cost_df.apply(
+        lambda r: r["quantity"] * r["price"] * (1 - r["discount"]), axis=1
+    )
     vectorized = cost_df["quantity"] * cost_df["price"] * (1 - cost_df["discount"])
     max_diff = float((applied - vectorized).abs().max())
 
     # EP10
     end = make_sales_df(rows=120, seed=100)
     end.loc[end.index[::19], "price"] = np.nan
-    end["price"] = end["price"].fillna(end.groupby("category")["price"].transform("mean"))
+    end["price"] = end["price"].fillna(
+        end.groupby("category")["price"].transform("mean")
+    )
     end["net_revenue"] = end["quantity"] * end["price"] * (1 - end["discount"])
     insights = (
         end.groupby(["region", "category"], as_index=False)
-        .agg(total_revenue=("net_revenue", "sum"), avg_discount=("discount", "mean"), orders=("quantity", "count"))
+        .agg(
+            total_revenue=("net_revenue", "sum"),
+            avg_discount=("discount", "mean"),
+            orders=("quantity", "count"),
+        )
         .sort_values("total_revenue", ascending=False)
     )
 
     return {
         "ep01": {"shape": shape, "dtypes": dtypes, "describe_mean_qty": describe_mean},
-        "ep02": {"loc_name": row_loc, "iloc_score": row_iloc, "high_count": int(high.shape[0])},
-        "ep03": {"csv_shape": loaded_csv.shape, "excel_shape": loaded_xlsx.shape, "columns": list(loaded_csv.columns)},
-        "ep04": {"filter_count": int(filt.shape[0]), "query_count": int(queried.shape[0]), "isin_count": int(isin_rows.shape[0])},
-        "ep05": {"na_count": na_count, "mean_fill_nulls": int(fill_mean.isna().sum().sum()), "ffill_nulls": int(fill_ffill.isna().sum().sum()), "dropna_rows": int(dropped.shape[0]), "interpolate_nulls": int(interpolated.isna().sum().sum())},
-        "ep06": {"group_shape": grouped.shape, "share_sum": float(sales.groupby("region")["region_revenue_share"].sum().mean())},
-        "ep07": {"inner_shape": inner.shape, "outer_shape": outer.shape, "join_shape": joined.shape, "concat_shape": concat.shape},
-        "ep08": {"daily_rows": int(daily.shape[0]), "weekly_rows": int(weekly.shape[0]), "monthly_rows": int(monthly.shape[0]), "rolling_last": float(rolling_7d.iloc[-1])},
-        "ep09": {"max_diff": max_diff, "same_values": bool(np.allclose(applied.to_numpy(), vectorized.to_numpy()))},
-        "ep10": {"insights_rows": int(insights.shape[0]), "top_region": str(insights.iloc[0]["region"]), "total_revenue": float(end["net_revenue"].sum())},
+        "ep02": {
+            "loc_name": row_loc,
+            "iloc_score": row_iloc,
+            "high_count": int(high.shape[0]),
+        },
+        "ep03": {
+            "csv_shape": loaded_csv.shape,
+            "excel_shape": loaded_xlsx.shape,
+            "columns": list(loaded_csv.columns),
+        },
+        "ep04": {
+            "filter_count": int(filt.shape[0]),
+            "query_count": int(queried.shape[0]),
+            "isin_count": int(isin_rows.shape[0]),
+        },
+        "ep05": {
+            "na_count": na_count,
+            "mean_fill_nulls": int(fill_mean.isna().sum().sum()),
+            "ffill_nulls": int(fill_ffill.isna().sum().sum()),
+            "dropna_rows": int(dropped.shape[0]),
+            "interpolate_nulls": int(interpolated.isna().sum().sum()),
+        },
+        "ep06": {
+            "group_shape": grouped.shape,
+            "share_sum": float(
+                sales.groupby("region")["region_revenue_share"].sum().mean()
+            ),
+        },
+        "ep07": {
+            "inner_shape": inner.shape,
+            "outer_shape": outer.shape,
+            "join_shape": joined.shape,
+            "concat_shape": concat.shape,
+        },
+        "ep08": {
+            "daily_rows": int(daily.shape[0]),
+            "weekly_rows": int(weekly.shape[0]),
+            "monthly_rows": int(monthly.shape[0]),
+            "rolling_last": float(rolling_7d.iloc[-1]),
+        },
+        "ep09": {
+            "max_diff": max_diff,
+            "same_values": bool(np.allclose(applied.to_numpy(), vectorized.to_numpy())),
+        },
+        "ep10": {
+            "insights_rows": int(insights.shape[0]),
+            "top_region": str(insights.iloc[0]["region"]),
+            "total_revenue": float(end["net_revenue"].sum()),
+        },
     }
 
 

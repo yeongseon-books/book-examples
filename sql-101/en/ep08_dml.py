@@ -17,4 +17,4 @@ def run_demo():
     sales_count = cur.execute("SELECT COUNT(*) FROM sales").fetchone()[0]
 
     conn.close()
-    return {'gina_salary': gina_salary, 'sales_count': sales_count}
+    return {"gina_salary": gina_salary, "sales_count": sales_count}

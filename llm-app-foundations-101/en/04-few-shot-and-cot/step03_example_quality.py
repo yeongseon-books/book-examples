@@ -1,4 +1,3 @@
-\
 """
 Step 03 — Compare weak examples and strong examples
 ======================================================
@@ -8,6 +7,7 @@ Run:
 Attach weak examples and strong examples to the same target request
 to show how example quality changes the result.
 """
+
 import os
 from typing import Any
 
@@ -50,7 +50,10 @@ def main() -> None:
                 "reason: Duplicate charges can cause direct financial harm and need quick attention."
             ),
         },
-        {"role": "user", "content": "I get a 500 error when I click the profile photo upload button."},
+        {
+            "role": "user",
+            "content": "I get a 500 error when I click the profile photo upload button.",
+        },
         {
             "role": "assistant",
             "content": (
@@ -63,7 +66,10 @@ def main() -> None:
 
     bad_messages: list[Any] = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": "Review the examples and classify the next ticket in the same format."},
+        {
+            "role": "user",
+            "content": "Review the examples and classify the next ticket in the same format.",
+        },
         *bad_examples,
         {"role": "user", "content": TARGET},
     ]

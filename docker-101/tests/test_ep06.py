@@ -1,7 +1,6 @@
 # pyright: reportAny=false
 from conftest import load_module
 
-
 run = load_module("ko/06-env-and-config/step01_env_config_validate.py", "ep06").run
 
 

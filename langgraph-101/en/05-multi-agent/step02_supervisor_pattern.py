@@ -1,9 +1,8 @@
 from operator import add
-from typing import Annotated
-
-from typing_extensions import Literal, TypedDict
+from typing import Annotated, Literal
 
 from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
 
 
 class SupervisorState(TypedDict):

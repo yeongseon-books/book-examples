@@ -11,7 +11,9 @@ def run_demo() -> dict[str, object]:
     router = RouterSim({"/": lambda _: "notes", "/notes/:id": lambda p: p["id"]})
     fetch = MockFetch({"/notes": {"items": [{"id": "1", "title": "A"}]}})
     data = fetch.get("/notes")
-    comp = ComponentSim(props={"title": "notes"}, state={"notes": data["items"]}, renderer=render_note)
+    comp = ComponentSim(
+        props={"title": "notes"}, state={"notes": data["items"]}, renderer=render_note
+    )
     validator = FormValidator()
     bundle = BundleSimulator()
     out = bundle.minify(bundle.concat(["const app=1;", "console.log(app);"]))

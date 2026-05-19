@@ -19,7 +19,7 @@ def search_docs(keyword: str) -> str:
 def run_tool_loop(question: str) -> str:
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
-        api_key=cast(Any, os.environ["GROQ_API_KEY"]),
+        api_key=cast("Any", os.environ["GROQ_API_KEY"]),
         stop_sequences=None,
     )
     llm_with_tools: Any = llm.bind_tools([search_docs])
@@ -28,13 +28,15 @@ def run_tool_loop(question: str) -> str:
     for _ in range(3):
         response: Any = llm_with_tools.invoke(messages)
         messages.append(response)
-        tool_calls = cast(list[dict[str, Any]], getattr(response, "tool_calls", []))
+        tool_calls = cast("list[dict[str, Any]]", getattr(response, "tool_calls", []))
         if not tool_calls:
             content = response.content
             return content if isinstance(content, str) else str(content)
 
         for tool_call in tool_calls:
-            result = cast(Any, search_docs).invoke(cast(dict[str, Any], tool_call["args"]))
+            result = cast("Any", search_docs).invoke(
+                cast("dict[str, Any]", tool_call["args"])
+            )
             messages.append(
                 ToolMessage(
                     content=result,

@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 
-def choose_plan(needs_vnet: bool, strict_cold_start: bool, existing_app_service: bool) -> str:
+def choose_plan(
+    needs_vnet: bool, strict_cold_start: bool, existing_app_service: bool
+) -> str:
     if existing_app_service:
         return "Dedicated"
     if strict_cold_start:

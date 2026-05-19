@@ -12,7 +12,14 @@ class Token:
 def tokenize(source: str) -> list[Token]:
     out: list[Token] = []
     i = 0
-    mapping = {"+": "PLUS", "-": "MINUS", "*": "STAR", "/": "SLASH", "(": "LPAREN", ")": "RPAREN"}
+    mapping = {
+        "+": "PLUS",
+        "-": "MINUS",
+        "*": "STAR",
+        "/": "SLASH",
+        "(": "LPAREN",
+        ")": "RPAREN",
+    }
     while i < len(source):
         ch = source[i]
         if ch.isspace():

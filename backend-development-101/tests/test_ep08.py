@@ -1,6 +1,5 @@
-from fastapi.testclient import TestClient
-
 from conftest import load_module
+from fastapi.testclient import TestClient
 
 
 def test_ep08_dependency_override_for_tests() -> None:

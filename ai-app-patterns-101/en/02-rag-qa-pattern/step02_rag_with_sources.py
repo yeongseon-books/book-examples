@@ -1,8 +1,13 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 from retrieval import SimpleVectorStore
-
 
 DOCUMENTS = [
     {
@@ -25,16 +30,23 @@ def run_rag_with_sources() -> None:
     store = SimpleVectorStore(DOCUMENTS)
     question = "Why is source attribution important in a production RAG service?"
     retrieved = store.search(question, top_k=3)
-    context = "\n\n".join(f"Source: {item.source}\nContent: {item.content}" for item in retrieved)
+    context = "\n\n".join(
+        f"Source: {item.source}\nContent: {item.content}" for item in retrieved
+    )
 
     messages = [
         {
             "role": "system",
             "content": "Answer in English and end with a bullet list named 'Sources used'.",
         },
-        {"role": "user", "content": f"Question: {question}\n\nReference context:\n{context}"},
+        {
+            "role": "user",
+            "content": f"Question: {question}\n\nReference context:\n{context}",
+        },
     ]
-    response = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2)
+    response = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0.2
+    )
     answer = response_text(response.choices[0].message)
 
     print_section("Question")

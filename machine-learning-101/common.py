@@ -6,7 +6,6 @@ import numpy as np
 from sklearn.datasets import make_classification, make_regression
 from sklearn.metrics import accuracy_score, mean_squared_error, r2_score
 
-
 SEED = 42
 
 

@@ -7,6 +7,7 @@ Step 03 — temperature 비교
 같은 프롬프트를 temperature=0.0과 0.9로 각각 호출해
 일관성과 다양성의 차이를 출력합니다.
 """
+
 import os
 
 from groq import Groq

@@ -25,7 +25,9 @@ def build_faiss_index(vectors: np.ndarray, factory: str):
     return index
 
 
-def faiss_search(index, query_vectors: np.ndarray, doc_ids: list[str], limit: int) -> tuple[list[list[str]], float]:
+def faiss_search(
+    index, query_vectors: np.ndarray, doc_ids: list[str], limit: int
+) -> tuple[list[list[str]], float]:
     queries32 = np.ascontiguousarray(query_vectors, dtype="float32")
     started = time.perf_counter()
     _, indices = index.search(queries32, limit)

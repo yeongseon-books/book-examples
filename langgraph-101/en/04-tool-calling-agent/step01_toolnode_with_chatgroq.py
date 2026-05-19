@@ -21,7 +21,9 @@ def get_meeting_room_status(room_name: str) -> str:
         "aurora": "It is free until 3 PM.",
         "nova": "It is reserved from 2 PM to 4 PM.",
     }
-    return rooms.get(room_name.lower(), f"There is no registered information for {room_name}.")
+    return rooms.get(
+        room_name.lower(), f"There is no registered information for {room_name}."
+    )
 
 
 def build_model() -> ChatGroq:
@@ -34,7 +36,12 @@ def build_model() -> ChatGroq:
 def assistant_node(state: AgentState):
     model = build_model().bind_tools([get_meeting_room_status])
     response = model.invoke(
-        [SystemMessage(content="Always answer in English and use a tool first when it helps.")] + state["messages"]
+        [
+            SystemMessage(
+                content="Always answer in English and use a tool first when it helps."
+            )
+        ]
+        + state["messages"]
     )
     return {"messages": [response]}
 
@@ -51,7 +58,9 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    result = graph.invoke({"messages": [HumanMessage(content="Can I use the nova room right now?")]})
+    result = graph.invoke(
+        {"messages": [HumanMessage(content="Can I use the nova room right now?")]}
+    )
 
     print("\nMessage log")
     for message in result["messages"]:

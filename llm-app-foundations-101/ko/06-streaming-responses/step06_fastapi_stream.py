@@ -1,4 +1,3 @@
-\
 """
 Step 06 — FastAPI StreamingResponse
 ======================================================
@@ -7,6 +6,7 @@ Step 06 — FastAPI StreamingResponse
 
 브라우저나 curl에서 Groq 스트림을 SSE로 확인합니다.
 """
+
 import os
 
 from fastapi import FastAPI

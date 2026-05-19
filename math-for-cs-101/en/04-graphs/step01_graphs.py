@@ -1,8 +1,6 @@
-from common import bfs, dfs
-
-
 def has_cycle_directed(graph):
     color = {node: 0 for node in graph}
+
     def visit(node):
         color[node] = 1
         for nxt in graph.get(node, []):
@@ -12,4 +10,5 @@ def has_cycle_directed(graph):
                 return True
         color[node] = 2
         return False
+
     return any(visit(node) for node in graph if color[node] == 0)

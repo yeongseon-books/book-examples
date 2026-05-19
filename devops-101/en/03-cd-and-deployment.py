@@ -7,15 +7,22 @@ def simulate_canary(version: str) -> dict[str, object]:
     for traffic in phases:
         timeline.append(
             {
-                'phase': f'canary-{traffic}',
-                'version': version,
-                'traffic_percent': traffic,
-                'healthy_instances': 10,
-                'unhealthy_instances': 0,
+                "phase": f"canary-{traffic}",
+                "version": version,
+                "traffic_percent": traffic,
+                "healthy_instances": 10,
+                "unhealthy_instances": 0,
             }
         )
-    return {'strategy': 'canary', 'timeline': timeline, 'zero_downtime': _is_healthy(timeline)}
+    return {
+        "strategy": "canary",
+        "timeline": timeline,
+        "zero_downtime": _is_healthy(timeline),
+    }
 
 
 def _is_healthy(timeline: list[dict[str, object]]) -> bool:
-    return all(item['healthy_instances'] > 0 and item['unhealthy_instances'] == 0 for item in timeline)
+    return all(
+        item["healthy_instances"] > 0 and item["unhealthy_instances"] == 0
+        for item in timeline
+    )

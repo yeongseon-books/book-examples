@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 build_deploy_plan = load_module(
     "ko/04-deployment-and-kudu/step01_deploy_contract.py", "ep04"
 ).build_deploy_plan

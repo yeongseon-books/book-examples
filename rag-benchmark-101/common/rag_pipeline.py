@@ -12,14 +12,25 @@ from common.models import BenchmarkConfig, FullBenchmarkResult, PipelineCase
 from common.retrieval import compute_retrieval_metrics
 
 
-def answer_with_groq(question: str, context: str, prompt_template: str, model: str = "llama-3.1-8b-instant") -> str:
+def answer_with_groq(
+    question: str,
+    context: str,
+    prompt_template: str,
+    model: str = "llama-3.1-8b-instant",
+) -> str:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     response = client.chat.completions.create(
         model=model,
         temperature=0.0,
         messages=[
-            {"role": "system", "content": "Answer only from the provided context. If the answer is missing, say so clearly."},
-            {"role": "user", "content": prompt_template.format(question=question, context=context)},
+            {
+                "role": "system",
+                "content": "Answer only from the provided context. If the answer is missing, say so clearly.",
+            },
+            {
+                "role": "user",
+                "content": prompt_template.format(question=question, context=context),
+            },
         ],
     )
     return response.choices[0].message.content or ""
@@ -46,12 +57,16 @@ def run_pipeline_benchmark(
         started = time.perf_counter()
         query_vector = build_embeddings([case.question], config.embedding_model)[0]
         ranked_ids = cosine_ranking(query_vector, doc_vectors, doc_ids, config.top_k)
-        retrieved_docs = [next(doc for doc in corpus if doc["id"] == doc_id) for doc_id in ranked_ids]
+        retrieved_docs = [
+            next(doc for doc in corpus if doc["id"] == doc_id) for doc_id in ranked_ids
+        ]
         context = "\n\n".join(doc["text"] for doc in retrieved_docs)
         answer = answer_with_groq(case.question, context, config.answer_prompt)
         latencies.append((time.perf_counter() - started) * 1000)
 
-        retrieval = compute_retrieval_metrics(ranked_ids, case.relevant_ids, config.top_k)
+        retrieval = compute_retrieval_metrics(
+            ranked_ids, case.relevant_ids, config.top_k
+        )
         judge = evaluate_generation(case.question, context, answer, language)
         precisions.append(retrieval.precision_at_k)
         recalls.append(retrieval.recall_at_k)

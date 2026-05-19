@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+from common import make_imbalanced, safe_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, roc_auc_score
-
-from common import make_imbalanced, safe_split
 
 
 def run(seed: int = 42) -> dict[str, float]:

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from common import CSSAnalyzer
 
-
 HTML_SAMPLE = """<main><article class="card">x</article></main>"""
 CSS_SAMPLE = """:root { --color-primary: #1d72ff; } .card { color: var(--color-primary); } .unused { color: #fff; }"""
 

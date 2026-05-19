@@ -13,7 +13,9 @@ class Relation:
         return all((b, a) in self.pairs for a, b in self.pairs)
 
     def is_transitive(self):
-        return all((a, c) in self.pairs for a, b in self.pairs for x, c in self.pairs if b == x)
+        return all(
+            (a, c) in self.pairs for a, b in self.pairs for x, c in self.pairs if b == x
+        )
 
     def equivalence_classes(self):
         uf = UnionFind(self.universe)

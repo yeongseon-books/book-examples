@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import numpy as np
-
 from common import cosine_similarity_matrix, embed_texts
 
 

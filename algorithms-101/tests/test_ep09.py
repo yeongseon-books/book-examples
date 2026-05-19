@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 ko = load_module("ko/09-string-algorithms/step01_kmp_search.py", "ko_ep09")
 
 

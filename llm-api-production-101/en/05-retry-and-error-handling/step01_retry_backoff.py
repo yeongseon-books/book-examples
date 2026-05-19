@@ -31,7 +31,7 @@ def call_with_retry(
         try:
             completion = client.chat.completions.create(
                 model="llama-3.1-8b-instant",
-                messages=cast(Any, messages),
+                messages=cast("Any", messages),
                 temperature=0.2,
             )
             return completion.choices[0].message.content or ""
@@ -39,10 +39,14 @@ def call_with_retry(
             last_exc = exc
             error_type = classify_error(exc)
             if error_type is PermanentError:
-                raise PermanentError(f"Permanent error returned. status={exc.status_code}") from exc
+                raise PermanentError(
+                    f"Permanent error returned. status={exc.status_code}"
+                ) from exc
             if attempt < max_retries:
                 delay = base_delay * (2**attempt)
-                print(f"[retry {attempt + 1}] status={exc.status_code}, waiting {delay:.1f}s")
+                print(
+                    f"[retry {attempt + 1}] status={exc.status_code}, waiting {delay:.1f}s"
+                )
                 time.sleep(delay)
         except Exception as exc:
             last_exc = exc

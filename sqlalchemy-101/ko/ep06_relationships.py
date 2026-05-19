@@ -1,6 +1,5 @@
-from sqlalchemy.orm import Session
-
 from common import Post, Tag, User, create_schema, sync_engine
+from sqlalchemy.orm import Session
 
 
 def run() -> tuple[int, int]:

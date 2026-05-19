@@ -1,4 +1,3 @@
-\
 """
 Step 02 — zero-shot과 few-shot 비교
 ======================================================
@@ -8,6 +7,7 @@ Step 02 — zero-shot과 few-shot 비교
 같은 티켓을 zero-shot과 few-shot으로 각각 보내
 출력 형식 안정성 차이를 비교합니다.
 """
+
 import os
 
 from groq import Groq
@@ -48,7 +48,10 @@ def main() -> None:
                     "reason: 환불 반영 지연은 결제 후속 처리 문제다."
                 ),
             },
-            {"role": "user", "content": "2단계 인증 코드를 받아도 로그인이 되지 않습니다."},
+            {
+                "role": "user",
+                "content": "2단계 인증 코드를 받아도 로그인이 되지 않습니다.",
+            },
             {
                 "role": "assistant",
                 "content": (

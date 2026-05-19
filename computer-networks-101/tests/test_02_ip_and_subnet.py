@@ -1,4 +1,5 @@
 import ipaddress
+
 from tests._loader import load_ko
 
 

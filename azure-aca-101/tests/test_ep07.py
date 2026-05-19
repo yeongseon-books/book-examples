@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module(
     "ko/07-monitoring-and-ops/step01_observability_queries.py", "ep07"
 ).run

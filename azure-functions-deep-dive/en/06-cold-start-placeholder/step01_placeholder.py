@@ -9,7 +9,9 @@ from common import FUNC_CLI_SAMPLE, specialize_placeholder
 
 
 def run(container_ready: bool, first_request: bool) -> dict[str, object]:
-    result = specialize_placeholder(container_ready=container_ready, first_request=first_request)
+    result = specialize_placeholder(
+        container_ready=container_ready, first_request=first_request
+    )
     result["ops_hint"] = FUNC_CLI_SAMPLE
     return result
 

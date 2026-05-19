@@ -1,4 +1,5 @@
-from ko.ep07_memory_management import simulate_ref_count, mark_and_sweep
+from ko.ep07_memory_management import mark_and_sweep, simulate_ref_count
+
 
 def test_ep07_memory_simulators():
     graph = {"a": ["b"], "b": [], "c": []}

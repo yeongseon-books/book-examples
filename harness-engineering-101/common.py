@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+import json
+from collections.abc import Callable
+from dataclasses import dataclass
 from pathlib import Path
 from time import perf_counter
-import json
-import re
-from typing import Any, Callable
+from typing import Any
 
 
 @dataclass
@@ -32,7 +32,9 @@ class MockLLM:
 
 
 class TaskHarness:
-    def run(self, spec: TaskSpec, worker: Callable[[TaskSpec], dict[str, Any]]) -> dict[str, Any]:
+    def run(
+        self, spec: TaskSpec, worker: Callable[[TaskSpec], dict[str, Any]]
+    ) -> dict[str, Any]:
         if not spec.goal.strip():
             raise ValueError("goal is required")
         if not spec.output_keys:
@@ -59,7 +61,9 @@ class ContextHarness:
 
 
 class ConstraintHarness:
-    def __init__(self, forbidden_tokens: list[str], max_length: int, require_json: bool = False) -> None:
+    def __init__(
+        self, forbidden_tokens: list[str], max_length: int, require_json: bool = False
+    ) -> None:
         self.forbidden_tokens = forbidden_tokens
         self.max_length = max_length
         self.require_json = require_json
@@ -113,11 +117,13 @@ class TestHarness:
         rows: list[dict[str, Any]] = []
         for case in cases:
             out = llm.complete(case.prompt)
-            rows.append({
-                "name": case.name,
-                "passed": case.expected_substring in out,
-                "output": out,
-            })
+            rows.append(
+                {
+                    "name": case.name,
+                    "passed": case.expected_substring in out,
+                    "output": out,
+                }
+            )
         return rows
 
 
@@ -125,7 +131,9 @@ class FeedbackLoop:
     def __init__(self, max_iterations: int = 3) -> None:
         self.max_iterations = max_iterations
 
-    def run(self, initial: str, improve: Callable[[str], str], score: Callable[[str], int]) -> tuple[str, int]:
+    def run(
+        self, initial: str, improve: Callable[[str], str], score: Callable[[str], int]
+    ) -> tuple[str, int]:
         current = initial
         current_score = score(current)
         for i in range(self.max_iterations):
@@ -198,7 +206,13 @@ class ProductionHarness:
         self.approval = approval
         self.observability = observability
 
-    def run(self, spec: TaskSpec, context_items: list[str], tool_name: str, tool_args: dict[str, Any]) -> dict[str, Any]:
+    def run(
+        self,
+        spec: TaskSpec,
+        context_items: list[str],
+        tool_name: str,
+        tool_args: dict[str, Any],
+    ) -> dict[str, Any]:
         def worker(_: TaskSpec) -> dict[str, Any]:
             ctx = self.context.build(context_items, query=spec.goal)
             decision = self.approval.decide(approved=True)
@@ -207,7 +221,12 @@ class ProductionHarness:
             tool_result = self.tools.invoke(tool_name, tool_args)
             output = self.llm.complete(spec.goal)
             self.constraints.validate_output(output)
-            return {"status": "ok", "context": ctx, "tool": tool_result, "output": output}
+            return {
+                "status": "ok",
+                "context": ctx,
+                "tool": tool_result,
+                "output": output,
+            }
 
         result = self.observability.time_call(lambda: self.task.run(spec, worker))
         self.observability.log_event("pipeline_complete", {"status": result["status"]})

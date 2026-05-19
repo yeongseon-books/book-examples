@@ -1,6 +1,5 @@
 import random
 
-
 SYN = {"fast": "quick", "important": "critical", "quality": "reliability"}
 
 

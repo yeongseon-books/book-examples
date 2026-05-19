@@ -1,4 +1,3 @@
-\
 """
 Step 02 — Keep the full conversation history
 ======================================================
@@ -8,8 +7,8 @@ Run:
 Accumulate every user and assistant turn in one history list
 to preserve multi-turn context.
 """
+
 import os
-from typing import Any
 
 from groq import Groq
 from groq.types.chat import ChatCompletionMessageParam

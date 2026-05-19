@@ -4,11 +4,10 @@ from typing import Any, cast
 
 import numpy as np
 import pandas as pd
+from common import make_synthetic_classification
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.inspection import permutation_importance
 from sklearn.model_selection import train_test_split
-
-from common import make_synthetic_classification
 
 
 def interpret_results(seed: int = 42) -> str:
@@ -25,7 +24,7 @@ def interpret_results(seed: int = 42) -> str:
         ascending=False
     )
     perm = permutation_importance(model, X_test, y_test, n_repeats=8, random_state=seed)
-    importances_mean = np.asarray(cast(Any, perm).importances_mean)
+    importances_mean = np.asarray(cast("Any", perm).importances_mean)
     pi = pd.Series(importances_mean, index=X.columns).sort_values(ascending=False)
     top = fi.index[0]
     effect = np.sign(np.corrcoef(X_test[top], model.predict_proba(X_test)[:, 1])[0, 1])

@@ -10,10 +10,10 @@ def run():
     cosine = dot / norms
     euclidean = np.linalg.norm(docs - q, axis=1)
     manhattan = np.sum(np.abs(docs - q), axis=1)
-    print('cosine:', cosine)
-    print('euclidean:', euclidean)
-    return {'cosine': cosine, 'euclidean': euclidean, 'manhattan': manhattan}
+    print("cosine:", cosine)
+    print("euclidean:", euclidean)
+    return {"cosine": cosine, "euclidean": euclidean, "manhattan": manhattan}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()

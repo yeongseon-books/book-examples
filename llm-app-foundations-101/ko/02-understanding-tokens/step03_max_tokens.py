@@ -1,4 +1,3 @@
-\
 """
 Step 03 — max_tokens로 출력 길이 제어
 ======================================================
@@ -8,6 +7,7 @@ Step 03 — max_tokens로 출력 길이 제어
 max_tokens를 작게 설정해 응답을 의도적으로 자른 뒤
 completion_tokens와 finish_reason을 확인합니다.
 """
+
 import os
 
 from groq import Groq

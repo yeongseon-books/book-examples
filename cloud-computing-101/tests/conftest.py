@@ -11,7 +11,7 @@ def load_module(relative_path: str, module_name: str) -> ModuleType:
     path = ROOT / relative_path
     spec = importlib.util.spec_from_file_location(module_name, path)
     if spec is None or spec.loader is None:
-        raise RuntimeError(f'cannot load module: {relative_path}')
+        raise RuntimeError(f"cannot load module: {relative_path}")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module

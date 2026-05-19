@@ -1,8 +1,7 @@
 import importlib.util
 import json
-from pathlib import Path
 import sys
-
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
@@ -55,9 +54,8 @@ def test_ep05_trace_parent_child_relationship():
     from common import Tracer
 
     tracer = Tracer()
-    with tracer.start_span("root"):
-        with tracer.start_span("child"):
-            pass
+    with tracer.start_span("root"), tracer.start_span("child"):
+        pass
     spans = {s.name: s for s in tracer.spans}
     assert spans["child"].parent_id == spans["root"].span_id
 

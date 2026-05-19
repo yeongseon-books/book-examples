@@ -21,7 +21,9 @@ def search_team_calendar(team_name: str) -> str:
         "platform": "Wednesday deployment rehearsal, Friday incident drill",
         "data": "Tuesday metrics review, Thursday pipeline check",
     }
-    return calendar.get(team_name.lower(), f"No schedule is registered for the {team_name} team.")
+    return calendar.get(
+        team_name.lower(), f"No schedule is registered for the {team_name} team."
+    )
 
 
 @tool
@@ -45,7 +47,11 @@ def assistant_node(state: AgentState):
     tools = [search_team_calendar, lookup_lunch_menu]
     model = build_model().bind_tools(tools)
     response = model.invoke(
-        [SystemMessage(content="Use tools before answering schedule or menu questions, then summarize in English.")]
+        [
+            SystemMessage(
+                content="Use tools before answering schedule or menu questions, then summarize in English."
+            )
+        ]
         + state["messages"]
     )
     return {"messages": [response]}
@@ -64,7 +70,9 @@ def build_graph():
     builder.add_node("assistant", assistant_node)
     builder.add_node("tools", ToolNode(tools))
     builder.add_edge(START, "assistant")
-    builder.add_conditional_edges("assistant", should_continue, {"tools": "tools", END: END})
+    builder.add_conditional_edges(
+        "assistant", should_continue, {"tools": "tools", END: END}
+    )
     builder.add_edge("tools", "assistant")
     return builder.compile()
 
@@ -72,7 +80,13 @@ def build_graph():
 if __name__ == "__main__":
     graph = build_graph()
     result = graph.invoke(
-        {"messages": [HumanMessage(content="Tell me the platform team schedule and the Wednesday lunch menu.")]}
+        {
+            "messages": [
+                HumanMessage(
+                    content="Tell me the platform team schedule and the Wednesday lunch menu."
+                )
+            ]
+        }
     )
 
     print("\nAgent loop result")

@@ -20,7 +20,9 @@ def main() -> None:
     doc_vectors = build_embeddings(doc_texts, "sentence-transformers/all-MiniLM-L6-v2")
 
     def search(query: str, limit: int) -> list[str]:
-        query_vector = build_embeddings([query], "sentence-transformers/all-MiniLM-L6-v2")[0]
+        query_vector = build_embeddings(
+            [query], "sentence-transformers/all-MiniLM-L6-v2"
+        )[0]
         return cosine_ranking(query_vector, doc_vectors, doc_ids, limit)
 
     result = run_retrieval_benchmark(QUERIES, search, [1, 3, 5])

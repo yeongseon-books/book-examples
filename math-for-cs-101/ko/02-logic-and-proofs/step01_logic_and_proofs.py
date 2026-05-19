@@ -1,6 +1,3 @@
-from common import truth_table
-
-
 def implies(p, q):
     return (not p) or q
 

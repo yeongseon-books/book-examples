@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 mod = load_module("ko/09-parallelism-and-multicore.py", "ep09")
 
 

@@ -1,14 +1,22 @@
 from __future__ import annotations
 
-from common import DEFAULT_MODEL, as_messages, build_client, print_section, response_text
-
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    build_client,
+    print_section,
+    response_text,
+)
 
 SYSTEM_PROMPT = "당신은 한국어로 답하는 AI 코치입니다. 기존 대화 요약을 참고해 연속성 있게 답하세요."
 
 
 def summarize_history(client, history: list[dict[str, str]]) -> str:
     summary_messages = [
-        {"role": "system", "content": "대화 이력을 5문장 이내의 한국어 요약으로 압축하세요."},
+        {
+            "role": "system",
+            "content": "대화 이력을 5문장 이내의 한국어 요약으로 압축하세요.",
+        },
         {"role": "user", "content": str(history)},
     ]
     response = client.chat.completions.create(

@@ -59,7 +59,12 @@ def main() -> None:
         if bucket.acquire(tokens=1):
             completion = client.chat.completions.create(
                 model="llama-3.1-8b-instant",
-                messages=[{"role": "user", "content": f"Question {index + 1}: what is a Python f-string?"}],
+                messages=[
+                    {
+                        "role": "user",
+                        "content": f"Question {index + 1}: what is a Python f-string?",
+                    }
+                ],
                 temperature=0.0,
             )
             content = completion.choices[0].message.content or ""

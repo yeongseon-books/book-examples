@@ -1,5 +1,5 @@
-from conftest import load_module
 from common import load_yaml
+from conftest import load_module
 
 
 def test_ep05_ingress_yaml_shape() -> None:

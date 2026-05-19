@@ -10,11 +10,11 @@ def run():
     dot = float(v @ w)
     norm = float(np.linalg.norm(v))
     unit = v / norm
-    print('dot:', dot)
-    print('norm:', norm)
-    print('unit norm:', np.linalg.norm(unit))
-    return {'added': added, 'scaled': scaled, 'dot': dot, 'norm': norm, 'unit': unit}
+    print("dot:", dot)
+    print("norm:", norm)
+    print("unit norm:", np.linalg.norm(unit))
+    return {"added": added, "scaled": scaled, "dot": dot, "norm": norm, "unit": unit}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()

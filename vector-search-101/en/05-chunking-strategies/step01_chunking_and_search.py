@@ -1,5 +1,4 @@
 import faiss
-import numpy as np
 from sentence_transformers import SentenceTransformer
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
@@ -32,15 +31,21 @@ def main() -> None:
 
     for size, overlap in [(12, 3), (20, 5)]:
         chunks = fixed_size_chunks(DOCUMENT, size=size, overlap=overlap)
-        vectors = model.encode(chunks, normalize_embeddings=True, convert_to_numpy=True).astype("float32")
+        vectors = model.encode(
+            chunks, normalize_embeddings=True, convert_to_numpy=True
+        ).astype("float32")
         index = faiss.IndexFlatIP(vectors.shape[1])
         index.add(vectors)  # pyright: ignore[reportCallIssue]
 
-        query_vector = model.encode([query], normalize_embeddings=True, convert_to_numpy=True).astype("float32")
+        query_vector = model.encode(
+            [query], normalize_embeddings=True, convert_to_numpy=True
+        ).astype("float32")
         scores, indices = index.search(query_vector, 2)  # pyright: ignore[reportCallIssue]
 
         print(f"size={size}, overlap={overlap}, chunk_count={len(chunks)}")
-        for rank, (chunk_index, score) in enumerate(zip(indices[0], scores[0], strict=False), start=1):
+        for rank, (chunk_index, score) in enumerate(
+            zip(indices[0], scores[0], strict=False), start=1
+        ):
             preview = chunks[int(chunk_index)]
             print(f"  {rank}. score={float(score):.4f} | {preview}")
         print()

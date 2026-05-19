@@ -6,9 +6,7 @@ def insecure_action(role: str) -> bool:
 
 
 def safe_action(role: str) -> bool:
-    if role != "admin":
-        return False
-    return True
+    return role == "admin"
 
 
 def run_demo():

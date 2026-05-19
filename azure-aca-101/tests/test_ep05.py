@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module("ko/05-scaling-with-keda/step01_keda_scaling.py", "ep05").run
 
 

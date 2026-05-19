@@ -1,14 +1,16 @@
 """에피소드 10: 표준 라이브러리만으로 선형 회귀(경사하강법)"""
 
 
-def train_linear_regression(xs: list[float], ys: list[float], lr: float = 0.01, epochs: int = 3000) -> tuple[float, float]:
+def train_linear_regression(
+    xs: list[float], ys: list[float], lr: float = 0.01, epochs: int = 3000
+) -> tuple[float, float]:
     w = 0.0
     b = 0.0
     n = len(xs)
     for _ in range(epochs):
         dw = 0.0
         db = 0.0
-        for x, y in zip(xs, ys):
+        for x, y in zip(xs, ys, strict=False):
             pred = w * x + b
             err = pred - y
             dw += err * x

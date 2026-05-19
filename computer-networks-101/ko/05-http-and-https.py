@@ -1,9 +1,9 @@
 import http.client
 import http.server
 import json
-from typing import cast
 import socketserver
 import threading
+from typing import cast
 
 
 def parse_http_request(raw: str) -> dict[str, object]:
@@ -14,10 +14,18 @@ def parse_http_request(raw: str) -> dict[str, object]:
     for line in lines[1:]:
         key, value = line.split(":", 1)
         headers[key.strip().lower()] = value.strip()
-    return {"method": method, "path": path, "version": version, "headers": headers, "body": body}
+    return {
+        "method": method,
+        "path": path,
+        "version": version,
+        "headers": headers,
+        "body": body,
+    }
 
 
-def build_http_response(status: int, body: str, content_type: str = "text/plain") -> bytes:
+def build_http_response(
+    status: int, body: str, content_type: str = "text/plain"
+) -> bytes:
     payload = body.encode()
     lines = [
         f"HTTP/1.1 {status} OK",
@@ -48,7 +56,7 @@ def run_local_http_demo() -> dict[str, object]:
         conn = http.client.HTTPConnection("127.0.0.1", int(port), timeout=2)
         conn.request("GET", "/health")
         response = conn.getresponse()
-        data = cast(dict[str, object], json.loads(response.read().decode()))
+        data = cast("dict[str, object]", json.loads(response.read().decode()))
         conn.close()
         thread.join(timeout=1.0)
         return {"status": response.status, "path": data["path"]}

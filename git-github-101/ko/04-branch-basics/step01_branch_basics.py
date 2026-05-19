@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+
 from common import cleanup_dir, make_temp_repo, run_git, write_file
 
 

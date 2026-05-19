@@ -1,8 +1,7 @@
+from common import make_clf_dataset
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, roc_auc_score
 from sklearn.model_selection import cross_val_score, train_test_split
-
-from common import make_clf_dataset
 
 
 def run() -> dict[str, float]:

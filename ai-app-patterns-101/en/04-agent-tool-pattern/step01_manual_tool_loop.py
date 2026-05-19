@@ -2,7 +2,14 @@ from __future__ import annotations
 
 import json
 
-from common import DEFAULT_MODEL, as_messages, as_tools, build_client, print_section, response_text
+from common import (
+    DEFAULT_MODEL,
+    as_messages,
+    as_tools,
+    build_client,
+    print_section,
+    response_text,
+)
 
 
 def lookup_shipping_status(order_id: str) -> str:
@@ -34,8 +41,14 @@ TOOLS = [
 def run_agent() -> None:
     client = build_client()
     messages: list[dict] = [
-        {"role": "system", "content": "You are a customer support agent. Use tools when needed."},
-        {"role": "user", "content": "Please check the shipping status for order ORD-100."},
+        {
+            "role": "system",
+            "content": "You are a customer support agent. Use tools when needed.",
+        },
+        {
+            "role": "user",
+            "content": "Please check the shipping status for order ORD-100.",
+        },
     ]
 
     first = client.chat.completions.create(
@@ -77,7 +90,9 @@ def run_agent() -> None:
             }
         )
 
-    final = client.chat.completions.create(model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0)
+    final = client.chat.completions.create(
+        model=DEFAULT_MODEL, messages=as_messages(messages), temperature=0
+    )
     print_section("Final answer")
     print(response_text(final.choices[0].message))
 

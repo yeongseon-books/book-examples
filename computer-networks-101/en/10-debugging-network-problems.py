@@ -34,7 +34,9 @@ def analyze_packet_log(raw_json_lines: str) -> dict[str, object]:
     return {
         "avg_rtt_ms": round(mean(rtts) * 1000, 3) if rtts else 0.0,
         "retransmits": retransmits,
-        "syn_flood_sources": sorted([ip for ip, count in syn_count.items() if count >= 3]),
+        "syn_flood_sources": sorted(
+            [ip for ip, count in syn_count.items() if count >= 3]
+        ),
     }
 
 

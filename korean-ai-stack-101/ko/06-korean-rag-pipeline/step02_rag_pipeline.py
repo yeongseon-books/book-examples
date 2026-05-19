@@ -28,8 +28,12 @@ def require_api_key() -> str:
 
 def retrieve(question: str, documents: list[str], top_k: int = 2) -> list[str]:
     model = SentenceTransformer(MODEL_NAME)
-    embeddings = model.encode(documents, normalize_embeddings=True, convert_to_numpy=True).astype("float32")
-    question_embedding = model.encode([question], normalize_embeddings=True, convert_to_numpy=True).astype("float32")
+    embeddings = model.encode(
+        documents, normalize_embeddings=True, convert_to_numpy=True
+    ).astype("float32")
+    question_embedding = model.encode(
+        [question], normalize_embeddings=True, convert_to_numpy=True
+    ).astype("float32")
     index: Any = faiss.IndexFlatIP(embeddings.shape[1])
     index.add(embeddings)
     _, indices = index.search(question_embedding, top_k)
@@ -47,7 +51,10 @@ def generate_answer(question: str, contexts: list[str]) -> str:
     response = client.chat.completions.create(
         model=LLM_NAME,
         messages=[
-            {"role": "system", "content": "당신은 검색 기반 답변을 간결하게 작성하는 도우미입니다."},
+            {
+                "role": "system",
+                "content": "당신은 검색 기반 답변을 간결하게 작성하는 도우미입니다.",
+            },
             {"role": "user", "content": prompt},
         ],
         temperature=0.3,

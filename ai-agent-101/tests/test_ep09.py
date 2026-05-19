@@ -1,6 +1,5 @@
 from conftest import load_module
 
-
 run = load_module(
     "ko/09-production-operations/step01_observability_cost.py", "ep09"
 ).run

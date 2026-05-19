@@ -4,10 +4,13 @@ from __future__ import annotations
 
 # 한국어 주석: 오프라인 검증 예제입니다.
 
+
 def run() -> dict[str, object]:
     report = {
         "question": "Docker가 해결하는 문제",
-        "answer": "애플리케이션과 의존성을 동일 환경으로 묶어 환경 표류를 줄입니다." if __name__.startswith("ko") else "Docker bundles app and dependencies to reduce environment drift.",
+        "answer": "애플리케이션과 의존성을 동일 환경으로 묶어 환경 표류를 줄입니다."
+        if __name__.startswith("ko")
+        else "Docker bundles app and dependencies to reduce environment drift.",
         "keywords": ["image", "container", "registry"],
     }
     return {"success": True, "report": report}

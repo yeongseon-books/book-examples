@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Callable
-
 
 Weather = dict[str, str | int]
 

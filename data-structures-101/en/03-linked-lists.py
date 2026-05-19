@@ -3,7 +3,7 @@ from __future__ import annotations
 
 class Node:
     def __init__(
-        self, value: int, next: "Node | None" = None, prev: "Node | None" = None
+        self, value: int, next: Node | None = None, prev: Node | None = None
     ) -> None:
         self.value = value
         self.next = next

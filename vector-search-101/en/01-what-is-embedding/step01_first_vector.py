@@ -18,7 +18,9 @@ def main() -> None:
     print(f"Vector dimension: {vectors.shape[1]}")
     print()
 
-    for index, (sentence, vector) in enumerate(zip(SENTENCES, vectors, strict=False), start=1):
+    for index, (sentence, vector) in enumerate(
+        zip(SENTENCES, vectors, strict=False), start=1
+    ):
         print(f"[{index}] Sentence: {sentence}")
         print(f"    Vector norm: {np.linalg.norm(vector):.4f}")
         print(f"    First 5 values: {vector[:5].tolist()}")

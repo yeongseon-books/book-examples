@@ -80,7 +80,7 @@ class SymmetricCipher:
     def encrypt(self, plaintext: bytes) -> str:
         nonce = secrets.token_bytes(12)
         ks = self._keystream(nonce, len(plaintext))
-        ciphertext = bytes(a ^ b for a, b in zip(plaintext, ks))
+        ciphertext = bytes(a ^ b for a, b in zip(plaintext, ks, strict=False))
         mac = hmac.new(self.key, nonce + ciphertext, hashlib.sha256).digest()
         return base64.urlsafe_b64encode(nonce + ciphertext + mac).decode()
 
@@ -92,7 +92,7 @@ class SymmetricCipher:
         if not hmac.compare_digest(mac, expected):
             raise ValueError("tampered token")
         ks = self._keystream(nonce, len(ciphertext))
-        return bytes(a ^ b for a, b in zip(ciphertext, ks))
+        return bytes(a ^ b for a, b in zip(ciphertext, ks, strict=False))
 
 
 class TLSCertParser:
@@ -215,7 +215,7 @@ class IncidentDetector:
             by_user.setdefault(str(e.get("user", "")), []).append(e)
         for _, user_events in by_user.items():
             user_events.sort(key=lambda x: x.get("ts", 0))
-            for first, second in zip(user_events, user_events[1:]):
+            for first, second in zip(user_events, user_events[1:], strict=False):
                 dt_h = max((second["ts"] - first["ts"]) / 3600.0, 1e-6)
                 speed = abs(second.get("km", 0) - first.get("km", 0)) / dt_h
                 if speed > max_km_per_h:

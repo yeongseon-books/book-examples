@@ -1,1 +1,1 @@
-from ko._06_network import *\n
+from ko._06_network import *

@@ -7,6 +7,7 @@ Run:
 Create a Groq client, send a message to llama-3.1-8b-instant,
 and print the response text.
 """
+
 import os
 
 from groq import Groq
