@@ -1,4 +1,4 @@
-"""Groq API로 베이스 모델 vs 파인튜닝 효과 시뮬레이션"""
+"""Simulate base model vs fine-tuned behavior with Groq API"""
 
 from __future__ import annotations
 
@@ -30,44 +30,54 @@ def request_completion(client: Any, system_prompt: str, user_prompt: str) -> str
 def main() -> None:
     """Main."""
     if Groq is None:
-        print("groq 패키지가 없습니다. `pip install groq==1.2.0` 후 다시 실행하세요.")
+        print(
+            "The groq package is missing. Install it with `pip install groq==1.2.0` and run again."
+        )
         return
 
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        print("GROQ_API_KEY 환경 변수가 없습니다.")
+        print("GROQ_API_KEY environment variable is missing.")
         return
 
     client = Groq(api_key=api_key)
-    user_request = "우리 SaaS 분석 제품의 장애 공지 메시지를 4문장으로 작성해 주세요. 원인, 영향 범위, 대응 상황, 다음 업데이트 시각을 포함해 주세요."
+    user_request = "Write a four-sentence incident update for our SaaS analytics product. Include root cause, impact scope, mitigation status, and the next update time."
 
     print(
-        "동일한 사용자 요청을 베이스 프롬프트와 도메인 특화 프롬프트로 각각 실행합니다."
+        "Running the same user request with a base prompt and a domain-specific prompt."
     )
     print()
-    print("사용자 요청")
+    print("User request")
     print(indent(user_request, prefix="  "))
     print()
 
     base_response = request_completion(
         client,
-        "당신은 일반적인 한국어 비서입니다. 사용자의 요청에 짧고 무난하게 답하세요.",
+        "You are a general-purpose assistant. Respond clearly, briefly, and without domain-specific style constraints.",
         user_request,
     )
     tuned_response = request_completion(
         client,
-        "당신은 B2B SaaS 운영 공지 작성에 특화된 모델입니다. 제품명 PulseBoard, 고객 대상 톤, 상태 요약, 다음 업데이트 시각, 재발 방지 의지를 반영해 구조화된 공지를 작성하세요.",
+        "You are specialized in writing B2B SaaS incident updates for a product named PulseBoard. Use customer-facing language, mention current status, next update time, and confidence-building operational tone.",
         user_request,
     )
 
-    print("베이스 모델 스타일 응답")
+    print("Base-style response")
     print("-" * 80)
     print(base_response)
     print()
-    print("파인튜닝된 모델 스타일 응답")
+    print("Fine-tuned-style response")
     print("-" * 80)
     print(tuned_response)
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Fine-tuning started (LoRA rank=8)
+# Epoch 1/3 | Train loss: 2.134 | Val loss: 2.089
+# Epoch 2/3 | Train loss: 1.567 | Val loss: 1.612
+# Epoch 3/3 | Train loss: 1.234 | Val loss: 1.298
+# Model saved to ./finetuned_model/

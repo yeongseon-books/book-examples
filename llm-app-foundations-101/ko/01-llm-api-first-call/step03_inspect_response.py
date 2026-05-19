@@ -1,11 +1,11 @@
 """
-Step 03 — 응답 구조 해부
+Step 03 — Inspect the response structure
 ======================================================
-실행:
+Run:
     python step03_inspect_response.py
 
-응답 전체를 JSON으로 출력하고,
-content / usage / model / finish_reason 필드를 읽습니다.
+Print the full response as JSON,
+then read content, usage, model, and finish_reason.
 """
 
 import json
@@ -23,19 +23,19 @@ def main() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "HTTP API와 SDK의 차이를 세 문장으로 설명해 주세요.",
+                "content": "Explain the difference between an HTTP API and an SDK in three sentences.",
             }
         ],
     )
 
-    print("=== 원본 응답 ===")
+    print("=== raw response ===")
     print(json.dumps(completion.to_dict(), indent=2, ensure_ascii=False))
 
-    print("\n=== 핵심 필드 ===")
+    print("\n=== key fields ===")
     text = completion.choices[0].message.content
     usage = completion.usage
     if usage is None:
-        raise RuntimeError("usage 정보를 받지 못했습니다.")
+        raise RuntimeError("Did not receive usage metadata.")
 
     print(f"content: {text}")
     print(f"model: {completion.model}")
@@ -48,3 +48,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Model: llama-3.1-8b-instant
+# Usage: prompt_tokens=14, completion_tokens=87, total_tokens=101
+# Finish reason: stop
+# Created: 2024-12-01 10:23:45

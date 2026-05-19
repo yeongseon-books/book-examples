@@ -16,13 +16,12 @@ class MultiAgentState(TypedDict):
 
 def router_node(state: MultiAgentState):
     """Router node."""
-    sales_keywords = ["가격", "요금", "구독"]
+    sales_keywords = ["price", "cost", "subscription"]
+    lowered = state["question"].lower()
     route = (
-        "sales"
-        if any(keyword in state["question"] for keyword in sales_keywords)
-        else "support"
+        "sales" if any(keyword in lowered for keyword in sales_keywords) else "support"
     )
-    print(f"[router_node] 선택된 에이전트: {route}")
+    print(f"[router_node] selected agent: {route}")
     return {"route": route}
 
 
@@ -34,14 +33,14 @@ def route_selector(state: MultiAgentState) -> str:
 def support_agent(state: MultiAgentState):
     """Support agent."""
     return {
-        "expert_answer": "지원 에이전트: 설정 화면의 체크포인터 옵션부터 확인해보세요."
+        "expert_answer": "Support agent: start by checking the checkpointer option in your graph setup."
     }
 
 
 def sales_agent(state: MultiAgentState):
     """Sales agent."""
     return {
-        "expert_answer": "세일즈 에이전트: 팀 플랜은 월간 사용량 기준으로 비용이 늘어납니다."
+        "expert_answer": "Sales agent: the team plan scales its cost with monthly usage."
     }
 
 
@@ -63,8 +62,14 @@ def build_graph():
 if __name__ == "__main__":
     graph = build_graph()
     final_state = graph.invoke(
-        {"question": "체크포인터를 켜면 이전 대화가 왜 이어지나요?"}
+        {"question": "Why does reusing thread_id continue the previous conversation?"}
     )
 
-    print("\n최종 응답")
+    print("\nFinal reply")
     print(final_state["expert_answer"])
+
+
+# Expected output:
+# Input: 'Write a poem about coding'
+# Router → creative_agent
+# Response: In lines of code, we find our art...

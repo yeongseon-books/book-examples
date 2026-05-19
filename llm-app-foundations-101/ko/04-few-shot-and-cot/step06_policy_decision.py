@@ -1,11 +1,11 @@
 """
-Step 06 — few-shot CoT와 정책 판정
+Step 06 — Few-shot CoT policy decision
 ======================================================
-실행:
+Run:
     python step06_policy_decision.py
 
-환불 정책을 policy_check, decision, reason 형식으로
-판정하는 few-shot CoT 완성 예제입니다.
+Apply a refund policy with a few-shot reasoning pattern
+that outputs policy_check, decision, and reason.
 """
 
 import os
@@ -14,10 +14,10 @@ from groq import Groq
 from groq.types.chat import ChatCompletionMessageParam
 
 POLICY = (
-    "환불 정책:\n"
-    "- 결제 후 7일 이내이고 시청률 20% 미만이면 전액 환불\n"
-    "- 결제 후 7일 이내이고 시청률 20% 이상이면 환불 불가\n"
-    "- 결제 후 7일 초과면 시청률과 무관하게 환불 불가"
+    "Refund policy:\n"
+    "- Full refund if it is within 7 days of payment and watch progress is under 20%\n"
+    "- No refund if it is within 7 days of payment and watch progress is 20% or more\n"
+    "- No refund after 7 days regardless of watch progress"
 )
 
 
@@ -27,37 +27,37 @@ def build_messages(case: str) -> list[ChatCompletionMessageParam]:
         {
             "role": "system",
             "content": (
-                "당신은 온라인 강의 서비스의 환불 심사 도우미입니다. "
-                "항상 1) policy_check 2) decision 3) reason 형식으로 답하세요."
+                "You are a refund review assistant for an online course service. "
+                "Always answer with 1) policy_check 2) decision 3) reason."
             ),
         },
         {"role": "user", "content": POLICY},
         {
             "role": "user",
-            "content": "결제 후 3일 지났고 시청률은 10%입니다. 환불 가능 여부를 판단해 주세요.",
+            "content": "It has been 3 days since payment, and the watch progress is 10%. Decide whether a refund is allowed.",
         },
         {
             "role": "assistant",
             "content": (
                 "policy_check:\n"
-                "1) 결제 후 7일 이내입니다.\n"
-                "2) 시청률이 20% 미만입니다.\n"
+                "1) It is within 7 days of payment.\n"
+                "2) The watch progress is under 20%.\n"
                 "decision: approved\n"
-                "reason: 기간과 시청률 조건을 모두 충족해 전액 환불 대상입니다."
+                "reason: The case satisfies both the time and watch-progress conditions for a full refund."
             ),
         },
         {
             "role": "user",
-            "content": "결제 후 5일 지났고 시청률은 35%입니다. 환불 가능 여부를 판단해 주세요.",
+            "content": "It has been 5 days since payment, and the watch progress is 35%. Decide whether a refund is allowed.",
         },
         {
             "role": "assistant",
             "content": (
                 "policy_check:\n"
-                "1) 결제 후 7일 이내입니다.\n"
-                "2) 시청률이 20% 이상입니다.\n"
+                "1) It is within 7 days of payment.\n"
+                "2) The watch progress is 20% or more.\n"
                 "decision: denied\n"
-                "reason: 기간 조건은 맞지만 시청률 기준을 넘어 환불할 수 없습니다."
+                "reason: The time condition passes, but the watch-progress threshold blocks the refund."
             ),
         },
         {"role": "user", "content": case},
@@ -69,12 +69,12 @@ def main() -> None:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     cases = [
-        "결제 후 10일 지났고 시청률은 0%입니다. 환불 가능 여부를 판단해 주세요.",
-        "결제 후 2일 지났고 시청률은 5%입니다. 환불 가능 여부를 판단해 주세요.",
+        "It has been 10 days since payment, and the watch progress is 0%. Decide whether a refund is allowed.",
+        "It has been 2 days since payment, and the watch progress is 5%. Decide whether a refund is allowed.",
     ]
 
     for case in cases:
-        print(f"[사례] {case}")
+        print(f"[case] {case}")
         completion = client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=build_messages(case),
@@ -86,3 +86,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Policy: Few-shot selected (classification task detected)
+# Prompt tokens: 245
+# Result: category='technology', confidence=0.92

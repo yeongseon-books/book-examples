@@ -52,3 +52,11 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# === LLM API Complete Example ===
+# Request sent to llama-3.1-8b-instant
+# Response: Python is a high-level, interpreted programming language known
+# for its clear syntax and readability...
+# Tokens used: 142

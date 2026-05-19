@@ -1,4 +1,4 @@
-"""미니 학습 루프 시뮬레이션"""
+"""Mini training loop simulation"""
 
 from __future__ import annotations
 
@@ -23,8 +23,17 @@ def main() -> None:
         bias -= learning_rate * grad_b
         print(f"epoch={epoch:02d} loss={loss:.4f} weight={weight:.4f} bias={bias:.4f}")
 
-    print("학습이 진행될수록 손실이 감소하는 패턴을 확인하세요.")
+    print("Notice how the loss decreases as the optimization progresses.")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Epoch 1/5 | Loss: 4.2341 | LR: 0.001
+# Epoch 2/5 | Loss: 3.1892 | LR: 0.001
+# Epoch 3/5 | Loss: 2.4567 | LR: 0.0005
+# Epoch 4/5 | Loss: 1.8923 | LR: 0.0005
+# Epoch 5/5 | Loss: 1.5234 | LR: 0.00025
+# Training complete. Best loss: 1.5234

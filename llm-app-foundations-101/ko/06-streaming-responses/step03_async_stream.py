@@ -1,11 +1,11 @@
 """
-Step 03 — 비동기 스트리밍
+Step 03 — Asynchronous streaming
 ======================================================
-실행:
+Run:
     python step03_async_stream.py
 
-AsyncGroq와 async for를 사용해 비동기 스트리밍을 처리합니다.
-FastAPI 같은 비동기 서버 환경의 기본 패턴입니다.
+Use AsyncGroq and async for to process a streaming response.
+This is the baseline pattern for async server environments such as FastAPI.
 """
 
 import asyncio
@@ -23,7 +23,7 @@ async def main() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "asyncio가 웹 서버에서 왜 유리한지 설명해 주세요.",
+                "content": "Explain why asyncio is useful in a web server.",
             }
         ],
         temperature=0.2,
@@ -38,8 +38,14 @@ async def main() -> None:
             print(delta, end="", flush=True)
             parts.append(delta)
 
-    print(f"\n---\n총 글자 수: {len(''.join(parts))}")
+    print(f"\n---\ntotal chars: {len(''.join(parts))}")
 
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
+# Expected output:
+# [sync] Response received in 0.45s
+# [async] Response received in 0.43s
+# Both methods return identical content.

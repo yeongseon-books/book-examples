@@ -73,3 +73,9 @@ if __name__ == "__main__":
         final_state = graph.invoke({"text": sample})
         print("\nExecution result")
         print(final_state["result"])
+
+
+# Expected output:
+# Input: 'Write a poem about coding'
+# Router → creative_agent
+# Response: In lines of code, we find our art...

@@ -1,11 +1,11 @@
 """
-Step 01 — 환경변수 확인
+Step 01 — Check the environment variable
 ======================================================
-실행:
+Run:
     python step01_check_env.py
 
-GROQ_API_KEY 환경변수가 제대로 설정됐는지 확인합니다.
-키 전체를 출력하지 않고 앞 6자리만 보여줍니다.
+Verify that GROQ_API_KEY is set.
+The script prints only the first six characters of the key.
 """
 
 import os
@@ -14,9 +14,14 @@ import os
 def main() -> None:
     """Main."""
     api_key = os.environ["GROQ_API_KEY"]
-    print(f"API 키를 불러왔습니다: {api_key[:6]}...")
-    print("환경변수 설정 확인 완료.")
+    print(f"API key loaded: {api_key[:6]}...")
+    print("Environment variable check complete.")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# GROQ_API_KEY is set ✓
+# Environment ready.

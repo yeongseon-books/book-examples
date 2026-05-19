@@ -73,3 +73,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Converted 100 examples to JSONL
+# Train split: 80 examples → train.jsonl
+# Validation split: 20 examples → val.jsonl

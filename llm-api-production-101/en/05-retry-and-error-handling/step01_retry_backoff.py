@@ -75,3 +75,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Attempt 1: RateLimitError - retrying in 1.0s...
+# Attempt 2: RateLimitError - retrying in 2.0s...
+# Attempt 3: Success!
+# Response received after 3 attempts.

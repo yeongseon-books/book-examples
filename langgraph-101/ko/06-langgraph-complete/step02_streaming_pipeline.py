@@ -22,19 +22,19 @@ class StreamingState(TypedDict):
 
 @tool
 def lookup_blog_metric(metric_name: str) -> str:
-    """블로그 운영 지표를 조회합니다."""
+    """Look up a blog operations metric."""
     metrics = {
-        "방문자": "어제 방문자는 1,240명입니다.",
-        "구독자": "현재 뉴스레터 구독자는 318명입니다.",
+        "visitors": "Yesterday's visitors: 1,240.",
+        "subscribers": "Current newsletter subscribers: 318.",
     }
-    return metrics.get(metric_name, f"{metric_name} 지표는 준비되지 않았습니다.")
+    return metrics.get(metric_name.lower(), f"No metric is ready for {metric_name}.")
 
 
 def build_model() -> ChatGroq:
     """Build model."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY를 먼저 설정하세요.")
+        raise RuntimeError("Set GROQ_API_KEY before running this example.")
     return ChatGroq(model="llama3-70b-8192", temperature=0, stop_sequences=None)
 
 
@@ -68,13 +68,15 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast("RunnableConfig", {"configurable": {"thread_id": "ko-stream-demo"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "en-stream-demo"}})
     seen = 0
 
     for event in graph.stream(
         {
             "messages": [
-                HumanMessage(content="방문자와 구독자 지표를 차례대로 알려주세요.")
+                HumanMessage(
+                    content="Tell me the visitors and subscribers metrics in order."
+                )
             ]
         },
         config=config,
@@ -88,5 +90,14 @@ if __name__ == "__main__":
                 print(f"[{message.type}] {message.content}")
         seen = len(messages)
 
-    print("\n스트리밍 후 저장된 상태")
+    print("\nStored state after streaming")
     print(graph.get_state(config).values)
+
+
+# Expected output:
+# Python
+# is
+# a high-level
+# programming
+# language...
+# [Stream complete]

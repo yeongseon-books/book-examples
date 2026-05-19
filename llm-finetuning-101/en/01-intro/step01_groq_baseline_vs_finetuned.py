@@ -73,3 +73,11 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Fine-tuning started (LoRA rank=8)
+# Epoch 1/3 | Train loss: 2.134 | Val loss: 2.089
+# Epoch 2/3 | Train loss: 1.567 | Val loss: 1.612
+# Epoch 3/3 | Train loss: 1.234 | Val loss: 1.298
+# Model saved to ./finetuned_model/

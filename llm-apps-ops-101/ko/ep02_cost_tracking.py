@@ -6,14 +6,14 @@ import time
 from dataclasses import dataclass, field
 from typing import Any
 
-from ko.common import (
+from en.common import (
     DEFAULT_INPUT_RATE,
     DEFAULT_OUTPUT_RATE,
     build_logger,
     estimate_tokens,
 )
 
-logger = build_logger("ko.cost")
+logger = build_logger("en.cost")
 
 
 @dataclass(slots=True)
@@ -63,7 +63,7 @@ class CostTracker:
         )
         self.records.append(record)
         logger.info(
-            "비용 이벤트를 기록했습니다.",
+            "Tracked cost event.",
             extra={
                 "payload": {
                     "feature": feature,
@@ -103,7 +103,7 @@ class TTLCache:
         expires_at, value = item
         if time.time() >= expires_at:
             self._store.pop(key, None)
-            logger.info("TTL 캐시가 만료되었습니다.", extra={"payload": {"key": key}})
+            logger.info("TTL cache entry expired.", extra={"payload": {"key": key}})
             return None
         return value
 
@@ -111,7 +111,7 @@ class TTLCache:
         """Set."""
         self._store[key] = (time.time() + self.ttl_seconds, value)
         logger.info(
-            "TTL 캐시에 응답을 저장했습니다.",
+            "Stored response in TTL cache.",
             extra={"payload": {"key": key, "ttl_seconds": self.ttl_seconds}},
         )
 
@@ -120,10 +120,8 @@ def demo() -> None:
     """Demo."""
     tracker = CostTracker(PricingTable())
     cache = TTLCache(ttl_seconds=10)
-    prompt = "이번 주 장애 회고를 세 문장으로 요약해 주세요."
-    response = (
-        "이번 주 장애는 캐시 미스 증가와 데이터베이스 지연이 함께 겹치며 발생했습니다."
-    )
+    prompt = "Summarize this week's incident review in three sentences."
+    response = "This week's outage combined rising cache misses with database latency."
     tracker.track("incident-summary", prompt, response)
     cache.set(prompt, response)
     print(tracker.summary())
@@ -132,3 +130,11 @@ def demo() -> None:
 
 if __name__ == "__main__":
     demo()
+
+
+# Expected output:
+# Daily usage report:
+#   Total requests: 1,247
+#   Total tokens: 892,340
+#   Estimated cost: $0.18
+#   Avg cost/request: $0.000144

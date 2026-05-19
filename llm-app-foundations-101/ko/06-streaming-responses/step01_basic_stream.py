@@ -1,11 +1,11 @@
 """
-Step 01 — stream=True 기본 패턴
+Step 01 — Basic stream=True pattern
 ======================================================
-실행:
+Run:
     python step01_basic_stream.py
 
-stream=True를 추가하고 for chunk in stream으로 순회해
-각 청크 객체를 그대로 출력합니다.
+Add stream=True and iterate over the stream
+to inspect each chunk object directly.
 """
 
 import os
@@ -20,10 +20,10 @@ def main() -> None:
     stream = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
-            {"role": "system", "content": "당신은 간결한 파이썬 튜터입니다."},
+            {"role": "system", "content": "You are a concise Python tutor."},
             {
                 "role": "user",
-                "content": "파이썬 제너레이터를 다섯 문장 안에서 설명해 주세요.",
+                "content": "Explain Python generators in no more than five sentences.",
             },
         ],
         temperature=0.3,
@@ -36,3 +36,12 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Python
+# is
+# a high-level
+# programming
+# language...
+# [Stream complete]

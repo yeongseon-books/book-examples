@@ -20,3 +20,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# GROQ_API_KEY is set ✓
+# Environment ready.

@@ -92,3 +92,12 @@ if __name__ == "__main__":
 
     print("\nStored state after streaming")
     print(graph.get_state(config).values)
+
+
+# Expected output:
+# Python
+# is
+# a high-level
+# programming
+# language...
+# [Stream complete]

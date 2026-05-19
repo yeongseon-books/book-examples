@@ -91,3 +91,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Rate limiter: 10 requests/minute
+# Request 1-10: ✓ processed
+# Request 11: throttled (waiting 4.2s)
+# Request 11: ✓ processed after wait

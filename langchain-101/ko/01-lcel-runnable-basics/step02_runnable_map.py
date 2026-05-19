@@ -12,7 +12,7 @@ from langchain_groq import ChatGroq
 def build_chain():
     """Build chain."""
     prompt = ChatPromptTemplate.from_template(
-        "주제: {topic}\n난이도: {level}\n위 정보를 바탕으로 학습 계획을 2단계로 작성해 주세요."
+        "Topic: {topic}\nLevel: {level}\nCreate a 2-step study plan based on this information."
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
@@ -25,9 +25,9 @@ def build_chain():
         {
             "topic": RunnableLambda(lambda data: cast("dict[str, Any]", data)["topic"]),
             "level": RunnableLambda(
-                lambda data: "입문"
+                lambda data: "beginner"
                 if cast("dict[str, Any]", data).get("is_beginner", True)
-                else "중급"
+                else "intermediate"
             ),
         }
     )
@@ -37,5 +37,10 @@ def build_chain():
 if __name__ == "__main__":
     chain = build_chain()
     result = chain.invoke({"topic": "RunnableMap", "is_beginner": True})
-    print("[RunnableMap 결과]")
+    print("[RunnableMap result]")
     print(result)
+
+
+# Expected output:
+# {"topic_summary": "LCEL chains are composable...",
+#  "fun_fact": "LCEL stands for LangChain Expression Language"}

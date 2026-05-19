@@ -2,7 +2,6 @@
 
 
 def alpha(x):
-    """calc"""
     return x + 1
 
 

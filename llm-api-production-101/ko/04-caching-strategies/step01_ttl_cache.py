@@ -54,7 +54,7 @@ def cached_chat(
         print("[cache HIT]")
         return cached
 
-    print("[cache MISS] API를 호출합니다.")
+    print("[cache MISS] Calling the API.")
     completion = client.chat.completions.create(
         model=model,
         messages=cast("Any", messages),
@@ -68,19 +68,25 @@ def cached_chat(
 def main() -> None:
     """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
-    messages = [{"role": "user", "content": "파이썬 GIL을 한 단락으로 설명해 주세요."}]
+    messages = [{"role": "user", "content": "Explain the Python GIL in one paragraph."}]
 
     started = time.monotonic()
     first = cached_chat(client, messages)
-    print(f"1차 호출: {time.monotonic() - started:.3f}s")
+    print(f"1st call: {time.monotonic() - started:.3f}s")
     print(first[:100])
 
     started = time.monotonic()
     second = cached_chat(client, messages)
-    print(f"\n2차 호출: {time.monotonic() - started:.3f}s")
-    assert first == second, "캐시 적중에 실패했습니다."
-    print("TTL 캐시가 정상 동작했습니다.")
+    print(f"\n2nd call: {time.monotonic() - started:.3f}s")
+    assert first == second, "Cache hit check failed."
+    print("TTL cache worked as expected.")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Cache MISS: 'What is Python?' → calling API...
+# Cache HIT: 'What is Python?' → returning cached (0.001s)
+# Cache expired after TTL=60s, refreshing...

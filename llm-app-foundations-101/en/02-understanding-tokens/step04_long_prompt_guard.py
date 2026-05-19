@@ -62,3 +62,11 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Input tokens: 3847
+# Max allowed: 4096
+# ⚠ Trimming prompt to fit within budget...
+# Trimmed tokens: 3900 → 2048
+# Response generated successfully.

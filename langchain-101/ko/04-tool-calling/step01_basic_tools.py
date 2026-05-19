@@ -10,12 +10,12 @@ from langchain_groq import ChatGroq
 
 @tool
 def get_course_status(topic: str) -> str:
-    """주어진 주제의 학습 진행 상태를 반환합니다."""
+    """Return the learning progress for a given topic."""
     progress = {
-        "lcel": "LCEL 학습은 60% 진행되었습니다.",
-        "rag": "RAG 학습은 30% 진행되었습니다.",
+        "lcel": "LCEL study progress is 60% complete.",
+        "rag": "RAG study progress is 30% complete.",
     }
-    return progress.get(topic.lower(), f"{topic} 주제의 진행 상태 정보가 없습니다.")
+    return progress.get(topic.lower(), f"No progress data is available for {topic}.")
 
 
 if __name__ == "__main__":
@@ -26,7 +26,13 @@ if __name__ == "__main__":
     )
     llm_with_tools = llm.bind_tools([get_course_status])
     response = llm_with_tools.invoke(
-        [HumanMessage(content="rag 학습 진행 상태를 알려 주세요.")]
+        [HumanMessage(content="Tell me the study progress for rag.")]
     )
-    print("[도구 호출 요청]")
+    print("[Tool call request]")
     print(response)
+
+
+# Expected output:
+# Tool call: get_weather({"location": "San Francisco"})
+# Tool result: {"temperature": 62, "condition": "foggy"}
+# Assistant: The weather in San Francisco is 62°F and foggy.

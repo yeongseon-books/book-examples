@@ -102,3 +102,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Original history: 12 messages (1847 tokens)
+# Compressed summary: 1 message (156 tokens)
+# Savings: 91.5%

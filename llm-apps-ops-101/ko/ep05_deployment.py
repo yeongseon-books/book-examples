@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
+from en.common import call_groq, utc_now
+from en.ep04_security import InputValidator, OutputFilter
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from ko.common import call_groq, utc_now
-from ko.ep04_security import InputValidator, OutputFilter
-
-app = FastAPI(title="llm-apps-ops-101 ko deployment")
+app = FastAPI(title="llm-apps-ops-101 en deployment")
 validator = InputValidator(max_length=1000)
 filter_ = OutputFilter()
 
@@ -43,13 +42,13 @@ def chat(request: ChatRequest) -> dict[str, object]:
 
     try:
         result = call_groq(
-            system_prompt="당신은 운영팀을 돕는 한국어 LLM 어시스턴트입니다.",
+            system_prompt="You are an English LLM assistant that helps an operations team.",
             user_prompt=request.prompt,
             temperature=request.temperature,
             max_tokens=request.max_tokens,
         )
     except Exception as exc:
-        raise HTTPException(status_code=502, detail=f"Groq 호출 실패: {exc}") from exc
+        raise HTTPException(status_code=502, detail=f"Groq call failed: {exc}") from exc
 
     answer = filter_.redact(result.text)
     return {

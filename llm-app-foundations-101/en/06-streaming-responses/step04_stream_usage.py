@@ -52,3 +52,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Stream complete.
+# Usage: prompt_tokens=18, completion_tokens=94, total_tokens=112

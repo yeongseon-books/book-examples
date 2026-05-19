@@ -44,3 +44,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Streaming: Python is... a high-level... programming... language...
+# Collected full response (4 chunks, 187 chars):
+# 'Python is a high-level programming language...'

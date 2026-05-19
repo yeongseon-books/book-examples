@@ -13,7 +13,7 @@ class SchemaError(Exception):
 
 
 SCHEMA_INSTRUCTION = """
-다음 JSON으로 응답하세요: {"name": string, "price": number, "in_stock": boolean}
+Respond with JSON: {"name": string, "price": number, "in_stock": boolean}
 """
 
 
@@ -33,15 +33,15 @@ def extract_product(client: Groq, text: str) -> dict:
     try:
         data = json.loads(raw)
     except json.JSONDecodeError as exc:
-        raise SchemaError(f"JSON 파싱에 실패했습니다: {exc}; raw={raw!r}") from exc
+        raise SchemaError(f"Failed to parse JSON: {exc}; raw={raw!r}") from exc
 
     required = {"name", "price", "in_stock"}
     missing = required - data.keys()
     if missing:
-        raise SchemaError(f"필수 필드가 누락되었습니다: {sorted(missing)}; data={data}")
+        raise SchemaError(f"Missing required fields: {sorted(missing)}; data={data}")
 
     if not isinstance(data["price"], int | float):
-        raise SchemaError(f"price는 숫자여야 합니다: {data['price']!r}")
+        raise SchemaError(f"price must be numeric: {data['price']!r}")
 
     return data
 
@@ -50,17 +50,24 @@ def main() -> None:
     """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     cases = [
-        "상품명은 무선 마우스이고 가격은 35000원이며 재고가 있습니다.",
+        "The product is a wireless mouse, the price is 35000, and it is in stock.",
         "mechanical keyboard 89000 out of stock",
     ]
 
     for case in cases:
         try:
             result = extract_product(client, case)
-            print(f"성공: {result}")
+            print(f"Success: {result}")
         except SchemaError as exc:
             print(f"SchemaError: {exc}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Attempt 1: RateLimitError - retrying in 1.0s...
+# Attempt 2: RateLimitError - retrying in 2.0s...
+# Attempt 3: Success!
+# Response received after 3 attempts.

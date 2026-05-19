@@ -43,3 +43,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Turn 1 - User: My name is Alice
+# Turn 1 - Bot: Nice to meet you, Alice!
+# Turn 2 - User: What's my name?
+# Turn 2 - Bot: I don't have access to previous conversations...

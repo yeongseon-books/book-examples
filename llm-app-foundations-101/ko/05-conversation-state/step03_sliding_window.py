@@ -1,11 +1,11 @@
 """
-Step 03 — sliding window 패턴
+Step 03 — Sliding window pattern
 ======================================================
-실행:
+Run:
     python step03_sliding_window.py
 
-최근 세 턴만 유지해 토큰 예산을 고정하는
-sliding window 패턴입니다.
+Keep only the most recent three turns
+to stabilize the prompt token budget.
 """
 
 import os
@@ -36,7 +36,7 @@ def ask(
 
     usage = completion.usage
     if usage is None:
-        raise RuntimeError("usage 정보를 받지 못했습니다.")
+        raise RuntimeError("Did not receive usage metadata.")
     print(f"[tokens] prompt={usage.prompt_tokens} window_size={len(recent_turns)}")
     return answer
 
@@ -46,21 +46,27 @@ def main() -> None:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     system_message: ChatCompletionSystemMessageParam = {
         "role": "system",
-        "content": "당신은 파이썬 학습을 돕는 챗봇입니다.",
+        "content": "You are a chatbot that helps people learn Python.",
     }
     recent_turns: deque[ChatCompletionMessageParam] = deque(maxlen=6)
     turns = [
-        "리스트와 튜플의 차이를 설명해 줘.",
-        "방금 말한 튜플에 예시 코드도 보여줘.",
-        "딕셔너리는 어떤 경우에 써?",
-        "집합은 뭐가 달라?",
-        "지금까지 설명한 자료형 중 가장 자주 쓰는 건 뭐야?",
+        "Explain the difference between a list and a tuple.",
+        "Show a code example for the tuple you just mentioned.",
+        "When should I use a dictionary?",
+        "How is a set different?",
+        "Which of the data structures you explained so far is used most often?",
     ]
 
     for user_text in turns:
-        print(f"\n사용자> {user_text}")
-        print(f"도우미> {ask(client, system_message, recent_turns, user_text)}")
+        print(f"\nyou> {user_text}")
+        print(f"assistant> {ask(client, system_message, recent_turns, user_text)}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Window size: 5 messages
+# Turn 6: oldest message dropped from context
+# Memory: 5/5 messages retained

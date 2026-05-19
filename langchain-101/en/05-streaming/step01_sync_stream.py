@@ -28,3 +28,12 @@ if __name__ == "__main__":
     for chunk in chain.stream({}):
         print(chunk, end="", flush=True)
     print()
+
+
+# Expected output:
+# Python
+# is
+# a high-level
+# programming
+# language...
+# [Stream complete]

@@ -59,3 +59,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Prompt tokens: 24
+# Completion tokens: 156
+# Total tokens: 180
+# Estimated cost: $0.000036

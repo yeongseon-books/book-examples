@@ -12,7 +12,7 @@ from langchain_groq import ChatGroq
 def build_chain():
     """Build chain."""
     prompt = ChatPromptTemplate.from_template(
-        "주제: {topic}\n학습 목적: {goal}\n한 문단으로 실전 조언을 작성해 주세요."
+        "Topic: {topic}\nLearning goal: {goal}\nWrite one practical paragraph of advice."
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
@@ -23,7 +23,7 @@ def build_chain():
 
     chain = (
         RunnablePassthrough.assign(
-            goal=lambda data: data.get("goal", "업무에 바로 적용하기")
+            goal=lambda data: data.get("goal", "apply it to production work")
         )
         | prompt
         | llm
@@ -35,5 +35,11 @@ def build_chain():
 if __name__ == "__main__":
     chain = build_chain()
     result = chain.invoke({"topic": "StrOutputParser"})
-    print("[StrOutputParser + RunnablePassthrough 결과]")
+    print("[StrOutputParser + RunnablePassthrough result]")
     print(result)
+
+
+# Expected output:
+# Step 1: Understand the concept
+# Step 2: Apply it to a real problem
+# (Parsed as plain string via StrOutputParser)

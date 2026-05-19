@@ -2,15 +2,14 @@
 
 from __future__ import annotations
 
+from en.common import call_groq, utc_now
+from en.ep02_cost_tracking import CostTracker, PricingTable, TTLCache
+from en.ep03_evaluation import EvaluationCase, LLMJudge
+from en.ep04_security import InputValidator, OutputFilter
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from ko.common import call_groq, utc_now
-from ko.ep02_cost_tracking import CostTracker, PricingTable, TTLCache
-from ko.ep03_evaluation import EvaluationCase, LLMJudge
-from ko.ep04_security import InputValidator, OutputFilter
-
-app = FastAPI(title="llm-apps-ops-101 ko complete")
+app = FastAPI(title="llm-apps-ops-101 en complete")
 validator = InputValidator(max_length=1200)
 filter_ = OutputFilter()
 cache = TTLCache(ttl_seconds=60)
@@ -48,13 +47,13 @@ def answer(request: OpsRequest) -> dict[str, object]:
     else:
         try:
             result = call_groq(
-                system_prompt="당신은 장애 대응을 돕는 한국어 운영 어시스턴트입니다.",
+                system_prompt="You are an English operations assistant that helps with incident response.",
                 user_prompt=request.prompt,
                 max_tokens=300,
             )
         except Exception as exc:
             raise HTTPException(
-                status_code=502, detail=f"Groq 호출 실패: {exc}"
+                status_code=502, detail=f"Groq call failed: {exc}"
             ) from exc
         answer_text = filter_.redact(result.text)
         cache.set(request.prompt, answer_text)
@@ -73,7 +72,7 @@ def answer(request: OpsRequest) -> dict[str, object]:
             EvaluationCase(
                 question=request.prompt,
                 answer=answer_text,
-                reference="운영 어시스턴트는 원인과 대응 방안을 분리해 간결하게 설명해야 합니다.",
+                reference="An ops assistant should separate likely root causes from mitigations and keep the response concise.",
             )
         )
 

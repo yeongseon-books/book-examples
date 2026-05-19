@@ -39,3 +39,8 @@ if __name__ == "__main__":
     result = chain.invoke({"topic": "RunnableMap", "is_beginner": True})
     print("[RunnableMap result]")
     print(result)
+
+
+# Expected output:
+# {"topic_summary": "LCEL chains are composable...",
+#  "fun_fact": "LCEL stands for LangChain Expression Language"}

@@ -184,3 +184,12 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# > Hello!
+# Bot: Hi there! How can I help you today?
+# > What is machine learning?
+# Bot: Machine learning is a subset of AI that enables systems to learn...
+# > quit
+# Goodbye!

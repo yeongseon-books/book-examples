@@ -100,3 +100,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# (Output depends on LLM API response)
+# Example: 'The answer to your question is...'

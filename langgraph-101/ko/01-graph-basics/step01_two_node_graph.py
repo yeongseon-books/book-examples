@@ -15,16 +15,16 @@ class GraphState(TypedDict):
 def normalize_input(state: GraphState):
     """Normalize input."""
     normalized = state["user_input"].strip()
-    print(f"[normalize_input] 정리된 입력: {normalized}")
+    print(f"[normalize_input] cleaned input: {normalized}")
     return {"normalized_input": normalized}
 
 
 def create_reply(state: GraphState):
     """Create reply."""
     reply = (
-        f"안녕하세요. '{state['normalized_input']}' 주제로 LangGraph를 시작해봅시다."
+        f"Hello. Let's start LangGraph with the topic '{state['normalized_input']}'."
     )
-    print(f"[create_reply] 생성된 답변: {reply}")
+    print(f"[create_reply] generated reply: {reply}")
     return {"reply": reply}
 
 
@@ -41,7 +41,13 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    final_state = graph.invoke({"user_input": "  LangGraph 입문 예제  "})
+    final_state = graph.invoke({"user_input": "  LangGraph starter example  "})
 
-    print("\n최종 상태")
+    print("\nFinal state")
     print(final_state)
+
+
+# Expected output:
+# Node 'start' executed
+# Node 'end' executed
+# Final state: {'message': 'processed'}

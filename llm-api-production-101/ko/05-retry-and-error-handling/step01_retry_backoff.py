@@ -48,19 +48,19 @@ def call_with_retry(
             error_type = classify_error(exc)
             if error_type is PermanentError:
                 raise PermanentError(
-                    f"영구 오류가 발생했습니다. status={exc.status_code}"
+                    f"Permanent error returned. status={exc.status_code}"
                 ) from exc
             if attempt < max_retries:
                 delay = base_delay * (2**attempt)
                 print(
-                    f"[재시도 {attempt + 1}] status={exc.status_code}, {delay:.1f}초 뒤 재시도합니다."
+                    f"[retry {attempt + 1}] status={exc.status_code}, waiting {delay:.1f}s"
                 )
                 time.sleep(delay)
         except Exception as exc:
             last_exc = exc
             raise
 
-    raise TransientError(f"{max_retries}회 재시도 후에도 실패했습니다.") from last_exc
+    raise TransientError(f"Failed after {max_retries} retries.") from last_exc
 
 
 def main() -> None:
@@ -68,10 +68,17 @@ def main() -> None:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     result = call_with_retry(
         client,
-        [{"role": "user", "content": "지수 백오프를 두 문장으로 설명해 주세요."}],
+        [{"role": "user", "content": "Explain exponential backoff in two sentences."}],
     )
     print(result)
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Attempt 1: RateLimitError - retrying in 1.0s...
+# Attempt 2: RateLimitError - retrying in 2.0s...
+# Attempt 3: Success!
+# Response received after 3 attempts.

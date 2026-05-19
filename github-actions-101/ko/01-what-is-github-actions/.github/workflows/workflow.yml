@@ -1,0 +1,8 @@
+name: Hello CI
+on: push
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Hello, GitHub Actions!"

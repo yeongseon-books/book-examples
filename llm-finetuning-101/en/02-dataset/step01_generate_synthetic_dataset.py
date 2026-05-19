@@ -62,3 +62,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Generated 100 training examples
+# Sample: {"input": "Summarize...", "output": "The article discusses..."}
+# Saved to synthetic_dataset.json

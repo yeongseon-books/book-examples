@@ -55,3 +55,11 @@ if __name__ == "__main__":
     answer = run_tool_loop("Briefly explain what a retriever does.")
     print("[Tool loop result]")
     print(answer)
+
+
+# Expected output:
+# Step 1: Tool call → get_weather({"location": "NYC"})
+# Step 1: Result → {"temperature": 45, "condition": "cloudy"}
+# Step 2: Tool call → get_forecast({"location": "NYC", "days": 3})
+# Step 2: Result → {"forecast": ["rain", "clear", "clear"]}
+# Final: It's currently 45°F and cloudy in NYC. The 3-day forecast...

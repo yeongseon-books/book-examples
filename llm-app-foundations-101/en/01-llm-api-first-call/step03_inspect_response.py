@@ -48,3 +48,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Model: llama-3.1-8b-instant
+# Usage: prompt_tokens=14, completion_tokens=87, total_tokens=101
+# Finish reason: stop
+# Created: 2024-12-01 10:23:45

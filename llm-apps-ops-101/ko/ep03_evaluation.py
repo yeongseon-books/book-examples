@@ -5,9 +5,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from ko.common import build_logger, call_groq
+from en.common import build_logger, call_groq
 
-logger = build_logger("ko.evaluation")
+logger = build_logger("en.evaluation")
 
 
 @dataclass(slots=True)
@@ -27,12 +27,12 @@ class LLMJudge:
 
     def evaluate(self, case: EvaluationCase) -> dict[str, Any]:
         """Evaluate."""
-        system_prompt = "당신은 LLM 응답 평가자입니다. 정답성, 충실성, 명확성을 1점부터 5점까지 채점하고 한 줄 근거를 작성하세요."
+        system_prompt = "You are an evaluator for LLM answers. Score factuality, faithfulness, and clarity from 1 to 5 and explain the score in one line."
         user_prompt = (
-            f"질문: {case.question}\n"
-            f"모델 답변: {case.answer}\n"
-            f"기준 답변: {case.reference}\n"
-            "JSON이 아니라 일반 텍스트로 score=숫자, reason=설명을 반환하세요."
+            f"Question: {case.question}\n"
+            f"Model answer: {case.answer}\n"
+            f"Reference answer: {case.reference}\n"
+            "Return plain text in the form score=<number>, reason=<text>."
         )
         try:
             result = call_groq(
@@ -44,11 +44,11 @@ class LLMJudge:
                 "reason": result.text.strip(),
                 "latency_ms": round(result.latency_ms, 1),
             }
-            logger.info("LLM 판정 평가가 완료되었습니다.", extra={"payload": payload})
+            logger.info("LLM judge evaluation completed.", extra={"payload": payload})
             return payload
         except Exception as exc:
             logger.exception(
-                "LLM 판정이 실패하여 휴리스틱 평가로 대체합니다.",
+                "LLM judge failed; falling back to a heuristic evaluator.",
                 extra={"payload": {"error": str(exc)}},
             )
             return heuristic_evaluate(case)
@@ -71,7 +71,7 @@ def heuristic_evaluate(case: EvaluationCase) -> dict[str, Any]:
     reference_words = set(case.reference.split())
     overlap = len(answer_words & reference_words)
     score = 5 if overlap >= 6 else 4 if overlap >= 4 else 3 if overlap >= 2 else 2
-    reason = f"휴리스틱 평가: 기준 답변과 겹치는 단어 수는 {overlap}개입니다."
+    reason = f"Heuristic fallback: {overlap} reference words overlap with the answer."
     return {"score": score, "reason": reason, "latency_ms": 0.0}
 
 
@@ -96,14 +96,14 @@ def demo() -> None:
     """Demo."""
     cases = [
         EvaluationCase(
-            question="장애 원인을 설명해 주세요.",
-            answer="캐시 키 충돌과 느린 SQL이 함께 문제를 만들었습니다.",
-            reference="캐시 키 충돌과 데이터베이스 지연이 함께 발생해 장애가 커졌습니다.",
+            question="Explain the incident root cause.",
+            answer="A cache key collision combined with slow SQL queries caused the incident.",
+            reference="The outage escalated because cache key collisions and database latency happened together.",
         ),
         EvaluationCase(
-            question="대응 방안을 알려 주세요.",
-            answer="캐시 키를 분리하고 느린 쿼리를 튜닝해야 합니다.",
-            reference="캐시 키 설계를 고치고 느린 SQL을 최적화해야 합니다.",
+            question="Describe the mitigation.",
+            answer="Split cache keys and tune the slow query path.",
+            reference="Fix cache key design and optimize the slow SQL statements.",
         ),
     ]
     report = BatchEvaluator(LLMJudge()).run(cases)
@@ -112,3 +112,10 @@ def demo() -> None:
 
 if __name__ == "__main__":
     demo()
+
+
+# Expected output:
+# Evaluation results (n=50):
+#   Accuracy: 0.84
+#   Avg latency: 0.52s
+#   Avg tokens: 134

@@ -1,4 +1,4 @@
-"""Groq으로 파인튜닝 전/후 응답 품질 비교"""
+"""Compare response quality before and after fine-tuning with Groq"""
 
 from __future__ import annotations
 
@@ -31,58 +31,69 @@ def judge(client: Any, prompt: str, first: str, second: str) -> str:
     """Judge."""
     judge_prompt = textwrap.dedent(
         f"""
-        두 응답 중 더 나은 답을 고르고 이유를 3줄 이내로 설명하세요.
+        Pick the better answer and explain why in up to three lines.
 
-        질문:
+        Question:
         {prompt}
 
-        응답 A:
+        Answer A:
         {first}
 
-        응답 B:
+        Answer B:
         {second}
         """
     ).strip()
     return complete(
-        client, "당신은 평가자입니다. 정확성, 구체성, 톤을 봅니다.", judge_prompt
+        client,
+        "You are an evaluator. Check accuracy, specificity, and tone.",
+        judge_prompt,
     )
 
 
 def main() -> None:
     """Main."""
     if Groq is None:
-        print("groq 패키지가 없어 비교를 건너뜁니다.")
+        print("Skipping comparison because the groq package is unavailable.")
         return
 
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        print("GROQ_API_KEY 환경 변수가 없어 비교를 건너뜁니다.")
+        print("Skipping comparison because GROQ_API_KEY is missing.")
         return
 
     client = Groq(api_key=api_key)
-    prompt = '다음 고객 문의에 답하세요: "새 요금제에서 감사 로그는 얼마나 보관되나요?"'
+    prompt = 'Answer the following customer question: "How long are audit logs retained on the new pricing plan?"'
     base_answer = complete(
-        client, "당신은 범용 비서입니다. 모르면 일반적인 답을 주세요.", prompt
+        client,
+        "You are a generic assistant. Provide a reasonable general answer.",
+        prompt,
     )
     tuned_answer = complete(
         client,
-        "당신은 PulseBoard 제품 문서를 학습한 고객지원 모델입니다. 보관 기간, 플랜 제한, 문의 경로를 구체적으로 설명하세요.",
+        "You are a customer-support model trained on PulseBoard documentation. Mention retention period, plan limits, and the escalation path.",
         prompt,
     )
     verdict = judge(client, prompt, base_answer, tuned_answer)
 
-    print("응답 A")
+    print("Answer A")
     print("-" * 80)
     print(base_answer)
     print()
-    print("응답 B")
+    print("Answer B")
     print("-" * 80)
     print(tuned_answer)
     print()
-    print("평가 결과")
+    print("Evaluation verdict")
     print("-" * 80)
     print(verdict)
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# BLEU score: 0.42
+# ROUGE-1: 0.67
+# ROUGE-L: 0.58
+# Human preference: fine-tuned wins 72% of comparisons

@@ -1,11 +1,11 @@
 """
-Step 02 — assistant 메시지로 멀티턴 이력 구성
+Step 02 — Build multi-turn history with assistant messages
 ======================================================
-실행:
+Run:
     python step02_multiturn_history.py
 
-1턴 응답을 assistant 메시지로 배열에 추가한 뒤
-2턴 요청에서 이전 맥락을 이어가는 패턴을 보여줍니다.
+Add the first answer back into the messages list as an assistant turn,
+then continue the conversation with the previous context.
 """
 
 import os
@@ -21,11 +21,11 @@ def main() -> None:
     messages: list[Any] = [
         {
             "role": "system",
-            "content": "당신은 파이썬 학습 도우미입니다. 짧고 정확하게 설명하세요.",
+            "content": "You are a Python learning assistant. Keep answers short and accurate.",
         },
         {
             "role": "user",
-            "content": "파이썬 리스트와 튜플 차이를 한 문단으로 설명해 주세요.",
+            "content": "Explain the difference between a Python list and a tuple in one paragraph.",
         },
     ]
 
@@ -35,7 +35,7 @@ def main() -> None:
         temperature=0.2,
     )
     assistant_text = first.choices[0].message.content or ""
-    print("[1턴]")
+    print("[turn 1]")
     print(assistant_text)
     print()
 
@@ -43,7 +43,7 @@ def main() -> None:
     messages.append(
         {
             "role": "user",
-            "content": "방금 설명에 다섯 줄 이하 예제 코드를 덧붙여 주세요.",
+            "content": "Add a code example in no more than five lines.",
         }
     )
 
@@ -52,9 +52,16 @@ def main() -> None:
         messages=messages,
         temperature=0.2,
     )
-    print("[2턴]")
+    print("[turn 2]")
     print(second.choices[0].message.content)
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# User: What is Python?
+# Assistant: Python is a high-level programming language...
+# User: Who created it?
+# Assistant: Python was created by Guido van Rossum in 1991...

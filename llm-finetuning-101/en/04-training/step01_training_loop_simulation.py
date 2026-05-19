@@ -28,3 +28,12 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Epoch 1/5 | Loss: 4.2341 | LR: 0.001
+# Epoch 2/5 | Loss: 3.1892 | LR: 0.001
+# Epoch 3/5 | Loss: 2.4567 | LR: 0.0005
+# Epoch 4/5 | Loss: 1.8923 | LR: 0.0005
+# Epoch 5/5 | Loss: 1.5234 | LR: 0.00025
+# Training complete. Best loss: 1.5234

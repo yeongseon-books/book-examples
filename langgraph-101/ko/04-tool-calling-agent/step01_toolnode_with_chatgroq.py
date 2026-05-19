@@ -20,19 +20,21 @@ class AgentState(TypedDict):
 
 @tool
 def get_meeting_room_status(room_name: str) -> str:
-    """회의실 예약 상태를 확인합니다."""
+    """Check the reservation status of a meeting room."""
     rooms = {
-        "오로라": "오후 3시까지 비어 있습니다.",
-        "노바": "오후 2시부터 4시까지 예약되어 있습니다.",
+        "aurora": "It is free until 3 PM.",
+        "nova": "It is reserved from 2 PM to 4 PM.",
     }
-    return rooms.get(room_name, f"{room_name} 회의실 정보가 등록되어 있지 않습니다.")
+    return rooms.get(
+        room_name.lower(), f"There is no registered information for {room_name}."
+    )
 
 
 def build_model() -> ChatGroq:
     """Build model."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY를 먼저 설정하세요.")
+        raise RuntimeError("Set GROQ_API_KEY before running this example.")
     return ChatGroq(model="llama3-70b-8192", temperature=0, stop_sequences=None)
 
 
@@ -42,7 +44,7 @@ def assistant_node(state: AgentState):
     response = model.invoke(
         [
             SystemMessage(
-                content="항상 한국어로 답하고, 필요한 경우 도구를 먼저 사용하세요."
+                content="Always answer in English and use a tool first when it helps."
             )
         ]
         + state["messages"]
@@ -64,9 +66,16 @@ def build_graph():
 if __name__ == "__main__":
     graph = build_graph()
     result = graph.invoke(
-        {"messages": [HumanMessage(content="노바 회의실 지금 쓸 수 있나요?")]}
+        {"messages": [HumanMessage(content="Can I use the nova room right now?")]}
     )
 
-    print("\n메시지 로그")
+    print("\nMessage log")
     for message in result["messages"]:
         print(f"- {message.type}: {message.content}")
+
+
+# Expected output:
+# Agent: I need to check the weather.
+# Tool call: get_weather(location="Tokyo")
+# Tool result: 72°F, sunny
+# Agent: The weather in Tokyo is 72°F and sunny.

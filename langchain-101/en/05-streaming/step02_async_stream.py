@@ -34,3 +34,9 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
+# Expected output:
+# [sync] Response received in 0.45s
+# [async] Response received in 0.43s
+# Both methods return identical content.

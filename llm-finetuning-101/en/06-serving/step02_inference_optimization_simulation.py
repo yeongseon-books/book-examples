@@ -46,3 +46,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Prompt: 'The meaning of life is'
+# Generated: 'The meaning of life is to find purpose in what you do and'
+# Tokens generated: 12
+# Generation time: 0.34s

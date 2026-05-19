@@ -11,7 +11,7 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "search_product",
-            "description": "이름으로 상품 카탈로그를 검색합니다.",
+            "description": "Search the product catalog by name.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -26,7 +26,7 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "add_to_cart",
-            "description": "상품을 장바구니에 담습니다.",
+            "description": "Add a product to the cart.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -40,9 +40,9 @@ TOOLS = [
 ]
 
 CATALOG = {
-    "노트북": {"id": "P001", "price": 1500000},
-    "마우스": {"id": "P002", "price": 35000},
-    "키보드": {"id": "P003", "price": 89000},
+    "laptop": {"id": "P001", "price": 1500000},
+    "mouse": {"id": "P002", "price": 35000},
+    "keyboard": {"id": "P003", "price": 89000},
 }
 
 CART: list[dict] = []
@@ -69,7 +69,7 @@ def dispatch(name: str, args: dict):
         return search_product(**args)
     if name == "add_to_cart":
         return add_to_cart(**args)
-    raise ValueError(f"알 수 없는 도구입니다: {name}")
+    raise ValueError(f"Unknown tool: {name}")
 
 
 def run_loop(client: Groq, user_message: str) -> str:
@@ -119,10 +119,18 @@ def run_loop(client: Groq, user_message: str) -> str:
 def main() -> None:
     """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
-    answer = run_loop(client, "마우스를 2개 장바구니에 담아 주세요.")
+    answer = run_loop(client, "Add two mouse items to my cart.")
     print(answer)
-    print(f"장바구니: {CART}")
+    print(f"cart: {CART}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Step 1: Tool call → get_weather({"location": "NYC"})
+# Step 1: Result → {"temperature": 45, "condition": "cloudy"}
+# Step 2: Tool call → get_forecast({"location": "NYC", "days": 3})
+# Step 2: Result → {"forecast": ["rain", "clear", "clear"]}
+# Final: It's currently 45°F and cloudy in NYC. The 3-day forecast...

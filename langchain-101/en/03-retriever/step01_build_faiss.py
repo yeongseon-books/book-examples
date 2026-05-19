@@ -33,3 +33,10 @@ if __name__ == "__main__":
     output_dir.mkdir(exist_ok=True)
     vectorstore.save_local(str(output_dir))
     print(f"Saved FAISS index to: {output_dir}")
+
+
+# Expected output:
+# Vector store built: 5 documents indexed
+# Query: 'What is LCEL?'
+# Retrieved: 2 relevant chunks
+# Answer: LCEL is LangChain Expression Language for composing chains...

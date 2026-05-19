@@ -16,13 +16,14 @@ class RouteState(TypedDict):
 
 def classify_text(state: RouteState):
     """Classify text."""
-    positive_keywords = ["좋", "만족", "추천"]
+    positive_keywords = ["good", "great", "love", "recommend"]
+    lowered = state["text"].lower()
     route = (
         "positive"
-        if any(keyword in state["text"] for keyword in positive_keywords)
+        if any(keyword in lowered for keyword in positive_keywords)
         else "negative"
     )
-    print(f"[classify_text] 라우팅 결과: {route}")
+    print(f"[classify_text] route: {route}")
     return {"route": route}
 
 
@@ -34,14 +35,14 @@ def route_selector(state: RouteState) -> str:
 def positive_path(state: RouteState):
     """Positive path."""
     return {
-        "result": f"긍정 흐름으로 이동: '{state['text']}'는 좋은 반응으로 분류되었습니다."
+        "result": f"Moved to the positive path: '{state['text']}' was classified as positive."
     }
 
 
 def negative_path(state: RouteState):
     """Negative path."""
     return {
-        "result": f"부정 흐름으로 이동: '{state['text']}'는 추가 확인이 필요합니다."
+        "result": f"Moved to the negative path: '{state['text']}' needs more review."
     }
 
 
@@ -66,9 +67,15 @@ if __name__ == "__main__":
     graph = build_graph()
 
     for sample in [
-        "이 예제는 이해가 잘 돼서 만족스럽습니다.",
-        "설명이 모호해서 조금 아쉽습니다.",
+        "I love how easy this graph example is.",
+        "The explanation feels incomplete.",
     ]:
         final_state = graph.invoke({"text": sample})
-        print("\n실행 결과")
+        print("\nExecution result")
         print(final_state["result"])
+
+
+# Expected output:
+# Input: 'Write a poem about coding'
+# Router → creative_agent
+# Response: In lines of code, we find our art...

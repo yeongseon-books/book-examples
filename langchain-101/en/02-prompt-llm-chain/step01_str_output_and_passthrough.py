@@ -37,3 +37,9 @@ if __name__ == "__main__":
     result = chain.invoke({"topic": "StrOutputParser"})
     print("[StrOutputParser + RunnablePassthrough result]")
     print(result)
+
+
+# Expected output:
+# Step 1: Understand the concept
+# Step 2: Apply it to a real problem
+# (Parsed as plain string via StrOutputParser)

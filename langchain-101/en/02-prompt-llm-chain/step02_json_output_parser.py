@@ -34,3 +34,7 @@ if __name__ == "__main__":
     result = chain.invoke({"topic": "JsonOutputParser"})
     print("[JsonOutputParser result]")
     print(result)
+
+
+# Expected output:
+# {"steps": ["Learn basics", "Practice daily"], "difficulty": "medium"}

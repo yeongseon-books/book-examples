@@ -20,29 +20,31 @@ class AgentState(TypedDict):
 
 @tool
 def search_team_calendar(team_name: str) -> str:
-    """팀 일정표에서 이번 주 핵심 일정을 찾습니다."""
+    """Look up the most important events for a team this week."""
     calendar = {
-        "플랫폼": "수요일 배포 리허설, 금요일 장애 대응 훈련",
-        "데이터": "화요일 지표 리뷰, 목요일 파이프라인 점검",
+        "platform": "Wednesday deployment rehearsal, Friday incident drill",
+        "data": "Tuesday metrics review, Thursday pipeline check",
     }
-    return calendar.get(team_name, f"{team_name} 팀 일정은 아직 등록되지 않았습니다.")
+    return calendar.get(
+        team_name.lower(), f"No schedule is registered for the {team_name} team."
+    )
 
 
 @tool
 def lookup_lunch_menu(day: str) -> str:
-    """사내 식당 점심 메뉴를 조회합니다."""
+    """Look up the cafeteria lunch menu."""
     menus = {
-        "수요일": "비빔밥과 된장국",
-        "목요일": "불고기 덮밥과 샐러드",
+        "wednesday": "Bibimbap and soybean paste soup",
+        "thursday": "Bulgogi rice bowl and salad",
     }
-    return menus.get(day, f"{day} 메뉴 정보가 없습니다.")
+    return menus.get(day.lower(), f"No lunch menu is available for {day}.")
 
 
 def build_model() -> ChatGroq:
     """Build model."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY를 먼저 설정하세요.")
+        raise RuntimeError("Set GROQ_API_KEY before running this example.")
     return ChatGroq(model="llama3-70b-8192", temperature=0, stop_sequences=None)
 
 
@@ -53,7 +55,7 @@ def assistant_node(state: AgentState):
     response = model.invoke(
         [
             SystemMessage(
-                content="일정과 식단 질문에 답할 때 필요한 도구를 먼저 사용하고, 마지막 답변은 한국어로 정리하세요."
+                content="Use tools before answering schedule or menu questions, then summarize in English."
             )
         ]
         + state["messages"]
@@ -89,12 +91,19 @@ if __name__ == "__main__":
         {
             "messages": [
                 HumanMessage(
-                    content="플랫폼 팀 이번 주 일정과 수요일 점심 메뉴를 알려주세요."
+                    content="Tell me the platform team schedule and the Wednesday lunch menu."
                 )
             ]
         }
     )
 
-    print("\n에이전트 루프 결과")
+    print("\nAgent loop result")
     for message in result["messages"]:
         print(f"- {message.type}: {message.content}")
+
+
+# Expected output:
+# Agent: I need to check the weather.
+# Tool call: get_weather(location="Tokyo")
+# Tool result: 72°F, sunny
+# Agent: The weather in Tokyo is 72°F and sunny.

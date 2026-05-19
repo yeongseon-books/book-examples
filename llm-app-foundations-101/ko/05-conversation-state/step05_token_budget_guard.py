@@ -1,11 +1,11 @@
 """
-Step 05 — 토큰 예산 초과 감지
+Step 05 — Detect token budget overflow
 ======================================================
-실행:
+Run:
     python step05_token_budget_guard.py
 
-문자 수 기반 rough 추정으로 입력 토큰이 예산을 넘는지
-미리 확인하고 필요하면 이력을 잘라내는 유틸 함수입니다.
+Use a rough character-based estimate to check whether a message list
+exceeds the token budget, then trim history if needed.
 """
 
 
@@ -26,19 +26,21 @@ def enforce_budget(
 
     trimmed = messages[:1] + messages[-8:]
     if rough_token_count(trimmed) <= max_input_tokens:
-        print(f"이력을 {len(messages) - len(trimmed)}개 잘라냈습니다.")
+        print(f"Trimmed {len(messages) - len(trimmed)} messages from the history.")
         return trimmed
 
-    raise ValueError("대화 이력이 너무 깁니다. 더 강한 요약이 필요합니다.")
+    raise ValueError(
+        "The conversation history is too long. You need a more aggressive summary."
+    )
 
 
 def main() -> None:
     """Main."""
-    system = {"role": "system", "content": "당신은 도우미입니다."}
+    system = {"role": "system", "content": "You are a helpful assistant."}
     short_history = [system] + [
         {
             "role": "user" if index % 2 == 0 else "assistant",
-            "content": f"메시지 {index}",
+            "content": f"Message {index}",
         }
         for index in range(10)
     ]
@@ -56,8 +58,15 @@ def main() -> None:
         result = enforce_budget(long_history, max_input_tokens=3000)
         print(f"after enforce: {len(result)} messages")
     except ValueError as exc:
-        print(f"예외: {exc}")
+        print(f"Exception: {exc}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Prompt tokens: 24
+# Completion tokens: 156
+# Total tokens: 180
+# Estimated cost: $0.000036

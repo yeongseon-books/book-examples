@@ -11,7 +11,7 @@ from langchain_groq import ChatGroq
 def build_chain():
     """Build chain."""
     prompt = ChatPromptTemplate.from_template(
-        "다음 주제를 2단계로 설명해 주세요: {topic}"
+        "Explain the following topic in 2 steps: {topic}"
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
@@ -24,6 +24,14 @@ def build_chain():
 
 if __name__ == "__main__":
     chain = build_chain()
-    result = chain.invoke({"topic": "LCEL 기본 흐름"})
-    print("[기본 체인 결과]")
+    result = chain.invoke({"topic": "the LCEL pipeline"})
+    print("[Basic chain result]")
     print(result)
+
+
+# Expected output:
+# A list comprehension in Python is a concise way to create lists by
+# applying an expression to each item in an iterable, optionally filtering
+# items with a condition. The syntax is [expression for item in iterable
+# if condition]. For example, [x**2 for x in range(10) if x % 2 == 0]
+# produces [0, 4, 16, 36, 64].

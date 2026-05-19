@@ -12,10 +12,10 @@ def build_chain():
     """Build chain."""
     parser = JsonOutputParser()
     prompt = ChatPromptTemplate.from_template(
-        "다음 주제에 대한 학습 계획을 JSON으로만 답해 주세요.\n"
-        "반드시 keys는 summary, exercises, caution 를 사용하세요.\n"
+        "Return a study plan for the following topic as JSON only.\n"
+        "Use the keys summary, exercises, caution.\n"
         "{format_instructions}\n"
-        "주제: {topic}"
+        "Topic: {topic}"
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
@@ -32,5 +32,9 @@ def build_chain():
 if __name__ == "__main__":
     chain = build_chain()
     result = chain.invoke({"topic": "JsonOutputParser"})
-    print("[JsonOutputParser 결과]")
+    print("[JsonOutputParser result]")
     print(result)
+
+
+# Expected output:
+# {"steps": ["Learn basics", "Practice daily"], "difficulty": "medium"}

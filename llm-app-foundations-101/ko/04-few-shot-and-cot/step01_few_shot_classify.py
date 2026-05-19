@@ -1,11 +1,11 @@
 """
-Step 01 — 기본 few-shot 분류
+Step 01 — Basic few-shot classification
 ======================================================
-실행:
+Run:
     python step01_few_shot_classify.py
 
-system 프롬프트와 예시 쌍을 사용해 고객 문의를
-category, priority, reason 형식으로 분류합니다.
+Use a system prompt and example pairs to classify a support ticket
+into category, priority, and reason.
 """
 
 import os
@@ -22,32 +22,38 @@ def main() -> None:
         {
             "role": "system",
             "content": (
-                "당신은 고객 문의를 분류하는 운영 도우미입니다. "
-                "항상 아래 형식으로만 답하세요:\n"
+                "You are an operations assistant that classifies customer tickets. "
+                "Always answer in this format only:\n"
                 "category: <billing|technical|account>\n"
                 "priority: <low|medium|high>\n"
-                "reason: <한 문장>"
+                "reason: <one sentence>"
             ),
         },
-        {"role": "user", "content": "결제는 됐는데 영수증 메일이 오지 않았어요."},
+        {
+            "role": "user",
+            "content": "The payment went through, but I never received the receipt email.",
+        },
         {
             "role": "assistant",
             "content": (
                 "category: billing\n"
                 "priority: medium\n"
-                "reason: 결제 이후 증빙 메일 누락 문제라 과금 영역으로 본다."
+                "reason: This is a billing issue because the payment proof email is missing after checkout."
             ),
         },
-        {"role": "user", "content": "비밀번호를 바꿨는데도 로그인에 계속 실패합니다."},
+        {
+            "role": "user",
+            "content": "I changed my password, but I still cannot log in.",
+        },
         {
             "role": "assistant",
             "content": (
                 "category: account\n"
                 "priority: high\n"
-                "reason: 계정 접근 실패는 사용 불가 상태로 이어질 수 있다."
+                "reason: Losing account access can block the user from using the service."
             ),
         },
-        {"role": "user", "content": "CSV 업로드를 누르면 서버 오류가 납니다."},
+        {"role": "user", "content": "The server crashes whenever I click CSV upload."},
     ]
 
     completion = client.chat.completions.create(
@@ -61,3 +67,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Input: 'The movie was absolutely terrible'
+# Classification: negative
+# Confidence: 0.95

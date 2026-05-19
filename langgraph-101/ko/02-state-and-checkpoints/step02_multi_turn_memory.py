@@ -22,8 +22,8 @@ def find_name(messages: list) -> str | None:
         if not isinstance(message, HumanMessage):
             continue
         text = message.content if isinstance(message.content, str) else ""
-        if "제 이름은" in text:
-            return text.split("제 이름은", 1)[1].replace("입니다", "").strip(" .")
+        if "my name is" in text.lower():
+            return text.split("is", 1)[1].strip(" .")
     return None
 
 
@@ -32,14 +32,14 @@ def assistant_node(state: ChatState):
     last_message = state["messages"][-1]
     remembered_name = find_name(state["messages"][:-1]) or find_name(state["messages"])
 
-    if "제 이름은" in last_message.content:
-        reply = "이름을 기억해 둘게요. 다음 질문에서 다시 활용해보겠습니다."
-    elif "내 이름" in last_message.content and remembered_name:
-        reply = f"물론이죠. 지금까지 기억한 이름은 {remembered_name}입니다."
+    if "my name is" in last_message.content.lower():
+        reply = "Got it. I will remember your name for the next turn."
+    elif "my name" in last_message.content.lower() and remembered_name:
+        reply = f"Of course. The name I remember is {remembered_name}."
     else:
-        reply = "이 대화는 같은 thread_id 안에서 계속 이어집니다."
+        reply = "This conversation continues as long as you reuse the same thread_id."
 
-    print(f"[assistant_node] 응답: {reply}")
+    print(f"[assistant_node] reply: {reply}")
     return {"messages": [AIMessage(content=reply)]}
 
 
@@ -54,18 +54,24 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast("RunnableConfig", {"configurable": {"thread_id": "ko-chat-thread"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "en-chat-thread"}})
 
     graph.invoke(
-        {"messages": [HumanMessage(content="제 이름은 민준입니다.")]}, config=config
+        {"messages": [HumanMessage(content="My name is Mina.")]}, config=config
     )
     graph.invoke(
-        {"messages": [HumanMessage(content="방금 말한 내 이름이 뭐였죠?")]},
-        config=config,
+        {"messages": [HumanMessage(content="What was my name again?")]}, config=config
     )
 
     snapshot = graph.get_state(config)
 
-    print("\n누적 대화 상태")
+    print("\nAccumulated conversation state")
     for message in snapshot.values["messages"]:
         print(f"- {message.type}: {message.content}")
+
+
+# Expected output:
+# User: What is Python?
+# Assistant: Python is a high-level programming language...
+# User: Who created it?
+# Assistant: Python was created by Guido van Rossum in 1991...

@@ -1,11 +1,11 @@
 """
-Step 04 — 동기 vs 비동기 패턴
+Step 04 — Sync vs async patterns
 ======================================================
-실행:
+Run:
     python step04_sync_vs_async.py
 
-동기(Groq)와 비동기(AsyncGroq) 호출 패턴을 나란히 보여줍니다.
-마지막에 asyncio.gather로 세 질문을 병렬 호출하는 예제도 포함합니다.
+Compare synchronous and asynchronous Groq calls,
+then run three async requests in parallel with asyncio.gather.
 """
 
 import asyncio
@@ -22,11 +22,11 @@ def sync_call() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "비동기 프로그래밍을 한 문단으로 설명해 주세요.",
+                "content": "Explain asynchronous programming in one paragraph.",
             }
         ],
     )
-    print("[동기 호출]")
+    print("[sync]")
     print(completion.choices[0].message.content)
 
 
@@ -38,11 +38,11 @@ async def async_call() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "asyncio가 필요한 상황을 두 가지로 설명해 주세요.",
+                "content": "Describe two situations where asyncio is useful.",
             }
         ],
     )
-    print("\n[비동기 호출]")
+    print("\n[async]")
     print(completion.choices[0].message.content)
 
 
@@ -59,13 +59,13 @@ async def parallel_calls() -> None:
         return completion.choices[0].message.content or ""
 
     questions = [
-        "리스트와 튜플의 차이를 설명해 주세요.",
-        "파이썬 딕셔너리의 핵심 특징을 설명해 주세요.",
-        "예외 처리가 필요한 이유를 설명해 주세요.",
+        "Explain the difference between a list and a tuple.",
+        "Explain the core features of a Python dictionary.",
+        "Explain why exception handling matters.",
     ]
     answers = await asyncio.gather(*(ask(question) for question in questions))
 
-    print("\n[병렬 비동기 호출 — 질문 3개]")
+    print("\n[parallel async — 3 questions at once]")
     for idx, answer in enumerate(answers, start=1):
         print(f"[{idx}] {answer}\n")
 
@@ -79,3 +79,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# [sync] Response received in 0.45s
+# [async] Response received in 0.43s
+# Both methods return identical content.

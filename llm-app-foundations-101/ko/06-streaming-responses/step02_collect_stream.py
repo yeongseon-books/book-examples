@@ -1,11 +1,11 @@
 """
-Step 02 — delta.content 추출과 누적
+Step 02 — Read and collect delta.content
 ======================================================
-실행:
+Run:
     python step02_collect_stream.py
 
-delta.content를 읽어 즉시 출력하고,
-parts 리스트에 누적해 최종 텍스트를 만드는 실용 패턴입니다.
+Print delta.content immediately,
+then collect the parts into a final response string.
 """
 
 import os
@@ -22,7 +22,7 @@ def main() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "FastAPI와 Flask의 차이를 입문자 관점에서 설명해 주세요.",
+                "content": "Explain the difference between FastAPI and Flask from a beginner's perspective.",
             }
         ],
         temperature=0.2,
@@ -39,8 +39,14 @@ def main() -> None:
 
     final_text = "".join(parts)
     print("\n---")
-    print(f"총 글자 수: {len(final_text)}")
+    print(f"total chars: {len(final_text)}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Streaming: Python is... a high-level... programming... language...
+# Collected full response (4 chunks, 187 chars):
+# 'Python is a high-level programming language...'

@@ -53,3 +53,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Input: 'The movie was absolutely terrible'
+# Classification: negative
+# Confidence: 0.95

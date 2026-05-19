@@ -50,3 +50,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# [No system prompt] Sure, here's a joke: Why did the programmer quit?
+# [With system prompt] Arr matey! Why did the pirate learn Python?
+# Because he wanted to master the C!

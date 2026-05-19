@@ -45,3 +45,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Request started...
+# ✓ Response received in 1.2s (within 5s timeout)
+# --- Simulating timeout ---
+# ✗ TimeoutError after 0.1s - recovering with cached response

@@ -1,11 +1,11 @@
 """
-Step 03 — max_tokens로 출력 길이 제어
+Step 03 — Control output length with max_tokens
 ======================================================
-실행:
+Run:
     python step03_max_tokens.py
 
-max_tokens를 작게 설정해 응답을 의도적으로 자른 뒤
-completion_tokens와 finish_reason을 확인합니다.
+Intentionally truncate a response with a small max_tokens value,
+then inspect completion_tokens and finish_reason.
 """
 
 import os
@@ -20,14 +20,14 @@ def call_with_max_tokens(client: Groq, max_tokens: int) -> None:
         messages=[
             {
                 "role": "user",
-                "content": "파이썬 제너레이터와 리스트의 차이를 예제와 함께 자세히 설명해 주세요.",
+                "content": "Explain the difference between Python generators and lists in detail with an example.",
             }
         ],
         max_tokens=max_tokens,
     )
     usage = completion.usage
     if usage is None:
-        raise RuntimeError("usage 정보를 받지 못했습니다.")
+        raise RuntimeError("Did not receive usage metadata.")
 
     print(f"\n=== max_tokens={max_tokens} ===")
     print(completion.choices[0].message.content)
@@ -35,7 +35,7 @@ def call_with_max_tokens(client: Groq, max_tokens: int) -> None:
     print(f"finish_reason={completion.choices[0].finish_reason}")
 
     if completion.choices[0].finish_reason == "length":
-        print("경고: 출력이 길이 제한에 걸려 중간에서 끝났습니다.")
+        print("Warning: the output hit the length limit and stopped early.")
 
 
 def main() -> None:
@@ -48,3 +48,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Prompt tokens: 24
+# Completion tokens: 156
+# Total tokens: 180
+# Estimated cost: $0.000036

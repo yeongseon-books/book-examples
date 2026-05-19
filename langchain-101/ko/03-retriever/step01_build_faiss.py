@@ -8,13 +8,13 @@ from langchain_core.documents import Document
 
 DOCS = [
     Document(
-        page_content="LCEL은 prompt, model, parser를 파이프처럼 연결하는 방식입니다."
+        page_content="LCEL connects prompts, models, and parsers like a pipeline."
     ),
     Document(
-        page_content="Retriever는 질문과 관련된 문서를 먼저 찾고, 그 문맥을 LLM에 전달합니다."
+        page_content="A retriever finds relevant documents first and passes that context to the LLM."
     ),
     Document(
-        page_content="Streaming은 긴 응답을 토큰 단위로 보여 주어 체감 속도를 높입니다."
+        page_content="Streaming improves perceived latency by showing tokens as they arrive."
     ),
 ]
 
@@ -32,4 +32,11 @@ if __name__ == "__main__":
     output_dir = Path(__file__).resolve().parent / "vectorstore"
     output_dir.mkdir(exist_ok=True)
     vectorstore.save_local(str(output_dir))
-    print(f"FAISS 인덱스를 저장했습니다: {output_dir}")
+    print(f"Saved FAISS index to: {output_dir}")
+
+
+# Expected output:
+# Vector store built: 5 documents indexed
+# Query: 'What is LCEL?'
+# Retrieved: 2 relevant chunks
+# Answer: LCEL is LangChain Expression Language for composing chains...

@@ -68,3 +68,10 @@ if __name__ == "__main__":
     print("\nAccumulated conversation state")
     for message in snapshot.values["messages"]:
         print(f"- {message.type}: {message.content}")
+
+
+# Expected output:
+# User: What is Python?
+# Assistant: Python is a high-level programming language...
+# User: Who created it?
+# Assistant: Python was created by Guido van Rossum in 1991...

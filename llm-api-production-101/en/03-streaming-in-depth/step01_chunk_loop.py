@@ -35,3 +35,12 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# chunk[0]: ''
+# chunk[1]: 'Machine'
+# chunk[2]: ' learning'
+# chunk[3]: ' is'
+# ...
+# Total chunks: 47

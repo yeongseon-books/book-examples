@@ -65,7 +65,7 @@ def build_client() -> Groq:
     """Build client."""
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY 환경 변수가 필요합니다.")
+        raise RuntimeError("GROQ_API_KEY environment variable is required.")
     return Groq(api_key=api_key)
 
 

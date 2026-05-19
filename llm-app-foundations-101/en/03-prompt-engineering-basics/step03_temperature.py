@@ -37,3 +37,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# temperature=0.0: 'The capital of France is Paris.'
+# temperature=0.0: 'The capital of France is Paris.'
+# temperature=1.5: 'Ah, Paris! The luminous City of Light...'
+# temperature=1.5: 'France's beating heart is Paris, where...'

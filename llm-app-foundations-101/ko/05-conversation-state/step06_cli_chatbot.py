@@ -1,11 +1,11 @@
 """
-Step 06 — 완성 CLI 챗봇
+Step 06 — Complete CLI chatbot
 ======================================================
-실행:
+Run:
     python step06_cli_chatbot.py
 
-입력 루프, 요약 압축, 토큰 예산 관리를 하나로 합친
-실용적인 CLI 챗봇 예제입니다.
+Combine an input loop, summary compression,
+and token budget management into one practical CLI chatbot.
 """
 
 import os
@@ -50,15 +50,15 @@ def summarize_old_turns(
         {
             "role": "system",
             "content": (
-                "대화 이력을 압축 요약하세요. "
-                "반드시 사용자 목표, 확정된 사실, 선호, 미해결 질문을 남기세요."
+                "Compress the conversation history. "
+                "Keep the user's goal, confirmed facts, preferences, and unresolved questions."
             ),
         },
         {
             "role": "user",
             "content": (
-                f"기존 요약:\n{current_summary or '(없음)'}\n\n"
-                f"추가할 대화:\n{old_turns}"
+                f"Current summary:\n{current_summary or '(none)'}\n\n"
+                f"Conversation to add:\n{old_turns}"
             ),
         },
     ]
@@ -80,7 +80,10 @@ def build_messages(
     messages: list[ChatCompletionMessageParam] = [system_message]
     if summary_text:
         messages.append(
-            {"role": "system", "content": f"이전 대화 요약:\n{summary_text}"}
+            {
+                "role": "system",
+                "content": f"Previous conversation summary:\n{summary_text}",
+            }
         )
     messages.extend(recent_turns)
     messages.append({"role": "user", "content": user_text})
@@ -113,7 +116,7 @@ def compress_if_needed(
         system_message, summary_text, recent_turns, next_user_text
     )
     if rough_token_count(messages) > MAX_INPUT_TOKENS:
-        raise ValueError("입력이 너무 깁니다. /reset으로 새 세션을 시작하세요.")
+        raise ValueError("The input is too long. Start a new session with /reset.")
 
 
 def ask(
@@ -139,7 +142,7 @@ def ask(
 
     usage = completion.usage
     if usage is None:
-        raise RuntimeError("usage 정보를 받지 못했습니다.")
+        raise RuntimeError("Did not receive usage metadata.")
     print(f"[tokens] prompt={usage.prompt_tokens} total={usage.total_tokens}")
     return answer
 
@@ -150,16 +153,16 @@ def main() -> None:
     system_message: ChatCompletionSystemMessageParam = {
         "role": "system",
         "content": (
-            "당신은 실무형 파이썬 및 LLM 앱 도우미입니다. "
-            "모르면 모른다고 말하고, 답변은 짧고 정확하게 유지하세요."
+            "You are a practical Python and LLM app assistant. "
+            "Say when you do not know something, and keep answers short and accurate."
         ),
     }
     state: ChatState = {"summary_text": "", "recent_turns": []}
 
-    print("멀티턴 챗봇을 시작합니다. /reset, /summary, /quit 명령을 지원합니다.")
+    print("Starting the multi-turn chatbot. Commands: /reset, /summary, /quit")
 
     while True:
-        user_text = input("\n사용자> ").strip()
+        user_text = input("\nyou> ").strip()
 
         if not user_text:
             continue
@@ -167,17 +170,26 @@ def main() -> None:
             break
         if user_text == "/reset":
             state = {"summary_text": "", "recent_turns": []}
-            print("도우미> 세션을 초기화했습니다.")
+            print("assistant> Session reset.")
             continue
         if user_text == "/summary":
-            print(f"도우미> 현재 요약:\n{state['summary_text'] or '(없음)'}")
+            print(f"assistant> Current summary:\n{state['summary_text'] or '(none)'}")
             continue
 
         try:
-            print(f"도우미> {ask(client, system_message, state, user_text)}")
+            print(f"assistant> {ask(client, system_message, state, user_text)}")
         except ValueError as exc:
-            print(f"도우미> {exc}")
+            print(f"assistant> {exc}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# > Hello!
+# Bot: Hi there! How can I help you today?
+# > What is machine learning?
+# Bot: Machine learning is a subset of AI that enables systems to learn...
+# > quit
+# Goodbye!

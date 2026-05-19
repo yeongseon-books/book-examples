@@ -1,11 +1,11 @@
 """
-Step 02 — 첫 번째 API 호출
+Step 02 — First API call
 ======================================================
-실행:
+Run:
     python step02_first_call.py
 
-Groq 클라이언트를 만들고 llama-3.1-8b-instant에
-메시지를 보낸 뒤 응답 본문을 출력합니다.
+Create a Groq client, send a message to llama-3.1-8b-instant,
+and print the response text.
 """
 
 import os
@@ -22,7 +22,7 @@ def main() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "파이썬 리스트 컴프리헨션을 한 문단으로 설명해 주세요.",
+                "content": "Explain Python list comprehensions in one paragraph.",
             }
         ],
     )
@@ -32,3 +32,11 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# A list comprehension in Python is a concise way to create lists by
+# applying an expression to each item in an iterable, optionally filtering
+# items with a condition. The syntax is [expression for item in iterable
+# if condition]. For example, [x**2 for x in range(10) if x % 2 == 0]
+# produces [0, 4, 16, 36, 64].

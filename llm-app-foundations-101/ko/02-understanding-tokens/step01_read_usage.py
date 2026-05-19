@@ -1,11 +1,11 @@
 """
-Step 01 — usage 필드 읽기
+Step 01 — Read the usage fields
 ======================================================
-실행:
+Run:
     python step01_read_usage.py
 
-API 호출 후 usage.prompt_tokens / completion_tokens / total_tokens를
-읽고 finish_reason을 함께 출력합니다.
+After an API call, print usage.prompt_tokens,
+completion_tokens, total_tokens, and finish_reason.
 """
 
 import os
@@ -22,14 +22,14 @@ def main() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "파이썬 데코레이터를 두 문단 이내로 설명해 주세요.",
+                "content": "Explain Python decorators in no more than two paragraphs.",
             }
         ],
     )
 
     usage = completion.usage
     if usage is None:
-        raise RuntimeError("usage 정보를 받지 못했습니다.")
+        raise RuntimeError("Did not receive usage metadata.")
 
     print(completion.choices[0].message.content)
     print()
@@ -41,3 +41,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Prompt tokens: 24
+# Completion tokens: 156
+# Total tokens: 180
+# Estimated cost: $0.000036

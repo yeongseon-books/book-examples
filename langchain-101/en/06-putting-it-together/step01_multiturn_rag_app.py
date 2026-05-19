@@ -100,3 +100,10 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# User: What is Python?
+# Assistant: Python is a high-level programming language...
+# User: Who created it?
+# Assistant: Python was created by Guido van Rossum in 1991...

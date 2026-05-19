@@ -32,3 +32,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Original params: 8,000,000
+# LoRA params (rank=8): 65,536 (0.82%)
+# Memory savings: ~97%

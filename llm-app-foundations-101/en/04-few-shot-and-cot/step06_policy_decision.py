@@ -86,3 +86,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Policy: Few-shot selected (classification task detected)
+# Prompt tokens: 245
+# Result: category='technology', confidence=0.92

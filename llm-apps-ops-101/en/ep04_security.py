@@ -79,3 +79,9 @@ def demo() -> None:
 
 if __name__ == "__main__":
     demo()
+
+
+# Expected output:
+# Input sanitization: ✓ (prompt injection blocked)
+# PII detection: ✓ (email redacted)
+# Output filtering: ✓ (no harmful content)

@@ -1,11 +1,11 @@
 """
-Step 05 — 스트림을 파일에 쓰기
+Step 05 — Write the stream to a file
 ======================================================
-실행:
+Run:
     python step05_stream_to_file.py
 
-생성되는 토큰을 파일에 즉시 쓰고,
-문장 단위로 consumer에 전달하는 파이프 패턴을 함께 보여줍니다.
+Write generated tokens to a file immediately,
+then forward sentence-sized chunks to a consumer.
 """
 
 import os
@@ -41,7 +41,7 @@ def main() -> None:
             messages=[
                 {
                     "role": "user",
-                    "content": "벡터 데이터베이스를 쉽게 설명해 주세요.",
+                    "content": "Explain vector databases in simple terms.",
                 }
             ],
             stream=True,
@@ -52,13 +52,13 @@ def main() -> None:
                 file.flush()
                 print(delta, end="", flush=True)
 
-    print(f"\n\n파일 저장 완료: {output_path}")
+    print(f"\n\nSaved file: {output_path}")
 
-    print("\n=== 문장 단위 파이프 ===")
+    print("\n=== sentence pipeline ===")
     pipe_stream = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
-            {"role": "user", "content": "벡터 데이터베이스를 쉽게 설명해 주세요."}
+            {"role": "user", "content": "Explain vector databases in simple terms."}
         ],
         stream=True,
     )
@@ -68,3 +68,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Streaming to output.txt...
+# Written 12 chunks (534 chars) to output.txt

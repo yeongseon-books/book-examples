@@ -1,11 +1,11 @@
 """
-Step 02 — tiktoken으로 토큰 수 사전 추정
+Step 02 — Estimate token counts with tiktoken
 ======================================================
-실행:
+Run:
     python step02_tiktoken_estimate.py
 
-tiktoken cl100k_base 인코딩으로 문자열과 메시지 목록의
-토큰 수를 미리 추정합니다. Groq 청구값의 근사치입니다.
+Estimate token counts for strings and message lists
+with the cl100k_base encoding.
 """
 
 import tiktoken
@@ -30,29 +30,39 @@ def main() -> None:
         "hello world",
         "unbelievable",
         'print(user_profile[0]["email"])',
-        "토큰 길이를 미리 재면 긴 프롬프트를 더 안전하게 다룰 수 있습니다.",
+        "Estimating token length early makes long prompts safer to handle.",
     ]
 
-    print("=== 단일 문자열 토큰 수 ===")
+    print("=== single string token counts ===")
     for text in samples:
         tokens = count_tokens(text)
         print(f"{tokens:3d} tokens | {text!r}")
 
     messages = [
-        {"role": "system", "content": "당신은 간결하게 설명하는 파이썬 튜터입니다."},
-        {"role": "user", "content": "리스트와 튜플의 차이를 설명해 주세요."},
+        {"role": "system", "content": "You are a concise Python tutor."},
+        {
+            "role": "user",
+            "content": "Explain the difference between a list and a tuple.",
+        },
         {
             "role": "assistant",
-            "content": "리스트는 변경 가능하고, 튜플은 변경 불가능합니다.",
+            "content": "A list is mutable, while a tuple is immutable.",
         },
-        {"role": "user", "content": "예제 코드도 짧게 덧붙여 주세요."},
+        {"role": "user", "content": "Please add a short code example too."},
     ]
 
     estimated = estimate_messages_tokens(messages)
-    print("\n=== 메시지 토큰 추정치 ===")
+    print("\n=== message token estimate ===")
     print(f"estimated_prompt_tokens={estimated}")
-    print("Groq 실제 청구값과 약간 다를 수 있습니다.")
+    print("The exact Groq billing count may differ slightly.")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Prompt tokens: 24
+# Completion tokens: 156
+# Total tokens: 180
+# Estimated cost: $0.000036

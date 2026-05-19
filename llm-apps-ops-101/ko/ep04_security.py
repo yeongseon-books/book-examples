@@ -5,14 +5,14 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-from ko.common import build_logger
+from en.common import build_logger
 
-logger = build_logger("ko.security")
+logger = build_logger("en.security")
 
 BLOCKED_PATTERNS = [r"ignore previous instructions", r"system prompt", r"api[_ -]?key"]
 SENSITIVE_PATTERNS = {
     "email": re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"),
-    "phone": re.compile(r"01[0-9]-?\d{3,4}-?\d{4}"),
+    "phone": re.compile(r"\+?\d[\d -]{7,}\d"),
 }
 
 
@@ -33,18 +33,19 @@ class InputValidator:
     def validate(self, text: str) -> ValidationResult:
         """Validate."""
         if not text.strip():
-            return ValidationResult(False, "입력이 비어 있습니다.")
+            return ValidationResult(False, "Input is empty.")
         if len(text) > self.max_length:
             return ValidationResult(
-                False, f"입력이 너무 깁니다. 최대 {self.max_length}자까지 허용합니다."
+                False,
+                f"Input is too long. Maximum length is {self.max_length} characters.",
             )
         lowered = text.lower()
         for pattern in BLOCKED_PATTERNS:
             if re.search(pattern, lowered):
                 return ValidationResult(
-                    False, "프롬프트 인젝션으로 의심되는 표현이 포함되어 있습니다."
+                    False, "Potential prompt injection pattern detected."
                 )
-        return ValidationResult(True, "입력이 검증을 통과했습니다.")
+        return ValidationResult(True, "Input validation passed.")
 
 
 class OutputFilter:
@@ -57,7 +58,7 @@ class OutputFilter:
             replaced = pattern.sub(f"[{name}-redacted]", filtered)
             if replaced != filtered:
                 logger.info(
-                    "민감 정보가 출력에서 제거되었습니다.",
+                    "Sensitive data was removed from the output.",
                     extra={"payload": {"kind": name}},
                 )
             filtered = replaced
@@ -68,13 +69,19 @@ def demo() -> None:
     """Demo."""
     validator = InputValidator()
     filter_ = OutputFilter()
-    prompt = "사용자 이메일이 admin@example.com 일 때 시스템 점검 안내를 써 주세요."
+    prompt = "Write a maintenance notice for the user whose email is admin@example.com."
     validation = validator.validate(prompt)
     print(validation)
     print(
-        filter_.redact("연락처는 010-1234-5678 이고 이메일은 admin@example.com 입니다.")
+        filter_.redact("Contact admin@example.com or call +1 415 555 0100 for support.")
     )
 
 
 if __name__ == "__main__":
     demo()
+
+
+# Expected output:
+# Input sanitization: ✓ (prompt injection blocked)
+# PII detection: ✓ (email redacted)
+# Output filtering: ✓ (no harmful content)

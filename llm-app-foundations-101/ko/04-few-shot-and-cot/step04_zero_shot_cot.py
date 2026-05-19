@@ -1,11 +1,11 @@
 """
-Step 04 — zero-shot Chain-of-Thought
+Step 04 — Zero-shot Chain-of-Thought
 ======================================================
-실행:
+Run:
     python step04_zero_shot_cot.py
 
-단계적으로 생각해 달라는 한 문장으로 복합 계산 문제의
-중간 추론 단계를 끌어내는 패턴입니다.
+Use a single step-by-step instruction to encourage
+intermediate reasoning for a calculation task.
 """
 
 import os
@@ -18,8 +18,8 @@ def main() -> None:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     question = (
-        "온라인 강의가 120000원입니다. 쿠폰 10%를 먼저 적용하고, "
-        "그 결과에 부가세 10%를 붙이면 최종 결제 금액은 얼마인가요?"
+        "An online course costs 120000 won. If you apply a 10% coupon first and then add 10% VAT to the discounted price, "
+        "what is the final payment amount?"
     )
 
     completion = client.chat.completions.create(
@@ -27,12 +27,12 @@ def main() -> None:
         messages=[
             {
                 "role": "system",
-                "content": "당신은 계산 과정을 차분히 설명하는 도우미입니다.",
+                "content": "You are a careful assistant that explains calculations step by step.",
             },
             {
                 "role": "user",
                 "content": question
-                + " 단계적으로 생각해 주세요. 마지막 줄에는 final_answer: <숫자>원 형식으로만 적어 주세요.",
+                + " Think step by step. On the last line, write only final_answer: <number> won.",
             },
         ],
         temperature=0.0,
@@ -43,3 +43,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Question: If a train travels 120km in 2 hours, what is its speed?
+# Reasoning: Speed = distance / time = 120km / 2h = 60 km/h
+# Answer: 60 km/h

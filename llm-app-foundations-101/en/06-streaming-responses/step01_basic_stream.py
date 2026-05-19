@@ -36,3 +36,12 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Python
+# is
+# a high-level
+# programming
+# language...
+# [Stream complete]

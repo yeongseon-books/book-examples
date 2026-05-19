@@ -65,3 +65,10 @@ if __name__ == "__main__":
     result = chain.invoke({"question": "Why does RAG need a retriever?"})
     print("[RAG chain result]")
     print(result)
+
+
+# Expected output:
+# Vector store built: 5 documents indexed
+# Query: 'What is LCEL?'
+# Retrieved: 2 relevant chunks
+# Answer: LCEL is LangChain Expression Language for composing chains...

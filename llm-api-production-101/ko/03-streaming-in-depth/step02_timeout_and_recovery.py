@@ -20,7 +20,7 @@ def stream_with_timeout(client: Groq, prompt: str, timeout_sec: float = 10.0) ->
     try:
         for chunk in stream:
             if time.monotonic() > deadline:
-                print("\n[타임아웃: 지금까지 받은 부분 결과를 반환합니다.]")
+                print("\n[timeout: returning the partial response collected so far]")
                 break
             delta = chunk.choices[0].delta.content
             if delta:
@@ -37,11 +37,18 @@ def main() -> None:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     result = stream_with_timeout(
         client,
-        "파이썬 asyncio 이벤트 루프를 설명해 주세요.",
+        "Explain the Python asyncio event loop.",
         timeout_sec=8.0,
     )
-    print(f"\n\n수집한 글자 수: {len(result)}")
+    print(f"\n\ncollected_chars: {len(result)}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Request started...
+# ✓ Response received in 1.2s (within 5s timeout)
+# --- Simulating timeout ---
+# ✗ TimeoutError after 0.1s - recovering with cached response

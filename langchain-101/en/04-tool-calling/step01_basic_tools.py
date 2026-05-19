@@ -30,3 +30,9 @@ if __name__ == "__main__":
     )
     print("[Tool call request]")
     print(response)
+
+
+# Expected output:
+# Tool call: get_weather({"location": "San Francisco"})
+# Tool result: {"temperature": 62, "condition": "foggy"}
+# Assistant: The weather in San Francisco is 62°F and foggy.

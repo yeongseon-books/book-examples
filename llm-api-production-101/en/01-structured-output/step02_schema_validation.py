@@ -53,3 +53,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Validation passed ✓
+# Parsed: {"name": "Python", "year": 1991, "typed": true}
+# Schema errors: 0

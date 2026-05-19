@@ -17,13 +17,14 @@ class ReviewState(TypedDict):
 
 def classify_review(state: ReviewState):
     """Classify review."""
-    positive_keywords = ["최고", "빠르", "편하", "만족"]
+    positive_keywords = ["great", "fast", "easy", "satisfied"]
+    lowered = state["review"].lower()
     sentiment = (
         "positive"
-        if any(keyword in state["review"] for keyword in positive_keywords)
+        if any(keyword in lowered for keyword in positive_keywords)
         else "negative"
     )
-    print(f"[classify_review] 감정 분류: {sentiment}")
+    print(f"[classify_review] sentiment: {sentiment}")
     return {"sentiment": sentiment}
 
 
@@ -34,17 +35,19 @@ def branch_selector(state: ReviewState) -> str:
 
 def handle_positive(state: ReviewState):
     """Handle positive."""
-    return {"action": "추천 후기로 묶기"}
+    return {"action": "group as testimonial"}
 
 
 def handle_negative(state: ReviewState):
     """Handle negative."""
-    return {"action": "개선 이슈로 전달하기"}
+    return {"action": "send to improvement backlog"}
 
 
 def finalize_response(state: ReviewState):
     """Finalize response."""
-    response = f"분기 완료: {state['action']} | 원문: {state['review']}"
+    response = (
+        f"Branch complete: {state['action']} | original review: {state['review']}"
+    )
     print(f"[finalize_response] {response}")
     return {"response": response}
 
@@ -71,8 +74,14 @@ def build_graph():
 if __name__ == "__main__":
     graph = build_graph()
     final_state = graph.invoke(
-        {"review": "배송은 조금 늦었지만 사용감은 만족스럽습니다."}
+        {"review": "Delivery was a bit slow, but the overall experience was easy."}
     )
 
-    print("\n최종 상태")
+    print("\nFinal state")
     print(final_state)
+
+
+# Expected output:
+# Input: 'I love this product!'
+# Sentiment: positive → route to 'thank_user' node
+# Output: 'Thank you for your positive feedback!'

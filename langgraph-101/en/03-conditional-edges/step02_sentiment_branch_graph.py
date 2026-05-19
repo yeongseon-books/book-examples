@@ -79,3 +79,9 @@ if __name__ == "__main__":
 
     print("\nFinal state")
     print(final_state)
+
+
+# Expected output:
+# Input: 'I love this product!'
+# Sentiment: positive → route to 'thank_user' node
+# Output: 'Thank you for your positive feedback!'

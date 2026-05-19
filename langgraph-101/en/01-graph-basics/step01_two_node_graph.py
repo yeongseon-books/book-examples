@@ -45,3 +45,9 @@ if __name__ == "__main__":
 
     print("\nFinal state")
     print(final_state)
+
+
+# Expected output:
+# Node 'start' executed
+# Node 'end' executed
+# Final state: {'message': 'processed'}

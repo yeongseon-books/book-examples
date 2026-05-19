@@ -7,5 +7,4 @@ def a():
 
 
 def b():
-    """B."""
     return 2

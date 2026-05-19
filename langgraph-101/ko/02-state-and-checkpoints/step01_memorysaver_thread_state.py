@@ -21,7 +21,7 @@ def remember_visit(state: SessionState):
     """Remember visit."""
     next_turn = state.get("turn_count", 0) + 1
     note = state["notes"][-1]
-    print(f"[remember_visit] {state['session_name']} 세션 {next_turn}회차 기록: {note}")
+    print(f"[remember_visit] {state['session_name']} turn {next_turn}: {note}")
     return {"turn_count": next_turn}
 
 
@@ -36,21 +36,21 @@ def build_graph():
 
 if __name__ == "__main__":
     graph = build_graph()
-    config = cast("RunnableConfig", {"configurable": {"thread_id": "ko-memory-demo"}})
+    config = cast("RunnableConfig", {"configurable": {"thread_id": "en-memory-demo"}})
 
     first_result = graph.invoke(
         {
-            "session_name": "학습 세션",
+            "session_name": "learning session",
             "turn_count": 0,
-            "notes": ["첫 번째 체크포인트 저장"],
+            "notes": ["saved the first checkpoint"],
         },
         config=config,
     )
     second_result = graph.invoke(
         {
-            "session_name": "학습 세션",
+            "session_name": "learning session",
             "turn_count": 0,
-            "notes": ["같은 thread_id로 이어서 실행"],
+            "notes": ["continued with the same thread_id"],
         },
         config=config,
     )
@@ -58,10 +58,16 @@ if __name__ == "__main__":
     snapshot = graph.get_state(config)
     history = list(graph.get_state_history(config))
 
-    print("\n첫 번째 실행 결과")
+    print("\nFirst result")
     print(first_result)
-    print("\n두 번째 실행 결과")
+    print("\nSecond result")
     print(second_result)
-    print("\n복원된 최신 상태")
+    print("\nRestored latest state")
     print(snapshot.values)
-    print(f"\n저장된 체크포인트 수: {len(history)}")
+    print(f"\nSaved checkpoints: {len(history)}")
+
+
+# Expected output:
+# Thread 1: state saved (checkpoint_id=chk_001)
+# Thread 1: state restored successfully
+# Messages in thread: 4

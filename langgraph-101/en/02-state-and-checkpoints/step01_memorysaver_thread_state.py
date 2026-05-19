@@ -65,3 +65,9 @@ if __name__ == "__main__":
     print("\nRestored latest state")
     print(snapshot.values)
     print(f"\nSaved checkpoints: {len(history)}")
+
+
+# Expected output:
+# Thread 1: state saved (checkpoint_id=chk_001)
+# Thread 1: state restored successfully
+# Messages in thread: 4

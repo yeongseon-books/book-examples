@@ -38,3 +38,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# {"name": "Python", "paradigm": "multi-paradigm", "typing": "dynamic",
+#  "year": 1991, "creator": "Guido van Rossum"}

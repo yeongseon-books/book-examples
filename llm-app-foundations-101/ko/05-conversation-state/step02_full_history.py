@@ -1,11 +1,11 @@
 """
-Step 02 — 전체 이력 누적 패턴
+Step 02 — Keep the full conversation history
 ======================================================
-실행:
+Run:
     python step02_full_history.py
 
-history 리스트에 모든 user와 assistant 턴을 누적해
-멀티턴 대화 맥락을 이어가는 가장 단순한 패턴입니다.
+Accumulate every user and assistant turn in one history list
+to preserve multi-turn context.
 """
 
 import os
@@ -29,7 +29,7 @@ def ask(client: Groq, history: list[ChatCompletionMessageParam], user_text: str)
 
     usage = completion.usage
     if usage is None:
-        raise RuntimeError("usage 정보를 받지 못했습니다.")
+        raise RuntimeError("Did not receive usage metadata.")
     print(f"[tokens] prompt={usage.prompt_tokens} total={usage.total_tokens}")
     return answer
 
@@ -40,19 +40,27 @@ def main() -> None:
     history: list[ChatCompletionMessageParam] = [
         {
             "role": "system",
-            "content": "당신은 간결한 기술 지원 도우미입니다.",
+            "content": "You are a concise technical support assistant.",
         }
     ]
     turns = [
-        "내 서비스는 월 구독형 SaaS야. 기억해 줘.",
-        "그럼 환불 정책 문구를 한 줄로 써 줘.",
-        "좀 더 고객 친화적인 톤으로 다시 써 줘.",
+        "My service is a monthly subscription SaaS. Please remember that.",
+        "Now write a one-line refund policy message for it.",
+        "Rewrite it in a more customer-friendly tone.",
     ]
 
     for user_text in turns:
-        print(f"\n사용자> {user_text}")
-        print(f"도우미> {ask(client, history, user_text)}")
+        print(f"\nyou> {user_text}")
+        print(f"assistant> {ask(client, history, user_text)}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Turn 1 - User: My name is Alice
+# Turn 1 - Bot: Nice to meet you, Alice!
+# Turn 2 - User: What's my name?
+# Turn 2 - Bot: Your name is Alice!
+# (Full history preserved across turns)

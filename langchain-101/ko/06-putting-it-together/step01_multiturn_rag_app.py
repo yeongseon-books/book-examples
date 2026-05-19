@@ -14,16 +14,16 @@ from langchain_groq import ChatGroq
 
 DOCS = [
     Document(
-        page_content="LCEL은 LangChain의 구성 요소를 파이프로 연결해 체인을 조립하는 방식입니다."
+        page_content="LCEL assembles LangChain building blocks by piping them together."
     ),
     Document(
-        page_content="Retriever는 관련 문서를 검색해 RAG 답변의 근거를 제공합니다."
+        page_content="A retriever searches for relevant documents and provides evidence for RAG answers."
     ),
     Document(
-        page_content="Tool calling은 모델이 외부 함수를 호출해 최신 정보나 계산 결과를 가져오게 합니다."
+        page_content="Tool calling lets a model use external functions for fresh data or calculations."
     ),
     Document(
-        page_content="Streaming은 첫 토큰을 빨리 보여 주어 대기 시간을 짧게 느끼게 합니다."
+        page_content="Streaming improves perceived latency by showing the first tokens early."
     ),
 ]
 
@@ -36,11 +36,11 @@ def format_docs(docs):
 def format_history(chat_history):
     """Format history."""
     if not chat_history:
-        return "이전 대화 없음"
+        return "No prior conversation"
     return "\n".join(
-        f"사용자: {message.content}"
+        f"User: {message.content}"
         if isinstance(message, HumanMessage)
-        else f"도우미: {message.content}"
+        else f"Assistant: {message.content}"
         for message in chat_history
     )
 
@@ -54,11 +54,11 @@ def build_chain():
     retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
     prompt = ChatPromptTemplate.from_template(
-        "당신은 LangChain 학습 도우미입니다.\n"
-        "이전 대화:\n{history}\n\n"
-        "검색 문맥:\n{context}\n\n"
-        "현재 질문: {question}\n"
-        "문맥을 우선 사용하고, 부족하면 일반적인 설명을 덧붙여 주세요."
+        "You are a LangChain learning assistant.\n"
+        "Conversation so far:\n{history}\n\n"
+        "Retrieved context:\n{context}\n\n"
+        "Current question: {question}\n"
+        "Use the context first, then add a short general explanation if needed."
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
@@ -82,21 +82,28 @@ def main():
     """Main."""
     chain = build_chain()
     chat_history = []
-    print("LangChain 멀티턴 RAG 앱입니다. 종료하려면 quit 를 입력하세요.")
+    print("LangChain multi-turn RAG app. Type quit to exit.")
 
     while True:
-        question = input("질문> ").strip()
+        question = input("Question> ").strip()
         if not question:
-            print("질문을 입력해 주세요.")
+            print("Please enter a question.")
             continue
         if question.lower() == "quit":
-            print("앱을 종료합니다.")
+            print("Closing the app.")
             break
 
         answer = chain.invoke({"question": question, "chat_history": chat_history})
-        print(f"답변> {answer}")
+        print(f"Answer> {answer}")
         chat_history.extend([HumanMessage(content=question), AIMessage(content=answer)])
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# User: What is Python?
+# Assistant: Python is a high-level programming language...
+# User: Who created it?
+# Assistant: Python was created by Guido van Rossum in 1991...

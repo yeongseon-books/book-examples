@@ -53,3 +53,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# INFO:     Uvicorn running on http://127.0.0.1:8000
+# INFO:     POST /generate → 200 (latency: 0.03s)
+# Response: {"text": "Mock fine-tuned model response...", "tokens": 45}

@@ -72,7 +72,7 @@ def main() -> None:
                 messages=[
                     {
                         "role": "user",
-                        "content": f"질문 {index + 1}: 파이썬 f-string이란 무엇인가요?",
+                        "content": f"Question {index + 1}: what is a Python f-string?",
                     }
                 ],
                 temperature=0.0,
@@ -80,14 +80,21 @@ def main() -> None:
             content = completion.choices[0].message.content or ""
             print(f"[{index + 1}] {content[:60]}")
         else:
-            print(f"[{index + 1}] 속도 제한으로 요청을 건너뜁니다.")
+            print(f"[{index + 1}] Skipped because of the rate limiter.")
 
     window = SlidingWindowLimiter(max_requests=3, window_seconds=5.0)
     for index in range(5):
         allowed = window.acquire()
-        status = "허용" if allowed else "차단"
-        print(f"슬라이딩 윈도 요청 {index + 1}: {status}")
+        status = "allowed" if allowed else "blocked"
+        print(f"sliding window request {index + 1}: {status}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Rate limiter: 10 requests/minute
+# Request 1-10: ✓ processed
+# Request 11: throttled (waiting 4.2s)
+# Request 11: ✓ processed after wait

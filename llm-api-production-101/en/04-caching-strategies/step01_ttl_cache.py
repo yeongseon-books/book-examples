@@ -84,3 +84,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Cache MISS: 'What is Python?' → calling API...
+# Cache HIT: 'What is Python?' → returning cached (0.001s)
+# Cache expired after TTL=60s, refreshing...

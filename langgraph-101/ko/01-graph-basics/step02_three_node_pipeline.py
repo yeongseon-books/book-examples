@@ -16,7 +16,7 @@ class PipelineState(TypedDict):
 def clean_text(state: PipelineState):
     """Clean text."""
     cleaned_text = " ".join(state["raw_text"].split())
-    print(f"[clean_text] 정리된 문장: {cleaned_text}")
+    print(f"[clean_text] cleaned sentence: {cleaned_text}")
     return {"cleaned_text": cleaned_text}
 
 
@@ -24,14 +24,14 @@ def extract_keywords(state: PipelineState):
     """Extract keywords."""
     tokens = [token.strip(",.") for token in state["cleaned_text"].split()]
     keywords = tokens[:3]
-    print(f"[extract_keywords] 핵심 키워드: {keywords}")
+    print(f"[extract_keywords] keywords: {keywords}")
     return {"keywords": keywords}
 
 
 def summarize_text(state: PipelineState):
     """Summarize text."""
-    summary = f"이 파이프라인은 {', '.join(state['keywords'])} 중심으로 흐릅니다."
-    print(f"[summarize_text] 요약: {summary}")
+    summary = f"This pipeline flows around {', '.join(state['keywords'])}."
+    print(f"[summarize_text] summary: {summary}")
     return {"summary": summary}
 
 
@@ -52,9 +52,15 @@ if __name__ == "__main__":
     graph = build_graph()
     final_state = graph.invoke(
         {
-            "raw_text": "LangGraph는 상태, 노드, 엣지를 함께 다루는 그래프 오케스트레이터입니다."
+            "raw_text": "LangGraph orchestrates state, nodes, and edges in one graph runtime."
         }
     )
 
-    print("\n최종 상태")
+    print("\nFinal state")
     print(final_state)
+
+
+# Expected output:
+# Node 'start' executed
+# Node 'end' executed
+# Final state: {'message': 'processed'}

@@ -6,9 +6,9 @@ from dataclasses import dataclass, field
 from typing import Any
 from uuid import uuid4
 
-from ko.common import CompletionResult, build_logger, call_groq, utc_now
+from en.common import CompletionResult, build_logger, call_groq, utc_now
 
-logger = build_logger("ko.monitoring")
+logger = build_logger("en.monitoring")
 
 
 @dataclass(slots=True)
@@ -52,7 +52,7 @@ class InstrumentedLLM:
         """Invoke."""
         record = LLMCallRecord(model=self.model, prompt_preview=user_prompt)
         logger.info(
-            "LLM 호출을 시작합니다.",
+            "Starting LLM call.",
             extra={"payload": {"call_id": record.call_id, "model": self.model}},
         )
         try:
@@ -65,16 +65,12 @@ class InstrumentedLLM:
             record.input_tokens = result.input_tokens
             record.output_tokens = result.output_tokens
             record.response_preview = result.text
-            logger.info(
-                "LLM 호출이 완료되었습니다.", extra={"payload": record.to_payload()}
-            )
+            logger.info("LLM call completed.", extra={"payload": record.to_payload()})
             return result.text, record
         except Exception as exc:
             record.success = False
             record.error = str(exc)
-            logger.exception(
-                "LLM 호출이 실패했습니다.", extra={"payload": record.to_payload()}
-            )
+            logger.exception("LLM call failed.", extra={"payload": record.to_payload()})
             raise
 
 
@@ -82,9 +78,11 @@ def sample_monitoring_session() -> None:
     """Sample monitoring session."""
     llm = InstrumentedLLM()
     system_prompt = (
-        "당신은 운영 대시보드에 짧은 상태 요약을 남기는 SRE 어시스턴트입니다."
+        "You are an SRE assistant writing short health summaries for an ops dashboard."
     )
-    user_prompt = "지난 5분 동안 지연 시간이 급증한 원인을 두 문장으로 요약해 주세요."
+    user_prompt = (
+        "Summarize the likely cause of a five-minute latency spike in two sentences."
+    )
     answer, record = llm.invoke(system_prompt, user_prompt)
     print(answer)
     print(record.to_payload())
@@ -92,3 +90,9 @@ def sample_monitoring_session() -> None:
 
 if __name__ == "__main__":
     sample_monitoring_session()
+
+
+# Expected output:
+# [2024-12-01 10:00:01] INFO  request_id=abc123 model=llama-3.1-8b latency=0.45s
+# [2024-12-01 10:00:01] INFO  tokens_used=142 cost=$0.000028
+# [2024-12-01 10:00:02] WARN  latency=2.1s (threshold: 2.0s)

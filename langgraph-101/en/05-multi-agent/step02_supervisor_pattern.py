@@ -84,3 +84,11 @@ if __name__ == "__main__":
 
     print("\nFinal reply")
     print(final_state["final_answer"])
+
+
+# Expected output:
+# Supervisor: routing to researcher
+# Researcher: found 3 relevant sources
+# Supervisor: routing to writer
+# Writer: compiled final answer
+# Final: Here is a comprehensive answer...

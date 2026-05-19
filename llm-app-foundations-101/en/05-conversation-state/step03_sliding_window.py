@@ -64,3 +64,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Window size: 5 messages
+# Turn 6: oldest message dropped from context
+# Memory: 5/5 messages retained

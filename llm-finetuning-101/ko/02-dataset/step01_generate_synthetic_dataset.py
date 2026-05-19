@@ -1,4 +1,4 @@
-"""Groq으로 합성 instruction-response 데이터 생성"""
+"""Generate synthetic instruction-response pairs with Groq"""
 
 from __future__ import annotations
 
@@ -27,12 +27,12 @@ def extract_json(text: str):
 def main() -> None:
     """Main."""
     if Groq is None:
-        print("groq 패키지가 없어 합성 데이터 생성을 건너뜁니다.")
+        print("Skipping synthetic generation because the groq package is unavailable.")
         return
 
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        print("GROQ_API_KEY 환경 변수가 없어 합성 데이터 생성을 건너뜁니다.")
+        print("Skipping synthetic generation because GROQ_API_KEY is missing.")
         return
 
     client = Groq(api_key=api_key)
@@ -42,11 +42,11 @@ def main() -> None:
         messages=[
             {
                 "role": "system",
-                "content": "당신은 데이터셋 작성 도우미입니다. 결과는 반드시 JSON 배열만 출력하세요.",
+                "content": "You are a dataset generation assistant. Output only a JSON array.",
             },
             {
                 "role": "user",
-                "content": "고객 지원 챗봇 파인튜닝용 instruction-response 데이터 5개를 JSON 배열로 생성해 주세요. 각 항목은 instruction, response, category 필드를 가져야 합니다. 한국어로 작성하세요.",
+                "content": "Generate five instruction-response pairs for fine-tuning a customer support chatbot as a JSON array. Each item must have instruction, response, and category fields. Write everything in English.",
             },
         ],
     )
@@ -56,9 +56,15 @@ def main() -> None:
     OUTPUT_PATH.write_text(
         json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print(f"저장 완료: {OUTPUT_PATH}")
+    print(f"Saved: {OUTPUT_PATH}")
     print(json.dumps(items, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Generated 100 training examples
+# Sample: {"input": "Summarize...", "output": "The article discusses..."}
+# Saved to synthetic_dataset.json

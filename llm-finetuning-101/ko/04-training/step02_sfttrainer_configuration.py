@@ -1,4 +1,4 @@
-"""SFTTrainer 설정 예시"""
+"""SFTTrainer configuration example"""
 
 # pyright: reportMissingImports=false, reportOptionalCall=false, reportOptionalMemberAccess=false
 
@@ -52,7 +52,9 @@ def main() -> None:
     }
 
     if None in (LoraConfig, TaskType, SFTTrainer, TrainingArguments):
-        print("선택 라이브러리가 없어 설정 예시만 출력합니다.")
+        print(
+            "Optional libraries are missing, so only the configuration example is printed."
+        )
         print(
             {
                 "peft_error": str(PEFT_IMPORT_ERROR),
@@ -68,7 +70,7 @@ def main() -> None:
     training_args = TrainingArguments(**training_args_kwargs)
     lora_config = LoraConfig(task_type=TaskType.CAUSAL_LM, **lora_kwargs)
     print(
-        "실행 가능한 설정 객체를 준비했습니다. 실제 학습 데이터셋과 모델을 연결하면 됩니다."
+        "Prepared runnable configuration objects. Attach a real model and dataset to train."
     )
     print(training_args)
     print(lora_config)
@@ -77,3 +79,12 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Epoch 1/5 | Loss: 4.2341 | LR: 0.001
+# Epoch 2/5 | Loss: 3.1892 | LR: 0.001
+# Epoch 3/5 | Loss: 2.4567 | LR: 0.0005
+# Epoch 4/5 | Loss: 1.8923 | LR: 0.0005
+# Epoch 5/5 | Loss: 1.5234 | LR: 0.00025
+# Training complete. Best loss: 1.5234

@@ -112,3 +112,10 @@ def demo() -> None:
 
 if __name__ == "__main__":
     demo()
+
+
+# Expected output:
+# Evaluation results (n=50):
+#   Accuracy: 0.84
+#   Avg latency: 0.52s
+#   Avg tokens: 134

@@ -68,3 +68,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Streaming to output.txt...
+# Written 12 chunks (534 chars) to output.txt

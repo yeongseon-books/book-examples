@@ -1,4 +1,4 @@
-"""FastAPI mock 서버"""
+"""FastAPI mock server"""
 
 # pyright: reportGeneralTypeIssues=false
 
@@ -37,19 +37,25 @@ if FastAPI is not None:
         return {
             "adapter": payload.adapter_name,
             "input": payload.prompt,
-            "output": "이 응답은 실제 모델 대신 서빙 구조를 설명하기 위한 mock 결과입니다.",
+            "output": "This is a mock output that demonstrates the serving shape instead of running a real model.",
         }
 
 
 def main() -> None:
     """Main."""
     if FastAPI is None:
-        print("FastAPI 또는 pydantic 이 없어 서버를 실행하지 못합니다.")
-        print("ImportError 상세", IMPORT_ERROR)
-        print("예시: uvicorn step01_fastapi_mock_server:APP --reload")
+        print("FastAPI or pydantic is unavailable, so the mock server cannot start.")
+        print("ImportError details", IMPORT_ERROR)
+        print("Example: uvicorn step01_fastapi_mock_server:APP --reload")
         return
-    print("APP 객체가 준비되었습니다. uvicorn으로 실행하세요.")
+    print("The APP object is ready. Start it with uvicorn.")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# INFO:     Uvicorn running on http://127.0.0.1:8000
+# INFO:     POST /generate → 200 (latency: 0.03s)
+# Response: {"text": "Mock fine-tuned model response...", "tokens": 45}

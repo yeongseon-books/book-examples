@@ -100,3 +100,10 @@ if __name__ == "__main__":
     print("\nAgent loop result")
     for message in result["messages"]:
         print(f"- {message.type}: {message.content}")
+
+
+# Expected output:
+# Agent: I need to check the weather.
+# Tool call: get_weather(location="Tokyo")
+# Tool result: 72°F, sunny
+# Agent: The weather in Tokyo is 72°F and sunny.

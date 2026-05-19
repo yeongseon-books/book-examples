@@ -13,7 +13,7 @@ def call_json_mode(client: Groq, prompt: str) -> dict:
         messages=[
             {
                 "role": "system",
-                "content": "당신은 데이터 추출 도우미입니다. 항상 올바른 JSON만 반환하세요.",
+                "content": "You are a data extraction assistant. Always return valid JSON only.",
             },
             {"role": "user", "content": prompt},
         ],
@@ -29,12 +29,17 @@ def main() -> None:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     result = call_json_mode(
         client,
-        "상품명=노트북, 가격=1500000, 재고=true 정보를 JSON으로 추출해 주세요.",
+        "Extract product=laptop, price=1500000, in_stock=true as JSON.",
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    assert isinstance(result, dict), "응답이 dict가 아닙니다."
-    print("JSON 모드 파싱에 성공했습니다.")
+    assert isinstance(result, dict), "Response is not a dict."
+    print("JSON mode parsing succeeded.")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# {"name": "Python", "paradigm": "multi-paradigm", "typing": "dynamic",
+#  "year": 1991, "creator": "Guido van Rossum"}

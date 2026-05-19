@@ -11,7 +11,7 @@ from langchain_groq import ChatGroq
 def build_chain():
     """Build chain."""
     prompt = ChatPromptTemplate.from_template(
-        "LangChain streaming의 장점을 짧은 bullet 3개로 설명해 주세요."
+        "Explain the benefits of LangChain streaming in 3 short bullet points."
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
@@ -24,7 +24,16 @@ def build_chain():
 
 if __name__ == "__main__":
     chain = build_chain()
-    print("[동기 stream 출력]")
+    print("[Synchronous stream output]")
     for chunk in chain.stream({}):
         print(chunk, end="", flush=True)
     print()
+
+
+# Expected output:
+# Python
+# is
+# a high-level
+# programming
+# language...
+# [Stream complete]

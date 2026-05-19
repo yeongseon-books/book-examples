@@ -1,11 +1,11 @@
 """
-Step 03 — temperature 비교
+Step 03 — Compare temperature values
 ======================================================
-실행:
+Run:
     python step03_temperature.py
 
-같은 프롬프트를 temperature=0.0과 0.9로 각각 호출해
-일관성과 다양성의 차이를 출력합니다.
+Call the same prompt with temperature=0.0 and 0.9
+to compare consistency and variety.
 """
 
 import os
@@ -16,7 +16,7 @@ from groq import Groq
 def main() -> None:
     """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
-    prompt = "FastAPI를 처음 배우는 개발자에게 세 문장으로 소개해 주세요."
+    prompt = "Introduce FastAPI to a developer who is learning it for the first time in three sentences."
 
     for temperature in (0.0, 0.9):
         completion = client.chat.completions.create(
@@ -24,7 +24,7 @@ def main() -> None:
             messages=[
                 {
                     "role": "system",
-                    "content": "당신은 한국어 기술 블로그 편집자입니다. 간결하게 답하세요.",
+                    "content": "You are an English technical blog editor. Answer concisely.",
                 },
                 {"role": "user", "content": prompt},
             ],
@@ -37,3 +37,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# temperature=0.0: 'The capital of France is Paris.'
+# temperature=0.0: 'The capital of France is Paris.'
+# temperature=1.5: 'Ah, Paris! The luminous City of Light...'
+# temperature=1.5: 'France's beating heart is Paris, where...'

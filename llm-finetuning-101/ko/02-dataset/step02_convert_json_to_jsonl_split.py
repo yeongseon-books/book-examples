@@ -1,4 +1,4 @@
-"""JSON → JSONL 변환과 train/val 분할"""
+"""Convert JSON to JSONL and split into train/validation"""
 
 from __future__ import annotations
 
@@ -8,28 +8,28 @@ from pathlib import Path
 
 SAMPLE_DATA = [
     {
-        "instruction": "환불 정책을 요약해 주세요.",
-        "response": "구매 후 14일 이내이며 사용량이 적으면 환불 가능합니다.",
+        "instruction": "Summarize the refund policy.",
+        "response": "Refunds are available within 14 days when usage remains low.",
         "category": "refund",
     },
     {
-        "instruction": "비밀번호 재설정 방법을 알려 주세요.",
-        "response": "로그인 화면의 비밀번호 재설정 링크를 눌러 이메일 인증을 진행하세요.",
+        "instruction": "How do I reset my password?",
+        "response": "Use the reset-password link on the sign-in page and complete email verification.",
         "category": "auth",
     },
     {
-        "instruction": "사용량 한도 초과 시 어떻게 되나요?",
-        "response": "기본적으로 읽기 전용 상태로 전환되며 관리자에게 알림이 전송됩니다.",
+        "instruction": "What happens if usage exceeds the quota?",
+        "response": "The workspace becomes read-only and an alert is sent to administrators.",
         "category": "quota",
     },
     {
-        "instruction": "장애 공지 톤을 예시로 보여 주세요.",
-        "response": "영향 범위, 현재 상태, 다음 업데이트 시각을 포함해 차분하게 안내합니다.",
+        "instruction": "Show an example tone for an incident update.",
+        "response": "Use calm customer-facing language with impact, status, and next update time.",
         "category": "incident",
     },
     {
-        "instruction": "엔터프라이즈 요금제 특징은?",
-        "response": "SLA, SSO, 감사 로그, 전담 지원을 제공합니다.",
+        "instruction": "What are enterprise plan highlights?",
+        "response": "It includes SLA, SSO, audit logs, and dedicated support.",
         "category": "pricing",
     },
 ]
@@ -62,14 +62,20 @@ def main() -> None:
     output_dir = base_dir / "outputs"
     write_jsonl(output_dir / "train.jsonl", train_rows)
     write_jsonl(output_dir / "val.jsonl", val_rows)
-    print("학습 샘플 수", len(train_rows))
-    print("검증 샘플 수", len(val_rows))
+    print("Training rows", len(train_rows))
+    print("Validation rows", len(val_rows))
     print(
-        "원본 JSON이 없어서 내장 샘플 데이터를 사용했습니다."
+        "Used built-in sample data because no source JSON file was found."
         if not source.exists()
-        else "원본 JSON 파일을 사용했습니다."
+        else "Used the source JSON file."
     )
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Converted 100 examples to JSONL
+# Train split: 80 examples → train.jsonl
+# Validation split: 20 examples → val.jsonl

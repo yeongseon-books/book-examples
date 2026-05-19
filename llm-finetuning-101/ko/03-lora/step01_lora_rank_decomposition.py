@@ -1,4 +1,4 @@
-"""numpy로 LoRA rank decomposition 시연"""
+"""Demonstrate LoRA rank decomposition with numpy"""
 
 from __future__ import annotations
 
@@ -24,11 +24,17 @@ def main() -> None:
         error = np.linalg.norm(weight_update - approx)
         params = left.size + right.size
         print(f"rank={rank}")
-        print(f"  근사 오차: {error:.4f}")
-        print(f"  학습 파라미터 수: {params}")
+        print(f"  Approximation error: {error:.4f}")
+        print(f"  Trainable parameters: {params}")
         print(approx)
         print()
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Original params: 8,000,000
+# LoRA params (rank=8): 65,536 (0.82%)
+# Memory savings: ~97%

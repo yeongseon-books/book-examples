@@ -13,13 +13,13 @@ from langchain_groq import ChatGroq
 
 DOCS = [
     Document(
-        page_content="LangChain Retriever는 질문과 관련된 문서를 검색해 LLM 입력에 포함합니다."
+        page_content="A LangChain retriever searches for documents related to the question and injects them into the prompt."
     ),
     Document(
-        page_content="FAISS는 벡터 유사도 검색에 자주 사용하는 경량 벡터 저장소입니다."
+        page_content="FAISS is a lightweight vector store commonly used for similarity search."
     ),
     Document(
-        page_content="RAG는 검색 결과를 바탕으로 더 근거 있는 답변을 생성하는 패턴입니다."
+        page_content="RAG generates more grounded answers by using retrieved context."
     ),
 ]
 
@@ -38,10 +38,10 @@ def build_chain():
     retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
     prompt = ChatPromptTemplate.from_template(
-        "당신은 LangChain 튜터입니다.\n"
-        "문맥:\n{context}\n\n"
-        "질문: {question}\n"
-        "문맥에 근거해 간결하게 답해 주세요."
+        "You are a LangChain tutor.\n"
+        "Context:\n{context}\n\n"
+        "Question: {question}\n"
+        "Answer briefly and stay grounded in the context."
     )
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
@@ -62,6 +62,13 @@ def build_chain():
 
 if __name__ == "__main__":
     chain = build_chain()
-    result = chain.invoke({"question": "RAG에서 Retriever는 왜 필요한가요?"})
-    print("[RAG 체인 결과]")
+    result = chain.invoke({"question": "Why does RAG need a retriever?"})
+    print("[RAG chain result]")
     print(result)
+
+
+# Expected output:
+# Vector store built: 5 documents indexed
+# Query: 'What is LCEL?'
+# Retrieved: 2 relevant chunks
+# Answer: LCEL is LangChain Expression Language for composing chains...

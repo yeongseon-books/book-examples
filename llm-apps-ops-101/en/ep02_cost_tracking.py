@@ -130,3 +130,11 @@ def demo() -> None:
 
 if __name__ == "__main__":
     demo()
+
+
+# Expected output:
+# Daily usage report:
+#   Total requests: 1,247
+#   Total tokens: 892,340
+#   Estimated cost: $0.18
+#   Avg cost/request: $0.000144

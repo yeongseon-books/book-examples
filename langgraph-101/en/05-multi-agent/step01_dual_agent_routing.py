@@ -67,3 +67,9 @@ if __name__ == "__main__":
 
     print("\nFinal reply")
     print(final_state["expert_answer"])
+
+
+# Expected output:
+# Input: 'Write a poem about coding'
+# Router → creative_agent
+# Response: In lines of code, we find our art...

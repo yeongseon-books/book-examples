@@ -1,11 +1,11 @@
 """
-Step 05 — few-shot 예시를 messages 배열에 넣기
+Step 05 — Put few-shot examples into the messages list
 ======================================================
-실행:
+Run:
     python step05_few_shot_basic.py
 
-user와 assistant 예시 쌍을 앞에 배치해 원하는 답변 패턴을
-모델에게 보여주는 기본 few-shot 예제입니다.
+Place user and assistant examples before the final request
+to demonstrate a target answer pattern.
 """
 
 import os
@@ -21,25 +21,25 @@ def main() -> None:
     messages: list[Any] = [
         {
             "role": "system",
-            "content": "당신은 파이썬 개념을 한 줄 정의와 한 줄 비유로 설명하는 튜터입니다.",
+            "content": "You are a tutor who explains Python concepts with a one-line definition and a one-line analogy.",
         },
-        {"role": "user", "content": "클래스가 무엇인가요?"},
+        {"role": "user", "content": "What is a class?"},
         {
             "role": "assistant",
             "content": (
-                "정의: 클래스는 객체를 만들기 위한 설계도입니다.\n"
-                "비유: 같은 모양의 붕어빵을 찍어내는 틀과 비슷합니다."
+                "Definition: A class is a blueprint for creating objects.\n"
+                "Analogy: It is like a mold that stamps out pastries with the same shape."
             ),
         },
-        {"role": "user", "content": "상속이 무엇인가요?"},
+        {"role": "user", "content": "What is inheritance?"},
         {
             "role": "assistant",
             "content": (
-                "정의: 상속은 기존 클래스의 속성과 동작을 이어받아 새 클래스를 만드는 방식입니다.\n"
-                "비유: 기본 템플릿을 복사해 필요한 부분만 덧붙이는 것과 비슷합니다."
+                "Definition: Inheritance is a way to create a new class by reusing the properties and behavior of an existing one.\n"
+                "Analogy: It is like copying a base template and adding only the parts you need."
             ),
         },
-        {"role": "user", "content": "데코레이터가 무엇인가요?"},
+        {"role": "user", "content": "What is a decorator?"},
     ]
 
     completion = client.chat.completions.create(
@@ -53,3 +53,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Input: 'The movie was absolutely terrible'
+# Classification: negative
+# Confidence: 0.95

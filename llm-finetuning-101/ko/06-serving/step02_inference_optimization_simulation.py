@@ -1,4 +1,4 @@
-"""추론 최적화 기법 시뮬레이션"""
+"""Inference optimization simulation"""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ def main() -> None:
         OptimizationCase("kv-cache reuse", 230.0, 6.3, 15.0),
         OptimizationCase("4-bit quantization", 260.0, 5.1, 8.2),
     ]
-    print("최적화 전후 비교")
+    print("Optimization comparison")
     print("=" * 80)
     for item in cases:
         latency_gain = (
@@ -36,13 +36,20 @@ def main() -> None:
             * 100
         )
         print(f"{item.name}")
-        print(f"  - 지연 시간: {item.latency_ms:.1f} ms")
-        print(f"  - 처리량: {item.throughput_rps:.1f} rps")
-        print(f"  - 메모리: {item.memory_gb:.1f} GB")
-        print(f"  - 지연 개선율: {latency_gain:+.1f}%")
-        print(f"  - 처리량 개선율: {throughput_gain:+.1f}%")
+        print(f"  - Latency: {item.latency_ms:.1f} ms")
+        print(f"  - Throughput: {item.throughput_rps:.1f} rps")
+        print(f"  - Memory: {item.memory_gb:.1f} GB")
+        print(f"  - Latency improvement: {latency_gain:+.1f}%")
+        print(f"  - Throughput improvement: {throughput_gain:+.1f}%")
         print()
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Prompt: 'The meaning of life is'
+# Generated: 'The meaning of life is to find purpose in what you do and'
+# Tokens generated: 12
+# Generation time: 0.34s

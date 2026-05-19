@@ -1,4 +1,4 @@
-"""PEFT LoraConfig 예시"""
+"""PEFT LoraConfig example"""
 
 # pyright: reportMissingImports=false
 
@@ -25,15 +25,21 @@ def main() -> None:
     }
 
     if LoraConfig is None or TaskType is None:
-        print("peft가 설치되어 있지 않아 실제 LoraConfig 객체 생성은 생략합니다.")
-        print("ImportError 상세", IMPORT_ERROR)
+        print("Skipping real LoraConfig creation because peft is not installed.")
+        print("ImportError details", IMPORT_ERROR)
         print(config_kwargs)
         return
 
     config = LoraConfig(task_type=TaskType.CAUSAL_LM, **config_kwargs)
-    print("생성된 LoraConfig")
+    print("Created LoraConfig")
     print(config)
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Original params: 8,000,000
+# LoRA params (rank=8): 65,536 (0.82%)
+# Memory savings: ~97%

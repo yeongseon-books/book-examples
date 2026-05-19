@@ -10,14 +10,12 @@ from langchain_groq import ChatGroq
 
 @tool
 def search_docs(keyword: str) -> str:
-    """키워드와 가장 가까운 문서 요약을 반환합니다."""
+    """Return the closest document summary for a keyword."""
     corpus = {
-        "retriever": "Retriever는 질문과 관련된 문서를 먼저 찾은 뒤 LLM에 전달합니다.",
-        "stream": "Streaming은 응답이 완성되기 전에 토큰을 순차적으로 보여 줍니다.",
+        "retriever": "A retriever finds relevant documents before the LLM answers.",
+        "stream": "Streaming reveals tokens gradually before the final answer is complete.",
     }
-    return corpus.get(
-        keyword.lower(), f"{keyword} 키워드에 대한 문서를 찾지 못했습니다."
-    )
+    return corpus.get(keyword.lower(), f"No document matched the keyword {keyword}.")
 
 
 def run_tool_loop(question: str) -> str:
@@ -50,10 +48,18 @@ def run_tool_loop(question: str) -> str:
                 )
             )
 
-    raise RuntimeError("도구 호출 루프가 제한 횟수 안에 끝나지 않았습니다.")
+    raise RuntimeError("The tool loop did not finish within the limit.")
 
 
 if __name__ == "__main__":
-    answer = run_tool_loop("retriever가 하는 일을 간단히 설명해 주세요.")
-    print("[도구 루프 결과]")
+    answer = run_tool_loop("Briefly explain what a retriever does.")
+    print("[Tool loop result]")
     print(answer)
+
+
+# Expected output:
+# Step 1: Tool call → get_weather({"location": "NYC"})
+# Step 1: Result → {"temperature": 45, "condition": "cloudy"}
+# Step 2: Tool call → get_forecast({"location": "NYC", "days": 3})
+# Step 2: Result → {"forecast": ["rain", "clear", "clear"]}
+# Final: It's currently 45°F and cloudy in NYC. The 3-day forecast...

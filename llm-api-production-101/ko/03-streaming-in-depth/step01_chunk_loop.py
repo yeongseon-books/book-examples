@@ -13,7 +13,7 @@ def main() -> None:
         messages=[
             {
                 "role": "user",
-                "content": "TCP/IP 4계층을 각 층마다 한 줄씩 설명해 주세요.",
+                "content": "Explain the four TCP/IP layers in one line each.",
             }
         ],
         stream=True,
@@ -30,8 +30,17 @@ def main() -> None:
         parts.append(delta)
         print(delta, end="", flush=True)
 
-    print(f"\n\n총 글자 수={len(''.join(parts))} 빈 청크 수={empty_count}")
+    print(f"\n\ntotal_chars={len(''.join(parts))} empty_chunks={empty_count}")
 
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# chunk[0]: ''
+# chunk[1]: 'Machine'
+# chunk[2]: ' learning'
+# chunk[3]: ' is'
+# ...
+# Total chunks: 47

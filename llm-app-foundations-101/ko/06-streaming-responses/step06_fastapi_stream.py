@@ -1,10 +1,10 @@
 """
 Step 06 — FastAPI StreamingResponse
 ======================================================
-실행:
+Run:
     uvicorn step06_fastapi_stream:app --reload
 
-브라우저나 curl에서 Groq 스트림을 SSE로 확인합니다.
+Expose a Groq stream as an SSE endpoint for the browser or curl.
 """
 
 import os

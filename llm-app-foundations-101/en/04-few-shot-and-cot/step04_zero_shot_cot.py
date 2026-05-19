@@ -43,3 +43,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# Expected output:
+# Question: If a train travels 120km in 2 hours, what is its speed?
+# Reasoning: Speed = distance / time = 120km / 2h = 60 km/h
+# Answer: 60 km/h

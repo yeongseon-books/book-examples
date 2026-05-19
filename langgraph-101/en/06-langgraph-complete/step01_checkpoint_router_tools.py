@@ -108,3 +108,9 @@ if __name__ == "__main__":
 
     print("\nCurrent state stored in the checkpoint")
     print(graph.get_state(config).values)
+
+
+# Expected output:
+# Input: 'Write a poem about coding'
+# Router → creative_agent
+# Response: In lines of code, we find our art...

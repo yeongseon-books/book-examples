@@ -90,3 +90,9 @@ def sample_monitoring_session() -> None:
 
 if __name__ == "__main__":
     sample_monitoring_session()
+
+
+# Expected output:
+# [2024-12-01 10:00:01] INFO  request_id=abc123 model=llama-3.1-8b latency=0.45s
+# [2024-12-01 10:00:01] INFO  tokens_used=142 cost=$0.000028
+# [2024-12-01 10:00:02] WARN  latency=2.1s (threshold: 2.0s)
