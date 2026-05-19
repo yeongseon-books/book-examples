@@ -1,0 +1,11 @@
+{
+  "include": ["common.py", "ko", "en", "tests"],
+  "typeCheckingMode": "off",
+  "reportMissingImports": false,
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "extraPaths": ["."]
+    }
+  ]
+}

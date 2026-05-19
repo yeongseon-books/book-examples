@@ -1,0 +1,12 @@
+[project]
+name = "demo"
+version = "0.1.0"
+description = "demo package"
+license = { text = "MIT" }
+classifiers = [
+  "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "requests>=2.31",
+  "pydantic[email]>=2.7; python_version >= '3.11'",
+]

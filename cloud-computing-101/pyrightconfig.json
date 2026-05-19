@@ -1,0 +1,9 @@
+{
+  "include": ["ko", "en", "tests", "common.py"],
+  "pythonVersion": "3.11",
+  "executionEnvironments": [{"root": ".", "extraPaths": ["."]}],
+  "diagnosticSeverityOverrides": {
+    "reportAny": "none",
+    "reportExplicitAny": "none"
+  }
+}

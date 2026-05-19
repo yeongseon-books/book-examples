@@ -1,0 +1,1 @@
+from ko.ep02_trait_checklist import validate_project_traits

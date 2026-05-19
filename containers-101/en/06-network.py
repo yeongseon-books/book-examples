@@ -1,0 +1,1 @@
+# English mirror\nfrom ko._06_network import *\n

@@ -1,0 +1,10 @@
+{
+  "project_name": "Order Insight",
+  "problem": "Small stores cannot track repeat customers quickly",
+  "approach": "Build a simple dashboard and API",
+  "result": "Reduced report preparation time by 60%",
+  "situation": "Client had manual spreadsheet workflow",
+  "task": "Automate weekly customer retention reporting",
+  "action": "Designed data model, built API, wrote tests",
+  "impact": "Saved 4 hours per week"
+}

@@ -1,0 +1,3 @@
+Yesterday: completed parser
+Today: write tests
+Blockers: none

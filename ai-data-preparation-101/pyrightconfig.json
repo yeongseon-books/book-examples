@@ -1,0 +1,8 @@
+{
+  "typeCheckingMode": "basic",
+  "extraPaths": ["."],
+  "reportAny": false,
+  "reportInvalidTypeVarUse": "none",
+  "reportArgumentType": "none",
+  "reportCallIssue": "none"
+}

@@ -1,0 +1,25 @@
+"""Episode 02: one computation in three styles"""
+
+
+def sum_of_squares_imperative(n: int) -> int:
+    total = 0
+    for i in range(1, n + 1):
+        total += i * i
+    return total
+
+
+def sum_of_squares_recursive(n: int) -> int:
+    if n <= 0:
+        return 0
+    return n * n + sum_of_squares_recursive(n - 1)
+
+
+def sum_of_squares_functional(n: int) -> int:
+    return sum(map(lambda x: x * x, range(1, n + 1)))
+
+
+if __name__ == "__main__":
+    n = 10
+    print(sum_of_squares_imperative(n))
+    print(sum_of_squares_recursive(n))
+    print(sum_of_squares_functional(n))

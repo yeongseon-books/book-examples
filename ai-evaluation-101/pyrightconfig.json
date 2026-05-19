@@ -1,0 +1,10 @@
+{
+  "typeCheckingMode": "basic",
+  "reportMissingTypeStubs": false,
+  "include": [
+    "common.py",
+    "ko",
+    "en",
+    "tests"
+  ]
+}

@@ -1,0 +1,7 @@
+groq>=0.4.1,<1
+langchain-core
+langchain-community
+langchain-groq
+sentence-transformers
+faiss-cpu
+numpy

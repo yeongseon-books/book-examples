@@ -1,0 +1,10 @@
+{
+  "typeCheckingMode": "off",
+  "reportMissingImports": "none",
+  "reportUnknownVariableType": "none",
+  "reportUnknownMemberType": "none",
+  "reportAny": "none",
+  "reportExplicitAny": "none",
+  "reportUnusedImport": "none",
+  "reportUnusedVariable": "none"
+}

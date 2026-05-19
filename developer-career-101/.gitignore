@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+.benchmarks/
+.venv/
+venv/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.mypy_cache/
+.coverage
+coverage.xml

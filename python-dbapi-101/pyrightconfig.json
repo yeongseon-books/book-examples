@@ -1,0 +1,14 @@
+{
+  "typeCheckingMode": "off",
+  "reportMissingImports": false,
+  "reportGeneralTypeIssues": false,
+  "reportOptionalSubscript": false,
+  "reportMissingTypeArgument": false,
+  "reportUnknownVariableType": false,
+  "reportUnknownParameterType": false,
+  "reportUnknownArgumentType": false,
+  "reportUnusedCallResult": false,
+  "reportUnusedImport": false,
+  "reportAny": false,
+  "reportUnnecessaryComparison": false
+}

@@ -1,0 +1,5 @@
+[
+  {"question": "What preserves context across chunk boundaries?", "answer": "overlap", "source": "doc1.md"},
+  {"question": "Which similarity is used for vector search?", "answer": "cosine similarity", "source": "doc2.md"},
+  {"question": "Why enforce a prompt budget?", "answer": "limits total context size", "source": "doc3.md"}
+]

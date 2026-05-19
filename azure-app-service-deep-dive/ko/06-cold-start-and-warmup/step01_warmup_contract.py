@@ -1,0 +1,23 @@
+from __future__ import annotations
+
+from fastapi import FastAPI, Response
+
+from common import warmup_is_ready
+
+
+def create_app(is_ready: bool) -> FastAPI:
+    app = FastAPI()
+
+    @app.get("/warmup")
+    def warmup(response: Response) -> dict[str, str]:
+        # 준비 완료 전에는 503으로 응답해 트래픽 진입을 막습니다.
+        if is_ready:
+            return {"status": "ready"}
+        response.status_code = 503
+        return {"status": "warming"}
+
+    return app
+
+
+def check_ready(status_code: int, statuses: set[int]) -> bool:
+    return warmup_is_ready(status_code, statuses)

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-package-101"
+version = "0.1.0"
+description = "Example code repository for python-package-101 series"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "yeongseon-books" }]
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "-q"

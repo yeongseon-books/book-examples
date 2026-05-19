@@ -1,0 +1,1 @@
+from ko._07_registry import *\n

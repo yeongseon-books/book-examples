@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  labels: {app: web, role: lb}
+spec:
+  containers:
+  - name: app
+    image: myorg/web:1.0.0
+    readinessProbe: {httpGet: {path: /ready, port: 8080}}
+    livenessProbe: {httpGet: {path: /healthz, port: 8080}}
+    resources:
+      limits: {cpu: "500m", memory: "256Mi"}

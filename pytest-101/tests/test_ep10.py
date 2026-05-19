@@ -1,0 +1,13 @@
+from en.ep10_refactor_demo import GLOBAL_QUEUE, enqueue_global, enqueue_with_dependency
+
+
+def test_ep10_before_refactor_global_state_side_effect():
+    GLOBAL_QUEUE.clear()
+    enqueue_global("x")
+    assert GLOBAL_QUEUE == ["x"]
+
+
+def test_ep10_after_refactor_injected_dependency_isolated():
+    sink: list[str] = []
+    enqueue_with_dependency("x", sink)
+    assert sink == ["x"]

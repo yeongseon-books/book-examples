@@ -1,0 +1,12 @@
+{
+  "typeCheckingMode": "basic",
+  "extraPaths": ["."],
+  "reportMissingImports": false,
+  "reportMissingTypeArgument": false,
+  "reportUnknownParameterType": false,
+  "reportUnknownVariableType": false,
+  "reportUnknownMemberType": false,
+  "reportUnknownArgumentType": false,
+  "reportUnannotatedClassAttribute": false,
+  "reportAny": false
+}

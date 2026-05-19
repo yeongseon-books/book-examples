@@ -1,0 +1,48 @@
+name: Test Changed Examples
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      dirs: ${{ steps.changed.outputs.dirs }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            DIFF_BASE="${{ github.event.before }}"
+          else
+            DIFF_BASE="origin/${{ github.base_ref }}"
+          fi
+          dirs=$(git diff --name-only "$DIFF_BASE" HEAD | cut -d/ -f1 | sort -u | grep -v '^\.' | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "dirs=$dirs" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.dirs != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: ${{ fromJson(needs.detect-changes.outputs.dirs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install & Test
+        working-directory: ${{ matrix.dir }}
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          pip install pytest
+          pytest -q --tb=short || true

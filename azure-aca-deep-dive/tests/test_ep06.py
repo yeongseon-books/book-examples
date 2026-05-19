@@ -1,0 +1,12 @@
+from conftest import load_module
+
+
+run = load_module("ko/06-envoy-ingress-path/step01_ingress_path.py", "ep06").run
+
+
+def test_ep06_ingress_routing_headers() -> None:
+    result = run()
+    assert result["episode"] == 6
+    assert result["status_code"] == 200
+    assert result["result"]["proto"] == "https"
+    assert result["result"]["revision"] == "orders--green"
