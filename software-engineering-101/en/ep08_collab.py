@@ -1,3 +1,5 @@
+"""Software Engineering 101 - Episode 8: Collab."""
+
 from __future__ import annotations
 
 import csv
@@ -5,6 +7,7 @@ from io import StringIO
 
 
 def raci_matrix_validator(csv_text: str) -> dict[str, object]:
+    """Raci matrix validator."""
     reader = csv.DictReader(StringIO(csv_text))
     rows = list(reader)
     valid = True
@@ -17,6 +20,7 @@ def raci_matrix_validator(csv_text: str) -> dict[str, object]:
 
 
 def standup_notes_parser(text: str) -> dict[str, str]:
+    """Standup notes parser."""
     out = {"yesterday": "", "today": "", "blockers": ""}
     for line in text.splitlines():
         lower = line.lower()

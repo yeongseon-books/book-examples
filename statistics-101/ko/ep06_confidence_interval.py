@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 6: Confidence interval."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -6,6 +8,7 @@ from scipy import stats
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     g = rng()
     true_mean = 10.0
     sigma = 3.0

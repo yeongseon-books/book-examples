@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Alembic 101."""
+
 from __future__ import annotations
 
 import importlib.util
@@ -10,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _load_module(relative_path: str, module_name: str) -> ModuleType:
+    """Load module."""
     path = ROOT / relative_path
     spec = importlib.util.spec_from_file_location(module_name, path)
     if spec is None or spec.loader is None:
@@ -21,4 +24,5 @@ def _load_module(relative_path: str, module_name: str) -> ModuleType:
 
 @pytest.fixture
 def load_module():
+    """Load module."""
     return _load_module

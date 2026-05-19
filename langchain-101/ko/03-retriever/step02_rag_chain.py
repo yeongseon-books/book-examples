@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 2: Rag chain."""
+
 import os
 from typing import Any, cast
 
@@ -23,10 +25,12 @@ DOCS = [
 
 
 def format_docs(docs):
+    """Format docs."""
     return "\n\n".join(doc.page_content for doc in docs)
 
 
 def build_chain():
+    """Build chain."""
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )

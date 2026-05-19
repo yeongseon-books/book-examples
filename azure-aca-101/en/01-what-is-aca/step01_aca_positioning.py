@@ -1,3 +1,5 @@
+"""Azure Aca 101 - Episode 1: Aca positioning."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import az
 
 
 def build_up_command() -> str:
+    """Build up command."""
     cmd = az(
         "containerapp",
         "up",
@@ -25,6 +28,7 @@ def build_up_command() -> str:
 
 
 def run() -> dict[str, str]:
+    """Run."""
     return {
         "service": "aca",
         "mental_model": "container-first managed platform",

@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 1: Fixed vs recursive."""
+
 from __future__ import annotations
 
 import sys
@@ -17,6 +19,7 @@ Fixed-size chunking is simple, but it often cuts through sentence boundaries. Re
 
 
 def main() -> None:
+    """Main."""
     fixed = fixed_chunks(TEXT, size=18, overlap=4)
     recursive = recursive_chunks(TEXT, size=18, overlap=4)
 

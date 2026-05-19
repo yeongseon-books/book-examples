@@ -1,9 +1,12 @@
+"""Data Science Career 101 - Episode 10: Path to senior."""
+
 from __future__ import annotations
 
 
 def score_rubric(
     scores: dict[str, float], weak_threshold: float = 2.5
 ) -> dict[str, str]:
+    """Score rubric."""
     result: dict[str, str] = {}
     for key, score in scores.items():
         if score >= 4.0:
@@ -25,6 +28,7 @@ COMPETENCIES = [
 
 
 def assess_senior_readiness(scores: dict[str, float]) -> dict[str, object]:
+    """Assess senior readiness."""
     normalized = {key: float(scores.get(key, 0.0)) for key in COMPETENCIES}
     rubric = score_rubric(normalized)
     gaps = [key for key, label in rubric.items() if label == "gap"]

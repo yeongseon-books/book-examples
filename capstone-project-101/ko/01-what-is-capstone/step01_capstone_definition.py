@@ -1,7 +1,10 @@
+"""Capstone Project 101 - Episode 1: Capstone definition."""
+
 from __future__ import annotations
 
 
 def run() -> dict[str, object]:
+    """Run."""
     title = "강의 시간표 충돌 검사기"
     users = ["student", "advisor"]
     value = "수강 신청 시간을 줄인다"

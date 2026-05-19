@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Shared."""
+
 from __future__ import annotations
 
 from common.models import (

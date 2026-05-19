@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 1: Retry backoff."""
+
 import os
 import time
 from typing import Any, cast
@@ -6,14 +8,19 @@ from groq import APIStatusError, Groq
 
 
 class TransientError(Exception):
+    """Transient error."""
+
     pass
 
 
 class PermanentError(Exception):
+    """Permanent error."""
+
     pass
 
 
 def classify_error(exc: APIStatusError) -> type[Exception]:
+    """Classify error."""
     if exc.status_code in {429, 500, 502, 503, 504}:
         return TransientError
     return PermanentError
@@ -25,6 +32,7 @@ def call_with_retry(
     max_retries: int = 3,
     base_delay: float = 1.0,
 ) -> str:
+    """Call with retry."""
     last_exc: Exception | None = None
 
     for attempt in range(max_retries + 1):
@@ -56,6 +64,7 @@ def call_with_retry(
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     result = call_with_retry(
         client,

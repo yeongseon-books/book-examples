@@ -1,7 +1,10 @@
+"""Tests for ep08 in Algorithms Python 101."""
+
 from tests.conftest import load_module
 
 
 def test_dijkstra_distances() -> None:
+    """Test dijkstra distances."""
     mod = load_module("ko/08-shortest-path-basics/step01_dijkstra.py", "ep08")
     graph = {
         "A": [("B", 4), ("C", 2)],

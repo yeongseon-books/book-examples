@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 6: Ml interview."""
+
 from __future__ import annotations
 
 from collections.abc import Iterable
@@ -11,6 +13,7 @@ from numpy.typing import NDArray
 def train_test_split_indices(
     n: int, test_ratio: float = 0.2, seed: int = 42
 ) -> tuple[NDArray[np.int_], NDArray[np.int_]]:
+    """Train test split indices."""
     rng = np.random.default_rng(seed)
     idx = np.arange(n)
     rng.shuffle(idx)
@@ -21,6 +24,7 @@ def train_test_split_indices(
 def k_fold_indices(
     n: int, k: int = 5, seed: int = 42
 ) -> list[tuple[NDArray[np.int_], NDArray[np.int_]]]:
+    """K fold indices."""
     rng = np.random.default_rng(seed)
     idx = np.arange(n)
     rng.shuffle(idx)
@@ -35,18 +39,23 @@ def k_fold_indices(
 
 @dataclass
 class KNNClassifier:
+    """KNN classifier."""
+
     k: int = 3
     x_train: NDArray[np.float_] | None = None
     y_train: NDArray[np.int_] | None = None
 
     def fit(self, x: NDArray[np.float_], y: NDArray[np.int_]) -> None:
+        """Fit."""
         self.x_train = x
         self.y_train = y
 
     def _distance(self, a: NDArray[np.float_], b: NDArray[np.float_]) -> float:
+        """Distance."""
         return sqrt(float(np.sum((a - b) ** 2)))
 
     def predict_one(self, x: NDArray[np.float_]) -> int:
+        """Predict one."""
         assert self.x_train is not None and self.y_train is not None
         distances = [
             (self._distance(x, row), int(label))
@@ -59,10 +68,12 @@ class KNNClassifier:
         return sorted(votes.items(), key=lambda item: (-item[1], item[0]))[0][0]
 
     def predict(self, x: NDArray[np.float_]) -> NDArray[np.int_]:
+        """Predict."""
         return np.array([self.predict_one(row) for row in x])
 
 
 def accuracy(y_true: Iterable[int], y_pred: Iterable[int]) -> float:
+    """Accuracy."""
     true = list(y_true)
     pred = list(y_pred)
     correct = sum(1 for a, b in zip(true, pred, strict=False) if a == b)

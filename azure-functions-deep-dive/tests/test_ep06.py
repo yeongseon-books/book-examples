@@ -1,3 +1,5 @@
+"""Tests for ep06 in Azure Functions Deep Dive."""
+
 from conftest import load_module
 
 ko_run = load_module(
@@ -9,6 +11,7 @@ en_run = load_module(
 
 
 def test_ep06_placeholder_specialization_paths() -> None:
+    """Test ep06 placeholder specialization paths."""
     ko_result = ko_run(container_ready=True, first_request=True)
     en_result = en_run(container_ready=False, first_request=False)
     assert ko_result["specialized"] is True

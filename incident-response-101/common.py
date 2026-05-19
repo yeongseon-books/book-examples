@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Incident Response 101."""
+
 from __future__ import annotations
 
 import json
@@ -7,11 +9,14 @@ from typing import Final, cast
 
 
 def now_iso() -> str:
+    """Now iso."""
     return datetime.now(timezone.utc).isoformat()
 
 
 @dataclass
 class Incident:
+    """Incident."""
+
     id: str
     title: str
     severity: str
@@ -21,12 +26,16 @@ class Incident:
     events: list[dict[str, str]] = field(default_factory=list)
 
     def close(self) -> None:
+        """Close."""
         self.status = "closed"
         self.closed_at = now_iso()
 
 
 class SeverityClassifier:
+    """Severity classifier."""
+
     def classify(self, users_affected: int, revenue_loss: int, regions: int) -> str:
+        """Classify."""
         if users_affected >= 100000 or revenue_loss >= 100000 or regions >= 3:
             return "SEV1"
         if users_affected >= 10000 or revenue_loss >= 10000 or regions >= 2:
@@ -37,6 +46,8 @@ class SeverityClassifier:
 
 
 class OnCallRouter:
+    """On call router."""
+
     POLICY: dict[str, dict[str, list[str]]] = {
         "payments": {
             "SEV1": ["senior-ic", "payments-primary", "comms-lead"],
@@ -53,6 +64,7 @@ class OnCallRouter:
     }
 
     def route(self, severity: str, service: str) -> list[str]:
+        """Route."""
         svc = self.POLICY.get(service, {})
         if severity in svc:
             return svc[severity]
@@ -60,12 +72,15 @@ class OnCallRouter:
 
 
 class IncidentTimeline:
+    """Incident timeline."""
+
     def __init__(self) -> None:
         self.events: list[dict[str, str]] = []
 
     def append(
         self, actor: str, action: str, timestamp: str | None = None
     ) -> dict[str, str]:
+        """Append."""
         ts = timestamp or now_iso()
         if self.events and ts < self.events[-1]["timestamp"]:
             raise ValueError("timeline must be monotonic")
@@ -75,7 +90,10 @@ class IncidentTimeline:
 
 
 class CommsTemplateRenderer:
+    """Comms template renderer."""
+
     def render(self, audience: str, incident: Incident, summary: str) -> str:
+        """Render."""
         base = f"[{incident.severity}] {incident.id} {incident.title}: {summary}"
         if audience == "customer":
             return f"Customer Update: {base}"
@@ -87,16 +105,22 @@ class CommsTemplateRenderer:
 
 
 class RCAFramework:
+    """RCA framework."""
+
     def five_whys(self, problem: str, answers: list[str]) -> dict[str, object]:
+        """Five whys."""
         chain = [problem] + answers[:5]
         return {"method": "5-whys", "chain": chain, "root_cause": chain[-1]}
 
     def fishbone(self, categories: dict[str, list[str]]) -> dict[str, object]:
+        """Fishbone."""
         total = sum(len(v) for v in categories.values())
         return {"method": "fishbone", "categories": categories, "factor_count": total}
 
 
 class MitigationTracker:
+    """Mitigation tracker."""
+
     TRANSITIONS: Final[dict[str, str]] = {
         "proposed": "applied",
         "applied": "verified",
@@ -107,11 +131,14 @@ class MitigationTracker:
         self.state: str = "proposed"
 
     def advance(self) -> str:
+        """Advance."""
         self.state = self.TRANSITIONS[self.state]
         return self.state
 
 
 class PostmortemGenerator:
+    """Postmortem generator."""
+
     SECTIONS: Final[tuple[str, ...]] = (
         "Summary",
         "Impact",
@@ -122,6 +149,7 @@ class PostmortemGenerator:
     )
 
     def generate(self, incident: Incident, actions: list[dict[str, str]]) -> str:
+        """Generate."""
         lines = [f"# Postmortem: {incident.id} - {incident.title}", ""]
         for section in self.SECTIONS:
             lines.append(f"## {section}")
@@ -143,10 +171,13 @@ class PostmortemGenerator:
 
 
 class PreventionTracker:
+    """Prevention tracker."""
+
     def __init__(self) -> None:
         self.items: list[dict[str, str]] = []
 
     def add(self, title: str, owner: str, due_date: str) -> dict[str, str]:
+        """Add."""
         item = {
             "id": f"ACT-{len(self.items) + 1:03d}",
             "title": title,
@@ -158,6 +189,7 @@ class PreventionTracker:
         return item
 
     def set_status(self, item_id: str, status: str) -> None:
+        """Set status."""
         for item in self.items:
             if item["id"] == item_id:
                 item["status"] = status
@@ -166,7 +198,10 @@ class PreventionTracker:
 
 
 class RunbookExecutor:
+    """Runbook executor."""
+
     def load(self, text: str) -> dict[str, object]:
+        """Load."""
         parsed_raw = json.loads(text)  # pyright: ignore[reportAny]
         if not isinstance(parsed_raw, dict):
             raise ValueError("runbook must be an object")
@@ -178,6 +213,7 @@ class RunbookExecutor:
     def execute(
         self, runbook: dict[str, object], context: dict[str, object]
     ) -> list[dict[str, object]]:
+        """Execute."""
         outcomes: list[dict[str, object]] = []
         fail_fast = bool(runbook.get("fail_fast", True))
         steps = runbook.get("steps")

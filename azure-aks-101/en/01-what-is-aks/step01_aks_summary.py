@@ -1,9 +1,12 @@
+"""Azure Aks 101 - Episode 1: Aks summary."""
+
 from __future__ import annotations
 
 from common import build_az_aks_create_command, shell_join
 
 
 def build_example() -> dict[str, object]:
+    """Build example."""
     command = build_az_aks_create_command("rg-aks-101", "aks-101-cluster", 1)
     return {
         "concept": "aks-shared-responsibility",

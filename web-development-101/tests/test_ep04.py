@@ -1,7 +1,10 @@
+"""Tests for ep04 in Web Development 101."""
+
 from en.ep04_http_api import run
 
 
 def test_ep04_rest_crud_verbs():
+    """Test ep04 rest crud verbs."""
     app = run()
     c = app.test_client()
     assert c.get("/api/v1/items").status_code == 200

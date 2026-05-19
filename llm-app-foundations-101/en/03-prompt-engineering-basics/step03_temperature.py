@@ -14,6 +14,7 @@ from groq import Groq
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     prompt = "Introduce FastAPI to a developer who is learning it for the first time in three sentences."
 

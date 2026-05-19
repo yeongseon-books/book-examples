@@ -1,3 +1,5 @@
+"""Ai Data Preparation 101 - Episode 1: Token chunk."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import chunk_tokens, tokenize
 
 
 def run() -> dict[str, int]:
+    """Run."""
     text = "Tokenization and chunking are core for RAG quality and context efficiency."
     tokens = tokenize(text)
     chunks = chunk_tokens(tokens, chunk_size=5, overlap=2)

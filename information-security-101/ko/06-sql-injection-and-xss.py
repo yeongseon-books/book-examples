@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 6: Sql injection and xss."""
+
 from common import SQLInjectionDetector, XSSDetector
 
 sql = SQLInjectionDetector()

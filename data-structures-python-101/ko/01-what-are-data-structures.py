@@ -1,3 +1,5 @@
+"""Data Structures Python 101 - Episode 1: What are data structures."""
+
 # pyright: reportMissingParameterType=false, reportUnknownParameterType=false, reportExplicitAny=false, reportAny=false
 
 from collections import Counter
@@ -5,6 +7,7 @@ from time import perf_counter
 
 
 def time_op(fn, *args, repeat: int = 5, loops: int = 1, **kwargs) -> float:
+    """Time op."""
     best = float("inf")
     for _ in range(repeat):
         start = perf_counter()
@@ -18,15 +21,18 @@ TEXT = "python data structures with python data"
 
 
 def words_from_text(text: str) -> list[str]:
+    """Words from text."""
     return text.split()
 
 
 def count_with_list(words: list[str]) -> dict[str, int]:
+    """Count with list."""
     uniq = sorted(set(words))
     return {w: words.count(w) for w in uniq}
 
 
 def count_with_dict(words: list[str]) -> dict[str, int]:
+    """Count with dict."""
     out: dict[str, int] = {}
     for w in words:
         out[w] = out.get(w, 0) + 1
@@ -34,10 +40,12 @@ def count_with_dict(words: list[str]) -> dict[str, int]:
 
 
 def count_with_counter(words: list[str]) -> dict[str, int]:
+    """Count with counter."""
     return dict(Counter(words))
 
 
 def benchmark_counts(words: list[str]) -> dict[str, float]:
+    """Benchmark counts."""
     return {
         "list+count": time_op(count_with_list, words, loops=200),
         "dict": time_op(count_with_dict, words, loops=200),

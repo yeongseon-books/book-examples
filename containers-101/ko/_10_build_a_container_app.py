@@ -1,3 +1,5 @@
+"""Containers 101 - Episode 10: Build a container app."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -10,6 +12,7 @@ from ko import _07_registry as registry_mod
 
 
 def generate_dockerfile(app_dir: Path) -> str:
+    """Generate dockerfile."""
     return "\n".join(
         [
             "FROM python:3.12-slim",
@@ -24,6 +27,7 @@ def generate_dockerfile(app_dir: Path) -> str:
 
 
 def build_virtual_layers() -> list[Layer]:
+    """Build virtual layers."""
     return [
         Layer("base", {"/etc/os-release": "debian"}),
         Layer("deps", {"/site-packages/pytest": "8.3.4"}),
@@ -32,6 +36,7 @@ def build_virtual_layers() -> list[Layer]:
 
 
 def run_pipeline(app_dir: Path) -> dict[str, object]:
+    """Run pipeline."""
     dockerfile = generate_dockerfile(app_dir)
     lint_warnings = dockerfile_mod.lint_dockerfile(dockerfile)
     layers = build_virtual_layers()

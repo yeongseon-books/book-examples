@@ -1,8 +1,11 @@
+"""Tests for 09 software engineering in Computer Science 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(name, rel):
+    """Load."""
     spec = importlib.util.spec_from_file_location(
         name, Path(__file__).parent.parent / rel
     )
@@ -13,6 +16,7 @@ def load(name, rel):
 
 
 def test_refactor_keeps_behavior():
+    """Test refactor keeps behavior."""
     m = load("ep09", "ko/09-software-engineering.py")
     cases = [
         {"price": 100, "qty": 2, "user": "vip", "coupon": 20},

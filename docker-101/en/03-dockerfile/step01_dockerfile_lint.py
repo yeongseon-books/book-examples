@@ -1,3 +1,5 @@
+"""Docker 101 - Episode 1: Dockerfile lint."""
+
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
@@ -7,6 +9,7 @@ from common import DockerfileLinter
 
 
 def run() -> dict[str, object]:
+    """Run."""
     dockerfile = """FROM python:3.12-slim
 WORKDIR /app
 COPY requirements.txt .

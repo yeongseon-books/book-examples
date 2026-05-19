@@ -1,7 +1,10 @@
+"""Algorithms 101 - Episode 1: Activity selection."""
+
 from __future__ import annotations
 
 
 def activity_selection(intervals: list[tuple[int, int]]) -> int:
+    """Activity selection."""
     intervals = sorted(intervals, key=lambda x: x[1])
     chosen = 0
     last_end = -1
@@ -13,6 +16,7 @@ def activity_selection(intervals: list[tuple[int, int]]) -> int:
 
 
 def run() -> dict[str, object]:
+    """Run."""
     meetings = [(1, 4), (3, 5), (0, 6), (5, 7), (8, 9), (5, 9)]
     return {"meetings": meetings, "max_non_overlapping": activity_selection(meetings)}
 

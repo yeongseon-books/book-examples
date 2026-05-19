@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 1: Metadata schema."""
+
 from __future__ import annotations
 
 import sys
@@ -9,6 +11,7 @@ if str(ROOT) not in sys.path:
 
 
 def build_chunks() -> list[dict[str, object]]:
+    """Build chunks."""
     return [
         {
             "text": "PDF 파서가 페이지별 텍스트를 추출합니다.",
@@ -36,6 +39,7 @@ def build_chunks() -> list[dict[str, object]]:
 
 
 def main() -> None:
+    """Main."""
     print("청크 메타데이터 스키마 예시")
     for chunk in build_chunks():
         print(chunk)

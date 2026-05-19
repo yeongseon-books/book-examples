@@ -15,6 +15,7 @@ MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
 
 def request_completion(client: Any, system_prompt: str, user_prompt: str) -> str:
+    """Request completion."""
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0.3,
@@ -27,6 +28,7 @@ def request_completion(client: Any, system_prompt: str, user_prompt: str) -> str
 
 
 def main() -> None:
+    """Main."""
     if Groq is None:
         print(
             "The groq package is missing. Install it with `pip install groq==1.2.0` and run again."

@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Ai Web Dev 101."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,14 +7,19 @@ from dataclasses import dataclass
 
 @dataclass
 class ToolCall:
+    """Tool call."""
+
     name: str
     args: dict[str, str]
 
 
 class MockLLM:
+    """Mock l l m."""
+
     def chat(
         self, system: str, user: str, temperature: float = 0.2, max_tokens: int = 200
     ) -> dict[str, object]:
+        """Chat."""
         tone = "정확" if temperature <= 0.3 else "창의"
         content = f"[{tone}] {system[:20]} | {user[:40]}"
         usage = {
@@ -26,6 +33,7 @@ class MockLLM:
         }
 
     def plan_tools(self, goal: str) -> list[ToolCall]:
+        """Plan tools."""
         g = goal.lower()
         calls: list[ToolCall] = []
         if "환율" in g or "달러" in g:
@@ -42,6 +50,7 @@ class MockLLM:
 
 
 def get_weather(location: str) -> dict[str, str]:
+    """Get weather."""
     data = {
         "서울": {"location": "서울", "temperature": "25도", "condition": "맑음"},
         "부산": {"location": "부산", "temperature": "22도", "condition": "구름"},
@@ -53,12 +62,14 @@ def get_weather(location: str) -> dict[str, str]:
 
 
 def get_exchange_rate(from_currency: str, to_currency: str) -> dict[str, object]:
+    """Get exchange rate."""
     rates = {"USD_KRW": 1350}
     pair = f"{from_currency}_{to_currency}"
     return {"pair": pair, "rate": rates.get(pair, 1300)}
 
 
 def safe_calculate(expression: str) -> float:
+    """Safe calculate."""
     allowed = set("0123456789+-*/(). ")
     if not set(expression) <= allowed:
         raise ValueError("unsafe expression")

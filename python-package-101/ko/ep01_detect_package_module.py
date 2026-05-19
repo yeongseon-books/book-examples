@@ -1,9 +1,12 @@
+"""Python Package 101 - Episode 1: Detect package module."""
+
 import json
 
 from common import ep01_detect_package_vs_module
 
 
 def main() -> None:
+    """Main."""
     result = ep01_detect_package_vs_module("sample_pkg")
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

@@ -1,3 +1,5 @@
+"""Sqlalchemy 101 - Episode 8: Events hybrid."""
+
 from common import sync_engine
 from sqlalchemy import Integer, String, event, select
 from sqlalchemy.ext.hybrid import hybrid_property
@@ -5,10 +7,14 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
 
 class Base(DeclarativeBase):
+    """Base."""
+
     pass
 
 
 class Person(Base):
+    """Person."""
+
     __tablename__ = "people"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -17,16 +23,19 @@ class Person(Base):
 
     @hybrid_property
     def full_name(self) -> str:
+        """Full name."""
         return f"{self.first_name} {self.last_name}"
 
 
 @event.listens_for(Person, "before_insert")
 def normalize_name(_, __, target: Person) -> None:
+    """Normalize name."""
     target.first_name = target.first_name.strip().title()
     target.last_name = target.last_name.strip().title()
 
 
 def run() -> str:
+    """Run."""
     engine = sync_engine()
     Base.metadata.create_all(engine)
     with Session(engine) as session:

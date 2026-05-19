@@ -1,9 +1,12 @@
+"""Tests for ep07 in Math For Cs 101."""
+
 import numpy as np
 
 from tests.conftest import load_module
 
 
 def test_ep07_linear_algebra_solution():
+    """Test ep07 linear algebra solution."""
     m = load_module("ko/07-linear-algebra/step01_linear_algebra.py")
     x = m.solve_example()
     assert np.allclose(x, [0.2, 0.6])

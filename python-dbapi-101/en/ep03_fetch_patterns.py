@@ -1,7 +1,10 @@
+"""Python Dbapi 101 - Episode 3: Fetch patterns."""
+
 from common import setup_demo_db
 
 
 def run_demo() -> dict[str, object]:
+    """Run demo."""
     conn = setup_demo_db()
     cur = conn.cursor()
 

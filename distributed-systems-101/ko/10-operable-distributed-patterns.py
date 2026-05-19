@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 10: Operable distributed patterns."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,9 +11,11 @@ from ko.common import CircuitBreaker
 
 def run_demo() -> dict[str, object]:
     # 반복 실패 시 circuit breaker가 열려 장애 전파를 줄입니다.
+    """Run demo."""
     breaker = CircuitBreaker(threshold=2)
 
     def fail() -> str:
+        """Fail."""
         raise RuntimeError("boom")
 
     errors = 0

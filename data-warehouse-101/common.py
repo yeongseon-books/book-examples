@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Data Warehouse 101."""
+
 import random
 import sqlite3
 import time
@@ -8,6 +10,7 @@ from datetime import date, timedelta
 def gen_synthetic_sales(
     n: int, seed: int = 42
 ) -> Iterable[tuple[str, str, str, float, int, str]]:
+    """Gen synthetic sales."""
     rnd = random.Random(seed)
     products = ["P100", "P200", "P300"]
     regions = ["KR-Seoul", "KR-Busan", "US-CA"]
@@ -25,6 +28,7 @@ def gen_synthetic_sales(
 
 
 def make_dw(n: int = 500, seed: int = 42) -> sqlite3.Connection:
+    """Make dw."""
     conn = sqlite3.connect(":memory:")
     c = conn.cursor()
     c.executescript(
@@ -67,6 +71,7 @@ def make_dw(n: int = 500, seed: int = 42) -> sqlite3.Connection:
 def time_query(
     conn: sqlite3.Connection, query: str, params: tuple = ()
 ) -> tuple[list[tuple], float]:
+    """Time query."""
     s = time.perf_counter()
     rows = conn.execute(query, params).fetchall()
     return rows, time.perf_counter() - s

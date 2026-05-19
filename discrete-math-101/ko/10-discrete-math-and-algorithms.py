@@ -1,7 +1,10 @@
+"""Discrete Math 101 - Episode 10: Discrete math and algorithms."""
+
 import heapq
 
 
 def lis_length(nums):
+    """Lis length."""
     tails = []
     for x in nums:
         lo, hi = 0, len(tails)
@@ -19,6 +22,7 @@ def lis_length(nums):
 
 
 def edit_distance(a, b):
+    """Edit distance."""
     dp = [[0] * (len(b) + 1) for _ in range(len(a) + 1)]
     for i in range(len(a) + 1):
         dp[i][0] = i
@@ -32,6 +36,7 @@ def edit_distance(a, b):
 
 
 def dijkstra(adj, start):
+    """Dijkstra."""
     dist = {start: 0}
     pq = [(0, start)]
     while pq:
@@ -47,6 +52,7 @@ def dijkstra(adj, start):
 
 
 def count_grid_paths(m, n):
+    """Count grid paths."""
     dp = [[1] * n for _ in range(m)]
     for i in range(1, m):
         for j in range(1, n):

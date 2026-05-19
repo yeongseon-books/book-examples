@@ -1,9 +1,13 @@
+"""Computer Networks 101 - Episode 4: Dns."""
+
 # English mirror of the corresponding episode demo
 from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
 class Record:
+    """Record."""
+
     rtype: str
     value: str
 
@@ -19,6 +23,7 @@ ZONE = {
 
 
 def resolve(name: str, rtype: str = "A") -> str:
+    """Resolve."""
     if name == "www.example.com":
         cname = ZONE["example.com"]["www"]
         if cname.rtype == "CNAME":
@@ -31,6 +36,7 @@ def resolve(name: str, rtype: str = "A") -> str:
 
 
 def recursive_path(name: str) -> list[str]:
+    """Recursive path."""
     return [".", "com", "example.com", name]
 
 

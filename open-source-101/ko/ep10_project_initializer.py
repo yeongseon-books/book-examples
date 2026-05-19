@@ -1,3 +1,5 @@
+"""Open Source 101 - Episode 10: Project initializer."""
+
 from __future__ import annotations
 
 from common import (
@@ -6,6 +8,7 @@ from common import (
 
 
 def run_example() -> object:
+    """Run example."""
     path = initialize_python_project("demo_pkg")
     return str(path)
 

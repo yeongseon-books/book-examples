@@ -22,6 +22,7 @@ POLICY = (
 
 
 def build_messages(case: str) -> list[ChatCompletionMessageParam]:
+    """Build messages."""
     return [
         {
             "role": "system",
@@ -64,6 +65,7 @@ def build_messages(case: str) -> list[ChatCompletionMessageParam]:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     cases = [

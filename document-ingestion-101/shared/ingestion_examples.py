@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Ingestion examples."""
+
 from __future__ import annotations
 
 import csv
@@ -17,21 +19,26 @@ import numpy as np
 
 @dataclass
 class SearchHit:
+    """Search hit."""
+
     score: float
     metadata: dict[str, Any]
 
 
 def ensure_parent(path: Path) -> Path:
+    """Ensure parent."""
     path.parent.mkdir(parents=True, exist_ok=True)
     return path
 
 
 def write_text(path: Path, content: str) -> Path:
+    """Write text."""
     ensure_parent(path).write_text(content, encoding="utf-8")
     return path
 
 
 def write_json(path: Path, payload: Any) -> Path:
+    """Write json."""
     ensure_parent(path).write_text(
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -40,6 +47,7 @@ def write_json(path: Path, payload: Any) -> Path:
 
 
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> Path:
+    """Write csv."""
     ensure_parent(path)
     if not rows:
         raise ValueError("rows must not be empty")
@@ -51,16 +59,19 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> Path:
 
 
 def slugify(value: str) -> str:
+    """Slugify."""
     text = re.sub(r"[^a-zA-Z0-9]+", "-", value.strip().lower())
     return text.strip("-") or "section"
 
 
 def sentence_split(text: str) -> list[str]:
+    """Sentence split."""
     parts = re.split(r"(?<=[.!?다])\s+", text.strip())
     return [part.strip() for part in parts if part.strip()]
 
 
 def word_windows(words: list[str], size: int, overlap: int) -> list[str]:
+    """Word windows."""
     if size <= 0:
         raise ValueError("size must be positive")
     if overlap >= size:
@@ -78,10 +89,12 @@ def word_windows(words: list[str], size: int, overlap: int) -> list[str]:
 
 
 def fixed_chunks(text: str, *, size: int, overlap: int) -> list[str]:
+    """Fixed chunks."""
     return word_windows(text.split(), size=size, overlap=overlap)
 
 
 def recursive_chunks(text: str, *, size: int, overlap: int) -> list[str]:
+    """Recursive chunks."""
     paragraphs = [part.strip() for part in text.split("\n\n") if part.strip()]
     chunks: list[str] = []
     current: list[str] = []
@@ -127,6 +140,7 @@ def recursive_chunks(text: str, *, size: int, overlap: int) -> list[str]:
 
 
 def heading_chunks(markdown_text: str) -> list[dict[str, str]]:
+    """Heading chunks."""
     chunks: list[dict[str, str]] = []
     current_heading = "document"
     buffer: list[str] = []
@@ -164,6 +178,7 @@ def make_demo_pdf(
     pages: list[str],
     language: str,
 ) -> Path:
+    """Make demo pdf."""
     ensure_parent(path)
     document = fitz.open()
     for page_number, text in enumerate(pages, start=1):
@@ -190,6 +205,7 @@ def make_demo_pdf(
 
 
 def extract_pdf_pages(path: Path) -> tuple[dict[str, str], list[dict[str, Any]]]:
+    """Extract pdf pages."""
     document = fitz.open(path)
     raw_metadata = document.metadata or {}
     metadata = {
@@ -221,6 +237,7 @@ def extract_pdf_pages(path: Path) -> tuple[dict[str, str], list[dict[str, Any]]]
 
 
 def hash_text(text: str, *, dim: int = 64) -> list[float]:
+    """Hash text."""
     vector = [0.0] * dim
     tokens = re.findall(r"[\w가-힣]+", text.lower())
     if not tokens:
@@ -238,6 +255,7 @@ def hash_text(text: str, *, dim: int = 64) -> list[float]:
 def build_faiss_index(
     items: list[dict[str, Any]], *, text_key: str = "text"
 ) -> tuple[faiss.IndexFlatIP, list[dict[str, Any]]]:
+    """Build faiss index."""
     if not items:
         raise ValueError("items must not be empty")
     vectors = [hash_text(str(item[text_key])) for item in items]
@@ -255,6 +273,7 @@ def search_faiss(
     top_k: int,
     filters: dict[str, Any] | None = None,
 ) -> list[SearchHit]:
+    """Search faiss."""
     query_vector = np.array([hash_text(query)], dtype="float32")
     scores, positions = index.search(query_vector, min(top_k * 3, len(items)))  # pyright: ignore[reportCallIssue]
     hits: list[SearchHit] = []
@@ -274,31 +293,38 @@ def search_faiss(
 
 
 def fingerprint(path: Path) -> str:
+    """Fingerprint."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 class JsonStateStore:
+    """Json state store."""
+
     def __init__(self, path: Path) -> None:
         self.path = path
 
     def load(self) -> dict[str, dict[str, Any]]:
+        """Load."""
         if not self.path.exists():
             return {}
         return json.loads(self.path.read_text(encoding="utf-8"))
 
     def save(self, payload: dict[str, dict[str, Any]]) -> None:
+        """Save."""
         ensure_parent(self.path).write_text(
             json.dumps(payload, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
 
     def upsert(self, source_path: Path, metadata: dict[str, Any]) -> None:
+        """Upsert."""
         current = self.load()
         current[str(source_path)] = metadata
         self.save(current)
 
 
 def detect_change(current_hash: str, previous_hash: str | None) -> str:
+    """Detect change."""
     if previous_hash is None:
         return "new"
     if current_hash != previous_hash:
@@ -307,6 +333,7 @@ def detect_change(current_hash: str, previous_hash: str | None) -> str:
 
 
 def load_text_document(path: Path) -> list[dict[str, Any]]:
+    """Load text document."""
     text = path.read_text(encoding="utf-8")
     return [
         {
@@ -317,6 +344,7 @@ def load_text_document(path: Path) -> list[dict[str, Any]]:
 
 
 def load_markdown_document(path: Path) -> list[dict[str, Any]]:
+    """Load markdown document."""
     chunks = heading_chunks(path.read_text(encoding="utf-8"))
     return [
         {
@@ -333,6 +361,7 @@ def load_markdown_document(path: Path) -> list[dict[str, Any]]:
 
 
 def load_json_document(path: Path) -> list[dict[str, Any]]:
+    """Load json document."""
     payload = json.loads(path.read_text(encoding="utf-8"))
     if isinstance(payload, list):
         records = payload
@@ -350,6 +379,7 @@ def load_json_document(path: Path) -> list[dict[str, Any]]:
 
 
 def load_csv_document(path: Path) -> list[dict[str, Any]]:
+    """Load csv document."""
     documents: list[dict[str, Any]] = []
     with path.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
@@ -364,6 +394,7 @@ def load_csv_document(path: Path) -> list[dict[str, Any]]:
 
 
 def load_pdf_document(path: Path) -> list[dict[str, Any]]:
+    """Load pdf document."""
     _, pages = extract_pdf_pages(path)
     return [
         {"text": page["text"], "metadata": page["metadata"] | {"format": "pdf"}}
@@ -372,6 +403,7 @@ def load_pdf_document(path: Path) -> list[dict[str, Any]]:
 
 
 def route_document(path: Path) -> list[dict[str, Any]]:
+    """Route document."""
     suffix = path.suffix.lower()
     loaders = {
         ".txt": load_text_document,
@@ -389,6 +421,7 @@ def route_document(path: Path) -> list[dict[str, Any]]:
 def incremental_scan(
     paths: Iterable[Path], store: JsonStateStore
 ) -> list[dict[str, Any]]:
+    """Incremental scan."""
     previous = store.load()
     changes: list[dict[str, Any]] = []
     for path in paths:

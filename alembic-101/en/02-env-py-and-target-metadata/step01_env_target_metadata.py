@@ -1,13 +1,17 @@
+"""Alembic 101 - Episode 1: Env target metadata."""
+
 from __future__ import annotations
 
 import os
 
 
 def resolve_db_url(default_url: str) -> str:
+    """Resolve db url."""
     return os.environ.get("DATABASE_URL", default_url)
 
 
 def build_env_config(default_url: str = "sqlite:///./app.db") -> dict[str, object]:
+    """Build env config."""
     url = resolve_db_url(default_url)
     return {
         "sqlalchemy.url": url,

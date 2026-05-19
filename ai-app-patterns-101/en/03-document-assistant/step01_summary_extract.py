@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 1: Summary extract."""
+
 from __future__ import annotations
 
 from common import (
@@ -19,6 +21,7 @@ Key points:
 
 
 def run_document_assistant() -> None:
+    """Run document assistant."""
     client = build_client()
 
     summary_messages = [

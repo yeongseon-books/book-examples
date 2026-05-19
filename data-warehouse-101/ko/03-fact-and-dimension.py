@@ -1,8 +1,11 @@
+"""Data Warehouse 101 - Episode 3: Fact and dimension."""
+
 # 한국어 예제
 import sqlite3
 
 
 def run_demo() -> dict:
+    """Run demo."""
     conn = sqlite3.connect(":memory:")
     c = conn.cursor()
     c.execute(

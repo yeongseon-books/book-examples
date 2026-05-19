@@ -2,6 +2,7 @@
 
 
 def evaluate(results: list[dict[str, object]]) -> dict[str, float]:
+    """Evaluate."""
     total = len(results)
     success = sum(1 for r in results if r.get("success") is True)
     step_values: list[int] = []

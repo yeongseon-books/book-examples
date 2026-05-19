@@ -1,7 +1,10 @@
+"""Algorithms 101 - Episode 1: Kmp search."""
+
 from __future__ import annotations
 
 
 def compute_failure(pat: str) -> list[int]:
+    """Compute failure."""
     fail = [0] * len(pat)
     k = 0
     for i in range(1, len(pat)):
@@ -14,6 +17,7 @@ def compute_failure(pat: str) -> list[int]:
 
 
 def kmp_search(text: str, pat: str) -> int:
+    """Kmp search."""
     if not pat:
         return 0
     fail = compute_failure(pat)
@@ -29,6 +33,7 @@ def kmp_search(text: str, pat: str) -> int:
 
 
 def run() -> dict[str, object]:
+    """Run."""
     text = "ababcababcabc"
     pat = "ababcabc"
     return {"text": text, "pat": pat, "index": kmp_search(text, pat)}

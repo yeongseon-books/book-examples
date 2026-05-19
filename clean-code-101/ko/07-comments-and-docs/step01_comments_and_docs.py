@@ -1,6 +1,10 @@
+"""Clean Code 101 - Episode 1: Comments and docs."""
+
+
 # 결제 파트너가 HTTP 200을 반환해도 본문에 실패 상태를 넣는 경우가 있어
 # 응답 코드 대신 본문 상태를 확인합니다.
 def is_paid(response: dict[str, object]) -> bool:
+    """Is paid."""
     return response.get("status") == "PAID"
 
 

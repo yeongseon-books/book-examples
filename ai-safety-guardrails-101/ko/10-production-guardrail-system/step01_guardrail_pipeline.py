@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Guardrail pipeline."""
+
 import sys
 from pathlib import Path
 
@@ -16,6 +18,7 @@ from common import (
 
 
 def run(user_input: str) -> dict[str, object]:
+    """Run."""
     audit = AuditLog()
     audit.append("input", user_input)
 

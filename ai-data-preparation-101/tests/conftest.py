@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Ai Data Preparation 101."""
+
 from __future__ import annotations
 
 import ast
@@ -9,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def run_dict(relative_path: str) -> dict[str, object]:
+    """Run dict."""
     output = subprocess.check_output(
         [sys.executable, str(ROOT / relative_path)], text=True
     ).strip()

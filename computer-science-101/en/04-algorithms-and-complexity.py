@@ -2,6 +2,7 @@
 
 
 def linear_search_count(arr: list[int], target: int) -> int:
+    """Linear search count."""
     comparisons = 0
     for item in arr:
         comparisons += 1
@@ -11,6 +12,7 @@ def linear_search_count(arr: list[int], target: int) -> int:
 
 
 def binary_search_count(arr: list[int], target: int) -> int:
+    """Binary search count."""
     lo, hi = 0, len(arr) - 1
     comparisons = 0
     while lo <= hi:
@@ -26,6 +28,7 @@ def binary_search_count(arr: list[int], target: int) -> int:
 
 
 def comparison_table(sizes: list[int]) -> list[tuple[int, int, int]]:
+    """Comparison table."""
     rows: list[tuple[int, int, int]] = []
     for n in sizes:
         arr = list(range(n))

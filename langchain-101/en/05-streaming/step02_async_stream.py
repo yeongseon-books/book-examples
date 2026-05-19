@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 2: Async stream."""
+
 import asyncio
 import os
 from typing import Any, cast
@@ -8,6 +10,7 @@ from langchain_groq import ChatGroq
 
 
 def build_chain():
+    """Build chain."""
     prompt = ChatPromptTemplate.from_template(
         "Explain a LangChain astream example in 2 sentences."
     )
@@ -21,6 +24,7 @@ def build_chain():
 
 
 async def main():
+    """Main."""
     chain = build_chain()
     print("[Asynchronous astream output]")
     async for chunk in chain.astream({}):

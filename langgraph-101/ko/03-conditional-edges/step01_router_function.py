@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 1: Router function."""
+
 from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
@@ -5,12 +7,15 @@ from typing_extensions import TypedDict
 
 
 class RouteState(TypedDict):
+    """Route state."""
+
     text: str
     route: Literal["positive", "negative"]
     result: str
 
 
 def classify_text(state: RouteState):
+    """Classify text."""
     positive_keywords = ["좋", "만족", "추천"]
     route = (
         "positive"
@@ -22,22 +27,26 @@ def classify_text(state: RouteState):
 
 
 def route_selector(state: RouteState) -> str:
+    """Route selector."""
     return state["route"]
 
 
 def positive_path(state: RouteState):
+    """Positive path."""
     return {
         "result": f"긍정 흐름으로 이동: '{state['text']}'는 좋은 반응으로 분류되었습니다."
     }
 
 
 def negative_path(state: RouteState):
+    """Negative path."""
     return {
         "result": f"부정 흐름으로 이동: '{state['text']}'는 추가 확인이 필요합니다."
     }
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(RouteState)
     builder.add_node("classify_text", classify_text)
     builder.add_node("positive", positive_path)

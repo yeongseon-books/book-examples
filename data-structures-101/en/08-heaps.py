@@ -1,23 +1,31 @@
+"""Data Structures 101 - Episode 8: Heaps."""
+
 from __future__ import annotations
 
 
 class MinHeap:
+    """Min heap."""
+
     def __init__(self) -> None:
         self.data: list[int] = []
 
     def __len__(self) -> int:
+        """Len."""
         return len(self.data)
 
     def peek(self) -> int:
+        """Peek."""
         if not self.data:
             raise IndexError("peek from empty heap")
         return self.data[0]
 
     def push(self, value: int) -> None:
+        """Push."""
         self.data.append(value)
         self._sift_up(len(self.data) - 1)
 
     def pop(self) -> int:
+        """Pop."""
         if not self.data:
             raise IndexError("pop from empty heap")
         top = self.data[0]
@@ -28,6 +36,7 @@ class MinHeap:
         return top
 
     def _sift_up(self, idx: int) -> None:
+        """Sift up."""
         while idx > 0:
             parent = (idx - 1) // 2
             if self.data[idx] < self.data[parent]:
@@ -37,6 +46,7 @@ class MinHeap:
                 break
 
     def _sift_down(self, idx: int) -> None:
+        """Sift down."""
         n = len(self.data)
         while True:
             left = 2 * idx + 1
@@ -53,6 +63,7 @@ class MinHeap:
 
 
 def heapsort(values: list[int]) -> list[int]:
+    """Heapsort."""
     heap = MinHeap()
     for v in values:
         heap.push(v)

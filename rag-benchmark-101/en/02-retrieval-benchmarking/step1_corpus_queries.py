@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 1: Corpus queries."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +14,7 @@ from en.shared import CORPUS, QUERIES
 
 
 def main() -> None:
+    """Main."""
     print("Test corpus")
     print(json.dumps(CORPUS, indent=2))
     print("\nQuery and ground-truth set")

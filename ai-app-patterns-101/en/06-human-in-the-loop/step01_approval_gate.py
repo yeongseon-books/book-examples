@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 1: Approval gate."""
+
 from __future__ import annotations
 
 from common import (
@@ -21,6 +23,7 @@ CASES = [
 
 
 def run_hitl_workflow() -> None:
+    """Run hitl workflow."""
     client = build_client()
 
     for case in CASES:

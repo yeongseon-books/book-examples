@@ -1,3 +1,5 @@
+"""Alembic 101 - Episode 1: Upgrade downgrade."""
+
 from __future__ import annotations
 
 from common import make_memory_engine
@@ -5,6 +7,7 @@ from sqlalchemy import text
 
 
 def apply_upgrade_and_downgrade() -> dict[str, int]:
+    """Apply upgrade and downgrade."""
     engine = make_memory_engine()
     with engine.begin() as conn:
         conn.execute(

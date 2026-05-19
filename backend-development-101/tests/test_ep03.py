@@ -1,8 +1,11 @@
+"""Tests for ep03 in Backend Development 101."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
 
 def test_ep03_router_and_params() -> None:
+    """Test ep03 router and params."""
     app = load_module(
         "ko/03-routing-and-controllers/step01_routing_controller.py", "ep03"
     ).build_app()

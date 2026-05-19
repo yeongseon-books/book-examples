@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 3: Rpc and message passing."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -8,11 +10,13 @@ from en.common import MessageQueue
 
 
 def rpc_add(a: int, b: int) -> int:
+    """Rpc add."""
     return a + b
 
 
 def run_demo() -> dict[str, object]:
     # RPC is request-response; queueing is asynchronous.
+    """Run demo."""
     rpc_result = rpc_add(3, 4)
     q = MessageQueue()
     q.publish({"task": "ship-order", "order_id": 10})

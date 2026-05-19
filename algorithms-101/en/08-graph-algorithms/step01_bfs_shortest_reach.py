@@ -1,9 +1,12 @@
+"""Algorithms 101 - Episode 1: Bfs shortest reach."""
+
 from __future__ import annotations
 
 from collections import defaultdict, deque
 
 
 def bfs_dist(n: int, edges: list[tuple[int, int]], start: int) -> dict[int, int]:
+    """Bfs dist."""
     adj: dict[int, list[int]] = defaultdict(list)
     for a, b in edges:
         adj[a].append(b)
@@ -20,6 +23,7 @@ def bfs_dist(n: int, edges: list[tuple[int, int]], start: int) -> dict[int, int]
 
 
 def run() -> dict[str, object]:
+    """Run."""
     edges = [(0, 1), (0, 2), (1, 3), (2, 3), (3, 4)]
     return {"dist": bfs_dist(5, edges, 0)}
 

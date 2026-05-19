@@ -1,7 +1,11 @@
+"""Computer Architecture 101 - Episode 5: Memory organization."""
+
 from __future__ import annotations
 
 
 class MemoryHierarchy:
+    """Memory hierarchy."""
+
     def __init__(self) -> None:
         self.registers: dict[int, int] = {}
         self.l1: dict[int, int] = {}
@@ -9,9 +13,11 @@ class MemoryHierarchy:
         self.access_counter: dict[str, int] = {"register": 0, "l1": 0, "main": 0}
 
     def store_main(self, addr: int, value: int) -> None:
+        """Store main."""
         self.main[addr] = value
 
     def load(self, addr: int) -> int:
+        """Load."""
         if addr in self.registers:
             self.access_counter["register"] += 1
             return self.registers[addr]
@@ -27,6 +33,7 @@ class MemoryHierarchy:
 
 
 def demo_sequence() -> dict[str, int]:
+    """Demo sequence."""
     mem = MemoryHierarchy()
     mem.store_main(100, 42)
     _ = mem.load(100)

@@ -1,3 +1,5 @@
+"""Data Structures Python 101 - Episode 6: Trees and binary trees."""
+
 import xml.etree.ElementTree as ET
 from collections import deque
 from dataclasses import dataclass, field
@@ -5,11 +7,14 @@ from dataclasses import dataclass, field
 
 @dataclass
 class TreeNode:
+    """Tree node."""
+
     name: str
     children: list["TreeNode"] = field(default_factory=list)
 
 
 def bfs_names(root: TreeNode) -> list[str]:
+    """Bfs names."""
     q: deque[TreeNode] = deque([root])
     out: list[str] = []
     while q:
@@ -20,6 +25,7 @@ def bfs_names(root: TreeNode) -> list[str]:
 
 
 def dfs_names(root: TreeNode) -> list[str]:
+    """Dfs names."""
     out = [root.name]
     for child in root.children:
         out.extend(dfs_names(child))
@@ -27,6 +33,7 @@ def dfs_names(root: TreeNode) -> list[str]:
 
 
 def xml_tags(xml_text: str) -> list[str]:
+    """Xml tags."""
     root = ET.fromstring(xml_text)
     return [elem.tag for elem in root.iter()]
 

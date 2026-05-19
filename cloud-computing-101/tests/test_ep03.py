@@ -1,3 +1,5 @@
+"""Tests for ep03 in Cloud Computing 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -12,6 +14,7 @@ fn = cast("Callable[..., object]", mod.choose_region_placement)
 
 
 def test_ep03_behavior() -> None:
+    """Test ep03 behavior."""
     result_obj = fn(users="global", disaster_recovery=True)
     result = cast("dict[str, object]", result_obj)
     payload = cast("dict[str, object]", result["payload"])

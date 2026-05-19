@@ -1,9 +1,12 @@
+"""Probability 101 - Episode 3: Conditional probability."""
+
 from __future__ import annotations
 
 from common import make_rng
 
 
 def run(n: int = 200_000) -> dict[str, float]:
+    """Run."""
     rng = make_rng()
     d1 = rng.integers(1, 7, size=n)
     d2 = rng.integers(1, 7, size=n)

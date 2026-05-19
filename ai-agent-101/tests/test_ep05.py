@@ -1,3 +1,5 @@
+"""Tests for ep05 in Ai Agent 101."""
+
 from conftest import load_module
 
 module = load_module("ko/05-memory-and-state/step01_memory_state.py", "ep05")
@@ -6,6 +8,7 @@ checkpoint = module.checkpoint
 
 
 def test_ep05_sliding_memory_and_checkpoint() -> None:
+    """Test ep05 sliding memory and checkpoint."""
     memory = SlidingMemory(2)
     memory.add("a")
     memory.add("b")

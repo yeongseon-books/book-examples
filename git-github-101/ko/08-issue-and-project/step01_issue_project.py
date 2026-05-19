@@ -1,9 +1,12 @@
+"""Git Github 101 - Episode 1: Issue project."""
+
 from __future__ import annotations
 
 from common import WorkflowSimulator
 
 
 def run() -> dict[str, str]:
+    """Run."""
     wf = WorkflowSimulator()
     issue = wf.create_issue(1, "Add packing list")
     issue.labels.append("enhancement")

@@ -1,7 +1,10 @@
+"""Tests for 06 trees in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_tree_traversals_and_metrics():
+    """Test tree traversals and metrics."""
     mod = load_module("ko/06-trees.py")
     root = mod.TreeNode(1)
     n2 = root.add(mod.TreeNode(2))

@@ -1,3 +1,5 @@
+"""Probability 101 - Episode 8: Continuous distributions."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -6,6 +8,7 @@ from scipy.stats import expon, norm, uniform
 
 
 def run(n: int = 100_000) -> dict[str, float]:
+    """Run."""
     rng = make_rng()
     normal_samples = np.asarray(
         norm.rvs(loc=0, scale=1, size=n, random_state=rng), dtype=float

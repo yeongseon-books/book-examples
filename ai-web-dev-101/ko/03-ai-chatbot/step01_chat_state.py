@@ -1,3 +1,5 @@
+"""Ai Web Dev 101 - Episode 1: Chat state."""
+
 from __future__ import annotations
 
 import sys
@@ -12,10 +14,13 @@ from common import MockLLM
 
 @dataclass
 class ChatSession:
+    """Chat session."""
+
     system_prompt: str
     messages: list[dict[str, str]] = field(default_factory=list)
 
     def send(self, text: str) -> str:
+        """Send."""
         self.messages.append({"role": "user", "content": text})
         llm = MockLLM()
         resp = llm.chat(self.system_prompt, text)

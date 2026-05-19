@@ -1,3 +1,5 @@
+"""Llm Apps Ops 101 - Episode 3: Evaluation."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -10,16 +12,21 @@ logger = build_logger("en.evaluation")
 
 @dataclass(slots=True)
 class EvaluationCase:
+    """Evaluation case."""
+
     question: str
     answer: str
     reference: str
 
 
 class LLMJudge:
+    """LLM judge."""
+
     def __init__(self, model: str = "llama-3.1-8b-instant") -> None:
         self.model = model
 
     def evaluate(self, case: EvaluationCase) -> dict[str, Any]:
+        """Evaluate."""
         system_prompt = "You are an evaluator for LLM answers. Score factuality, faithfulness, and clarity from 1 to 5 and explain the score in one line."
         user_prompt = (
             f"Question: {case.question}\n"
@@ -48,6 +55,7 @@ class LLMJudge:
 
 
 def _extract_score(text: str) -> int:
+    """Extract score."""
     for token in text.replace(",", " ").split():
         digits = "".join(ch for ch in token if ch.isdigit())
         if digits:
@@ -58,6 +66,7 @@ def _extract_score(text: str) -> int:
 
 
 def heuristic_evaluate(case: EvaluationCase) -> dict[str, Any]:
+    """Heuristic evaluate."""
     answer_words = set(case.answer.split())
     reference_words = set(case.reference.split())
     overlap = len(answer_words & reference_words)
@@ -67,10 +76,13 @@ def heuristic_evaluate(case: EvaluationCase) -> dict[str, Any]:
 
 
 class BatchEvaluator:
+    """Batch evaluator."""
+
     def __init__(self, judge: LLMJudge) -> None:
         self.judge = judge
 
     def run(self, cases: list[EvaluationCase]) -> dict[str, Any]:
+        """Run."""
         results = [self.judge.evaluate(case) for case in cases]
         average = (
             round(sum(item["score"] for item in results) / len(results), 2)
@@ -81,6 +93,7 @@ class BatchEvaluator:
 
 
 def demo() -> None:
+    """Demo."""
     cases = [
         EvaluationCase(
             question="Explain the incident root cause.",

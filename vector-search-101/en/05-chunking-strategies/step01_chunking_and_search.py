@@ -1,3 +1,5 @@
+"""Vector Search 101 - Episode 1: Chunking and search."""
+
 import faiss
 from sentence_transformers import SentenceTransformer
 
@@ -12,6 +14,7 @@ DOCUMENT = (
 
 
 def fixed_size_chunks(text: str, size: int, overlap: int) -> list[str]:
+    """Fixed size chunks."""
     words = text.split()
     step = size - overlap
     if step <= 0:
@@ -26,6 +29,7 @@ def fixed_size_chunks(text: str, size: int, overlap: int) -> list[str]:
 
 
 def main() -> None:
+    """Main."""
     model = SentenceTransformer(MODEL_NAME)
     query = "How can I split chunks without losing too much context?"
 

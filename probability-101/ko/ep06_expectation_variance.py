@@ -1,9 +1,12 @@
+"""Probability 101 - Episode 6: Expectation variance."""
+
 from __future__ import annotations
 
 from common import make_rng
 
 
 def run(n: int = 200_000) -> dict[str, float]:
+    """Run."""
     rng = make_rng()
     x = rng.integers(1, 7, size=n)
     mean_sim = float(x.mean())

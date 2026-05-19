@@ -1,9 +1,12 @@
+"""Azure Aks 101 - Episode 1: Ingress manifest."""
+
 from __future__ import annotations
 
 from common import dump_yaml
 
 
 def build_ingress() -> dict[str, object]:
+    """Build ingress."""
     return {
         "apiVersion": "networking.k8s.io/v1",
         "kind": "Ingress",
@@ -34,6 +37,7 @@ def build_ingress() -> dict[str, object]:
 
 
 def build_ingress_yaml() -> str:
+    """Build ingress yaml."""
     return dump_yaml(build_ingress())
 
 

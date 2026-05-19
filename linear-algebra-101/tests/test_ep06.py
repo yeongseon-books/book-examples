@@ -1,8 +1,11 @@
+"""Tests for ep06 in Linear Algebra 101."""
+
 import numpy as np
 from conftest import load_episode
 
 
 def test_ep06_rank_and_basis():
+    """Test ep06 rank and basis."""
     out = load_episode("06-basis-and-dimension").run()
     assert out["rank"] == 2
     b = out["basis"]

@@ -1,7 +1,10 @@
+"""Tests for ep07 in Sql 101."""
+
 from en.ep07_window import run_demo
 
 
 def test_ep07_window_functions():
+    """Test ep07 window functions."""
     rows = run_demo()
     bob_rows = [r for r in rows if r["employee_id"] == 2]
     assert bob_rows[0]["rn"] == 1

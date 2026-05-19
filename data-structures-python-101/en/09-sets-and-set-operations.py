@@ -1,3 +1,5 @@
+"""Data Structures Python 101 - Episode 9: Sets and set operations."""
+
 from collections.abc import Callable
 from time import perf_counter
 from typing import Any
@@ -6,6 +8,7 @@ from typing import Any
 def time_op(
     fn: Callable[..., Any], *args: Any, repeat: int = 5, loops: int = 1, **kwargs: Any
 ) -> float:
+    """Time op."""
     best = float("inf")
     for _ in range(repeat):
         start = perf_counter()
@@ -16,6 +19,7 @@ def time_op(
 
 
 def set_operations(a: set[int], b: set[int]) -> dict[str, set[int]]:
+    """Set operations."""
     return {
         "union": a | b,
         "intersection": a & b,
@@ -25,10 +29,12 @@ def set_operations(a: set[int], b: set[int]) -> dict[str, set[int]]:
 
 
 def ordered_unique(items: list[str]) -> list[str]:
+    """Ordered unique."""
     return list(dict.fromkeys(items))
 
 
 def membership_benchmark(size: int = 50_000, target: int = 49_999) -> dict[str, float]:
+    """Membership benchmark."""
     values = list(range(size))
     values_set = set(values)
     return {

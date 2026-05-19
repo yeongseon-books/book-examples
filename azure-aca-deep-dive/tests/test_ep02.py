@@ -1,3 +1,5 @@
+"""Tests for ep02 in Azure Aca Deep Dive."""
+
 from conftest import load_module
 
 run = load_module(
@@ -6,6 +8,7 @@ run = load_module(
 
 
 def test_ep02_environment_boundary_flags() -> None:
+    """Test ep02 environment boundary flags."""
     result = run()
     assert result["episode"] == 2
     assert result["plan"]["shared_network_boundary"] is True

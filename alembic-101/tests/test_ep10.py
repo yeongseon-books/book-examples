@@ -1,5 +1,9 @@
+"""Tests for ep10 in Alembic 101."""
+
+
 # pyright: reportUnknownParameterType=false, reportMissingParameterType=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
 def test_ep10_team_workflow(load_module):
+    """Test ep10 team workflow."""
     m = load_module(
         "ko/10-production-and-team-workflow/step01_team_workflow.py", "ep10"
     )

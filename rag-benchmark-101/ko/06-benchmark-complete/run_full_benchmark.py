@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Run full benchmark."""
+
 from __future__ import annotations
 
 import json
@@ -13,6 +15,7 @@ from ko.shared import CORPUS, FULL_CONFIGS, PIPELINE_CASES
 
 
 def main() -> None:
+    """Main."""
     print("완전한 RAG 벤치마크 실행")
     results = [
         run_pipeline_benchmark("ko", CORPUS, PIPELINE_CASES, config).summary()

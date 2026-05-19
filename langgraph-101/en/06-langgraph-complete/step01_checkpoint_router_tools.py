@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 1: Checkpoint router tools."""
+
 import os
 from typing import Annotated, cast
 
@@ -13,6 +15,8 @@ from typing_extensions import TypedDict
 
 
 class WorkflowState(TypedDict):
+    """Workflow state."""
+
     messages: Annotated[list, add_messages]
 
 
@@ -37,6 +41,7 @@ def get_shipping_eta(order_id: str) -> str:
 
 
 def build_model() -> ChatGroq:
+    """Build model."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("Set GROQ_API_KEY before running this example.")
@@ -44,6 +49,7 @@ def build_model() -> ChatGroq:
 
 
 def assistant_node(state: WorkflowState):
+    """Assistant node."""
     tools = [get_order_status, get_shipping_eta]
     model = build_model().bind_tools(tools)
     response = model.invoke(
@@ -58,6 +64,7 @@ def assistant_node(state: WorkflowState):
 
 
 def should_continue(state: WorkflowState):
+    """Should continue."""
     last_message = state["messages"][-1]
     if isinstance(last_message, AIMessage) and last_message.tool_calls:
         return "tools"
@@ -65,6 +72,7 @@ def should_continue(state: WorkflowState):
 
 
 def build_graph():
+    """Build graph."""
     tools = [get_order_status, get_shipping_eta]
     builder = StateGraph(WorkflowState)
     builder.add_node("assistant", assistant_node)

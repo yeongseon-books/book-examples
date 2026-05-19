@@ -9,6 +9,7 @@ from common import route_invocation
 
 
 def run(trigger: str) -> dict[str, object]:
+    """Run."""
     payload = {"invocation_id": "abc-123", "function_id": "f1"}
     response = route_invocation(trigger, payload)
     return {"status": response.status_code, "body": response.body}

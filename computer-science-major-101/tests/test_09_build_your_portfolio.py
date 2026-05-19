@@ -1,7 +1,10 @@
+"""Tests for 09 build your portfolio in Computer Science Major 101."""
+
 from conftest import load_module
 
 
 def test_portfolio_readme_validator_detects_missing_sections() -> None:
+    """Test portfolio readme validator detects missing sections."""
     mod = load_module("ko/09-build-your-portfolio.py")
     valid = """# Portfolio\n## About\n## Projects\n## Skills\n## Contact\n"""
     ok, missing = mod.validate_portfolio_readme(valid)

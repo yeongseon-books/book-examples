@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Cross validation demo."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -7,6 +9,7 @@ from sklearn.model_selection import StratifiedKFold, cross_val_score
 
 
 def run(seed: int = 42) -> dict[str, float | int]:
+    """Run."""
     X, y = make_imbalanced(
         n_samples=900, weights=(0.8, 0.2), class_sep=1.0, random_state=seed
     )

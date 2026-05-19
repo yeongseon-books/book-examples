@@ -16,6 +16,7 @@ ARTICLE = (
 
 
 def require_api_key() -> str:
+    """Require api key."""
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY 환경 변수가 필요합니다.")
@@ -23,6 +24,7 @@ def require_api_key() -> str:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=require_api_key())
     prompt = (
         "다음 한국어 문서를 요약하고 category를 하나 분류해 주세요. "

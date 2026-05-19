@@ -1,9 +1,12 @@
+"""Machine Learning 101 - Episode 4."""
+
 from common import make_reg_dataset
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 
 def run() -> dict[str, float]:
+    """Run."""
     x, y = make_reg_dataset()
     model = LinearRegression().fit(x, y)
     pred = model.predict(x)

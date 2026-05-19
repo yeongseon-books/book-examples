@@ -1,7 +1,11 @@
+"""Data Structures 101 - Episode 5: Hash tables."""
+
 from __future__ import annotations
 
 
 class HashTableChaining:
+    """Hash table chaining."""
+
     def __init__(self, capacity: int = 8) -> None:
         self.capacity = capacity
         self.buckets: list[list[tuple[object, object]]] = [[] for _ in range(capacity)]
@@ -9,9 +13,11 @@ class HashTableChaining:
         self.collisions = 0
 
     def _index(self, key: object) -> int:
+        """Index."""
         return hash(key) % self.capacity
 
     def put(self, key: object, value: object) -> None:
+        """Put."""
         idx = self._index(key)
         bucket = self.buckets[idx]
         if bucket:
@@ -24,6 +30,7 @@ class HashTableChaining:
         self.size += 1
 
     def get(self, key: object) -> object:
+        """Get."""
         for k, v in self.buckets[self._index(key)]:
             if k == key:
                 return v
@@ -31,6 +38,8 @@ class HashTableChaining:
 
 
 class HashTableOpenAddressing:
+    """Hash table open addressing."""
+
     EMPTY = object()
     DELETED = object()
 
@@ -41,6 +50,7 @@ class HashTableOpenAddressing:
         self.collisions = 0
 
     def _find_slot(self, key: object) -> int:
+        """Find slot."""
         start = hash(key) % self.capacity
         idx = start
         while True:
@@ -55,12 +65,14 @@ class HashTableOpenAddressing:
                 raise RuntimeError("table full")
 
     def put(self, key: object, value: object) -> None:
+        """Put."""
         idx = self._find_slot(key)
         if self.slots[idx] is self.EMPTY or self.slots[idx] is self.DELETED:
             self.size += 1
         self.slots[idx] = (key, value)
 
     def get(self, key: object) -> object:
+        """Get."""
         start = hash(key) % self.capacity
         idx = start
         while True:
@@ -76,11 +88,15 @@ class HashTableOpenAddressing:
 
 
 class BadKey:
+    """Bad key."""
+
     def __init__(self, value: int) -> None:
         self.value = value
 
     def __hash__(self) -> int:
+        """Hash."""
         return 1
 
     def __eq__(self, other: object) -> bool:
+        """Eq."""
         return isinstance(other, BadKey) and self.value == other.value

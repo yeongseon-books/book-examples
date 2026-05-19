@@ -1,7 +1,10 @@
+"""Tests for 10 debugging network problems in Computer Networks 101."""
+
 from tests._loader import load_ko
 
 
 def test_packet_analyzer() -> None:
+    """Test packet analyzer."""
     ep = load_ko("10-debugging-network-problems")
     raw = """
 {"ts":0.00,"flow":"f1","seq":1,"event":"SYN","src":"10.0.0.1"}

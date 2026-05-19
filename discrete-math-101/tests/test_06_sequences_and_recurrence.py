@@ -1,8 +1,11 @@
+"""Tests for 06 sequences and recurrence in Discrete Math 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(p):
+    """Load."""
     s = importlib.util.spec_from_file_location("m", p)
     m = importlib.util.module_from_spec(s)
     s.loader.exec_module(m)
@@ -10,6 +13,7 @@ def load(p):
 
 
 def test_fibonacci_three_ways_match():
+    """Test fibonacci three ways match."""
     m = load(Path("ko/06-sequences-and-recurrence.py"))
     vals = (m.fib_naive(20), m.fib_memo(20), m.fib_matrix(20))
     assert vals[0] == vals[1] == vals[2]

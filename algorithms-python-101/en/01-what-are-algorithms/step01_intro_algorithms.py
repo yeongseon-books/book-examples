@@ -1,4 +1,8 @@
+"""Algorithms Python 101 - Episode 1: Intro algorithms."""
+
+
 def find_max(numbers: list[int]) -> int:
+    """Find max."""
     if not numbers:
         raise ValueError("empty list")
     current = numbers[0]

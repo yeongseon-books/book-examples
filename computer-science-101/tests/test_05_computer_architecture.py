@@ -1,8 +1,11 @@
+"""Tests for 05 computer architecture in Computer Science 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(name, rel):
+    """Load."""
     spec = importlib.util.spec_from_file_location(
         name, Path(__file__).parent.parent / rel
     )
@@ -13,6 +16,7 @@ def load(name, rel):
 
 
 def test_stack_machine_adds_values():
+    """Test stack machine adds values."""
     m = load("ep05", "ko/05-computer-architecture.py")
     stack = m.run_program([("PUSH", 7), ("PUSH", 5), ("ADD",), ("HALT",)])
     assert stack == [12]

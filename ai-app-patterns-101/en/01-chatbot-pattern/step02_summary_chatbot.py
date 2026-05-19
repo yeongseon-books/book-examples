@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 2: Summary chatbot."""
+
 from __future__ import annotations
 
 from common import (
@@ -12,6 +14,7 @@ SYSTEM_PROMPT = "You are an AI coach. Use the running summary to keep answers co
 
 
 def summarize_history(client, history: list[dict[str, str]]) -> str:
+    """Summarize history."""
     summary_messages = [
         {
             "role": "system",
@@ -28,6 +31,7 @@ def summarize_history(client, history: list[dict[str, str]]) -> str:
 
 
 def run_summary_chatbot() -> None:
+    """Run summary chatbot."""
     client = build_client()
     history: list[dict[str, str]] = [{"role": "system", "content": SYSTEM_PROMPT}]
     rolling_summary = "No summary yet"

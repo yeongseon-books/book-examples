@@ -1,9 +1,12 @@
+"""Tests for ep02 in Model Evaluation 101."""
+
 from conftest import load_module
 
 run = load_module("ko/02-train-val-test/step01_split_demo.py", "ep02").run
 
 
 def test_ep02_stratified_split_and_ratios() -> None:
+    """Test ep02 stratified split and ratios."""
     out = run()
     assert abs(out["train_ratio"] - 0.6) < 0.01
     assert abs(out["val_ratio"] - 0.2) < 0.01

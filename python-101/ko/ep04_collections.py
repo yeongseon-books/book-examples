@@ -1,9 +1,14 @@
+"""Python 101 - Episode 4: Collections."""
+
+
 def update_contact_book(book: dict[str, str], name: str, phone: str) -> dict[str, str]:
+    """Update contact book."""
     book[name] = phone
     return book
 
 
 def collection_snapshot() -> dict[str, object]:
+    """Collection snapshot."""
     items = ["a", "b"]
     items.append("c")
     pair = (10, 20)
@@ -14,6 +19,7 @@ def collection_snapshot() -> dict[str, object]:
 
 
 def main() -> None:
+    """Main."""
     print(collection_snapshot())
     book = {}
     update_contact_book(book, "지수", "010-1111-2222")

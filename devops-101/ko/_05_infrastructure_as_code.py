@@ -1,3 +1,5 @@
+"""Devops 101 - Episode 5: Infrastructure as code."""
+
 from __future__ import annotations
 
 import json
@@ -7,10 +9,12 @@ ResourceMap = dict[str, dict[str, object]]
 
 
 def _resource_key(resource: dict[str, object]) -> str:
+    """Resource key."""
     return f"{resource['type']}:{resource['name']}"
 
 
 def apply(desired: list[dict[str, object]], state_file: str) -> dict[str, list[str]]:
+    """Apply."""
     current: ResourceMap = {}
     path = Path(state_file)
     if path.exists():

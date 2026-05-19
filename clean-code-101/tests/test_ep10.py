@@ -1,3 +1,5 @@
+"""Tests for ep10 in Clean Code 101."""
+
 import importlib.util
 from pathlib import Path
 
@@ -5,6 +7,7 @@ import pytest
 
 
 def load(path: str):
+    """Load."""
     module_path = Path(__file__).resolve().parent.parent / "ko" / path
     spec = importlib.util.spec_from_file_location(module_path.stem, module_path)
     assert spec is not None and spec.loader is not None
@@ -14,6 +17,7 @@ def load(path: str):
 
 
 def test_ep10_review_rules() -> None:
+    """Test ep10 review rules."""
     m = load("10-good-code-review/step01_good_code_review.py")
     comment = m.classify_comment("SUGG", "Extract subtotal for readability")
     assert comment.level == "SUGG"

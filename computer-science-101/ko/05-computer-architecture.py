@@ -6,6 +6,7 @@ Instruction: TypeAlias = tuple[str, int] | tuple[str]
 
 
 def run_program(program: list[Instruction], max_steps: int = 10_000) -> list[int]:
+    """Run program."""
     stack: list[int] = []
     pc = 0
     steps = 0

@@ -1,7 +1,10 @@
+"""Sre 101 - Episode 5: Monitoring windows."""
+
 from common import percentile
 
 
 def aggregate_window(latencies_ms: list[float], window_seconds: int) -> dict:
+    """Aggregate window."""
     count = len(latencies_ms)
     rate = count / max(1, window_seconds)
     return {

@@ -1,7 +1,10 @@
+"""Testing 101 - Episode 10: Test strategy."""
+
 from pathlib import Path
 
 
 def analyze_test_pyramid(root: str = "tests") -> dict:
+    """Analyze test pyramid."""
     counts = {"unit": 0, "integration": 0, "e2e": 0}
     for p in Path(root).glob("test_*.py"):
         name = p.name.lower()
@@ -15,6 +18,7 @@ def analyze_test_pyramid(root: str = "tests") -> dict:
 
 
 def suggest_gap(counts: dict) -> str:
+    """Suggest gap."""
     if counts["unit"] < counts["integration"]:
         return "Increase unit tests"
     if counts["integration"] < 1:

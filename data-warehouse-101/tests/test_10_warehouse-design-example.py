@@ -1,7 +1,10 @@
+"""Tests for 10 warehouse-design-example in Data Warehouse 101."""
+
 from conftest import load_episode
 
 
 def test_10_warehouse_design_example():
+    """Test 10 warehouse design example."""
     mod = load_episode("ko", "10-warehouse-design-example.py")
     res = mod["run_demo"]()
     assert (

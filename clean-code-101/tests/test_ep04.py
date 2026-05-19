@@ -1,8 +1,11 @@
+"""Tests for ep04 in Clean Code 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     module_path = Path(__file__).resolve().parent.parent / "ko" / path
     spec = importlib.util.spec_from_file_location(module_path.stem, module_path)
     assert spec is not None and spec.loader is not None
@@ -12,6 +15,7 @@ def load(path: str):
 
 
 def test_ep04_conditionals() -> None:
+    """Test ep04 conditionals."""
     m = load("04-simplifying-conditionals/step01_simplifying_conditionals.py")
     user = m.User(is_active=True, is_member=True)
     product = m.Product(price=100, in_stock=True)

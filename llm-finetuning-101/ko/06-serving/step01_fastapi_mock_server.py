@@ -19,6 +19,8 @@ APP = None
 if FastAPI is not None:
 
     class InferenceRequest(BaseModel):
+        """Inference request."""
+
         prompt: str
         adapter_name: str = "support-lora-v1"
 
@@ -26,10 +28,12 @@ if FastAPI is not None:
 
     @APP.get("/health")
     def health_check():
+        """Health check."""
         return {"status": "ok", "mode": "mock"}
 
     @APP.post("/generate")
     def generate(payload: InferenceRequest):
+        """Generate."""
         return {
             "adapter": payload.adapter_name,
             "input": payload.prompt,
@@ -38,6 +42,7 @@ if FastAPI is not None:
 
 
 def main() -> None:
+    """Main."""
     if FastAPI is None:
         print("FastAPI 또는 pydantic 이 없어 서버를 실행하지 못합니다.")
         print("ImportError 상세", IMPORT_ERROR)

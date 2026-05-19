@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 1: Build faiss."""
+
 from pathlib import Path
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -18,6 +20,7 @@ DOCS = [
 
 
 def build_vectorstore() -> FAISS:
+    """Build vectorstore."""
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )

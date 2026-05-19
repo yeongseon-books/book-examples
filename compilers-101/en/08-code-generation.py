@@ -1,8 +1,11 @@
+"""Compilers 101 - Episode 8: Code generation."""
+
 # English mirror of Korean episode example
 from __future__ import annotations
 
 
 def tac_to_stack_bytecode(tac: list[str], result_temp: str) -> list[tuple]:
+    """Tac to stack bytecode."""
     bytecode: list[tuple] = []
     for line in tac:
         lhs, rhs = [x.strip() for x in line.split("=", 1)]
@@ -22,6 +25,7 @@ def tac_to_stack_bytecode(tac: list[str], result_temp: str) -> list[tuple]:
 
 
 def run_bytecode(bytecode: list[tuple]) -> int:
+    """Run bytecode."""
     stack: list[int] = []
     env: dict[str, int] = {}
     for inst in bytecode:

@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Observability 101."""
+
 from __future__ import annotations
 
 import json
@@ -13,22 +15,30 @@ from datetime import datetime, timedelta, timezone
 
 
 class Counter:
+    """Counter."""
+
     def __init__(self) -> None:
         self.value = 0.0
 
     def inc(self, amount: float = 1.0) -> None:
+        """Inc."""
         self.value += float(amount)
 
 
 class Gauge:
+    """Gauge."""
+
     def __init__(self) -> None:
         self.value = 0.0
 
     def set(self, value: float) -> None:
+        """Set."""
         self.value = float(value)
 
 
 class Histogram:
+    """Histogram."""
+
     def __init__(self, buckets: list[float] | None = None) -> None:
         self.buckets = sorted(buckets or [0.1, 0.5, 1.0, 2.5, 5.0])
         self.counts = {b: 0 for b in self.buckets}
@@ -36,6 +46,7 @@ class Histogram:
         self.values: list[float] = []
 
     def observe(self, value: float) -> None:
+        """Observe."""
         v = float(value)
         self.values.append(v)
         for b in self.buckets:
@@ -46,6 +57,8 @@ class Histogram:
 
 
 class MetricRegistry:
+    """Metric registry."""
+
     def __init__(self) -> None:
         self._counters: dict[tuple[str, tuple[tuple[str, str], ...]], Counter] = {}
         self._gauges: dict[tuple[str, tuple[tuple[str, str], ...]], Gauge] = {}
@@ -55,14 +68,17 @@ class MetricRegistry:
     def _key(
         name: str, labels: dict[str, str] | None
     ) -> tuple[str, tuple[tuple[str, str], ...]]:
+        """Key."""
         return name, tuple(sorted((labels or {}).items()))
 
     def counter(self, name: str, labels: dict[str, str] | None = None) -> Counter:
+        """Counter."""
         key = self._key(name, labels)
         self._counters.setdefault(key, Counter())
         return self._counters[key]
 
     def gauge(self, name: str, labels: dict[str, str] | None = None) -> Gauge:
+        """Gauge."""
         key = self._key(name, labels)
         self._gauges.setdefault(key, Gauge())
         return self._gauges[key]
@@ -73,11 +89,13 @@ class MetricRegistry:
         labels: dict[str, str] | None = None,
         buckets: list[float] | None = None,
     ) -> Histogram:
+        """Histogram."""
         key = self._key(name, labels)
         self._histograms.setdefault(key, Histogram(buckets=buckets))
         return self._histograms[key]
 
     def export_openmetrics(self) -> str:
+        """Export openmetrics."""
         lines: list[str] = []
         for (name, labels), metric in sorted(self._counters.items()):
             lines.append(f"{name}{_fmt_labels(labels)} {metric.value}")
@@ -99,6 +117,7 @@ class MetricRegistry:
 
 
 def _fmt_labels(labels: tuple[tuple[str, str], ...]) -> str:
+    """Fmt labels."""
     if not labels:
         return ""
     content = ",".join(f'{k}="{v}"' for k, v in labels)
@@ -106,6 +125,8 @@ def _fmt_labels(labels: tuple[tuple[str, str], ...]) -> str:
 
 
 class StructuredLogger:
+    """Structured logger."""
+
     def __init__(self, level: str = "INFO", sample_rate: float = 1.0) -> None:
         self.level = level
         self.sample_rate = max(0.0, min(1.0, sample_rate))
@@ -114,12 +135,14 @@ class StructuredLogger:
         self._rng = random.Random(7)
 
     def with_context(self, **kwargs: str) -> StructuredLogger:
+        """With context."""
         clone = StructuredLogger(self.level, self.sample_rate)
         clone.lines = self.lines
         clone._context = {**self._context, **kwargs}
         return clone
 
     def log(self, level: str, event: str, **fields: object) -> None:
+        """Log."""
         if self._rng.random() > self.sample_rate:
             return
         payload = {
@@ -134,6 +157,8 @@ class StructuredLogger:
 
 @dataclass
 class Span:
+    """Span."""
+
     trace_id: str
     span_id: str
     name: str
@@ -145,6 +170,8 @@ class Span:
 
 
 class Tracer:
+    """Tracer."""
+
     def __init__(self) -> None:
         self.spans: list[Span] = []
         self._stack: list[Span] = []
@@ -156,6 +183,7 @@ class Tracer:
         trace_id: str | None = None,
         baggage: dict[str, str] | None = None,
     ):
+        """Start span."""
         parent = self._stack[-1] if self._stack else None
         tid = trace_id or (parent.trace_id if parent else uuid.uuid4().hex)
         span = Span(
@@ -178,6 +206,7 @@ class Tracer:
 
     @staticmethod
     def inject(trace_id: str, baggage: dict[str, str] | None = None) -> dict[str, str]:
+        """Inject."""
         headers = {"x-trace-id": trace_id}
         if baggage:
             headers["x-baggage"] = json.dumps(baggage, sort_keys=True)
@@ -185,6 +214,7 @@ class Tracer:
 
     @staticmethod
     def extract(headers: dict[str, str]) -> tuple[str | None, dict[str, str]]:
+        """Extract."""
         trace_id = headers.get("x-trace-id")
         baggage_raw = headers.get("x-baggage")
         baggage = json.loads(baggage_raw) if baggage_raw else {}
@@ -192,12 +222,15 @@ class Tracer:
 
 
 class Dashboard:
+    """Dashboard."""
+
     def __init__(self, registry: MetricRegistry) -> None:
         self.registry = registry
 
     def query_counter(
         self, name: str, label_filter: dict[str, str] | None = None
     ) -> float:
+        """Query counter."""
         total = 0.0
         for (n, labels), c in self.registry._counters.items():
             if n != name:
@@ -210,6 +243,7 @@ class Dashboard:
 
     @staticmethod
     def sparkline(values: list[float]) -> str:
+        """Sparkline."""
         blocks = "▁▂▃▄▅▆▇█"
         if not values:
             return ""
@@ -220,6 +254,7 @@ class Dashboard:
 
     @staticmethod
     def summary(values: list[float]) -> dict[str, float]:
+        """Summary."""
         return {
             "min": min(values),
             "max": max(values),
@@ -229,6 +264,8 @@ class Dashboard:
 
 @dataclass
 class AlertRule:
+    """Alert rule."""
+
     name: str
     metric_name: str
     threshold: float
@@ -237,6 +274,8 @@ class AlertRule:
 
 
 class AlertEngine:
+    """Alert engine."""
+
     def __init__(self, dedup_window_s: int = 60) -> None:
         self.rules: list[AlertRule] = []
         self._history: dict[str, deque[tuple[datetime, float]]] = defaultdict(deque)
@@ -244,11 +283,13 @@ class AlertEngine:
         self.dedup_window = timedelta(seconds=dedup_window_s)
 
     def add_rule(self, rule: AlertRule) -> None:
+        """Add rule."""
         self.rules.append(rule)
 
     def evaluate(
         self, metric_point: tuple[str, float], now: datetime
     ) -> list[dict[str, str]]:
+        """Evaluate."""
         name, value = metric_point
         fired: list[dict[str, str]] = []
         for rule in self.rules:
@@ -268,32 +309,41 @@ class AlertEngine:
 
 
 class OnCallRouter:
+    """On call router."""
+
     def __init__(self, rotations: dict[str, str]) -> None:
         self.rotations = rotations
 
     def route(self, severity: str) -> str:
+        """Route."""
         return self.rotations.get(severity, self.rotations.get("default", "unassigned"))
 
 
 class SLOTracker:
+    """SLO tracker."""
+
     def __init__(self, target: float) -> None:
         self.target = target
         self.good = 0
         self.total = 0
 
     def record(self, good_events: int, total_events: int) -> None:
+        """Record."""
         self.good += good_events
         self.total += total_events
 
     def sli(self) -> float:
+        """Sli."""
         return self.good / self.total if self.total else 1.0
 
     def error_budget_remaining(self) -> float:
+        """Error budget remaining."""
         used = max(0.0, 1.0 - self.sli())
         budget = 1.0 - self.target
         return max(0.0, budget - used)
 
     def burn_rate(self) -> float:
+        """Burn rate."""
         budget = 1.0 - self.target
         if budget == 0:
             return float("inf")
@@ -305,12 +355,15 @@ class CardinalityAnalyzer:
     def analyze(
         series: list[tuple[str, dict[str, str]]], threshold: int = 1000
     ) -> dict[str, object]:
+        """Analyze."""
         keys = {(name, tuple(sorted(labels.items()))) for name, labels in series}
         count = len(keys)
         return {"unique_series": count, "explosion": count > threshold}
 
 
 class ObservabilityStack:
+    """Observability stack."""
+
     def __init__(self) -> None:
         self.registry = MetricRegistry()
         self.logger = StructuredLogger()
@@ -319,6 +372,7 @@ class ObservabilityStack:
     def handle_request(
         self, path: str, latency_s: float, status: int
     ) -> dict[str, str]:
+        """Handle request."""
         self.registry.counter(
             "http_requests_total", {"path": path, "status": str(status)}
         ).inc()

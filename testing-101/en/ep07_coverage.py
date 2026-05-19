@@ -1,7 +1,10 @@
+"""Testing 101 - Episode 7: Coverage."""
+
 from coverage import Coverage
 
 
 def shipping_fee(total: float, member: bool) -> int:
+    """Shipping fee."""
     if total >= 50000:
         return 0
     if member:
@@ -10,6 +13,7 @@ def shipping_fee(total: float, member: bool) -> int:
 
 
 def report_coverage_for_module(module_path: str) -> float:
+    """Report coverage for module."""
     cov = Coverage(source=[module_path.rsplit("/", 1)[0] or "."])
     cov.start()
     shipping_fee(10000, True)

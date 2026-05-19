@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Toxicity bias scorer."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import toxicity_bias_score
 
 
 def run(text: str) -> dict[str, int]:
+    """Run."""
     return toxicity_bias_score(text)
 
 

@@ -17,6 +17,14 @@ Discrete Math 101 시리즈의 각 에피소드를 실행 가능한 순수 Pytho
 - `en/` 경로에 동일 예제(영문 주석)
 - `tests/` 에피소드별 pytest
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

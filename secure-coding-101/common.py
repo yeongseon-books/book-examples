@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Secure Coding 101."""
+
 from __future__ import annotations
 
 import re
@@ -6,11 +8,14 @@ from dataclasses import dataclass
 
 @dataclass
 class DemoResult:
+    """Demo result."""
+
     insecure_detected: bool
     safe_ok: bool
 
 
 def assert_demo(insecure_detected: bool, safe_ok: bool) -> DemoResult:
+    """Assert demo."""
     assert insecure_detected, "Expected insecure pattern to be detectable"
     assert safe_ok, "Expected safe pattern to work"
     return DemoResult(insecure_detected=insecure_detected, safe_ok=safe_ok)

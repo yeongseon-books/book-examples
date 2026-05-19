@@ -1,3 +1,5 @@
+"""Functional Programming 101 - Episode 8: Lazy evaluation."""
+
 from __future__ import annotations
 
 from collections.abc import Iterator
@@ -6,6 +8,7 @@ from common import SideEffectCounter
 
 
 def lazy_prices(counter: SideEffectCounter) -> Iterator[int]:
+    """Lazy prices."""
     for price in [1200, 3400, 5600, 9000]:
         counter.tick()
         yield int(price * 0.9)

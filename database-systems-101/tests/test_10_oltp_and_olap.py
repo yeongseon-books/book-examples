@@ -1,7 +1,10 @@
+"""Tests for 10 oltp and olap in Database Systems 101."""
+
 from conftest import load_ko_module
 
 
 def test_oltp_olap_and_column_aggregate_consistency():
+    """Test oltp olap and column aggregate consistency."""
     m = load_ko_module("10-oltp-and-olap.py")
     db = m.setup_orders(n=5000, seed=10)
     oltp_t = m.run_oltp_workload(db, iterations=200)

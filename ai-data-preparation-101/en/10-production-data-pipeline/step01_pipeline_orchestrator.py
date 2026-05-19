@@ -1,3 +1,5 @@
+"""Ai Data Preparation 101 - Episode 1: Pipeline orchestrator."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import exact_dedup, mock_documents, normalize_text, redact_pii
 
 
 def run() -> dict[str, int]:
+    """Run."""
     docs = mock_documents()
     stage1 = [normalize_text(d["text"]) for d in docs]
     stage2 = exact_dedup(stage1)

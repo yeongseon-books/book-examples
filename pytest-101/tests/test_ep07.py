@@ -1,12 +1,17 @@
+"""Tests for ep07 in Pytest 101."""
+
 import datetime
 
 from en import ep07_system_sensitive
 
 
 def test_ep07_tmp_path_and_setenv(monkeypatch, tmp_path):
+    """Test ep07 tmp path and setenv."""
+
     class FixedDate(datetime.date):
         @classmethod
         def today(cls):
+            """Today."""
             return cls(2026, 1, 15)
 
     monkeypatch.setenv("APP_ENV", "test")

@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 7: Secret management."""
+
 import secrets
 
 from common import SecretsVault

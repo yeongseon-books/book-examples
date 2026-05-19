@@ -15,6 +15,7 @@ from groq import AsyncGroq, Groq
 
 
 def sync_call() -> None:
+    """Sync call."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
@@ -30,6 +31,7 @@ def sync_call() -> None:
 
 
 async def async_call() -> None:
+    """Async call."""
     client = AsyncGroq(api_key=os.environ["GROQ_API_KEY"])
     completion = await client.chat.completions.create(
         model="llama-3.1-8b-instant",
@@ -45,9 +47,11 @@ async def async_call() -> None:
 
 
 async def parallel_calls() -> None:
+    """Parallel calls."""
     client = AsyncGroq(api_key=os.environ["GROQ_API_KEY"])
 
     async def ask(question: str) -> str:
+        """Ask."""
         completion = await client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[{"role": "user", "content": question}],
@@ -67,6 +71,7 @@ async def parallel_calls() -> None:
 
 
 def main() -> None:
+    """Main."""
     sync_call()
     asyncio.run(async_call())
     asyncio.run(parallel_calls())

@@ -1,8 +1,11 @@
+"""Tests for 08 databases in Computer Science 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(name, rel):
+    """Load."""
     spec = importlib.util.spec_from_file_location(
         name, Path(__file__).parent.parent / rel
     )
@@ -13,6 +16,7 @@ def load(name, rel):
 
 
 def test_select_where_join_behavior():
+    """Test select where join behavior."""
     m = load("ep08", "ko/08-databases.py")
     users = m.Table([{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}])
     orders = m.Table(

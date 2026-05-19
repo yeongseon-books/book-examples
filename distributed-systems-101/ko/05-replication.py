@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 5: Replication."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,6 +11,7 @@ from ko.common import ReplicaSet
 
 def run_demo() -> dict[str, object]:
     # async 복제는 lagging replica에서 stale read를 유발할 수 있습니다.
+    """Run demo."""
     rs = ReplicaSet(["p", "r1", "r2"])
     rs.write_async("price", 100, lagging={"r2"})
     stale = rs.nodes["r2"].get("price")

@@ -1,4 +1,8 @@
+"""Algorithms Python 101 - Episode 1: Sorting."""
+
+
 def merge_sort(data: list[int]) -> list[int]:
+    """Merge sort."""
     if len(data) <= 1:
         return data[:]
     mid = len(data) // 2

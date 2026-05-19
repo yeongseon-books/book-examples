@@ -1,8 +1,11 @@
+"""Data Warehouse 101 - Episode 1: What is data warehouse."""
+
 # English example
 from common import make_dw
 
 
 def run_demo() -> dict:
+    """Run demo."""
     conn = make_dw(200)
     rows = conn.execute(
         "SELECT d.year,d.month,ROUND(SUM(f.amount),2) FROM fact_sales f JOIN dim_date d ON d.date_key=f.date_key GROUP BY d.year,d.month ORDER BY d.year,d.month"

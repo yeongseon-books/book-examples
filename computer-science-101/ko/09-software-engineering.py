@@ -2,6 +2,7 @@
 
 
 def price_bad(order: dict) -> int:
+    """Price bad."""
     total = order["price"] * order["qty"]
     if order["user"] == "vip":
         total = int(total * 0.7)
@@ -18,17 +19,20 @@ DISCOUNT = {"vip": 0.7, "member": 0.9}
 
 
 def discount_price(price: int, qty: int, user: str) -> int:
+    """Discount price."""
     base = price * qty
     return int(base * DISCOUNT.get(user, 1.0))
 
 
 def apply_coupon(total: int, coupon: int | None) -> int:
+    """Apply coupon."""
     if coupon is None:
         return total
     return max(0, total - coupon)
 
 
 def price_refactored(order: dict) -> int:
+    """Price refactored."""
     discounted = discount_price(order["price"], order["qty"], order["user"])
     return apply_coupon(discounted, order.get("coupon"))
 

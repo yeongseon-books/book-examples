@@ -1,8 +1,11 @@
+"""Tests for 01 what are data structures in Data Structures Python 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     spec = importlib.util.spec_from_file_location("mod", path)
     mod = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
@@ -14,6 +17,7 @@ M = load(str(Path(__file__).resolve().parents[1] / "ko/01-what-are-data-structur
 
 
 def test_counting_methods_match():
+    """Test counting methods match."""
     words = M.words_from_text("a b a c b a")
     assert M.count_with_list(words) == {"a": 3, "b": 2, "c": 1}
     assert M.count_with_dict(words) == {"a": 3, "b": 2, "c": 1}

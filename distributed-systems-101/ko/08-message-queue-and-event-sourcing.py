@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 8: Message queue and event sourcing."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,6 +11,7 @@ from ko.common import EventStore, MessageQueue
 
 def run_demo() -> dict[str, object]:
     # 큐는 전달, 이벤트 스토어는 상태 재구성을 담당합니다.
+    """Run demo."""
     q = MessageQueue()
     q.publish({"event_id": "e1", "type": "order-created"})
     msg = q.poll()

@@ -1,7 +1,10 @@
+"""Tests for 03 sql and query processing in Database Systems 101."""
+
 from conftest import load_ko_module
 
 
 def test_parse_plan_execute_pipeline():
+    """Test parse plan execute pipeline."""
     m = load_ko_module("03-sql-and-query-processing.py")
     q = m.parse_sql("SELECT id,total FROM orders WHERE user_id = '7' ORDER BY id")
     data = {

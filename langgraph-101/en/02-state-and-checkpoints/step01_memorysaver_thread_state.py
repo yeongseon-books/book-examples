@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 1: Memorysaver thread state."""
+
 from operator import add
 from typing import Annotated, cast
 
@@ -8,12 +10,15 @@ from typing_extensions import TypedDict
 
 
 class SessionState(TypedDict):
+    """Session state."""
+
     session_name: str
     turn_count: int
     notes: Annotated[list[str], add]
 
 
 def remember_visit(state: SessionState):
+    """Remember visit."""
     next_turn = state.get("turn_count", 0) + 1
     note = state["notes"][-1]
     print(f"[remember_visit] {state['session_name']} turn {next_turn}: {note}")
@@ -21,6 +26,7 @@ def remember_visit(state: SessionState):
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(SessionState)
     builder.add_node("remember_visit", remember_visit)
     builder.add_edge(START, "remember_visit")

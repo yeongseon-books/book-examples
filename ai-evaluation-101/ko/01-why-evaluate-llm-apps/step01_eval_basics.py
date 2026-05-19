@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Eval basics."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import exact_match
 
 
 def run() -> dict[str, float]:
+    """Run."""
     references = ["seoul", "retrieval augmented generation", "python"]
     predictions = ["Seoul", "RAG means retrieval augmented generation", "python"]
     hit = sum(exact_match(p, r) for p, r in zip(predictions, references, strict=False))

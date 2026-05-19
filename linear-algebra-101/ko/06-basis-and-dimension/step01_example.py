@@ -1,8 +1,11 @@
+"""Linear Algebra 101 - Episode 1: Example."""
+
 import numpy as np
 from common import gram_schmidt
 
 
 def run():
+    """Run."""
     np.random.seed(0)
     a = np.array([[1.0, 0.0, 1.0], [0.0, 1.0, 1.0], [1.0, 1.0, 2.0]])
     rank = int(np.linalg.matrix_rank(a))

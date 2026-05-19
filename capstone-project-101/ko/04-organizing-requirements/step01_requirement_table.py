@@ -1,7 +1,10 @@
+"""Capstone Project 101 - Episode 1: Requirement table."""
+
 from __future__ import annotations
 
 
 def run() -> dict[str, object]:
+    """Run."""
     story = "학생으로서 시간표 충돌을 즉시 보고 싶다"
     accept = ["입력 5초", "결과 1초", "에러 명확"]
     nf = ["mobile", "no_signup", "korean_first"]

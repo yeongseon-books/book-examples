@@ -1,7 +1,10 @@
+"""Data Science Career 101 - Episode 7: Case interview."""
+
 from __future__ import annotations
 
 
 def build_case_framework(prompt: str) -> dict[str, object]:
+    """Build case framework."""
     return {
         "prompt": prompt,
         "clarifying_questions": [
@@ -30,6 +33,7 @@ def build_case_framework(prompt: str) -> dict[str, object]:
 
 
 def is_complete_framework(framework: dict[str, object]) -> bool:
+    """Is complete framework."""
     required = [
         "clarifying_questions",
         "north_star_metric",

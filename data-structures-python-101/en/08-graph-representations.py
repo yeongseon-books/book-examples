@@ -1,7 +1,10 @@
+"""Data Structures Python 101 - Episode 8: Graph representations."""
+
 from collections import defaultdict, deque
 
 
 def edge_list_to_adj_list(edges: list[tuple[str, str]]) -> dict[str, list[str]]:
+    """Edge list to adj list."""
     adj: defaultdict[str, list[str]] = defaultdict(list)
     for u, v in edges:
         adj[u].append(v)
@@ -10,6 +13,7 @@ def edge_list_to_adj_list(edges: list[tuple[str, str]]) -> dict[str, list[str]]:
 
 
 def adj_list_to_matrix(nodes: list[str], adj: dict[str, list[str]]) -> list[list[int]]:
+    """Adj list to matrix."""
     idx = {name: i for i, name in enumerate(nodes)}
     matrix = [[0 for _ in nodes] for _ in nodes]
     for u, neighbors in adj.items():
@@ -19,6 +23,7 @@ def adj_list_to_matrix(nodes: list[str], adj: dict[str, list[str]]) -> list[list
 
 
 def bfs(adj: dict[str, list[str]], start: str) -> list[str]:
+    """Bfs."""
     seen = {start}
     q: deque[str] = deque([start])
     out: list[str] = []
@@ -33,10 +38,12 @@ def bfs(adj: dict[str, list[str]], start: str) -> list[str]:
 
 
 def dfs(adj: dict[str, list[str]], start: str) -> list[str]:
+    """Dfs."""
     out: list[str] = []
     seen: set[str] = set()
 
     def walk(node: str) -> None:
+        """Walk."""
         seen.add(node)
         out.append(node)
         for nxt in adj.get(node, []):

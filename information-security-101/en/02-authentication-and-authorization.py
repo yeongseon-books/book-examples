@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 2: Authentication and authorization."""
+
 from common import AuthSystem
 
 auth = AuthSystem()

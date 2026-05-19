@@ -16,6 +16,14 @@
 - `ko/10-choosing-data-structures.py`
 - `en/`에는 동일 로직의 영어 버전이 있습니다.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

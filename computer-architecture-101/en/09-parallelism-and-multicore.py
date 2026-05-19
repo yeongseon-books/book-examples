@@ -1,3 +1,5 @@
+"""Computer Architecture 101 - Episode 9: Parallelism and multicore."""
+
 from __future__ import annotations
 
 import threading
@@ -5,15 +7,18 @@ import time
 
 
 def vector_add_sequential(a: list[int], b: list[int]) -> list[int]:
+    """Vector add sequential."""
     return [x + y for x, y in zip(a, b, strict=False)]
 
 
 def vector_add_threaded(a: list[int], b: list[int], workers: int = 4) -> list[int]:
+    """Vector add threaded."""
     out = [0] * len(a)
     chunk = max(1, len(a) // workers)
     threads: list[threading.Thread] = []
 
     def worker(start: int, end: int) -> None:
+        """Worker."""
         for i in range(start, end):
             out[i] = a[i] + b[i]
 
@@ -29,6 +34,7 @@ def vector_add_threaded(a: list[int], b: list[int], workers: int = 4) -> list[in
 
 
 def measure_speedup(size: int = 200_000) -> dict[str, float]:
+    """Measure speedup."""
     a = list(range(size))
     b = list(range(size, 2 * size))
     t0 = time.perf_counter()

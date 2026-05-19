@@ -1,3 +1,5 @@
+"""Tests for ep07 in Cloud Computing 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -10,6 +12,7 @@ fn = cast("Callable[..., object]", mod.build_iam_policy)
 
 
 def test_ep07_behavior() -> None:
+    """Test ep07 behavior."""
     result_obj = fn(bucket="team-prod")
     result = cast("dict[str, object]", result_obj)
     payload = cast("dict[str, object]", result["payload"])

@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 2: Document classifier."""
+
 from __future__ import annotations
 
 from common import (
@@ -16,6 +18,7 @@ DOCUMENTS = [
 
 
 def classify_documents() -> None:
+    """Classify documents."""
     client = build_client()
     system_prompt = "Classify the document as 'operational issue', 'planning document', or 'internal guide', then explain why in one line."
 

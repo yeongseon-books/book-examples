@@ -1,3 +1,5 @@
+"""Ai Web Dev 101 - Episode 1: Tool agent."""
+
 from __future__ import annotations
 
 import sys
@@ -9,6 +11,7 @@ from common import MockLLM, get_exchange_rate, get_weather, safe_calculate
 
 
 def run_agent(goal: str, max_steps: int = 5) -> dict[str, object]:
+    """Run agent."""
     llm = MockLLM()
     traces: list[str] = []
     result: str = ""

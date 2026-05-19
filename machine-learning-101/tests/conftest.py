@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Machine Learning 101."""
+
 from __future__ import annotations
 
 import sys

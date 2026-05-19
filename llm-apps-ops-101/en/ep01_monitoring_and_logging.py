@@ -1,3 +1,5 @@
+"""Llm Apps Ops 101 - Episode 1: Monitoring and logging."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -11,6 +13,8 @@ logger = build_logger("en.monitoring")
 
 @dataclass(slots=True)
 class LLMCallRecord:
+    """LLM call record."""
+
     call_id: str = field(default_factory=lambda: str(uuid4())[:8])
     model: str = ""
     latency_ms: float = 0.0
@@ -23,6 +27,7 @@ class LLMCallRecord:
     ts: str = field(default_factory=utc_now)
 
     def to_payload(self) -> dict[str, Any]:
+        """To payload."""
         return {
             "call_id": self.call_id,
             "model": self.model,
@@ -38,10 +43,13 @@ class LLMCallRecord:
 
 
 class InstrumentedLLM:
+    """Instrumented l l m."""
+
     def __init__(self, model: str = "llama-3.1-8b-instant") -> None:
         self.model = model
 
     def invoke(self, system_prompt: str, user_prompt: str) -> tuple[str, LLMCallRecord]:
+        """Invoke."""
         record = LLMCallRecord(model=self.model, prompt_preview=user_prompt)
         logger.info(
             "Starting LLM call.",
@@ -67,6 +75,7 @@ class InstrumentedLLM:
 
 
 def sample_monitoring_session() -> None:
+    """Sample monitoring session."""
     llm = InstrumentedLLM()
     system_prompt = (
         "You are an SRE assistant writing short health summaries for an ops dashboard."

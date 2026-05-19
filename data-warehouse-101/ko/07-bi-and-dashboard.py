@@ -1,3 +1,5 @@
+"""Data Warehouse 101 - Episode 7: Bi and dashboard."""
+
 # 한국어 예제
 import json
 
@@ -5,11 +7,13 @@ from common import make_dw
 
 
 def ascii_bars(items):
+    """Ascii bars."""
     maxv = max((v for _, v in items), default=1.0)
     return "\n".join(f"{k:10} | {'#' * int((v / maxv) * 20)} {v:.1f}" for k, v in items)
 
 
 def run_demo(start="2025-01-01", end="2026-12-31", region="KR-Seoul") -> dict:
+    """Run demo."""
     conn = make_dw(500)
     total = (
         conn.execute(

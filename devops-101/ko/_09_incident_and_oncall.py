@@ -1,3 +1,5 @@
+"""Devops 101 - Episode 9: Incident and oncall."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,12 +7,15 @@ from dataclasses import dataclass
 
 @dataclass
 class IncidentEvent:
+    """Incident event."""
+
     at: str
     action: str
     details: str
 
 
 def pick_oncall(engineers: list[str], vacation: set[str], offset: int = 0) -> str:
+    """Pick oncall."""
     available = [engineer for engineer in engineers if engineer not in vacation]
     if not available:
         raise ValueError("No available engineer for on-call")
@@ -24,6 +29,7 @@ def build_postmortem(
     root_cause: str,
     actions: list[str],
 ) -> str:
+    """Build postmortem."""
     lines = [
         f"# Postmortem: {title}",
         "",

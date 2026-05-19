@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Sqlalchemy 101."""
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -18,6 +20,8 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
 class Base(DeclarativeBase):
+    """Base."""
+
     pass
 
 
@@ -30,6 +34,8 @@ post_tags = Table(
 
 
 class User(Base):
+    """User."""
+
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -40,6 +46,8 @@ class User(Base):
 
 
 class Post(Base):
+    """Post."""
+
     __tablename__ = "posts"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -50,6 +58,8 @@ class Post(Base):
 
 
 class Tag(Base):
+    """Tag."""
+
     __tablename__ = "tags"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -58,13 +68,16 @@ class Tag(Base):
 
 
 def sync_engine(memory: bool = True):
+    """Sync engine."""
     url = "sqlite:///:memory:" if memory else "sqlite:///sqlalchemy101.db"
     return create_engine(url, future=True)
 
 
 def async_memory_engine():
+    """Async memory engine."""
     return create_async_engine("sqlite+aiosqlite:///:memory:", future=True)
 
 
 def create_schema(engine) -> None:
+    """Create schema."""
     Base.metadata.create_all(engine)

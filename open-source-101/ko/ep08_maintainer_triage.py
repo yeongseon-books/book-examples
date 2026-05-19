@@ -1,3 +1,5 @@
+"""Open Source 101 - Episode 8: Maintainer triage."""
+
 from __future__ import annotations
 
 from common import (
@@ -7,6 +9,7 @@ from common import (
 
 
 def run_example() -> object:
+    """Run example."""
     issues = [
         Issue(id=1, title="Fix crash", labels=["bug"]),
         Issue(id=2, title="New idea", labels=["enhancement"]),

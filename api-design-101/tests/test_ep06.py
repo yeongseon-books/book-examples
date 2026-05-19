@@ -1,9 +1,12 @@
+"""Tests for ep06 in Api Design 101."""
+
 from __future__ import annotations
 
 from .helpers import client_for, load_module
 
 
 def test_ep06_cursor_pagination() -> None:
+    """Test ep06 cursor pagination."""
     mod = load_module(
         "ko/06-pagination-and-filtering/step01_pagination_filter.py", "ep06_ko"
     )

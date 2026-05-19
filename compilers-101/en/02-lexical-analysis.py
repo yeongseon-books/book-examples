@@ -1,3 +1,5 @@
+"""Compilers 101 - Episode 2: Lexical analysis."""
+
 # English mirror of Korean episode example
 from __future__ import annotations
 
@@ -6,11 +8,14 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Token:
+    """Token."""
+
     kind: str
     value: object
 
 
 def tokenize(source: str) -> list[Token]:
+    """Tokenize."""
     out: list[Token] = []
     i = 0
     mapping = {

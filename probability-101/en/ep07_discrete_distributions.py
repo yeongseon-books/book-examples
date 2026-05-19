@@ -1,9 +1,12 @@
+"""Probability 101 - Episode 7: Discrete distributions."""
+
 from __future__ import annotations
 
 from scipy.stats import bernoulli, binom, geom, poisson
 
 
 def run() -> dict[str, float]:
+    """Run."""
     return {
         "bernoulli_pmf_1": float(bernoulli.pmf(1, 0.3)),
         "binom_pmf_3": float(binom.pmf(3, 10, 0.4)),

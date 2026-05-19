@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Llm Apps Ops 101."""
+
 from __future__ import annotations
 
 import json
@@ -16,7 +18,10 @@ DEFAULT_OUTPUT_RATE = 0.08
 
 
 class JsonFormatter(logging.Formatter):
+    """Json formatter."""
+
     def format(self, record: logging.LogRecord) -> str:
+        """Format."""
         payload: dict[str, Any] = {
             "ts": utc_now(),
             "level": record.levelname,
@@ -32,6 +37,7 @@ class JsonFormatter(logging.Formatter):
 
 
 def build_logger(name: str) -> logging.Logger:
+    """Build logger."""
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
     if not logger.handlers:
@@ -43,10 +49,12 @@ def build_logger(name: str) -> logging.Logger:
 
 
 def utc_now() -> str:
+    """Utc now."""
     return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
 def estimate_tokens(text: str) -> int:
+    """Estimate tokens."""
     cleaned = " ".join(text.split())
     if not cleaned:
         return 0
@@ -54,6 +62,7 @@ def estimate_tokens(text: str) -> int:
 
 
 def build_client() -> Groq:
+    """Build client."""
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY environment variable is required.")
@@ -62,6 +71,8 @@ def build_client() -> Groq:
 
 @dataclass(slots=True)
 class CompletionResult:
+    """Completion result."""
+
     text: str
     input_tokens: int
     output_tokens: int
@@ -70,10 +81,12 @@ class CompletionResult:
 
     @property
     def total_tokens(self) -> int:
+        """Total tokens."""
         return self.input_tokens + self.output_tokens
 
     @property
     def estimated_cost_usd(self) -> float:
+        """Estimated cost usd."""
         input_cost = (self.input_tokens / 1_000_000) * DEFAULT_INPUT_RATE
         output_cost = (self.output_tokens / 1_000_000) * DEFAULT_OUTPUT_RATE
         return round(input_cost + output_cost, 8)
@@ -87,6 +100,7 @@ def call_groq(
     temperature: float = 0.2,
     max_tokens: int = 300,
 ) -> CompletionResult:
+    """Call groq."""
     client = build_client()
     start = time.perf_counter()
     response = client.chat.completions.create(

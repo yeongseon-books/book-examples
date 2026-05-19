@@ -1,7 +1,10 @@
+"""Shared utilities and domain models for Sql 101."""
+
 import sqlite3
 
 
 def seed_db() -> sqlite3.Connection:
+    """Seed db."""
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()

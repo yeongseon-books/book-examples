@@ -1,7 +1,10 @@
+"""Computer Architecture 101 - Episode 8: Io and devices."""
+
 from __future__ import annotations
 
 
 def simulate_polling(total_ticks: int, ready_tick: int) -> dict[str, int]:
+    """Simulate polling."""
     checks = 0
     work_done = 0
     for tick in range(total_ticks):
@@ -13,6 +16,7 @@ def simulate_polling(total_ticks: int, ready_tick: int) -> dict[str, int]:
 
 
 def simulate_interrupt(total_ticks: int, ready_tick: int) -> dict[str, int]:
+    """Simulate interrupt."""
     interrupts = 0
     work_done = 0
     for tick in range(total_ticks):

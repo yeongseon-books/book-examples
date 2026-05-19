@@ -1,7 +1,10 @@
+"""Tests for ep10 in Sql 101."""
+
 from en.ep10_practical_analysis import run_demo
 
 
 def test_ep10_practical_analysis_queries():
+    """Test ep10 practical analysis queries."""
     out = run_demo()
     assert out["top_customers"][0]["customer_id"] == 101
     assert out["top_customers"][0]["total"] == 670

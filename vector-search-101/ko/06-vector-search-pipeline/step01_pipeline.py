@@ -1,3 +1,5 @@
+"""Vector Search 101 - Episode 1: Pipeline."""
+
 import faiss
 from sentence_transformers import SentenceTransformer
 
@@ -13,12 +15,15 @@ DOCUMENTS = [
 
 
 class VectorSearchPipeline:
+    """Vector search pipeline."""
+
     def __init__(self, model_name: str = MODEL_NAME) -> None:
         self._model = SentenceTransformer(model_name)
         self._index: faiss.IndexFlatIP | None = None
         self._documents: list[str] = []
 
     def build(self, documents: list[str]) -> None:
+        """Build."""
         self._documents = documents
         vectors = self._model.encode(
             documents, normalize_embeddings=True, convert_to_numpy=True
@@ -28,6 +33,7 @@ class VectorSearchPipeline:
         print(f"인덱스 생성 완료: 문서 {len(documents)}개, 차원 {vectors.shape[1]}")
 
     def search(self, query: str, top_k: int = 3) -> list[dict[str, float | str]]:
+        """Search."""
         if self._index is None:
             raise RuntimeError("build()를 먼저 호출해야 합니다.")
 
@@ -48,6 +54,7 @@ class VectorSearchPipeline:
 
 
 def main() -> None:
+    """Main."""
     pipeline = VectorSearchPipeline()
     pipeline.build(DOCUMENTS)
 

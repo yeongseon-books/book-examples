@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 1: Multiturn rag app."""
+
 import os
 from typing import Any, cast
 
@@ -27,10 +29,12 @@ DOCS = [
 
 
 def format_docs(docs):
+    """Format docs."""
     return "\n\n".join(doc.page_content for doc in docs)
 
 
 def format_history(chat_history):
+    """Format history."""
     if not chat_history:
         return "이전 대화 없음"
     return "\n".join(
@@ -42,6 +46,7 @@ def format_history(chat_history):
 
 
 def build_chain():
+    """Build chain."""
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
@@ -74,6 +79,7 @@ def build_chain():
 
 
 def main():
+    """Main."""
     chain = build_chain()
     chat_history = []
     print("LangChain 멀티턴 RAG 앱입니다. 종료하려면 quit 를 입력하세요.")

@@ -4,6 +4,7 @@ from collections import deque
 
 
 def fcfs_avg_waiting(jobs: list[tuple[str, int, int]]) -> float:
+    """Fcfs avg waiting."""
     time = 0
     waiting = 0
     for _, arrival, burst in sorted(jobs, key=lambda x: x[1]):
@@ -14,6 +15,7 @@ def fcfs_avg_waiting(jobs: list[tuple[str, int, int]]) -> float:
 
 
 def sjf_avg_waiting(jobs: list[tuple[str, int, int]]) -> float:
+    """Sjf avg waiting."""
     jobs = sorted(jobs, key=lambda x: x[1])
     i = 0
     n = len(jobs)
@@ -36,6 +38,7 @@ def sjf_avg_waiting(jobs: list[tuple[str, int, int]]) -> float:
 
 
 def rr_avg_waiting(jobs: list[tuple[str, int, int]], quantum: int = 2) -> float:
+    """Rr avg waiting."""
     jobs = sorted(jobs, key=lambda x: x[1])
     remaining = {name: burst for name, _, burst in jobs}
     arrival = {name: a for name, a, _ in jobs}

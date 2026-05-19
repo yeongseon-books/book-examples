@@ -1,3 +1,5 @@
+"""Tests for 04 environments and config in Devops 101."""
+
 import os
 
 import pytest
@@ -5,6 +7,7 @@ from ko import _04_environments_and_config as ep04
 
 
 def test_missing_required_key_and_redaction(tmp_path) -> None:
+    """Test missing required key and redaction."""
     env_file = tmp_path / "app.env"
     env_file.write_text(
         "API_URL=http://localhost\nPASSWORD=secret\nTOKEN=abc\n", encoding="utf-8"

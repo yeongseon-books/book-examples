@@ -1,3 +1,5 @@
+"""Containers 101 - Episode 7: Registry."""
+
 from __future__ import annotations
 
 import re
@@ -10,6 +12,7 @@ VALID_MEDIA_TYPES = {
 
 
 def validate_manifest(manifest: dict) -> list[str]:
+    """Validate manifest."""
     errors: list[str] = []
     if manifest.get("mediaType") not in VALID_MEDIA_TYPES:
         errors.append("unsupported mediaType")

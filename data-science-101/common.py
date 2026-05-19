@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Data Science 101."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -9,6 +11,7 @@ from sklearn.datasets import make_classification, make_regression
 
 
 def make_synthetic_classification(seed: int = 42, n: int = 500) -> pd.DataFrame:
+    """Make synthetic classification."""
     X, y = make_classification(
         n_samples=n,
         n_features=6,
@@ -23,6 +26,7 @@ def make_synthetic_classification(seed: int = 42, n: int = 500) -> pd.DataFrame:
 
 
 def make_synthetic_regression(seed: int = 42, n: int = 500) -> pd.DataFrame:
+    """Make synthetic regression."""
     X, y = make_regression(
         n_samples=n,
         n_features=5,
@@ -36,6 +40,7 @@ def make_synthetic_regression(seed: int = 42, n: int = 500) -> pd.DataFrame:
 
 
 def make_dirty_dataset(seed: int = 42, n: int = 300) -> pd.DataFrame:
+    """Make dirty dataset."""
     rng = np.random.default_rng(seed)
     df = pd.DataFrame(
         {
@@ -56,12 +61,14 @@ def make_dirty_dataset(seed: int = 42, n: int = 300) -> pd.DataFrame:
 
 
 def ensure_dir(path: str | Path) -> Path:
+    """Ensure dir."""
     p = Path(path)
     p.mkdir(parents=True, exist_ok=True)
     return p
 
 
 def summarize_dataframe(df: pd.DataFrame) -> dict[str, Any]:
+    """Summarize dataframe."""
     return {
         "rows": int(df.shape[0]),
         "cols": int(df.shape[1]),

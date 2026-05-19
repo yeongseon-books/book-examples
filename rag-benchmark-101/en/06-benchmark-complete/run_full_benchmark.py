@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Run full benchmark."""
+
 from __future__ import annotations
 
 import json
@@ -13,6 +15,7 @@ from en.shared import CORPUS, FULL_CONFIGS, PIPELINE_CASES
 
 
 def main() -> None:
+    """Main."""
     print("Running the complete RAG benchmark")
     results = [
         run_pipeline_benchmark("en", CORPUS, PIPELINE_CASES, config).summary()

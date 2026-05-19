@@ -1,3 +1,5 @@
+"""Rag Deep Dive - Episode 3: Retriever mmr."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -7,6 +9,7 @@ from common import cosine_similarity_matrix, embed_texts
 def top_k_retrieve(
     query: str, chunks: list[str], top_k: int = 3, dim: int = 128
 ) -> list[tuple[int, str, float]]:
+    """Top k retrieve."""
     matrix = embed_texts(chunks, dim=dim)
     q = embed_texts([query], dim=dim)[0]
     scores = cosine_similarity_matrix(q, matrix)
@@ -21,6 +24,7 @@ def mmr_rerank(
     lambda_mult: float = 0.7,
     dim: int = 128,
 ) -> list[tuple[int, str, float]]:
+    """Mmr rerank."""
     matrix = embed_texts(chunks, dim=dim)
     q = embed_texts([query], dim=dim)[0]
     rel = cosine_similarity_matrix(q, matrix)

@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 4: Data cleaning."""
+
 from __future__ import annotations
 
 import pandas as pd
@@ -5,6 +7,7 @@ from common import make_dirty_dataset
 
 
 def clean_dataset(seed: int = 42) -> pd.DataFrame:
+    """Clean dataset."""
     df = make_dirty_dataset(seed=seed, n=300).copy()
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df["amount"] = pd.to_numeric(df["amount"], errors="coerce")

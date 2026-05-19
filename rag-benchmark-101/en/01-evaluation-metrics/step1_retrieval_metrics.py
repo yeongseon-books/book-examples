@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 1: Retrieval metrics."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +14,7 @@ from common.retrieval import compute_retrieval_metrics
 
 
 def main() -> None:
+    """Main."""
     retrieved = ["d02", "d03", "d08", "d01", "d09"]
     relevant = {"d02", "d03"}
     print("Retrieval metrics demo")

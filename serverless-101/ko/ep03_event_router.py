@@ -1,9 +1,12 @@
+"""Serverless 101 - Episode 3: Event router."""
+
 from __future__ import annotations
 
 from common import *
 
 
 def run_demo():
+    """Run demo."""
     if 3 == 1:
         return ep01_handler({"episode": 3}, {"request_id": "demo-3"})
     if 3 == 2:

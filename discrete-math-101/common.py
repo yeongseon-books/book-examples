@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Discrete Math 101."""
+
 from __future__ import annotations
 
 from collections import deque
@@ -5,16 +7,20 @@ from itertools import product
 
 
 class UnionFind:
+    """Union find."""
+
     def __init__(self, items):
         self.parent = {x: x for x in items}
         self.rank = {x: 0 for x in items}
 
     def find(self, x):
+        """Find."""
         if self.parent[x] != x:
             self.parent[x] = self.find(self.parent[x])
         return self.parent[x]
 
     def union(self, a, b):
+        """Union."""
         ra, rb = self.find(a), self.find(b)
         if ra == rb:
             return False
@@ -29,6 +35,7 @@ class UnionFind:
 
 
 def bool_table(variables, func):
+    """Bool table."""
     rows = []
     for vals in product([False, True], repeat=len(variables)):
         env = dict(zip(variables, vals, strict=False))
@@ -37,6 +44,7 @@ def bool_table(variables, func):
 
 
 def is_bipartite(adj):
+    """Is bipartite."""
     color = {}
     for s in adj:
         if s in color:

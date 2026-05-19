@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 2: Agent loop."""
+
 import os
 from typing import Annotated
 
@@ -11,6 +13,8 @@ from typing_extensions import TypedDict
 
 
 class AgentState(TypedDict):
+    """Agent state."""
+
     messages: Annotated[list, add_messages]
 
 
@@ -35,6 +39,7 @@ def lookup_lunch_menu(day: str) -> str:
 
 
 def build_model() -> ChatGroq:
+    """Build model."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY를 먼저 설정하세요.")
@@ -42,6 +47,7 @@ def build_model() -> ChatGroq:
 
 
 def assistant_node(state: AgentState):
+    """Assistant node."""
     tools = [search_team_calendar, lookup_lunch_menu]
     model = build_model().bind_tools(tools)
     response = model.invoke(
@@ -56,6 +62,7 @@ def assistant_node(state: AgentState):
 
 
 def should_continue(state: AgentState):
+    """Should continue."""
     last_message = state["messages"][-1]
     if isinstance(last_message, AIMessage) and last_message.tool_calls:
         return "tools"
@@ -63,6 +70,7 @@ def should_continue(state: AgentState):
 
 
 def build_graph():
+    """Build graph."""
     tools = [search_team_calendar, lookup_lunch_menu]
     builder = StateGraph(AgentState)
     builder.add_node("assistant", assistant_node)

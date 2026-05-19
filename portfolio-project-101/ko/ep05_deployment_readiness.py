@@ -1,3 +1,5 @@
+"""Portfolio Project 101 - Episode 5: Deployment readiness."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -6,6 +8,7 @@ from common import contains_port_binding, read_text
 
 
 def check_deployment_readiness(project_root: str | Path) -> dict[str, bool]:
+    """Check deployment readiness."""
     root = Path(project_root)
     req_path = root / "requirements.txt"
     app_path = root / "app.py"

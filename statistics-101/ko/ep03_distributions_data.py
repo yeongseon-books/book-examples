@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 3: Distributions data."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -5,6 +7,7 @@ from scipy import stats
 
 
 def run_demo() -> dict[str, np.ndarray]:
+    """Run demo."""
     x = np.linspace(-3.0, 3.0, 121)
     normal_pdf = stats.norm.pdf(x, loc=0.0, scale=1.0)
     k_binom = np.arange(0, 11)

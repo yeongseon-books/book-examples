@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Testing 101."""
+
 import sqlite3
 
 import pytest
@@ -5,6 +7,7 @@ import pytest
 
 @pytest.fixture
 def in_memory_db():
+    """In memory db."""
     conn = sqlite3.connect(":memory:")
     conn.execute(
         """

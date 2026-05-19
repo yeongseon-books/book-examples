@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Serverless 101."""
+
 from __future__ import annotations
 
 import queue
@@ -13,6 +15,7 @@ from typing import Any
 
 
 def ep01_handler(event: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
+    """Ep01 handler."""
     return {
         "ok": True,
         "request_id": context.get("request_id", "unknown"),
@@ -21,17 +24,21 @@ def ep01_handler(event: dict[str, Any], context: dict[str, Any]) -> dict[str, An
 
 
 class FaaSRuntime:
+    """Faa s runtime."""
+
     def __init__(self) -> None:
         self._handlers: dict[str, Callable[[dict[str, Any], dict[str, Any]], Any]] = {}
 
     def register(
         self, name: str, handler: Callable[[dict[str, Any], dict[str, Any]], Any]
     ) -> None:
+        """Register."""
         self._handlers[name] = handler
 
     def dispatch(
         self, name: str, event: dict[str, Any], context: dict[str, Any]
     ) -> Any:
+        """Dispatch."""
         if name not in self._handlers:
             raise KeyError(f"handler not found: {name}")
         return self._handlers[name](event, context)
@@ -39,6 +46,8 @@ class FaaSRuntime:
 
 @dataclass
 class HTTPEvent:
+    """HTTP event."""
+
     path: str
     method: str
     body: dict[str, Any]
@@ -46,30 +55,40 @@ class HTTPEvent:
 
 @dataclass
 class S3Event:
+    """S3 event."""
+
     bucket: str
     key: str
 
 
 @dataclass
 class QueueEvent:
+    """Queue event."""
+
     queue_name: str
     payload: dict[str, Any]
 
 
 @dataclass
 class ScheduleEvent:
+    """Schedule event."""
+
     cron: str
     timestamp: float
 
 
 class EventRouter:
+    """Event router."""
+
     def __init__(self) -> None:
         self._routes: dict[type[Any], Callable[[Any], Any]] = {}
 
     def on(self, event_type: type[Any], handler: Callable[[Any], Any]) -> None:
+        """On."""
         self._routes[event_type] = handler
 
     def dispatch(self, event: Any) -> Any:
+        """Dispatch."""
         for event_type, handler in self._routes.items():
             if isinstance(event, event_type):
                 return handler(event)
@@ -78,12 +97,16 @@ class EventRouter:
 
 @dataclass
 class Container:
+    """Container."""
+
     container_id: str
     cold: bool = True
     invoke_count: int = 0
 
 
 class ColdStartSimulator:
+    """Cold start simulator."""
+
     def __init__(
         self, capacity: int = 2, cold_start_ms: int = 120, warm_ms: int = 8
     ) -> None:
@@ -93,6 +116,7 @@ class ColdStartSimulator:
         self._containers: OrderedDict[str, Container] = OrderedDict()
 
     def invoke(self, key: str) -> dict[str, Any]:
+        """Invoke."""
         if key in self._containers:
             c = self._containers.pop(key)
             self._containers[key] = c
@@ -118,11 +142,14 @@ class ColdStartSimulator:
 
 
 class AutoScalerSimulator:
+    """Auto scaler simulator."""
+
     def __init__(self, max_containers: int, queue_limit: int) -> None:
         self.max_containers = max_containers
         self.queue_limit = queue_limit
 
     def process_burst(self, concurrent_requests: int) -> dict[str, int]:
+        """Process burst."""
         active = min(concurrent_requests, self.max_containers)
         waiting = max(0, concurrent_requests - active)
         queued = min(waiting, self.queue_limit)
@@ -131,17 +158,22 @@ class AutoScalerSimulator:
 
 
 class ExternalKVStore:
+    """External k v store."""
+
     def __init__(self) -> None:
         self._data: dict[str, Any] = {}
         self._idempotency: set[str] = set()
 
     def put(self, key: str, value: Any) -> None:
+        """Put."""
         self._data[key] = value
 
     def get(self, key: str) -> Any:
+        """Get."""
         return self._data.get(key)
 
     def seen_idempotency_key(self, key: str) -> bool:
+        """Seen idempotency key."""
         if key in self._idempotency:
             return True
         self._idempotency.add(key)
@@ -149,11 +181,14 @@ class ExternalKVStore:
 
 
 def stateless_counter(event: dict[str, Any], context: dict[str, Any]) -> int:
+    """Stateless counter."""
     value = event.get("value", 1)
     return value
 
 
 class WorkerPool:
+    """Worker pool."""
+
     def __init__(
         self, worker_count: int = 2, max_retries: int = 2, base_backoff: float = 0.001
     ) -> None:
@@ -165,13 +200,18 @@ class WorkerPool:
         self.dead_letter: list[str] = []
 
     def submit(self, message_id: str, fail_times: int = 0) -> None:
+        """Submit."""
         self.q.put({"id": message_id, "fail_times": fail_times, "attempt": 0})
 
     def _handle(self, item: dict[str, Any]) -> bool:
+        """Handle."""
         return item["attempt"] >= item["fail_times"]
 
     def run(self) -> None:
+        """Run."""
+
         def worker() -> None:
+            """Worker."""
             while True:
                 try:
                     item = self.q.get_nowait()
@@ -198,6 +238,8 @@ class WorkerPool:
 
 @dataclass
 class Observability:
+    """Observability."""
+
     invocations: int = 0
     errors: int = 0
     latencies: list[float] = field(default_factory=list)
@@ -208,6 +250,7 @@ class Observability:
         handler: Callable[[dict[str, Any], dict[str, Any]], Any],
         event: dict[str, Any],
     ) -> Any:
+        """Record."""
         request_id = str(uuid.uuid4())
         trace_id = str(uuid.uuid4())
         context = {"request_id": request_id, "trace_id": trace_id}
@@ -234,6 +277,7 @@ class Observability:
             )
 
     def metrics(self) -> dict[str, float]:
+        """Metrics."""
         if not self.latencies:
             return {
                 "invocations": float(self.invocations),
@@ -256,16 +300,20 @@ class Observability:
 def compute_cost(
     memory_mb: int, duration_ms: int, price_per_gb_sec: float = 0.0000166667
 ) -> float:
+    """Compute cost."""
     gb = memory_mb / 1024
     sec = duration_ms / 1000
     return gb * sec * price_per_gb_sec
 
 
 def aggregate_cost(invocations: list[dict[str, int]]) -> float:
+    """Aggregate cost."""
     return sum(compute_cost(i["memory_mb"], i["duration_ms"]) for i in invocations)
 
 
 class OrderSystem:
+    """Order system."""
+
     def __init__(self) -> None:
         self.runtime = FaaSRuntime()
         self.router = EventRouter()
@@ -279,6 +327,7 @@ class OrderSystem:
     def _create_order(
         self, event: dict[str, Any], context: dict[str, Any]
     ) -> dict[str, Any]:
+        """Create order."""
         order_id = event["order_id"]
         self.orders.append(order_id)
         self.pool.submit(order_id)
@@ -289,16 +338,19 @@ class OrderSystem:
         }
 
     def _on_http(self, event: HTTPEvent) -> dict[str, Any]:
+        """On http."""
         return self.obs.record(
             lambda e, c: self.runtime.dispatch("create_order", e, c), event.body
         )
 
     def _on_queue(self, event: QueueEvent) -> dict[str, Any]:
+        """On queue."""
         self.pool.submit(event.payload["order_id"])
         self.pool.run()
         return {"processed": list(self.pool.processed)}
 
     def run_demo(self) -> dict[str, Any]:
+        """Run demo."""
         self.router.dispatch(
             HTTPEvent(
                 path="/orders",

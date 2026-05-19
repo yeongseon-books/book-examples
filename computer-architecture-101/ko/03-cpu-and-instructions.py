@@ -1,3 +1,5 @@
+"""Computer Architecture 101 - Episode 3: Cpu and instructions."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -7,6 +9,8 @@ Opcode = Literal["LOAD", "STORE", "ADD", "SUB", "JMP", "HLT"]
 
 
 class Instruction(TypedDict):
+    """Instruction."""
+
     op: Opcode
     a: str | int | None
     b: str | int | None
@@ -15,6 +19,8 @@ class Instruction(TypedDict):
 
 @dataclass
 class TinyISA:
+    """Tiny i s a."""
+
     memory: list[int]
     program: list[Instruction]
     regs: dict[str, int] = field(default_factory=lambda: {"R0": 0, "R1": 0})
@@ -22,6 +28,7 @@ class TinyISA:
     halted: bool = False
 
     def step(self) -> None:
+        """Step."""
         inst = self.program[self.pc]
         op = inst["op"]
         if op == "LOAD":
@@ -62,6 +69,7 @@ class TinyISA:
 
 
 def run_sample_program() -> tuple[int, int]:
+    """Run sample program."""
     program: list[Instruction] = [
         {"op": "LOAD", "a": "R0", "b": 0, "c": None},
         {"op": "LOAD", "a": "R1", "b": 1, "c": None},

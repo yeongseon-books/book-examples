@@ -1,3 +1,5 @@
+"""Devops 101 - Episode 10: Operable devops flow."""
+
 from __future__ import annotations
 
 from ko import _02_ci_pipeline as ci
@@ -7,6 +9,7 @@ from ko import _09_incident_and_oncall as inc
 
 
 def run_golden_path(version: str) -> dict[str, object]:
+    """Run golden path."""
     runner = __import__("common").MockCommandRunner(
         {"lint": (0, "ok", ""), "test": (0, "ok", ""), "build": (0, "ok", "")}
     )

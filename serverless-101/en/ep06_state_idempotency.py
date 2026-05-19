@@ -1,9 +1,12 @@
+"""Serverless 101 - Episode 6: State idempotency."""
+
 from __future__ import annotations
 
 from common import *
 
 
 def run_demo():
+    """Run demo."""
     if 6 == 1:
         return ep01_handler({"episode": 6}, {"request_id": "demo-6"})
     if 6 == 2:

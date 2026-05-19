@@ -1,9 +1,12 @@
+"""Tests for ep02 in Azure Aca 101."""
+
 from conftest import load_module
 
 mod = load_module("ko/02-environment-app-revision/step01_revision_model.py", "ep02")
 
 
 def test_ep02_revision_rules() -> None:
+    """Test ep02 revision rules."""
     assert mod.classify_change("image") == "new_revision"
     assert mod.classify_change("traffic") == "same_revision"
     data = mod.run()

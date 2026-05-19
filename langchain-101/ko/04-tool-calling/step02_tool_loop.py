@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 2: Tool loop."""
+
 import os
 from typing import Any, cast
 
@@ -19,6 +21,7 @@ def search_docs(keyword: str) -> str:
 
 
 def run_tool_loop(question: str) -> str:
+    """Run tool loop."""
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
         api_key=cast("Any", os.environ["GROQ_API_KEY"]),

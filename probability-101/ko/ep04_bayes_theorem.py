@@ -1,9 +1,12 @@
+"""Probability 101 - Episode 4: Bayes theorem."""
+
 from __future__ import annotations
 
 from common import make_rng
 
 
 def run(n: int = 300_000) -> dict[str, float]:
+    """Run."""
     prev = 0.01
     sensitivity = 0.95
     specificity = 0.90

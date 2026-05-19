@@ -1,7 +1,10 @@
+"""Tests for ep02 in Algorithms Python 101."""
+
 from tests.conftest import load_module
 
 
 def test_linear_and_binary_search() -> None:
+    """Test linear and binary search."""
     mod = load_module(
         "ko/02-time-complexity-and-big-o/step01_complexity_basics.py", "ep02"
     )

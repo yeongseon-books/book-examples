@@ -1,3 +1,5 @@
+"""Computer Networks 101 - Episode 6: Tls basics."""
+
 from dataclasses import dataclass
 
 VALID_SEQUENCE = [
@@ -11,10 +13,13 @@ VALID_SEQUENCE = [
 
 @dataclass
 class TLSStateMachine:
+    """TLS state machine."""
+
     state: str = "START"
     cursor: int = 0
 
     def consume(self, message: str) -> str:
+        """Consume."""
         if self.cursor >= len(VALID_SEQUENCE):
             raise ValueError("handshake already complete")
         expected = VALID_SEQUENCE[self.cursor]
@@ -29,6 +34,7 @@ class TLSStateMachine:
 
 
 def validate_certificate_chain(chain: list[str], trust_store: set[str]) -> bool:
+    """Validate certificate chain."""
     if len(chain) < 2:
         return False
     root = chain[-1]

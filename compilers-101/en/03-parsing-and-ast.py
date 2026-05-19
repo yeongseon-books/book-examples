@@ -1,3 +1,5 @@
+"""Compilers 101 - Episode 3: Parsing and ast."""
+
 # English mirror of Korean episode example
 from __future__ import annotations
 
@@ -6,11 +8,14 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Token:
+    """Token."""
+
     kind: str
     value: object
 
 
 def tokenize(source: str) -> list[Token]:
+    """Tokenize."""
     out: list[Token] = []
     i = 0
     mapping = {
@@ -40,13 +45,16 @@ def tokenize(source: str) -> list[Token]:
 
 
 def parse_expression(source: str) -> tuple:
+    """Parse expression."""
     tokens = tokenize(source)
     pos = 0
 
     def peek() -> Token | None:
+        """Peek."""
         return tokens[pos] if pos < len(tokens) else None
 
     def consume(kind: str) -> Token:
+        """Consume."""
         nonlocal pos
         tok = peek()
         if tok is None or tok.kind != kind:
@@ -55,6 +63,7 @@ def parse_expression(source: str) -> tuple:
         return tok
 
     def factor() -> tuple:
+        """Factor."""
         tok = peek()
         if tok is None:
             raise SyntaxError("eof")
@@ -69,6 +78,7 @@ def parse_expression(source: str) -> tuple:
         raise SyntaxError("bad factor")
 
     def term() -> tuple:
+        """Term."""
         node = factor()
         while True:
             tok = peek()
@@ -80,6 +90,7 @@ def parse_expression(source: str) -> tuple:
                 return node
 
     def expr() -> tuple:
+        """Expr."""
         node = term()
         while True:
             tok = peek()

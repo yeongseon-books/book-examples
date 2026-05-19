@@ -1,4 +1,8 @@
+"""Developer Career 101 - Episode 5: Coding interview."""
+
+
 def two_sum_bruteforce(nums: list[int], target: int) -> tuple[list[int], int]:
+    """Two sum bruteforce."""
     ops = 0
     for i in range(len(nums)):
         for j in range(i + 1, len(nums)):
@@ -9,6 +13,7 @@ def two_sum_bruteforce(nums: list[int], target: int) -> tuple[list[int], int]:
 
 
 def two_sum_optimal(nums: list[int], target: int) -> tuple[list[int], int]:
+    """Two sum optimal."""
     seen: dict[int, int] = {}
     ops = 0
     for i, n in enumerate(nums):

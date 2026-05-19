@@ -1,3 +1,5 @@
+"""Llm From Scratch 101 - Episode."""
+
 import numpy as np
 
 np.random.seed(0)

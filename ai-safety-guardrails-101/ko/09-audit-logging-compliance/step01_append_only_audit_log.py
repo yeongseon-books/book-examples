@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Append only audit log."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import AuditLog
 
 
 def run() -> dict[str, object]:
+    """Run."""
     log = AuditLog()
     log.append("request", "user=demo")
     log.append("decision", "blocked=false")

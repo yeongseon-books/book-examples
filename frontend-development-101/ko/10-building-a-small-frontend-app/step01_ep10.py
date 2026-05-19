@@ -1,13 +1,17 @@
+"""Frontend Development 101 - Episode 1: Ep10."""
+
 from __future__ import annotations
 
 from common import BundleSimulator, ComponentSim, FormValidator, MockFetch, RouterSim
 
 
 def render_note(props: dict[str, object], state: dict[str, object]) -> str:
+    """Render note."""
     return f"notes={len(state['notes'])} title={props['title']}"
 
 
 def run_demo() -> dict[str, object]:
+    """Run demo."""
     router = RouterSim({"/": lambda _: "notes", "/notes/:id": lambda p: p["id"]})
     fetch = MockFetch({"/notes": {"items": [{"id": "1", "title": "A"}]}})
     data = fetch.get("/notes")

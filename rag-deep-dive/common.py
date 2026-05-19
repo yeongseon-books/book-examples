@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Rag Deep Dive."""
+
 from __future__ import annotations
 
 import hashlib
@@ -8,11 +10,13 @@ import numpy as np
 
 
 def sentence_split(text: str) -> list[str]:
+    """Sentence split."""
     parts = [p.strip() for p in text.replace("\n", " ").split(".")]
     return [p + "." for p in parts if p]
 
 
 def deterministic_vector(text: str, dim: int = 128) -> np.ndarray:
+    """Deterministic vector."""
     seed_bytes = hashlib.sha256(text.encode("utf-8")).digest()[:8]
     seed = int.from_bytes(seed_bytes, "big", signed=False)
     rng = np.random.default_rng(seed)
@@ -22,6 +26,7 @@ def deterministic_vector(text: str, dim: int = 128) -> np.ndarray:
 
 
 def embed_texts(texts: Iterable[str], dim: int = 128) -> np.ndarray:
+    """Embed texts."""
     vectors = [deterministic_vector(t, dim=dim) for t in texts]
     if not vectors:
         return np.zeros((0, dim), dtype=float)
@@ -29,6 +34,7 @@ def embed_texts(texts: Iterable[str], dim: int = 128) -> np.ndarray:
 
 
 def cosine_similarity_matrix(query_vec: np.ndarray, matrix: np.ndarray) -> np.ndarray:
+    """Cosine similarity matrix."""
     if matrix.size == 0:
         return np.array([], dtype=float)
     qn = np.linalg.norm(query_vec)
@@ -39,6 +45,7 @@ def cosine_similarity_matrix(query_vec: np.ndarray, matrix: np.ndarray) -> np.nd
 
 
 def mock_llm_answer(question: str, contexts: list[str]) -> str:
+    """Mock llm answer."""
     joined = " | ".join(contexts[:3])
     return (
         "[MOCK_ANSWER]\n"
@@ -49,6 +56,7 @@ def mock_llm_answer(question: str, contexts: list[str]) -> str:
 
 
 def load_markdown_fixtures(fixtures_dir: str | Path) -> dict[str, str]:
+    """Load markdown fixtures."""
     root = Path(fixtures_dir)
     docs: dict[str, str] = {}
     for path in sorted(root.glob("*.md")):

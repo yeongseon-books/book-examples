@@ -8,6 +8,7 @@ def build_context(
     history: list[str],
     query: str,
 ) -> str:
+    """Build context."""
     return "\n\n".join(
         [
             f"# System\n{system_prompt}",

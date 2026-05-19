@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Ab welch."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import welch_t_test
 
 
 def run() -> dict[str, float | bool]:
+    """Run."""
     model_a_scores = [0.75, 0.79, 0.8, 0.77, 0.81, 0.76]
     model_b_scores = [0.7, 0.72, 0.71, 0.69, 0.73, 0.7]
     t_value, p_value = welch_t_test(model_a_scores, model_b_scores)

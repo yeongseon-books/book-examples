@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 1: Basic tools."""
+
 import os
 from typing import Any, cast
 

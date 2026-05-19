@@ -1,7 +1,10 @@
+"""Observability 101 - Episode 2: Metric log trace."""
+
 from common import MetricRegistry, StructuredLogger, Tracer
 
 
 def run_demo() -> tuple[str, int, int]:
+    """Run demo."""
     reg = MetricRegistry()
     reg.counter("requests_total", {"path": "/checkout"}).inc()
     log = StructuredLogger()

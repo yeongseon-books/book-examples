@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 1: What is data career."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,17 +7,21 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class LikertQuestion:
+    """Likert question."""
+
     prompt: str
     weights: dict[str, float]
 
 
 def clamp_likert(value: int) -> int:
+    """Clamp likert."""
     return max(1, min(5, int(value)))
 
 
 def weighted_likert_score(
     answers: dict[str, int], questions: dict[str, LikertQuestion], tracks: list[str]
 ) -> dict[str, float]:
+    """Weighted likert score."""
     totals = {track: 0.0 for track in tracks}
     for key, question in questions.items():
         centered = clamp_likert(answers.get(key, 3)) - 3
@@ -25,6 +31,7 @@ def weighted_likert_score(
 
 
 def top_track(scores: dict[str, float]) -> str:
+    """Top track."""
     return sorted(scores.items(), key=lambda item: (-item[1], item[0]))[0][0]
 
 
@@ -64,6 +71,7 @@ QUESTIONS = {
 
 
 def assess_career_fit(answers: dict[str, int]) -> dict[str, object]:
+    """Assess career fit."""
     scores = weighted_likert_score(answers, QUESTIONS, TRACKS)
     return {"scores": scores, "recommended_track": top_track(scores)}
 

@@ -1,3 +1,5 @@
+"""Ai Data Preparation 101 - Episode 1: Quality report."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import mock_documents
 
 
 def run() -> dict[str, float]:
+    """Run."""
     docs = mock_documents()
     texts = [d["text"] for d in docs]
     unique_ratio = len(set(texts)) / len(texts)

@@ -12,6 +12,7 @@ import os
 
 
 def main() -> None:
+    """Main."""
     api_key = os.environ["GROQ_API_KEY"]
     print(f"API key loaded: {api_key[:6]}...")
     print("Environment variable check complete.")

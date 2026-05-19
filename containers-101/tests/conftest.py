@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Containers 101."""
+
 from __future__ import annotations
 
 import sys

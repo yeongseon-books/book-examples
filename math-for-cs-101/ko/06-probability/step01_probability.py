@@ -1,7 +1,10 @@
+"""Math For Cs 101 - Episode 1: Probability."""
+
 import random
 
 
 def estimate_pi(n=100000, seed=7):
+    """Estimate pi."""
     rnd = random.Random(seed)
     inside = 0
     for _ in range(n):
@@ -12,8 +15,10 @@ def estimate_pi(n=100000, seed=7):
 
 
 def bayes(p_b_given_a, p_a, p_b):
+    """Bayes."""
     return p_b_given_a * p_a / p_b
 
 
 def expected_value(values, probs):
+    """Expected value."""
     return sum(v * p for v, p in zip(values, probs, strict=False))

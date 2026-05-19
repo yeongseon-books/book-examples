@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 2: Incremental indexer."""
+
 from __future__ import annotations
 
 import sys
@@ -17,6 +19,7 @@ from shared.ingestion_examples import (
 
 
 def main() -> None:
+    """Main."""
     workspace = Path("/tmp/document_ingestion_en_indexer")
     store = JsonStateStore(workspace / "state.json")
     doc_a = write_text(

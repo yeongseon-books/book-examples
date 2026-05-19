@@ -1,7 +1,10 @@
+"""Tests for 05 infrastructure as code in Devops 101."""
+
 from ko import _05_infrastructure_as_code as ep05
 
 
 def test_idempotent_reapply_produces_empty_diff(tmp_path) -> None:
+    """Test idempotent reapply produces empty diff."""
     state = tmp_path / "state.json"
     desired = [
         {"type": "Server", "name": "api", "size": "small"},

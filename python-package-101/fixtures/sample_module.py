@@ -1,3 +1,6 @@
+"""Python Package 101 - Sample module."""
+
+
 def add(a: int, b: int) -> int:
     """Add two integers.
 

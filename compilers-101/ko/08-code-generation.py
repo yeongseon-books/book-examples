@@ -1,3 +1,5 @@
+"""Compilers 101 - Episode 8: Code generation."""
+
 from __future__ import annotations
 
 from typing import TypeAlias
@@ -6,6 +8,7 @@ Bytecode: TypeAlias = tuple[str, str | int | None]
 
 
 def tac_to_stack_bytecode(tac: list[str], result_temp: str) -> list[Bytecode]:
+    """Tac to stack bytecode."""
     bytecode: list[Bytecode] = []
     for line in tac:
         lhs, rhs = [x.strip() for x in line.split("=", 1)]
@@ -25,6 +28,7 @@ def tac_to_stack_bytecode(tac: list[str], result_temp: str) -> list[Bytecode]:
 
 
 def run_bytecode(bytecode: list[Bytecode]) -> int:
+    """Run bytecode."""
     stack: list[int] = []
     env: dict[str, int] = {}
     for inst in bytecode:

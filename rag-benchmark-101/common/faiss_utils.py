@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Faiss utils."""
+
 from __future__ import annotations
 
 import time
@@ -7,6 +9,7 @@ import numpy as np
 
 
 def build_faiss_index(vectors: np.ndarray, factory: str):
+    """Build faiss index."""
     vectors32 = np.ascontiguousarray(vectors, dtype="float32")
     dimension = vectors32.shape[1]
     if factory == "Flat":
@@ -28,6 +31,7 @@ def build_faiss_index(vectors: np.ndarray, factory: str):
 def faiss_search(
     index, query_vectors: np.ndarray, doc_ids: list[str], limit: int
 ) -> tuple[list[list[str]], float]:
+    """Faiss search."""
     queries32 = np.ascontiguousarray(query_vectors, dtype="float32")
     started = time.perf_counter()
     _, indices = index.search(queries32, limit)

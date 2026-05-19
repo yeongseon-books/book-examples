@@ -1,3 +1,5 @@
+"""Frontend Development 101 - Episode 1: Ep01."""
+
 from __future__ import annotations
 
 from common import HTMLAnalyzer
@@ -6,6 +8,7 @@ HTML_SAMPLE = """<!doctype html><html lang="ko"><body><header><main><h1>Hi</h1><
 
 
 def run_demo() -> dict[str, object]:
+    """Run demo."""
     analyzer = HTMLAnalyzer(HTML_SAMPLE)
     return {
         "semantic_ok": analyzer.has_semantic_tags({"header", "main", "footer"}),

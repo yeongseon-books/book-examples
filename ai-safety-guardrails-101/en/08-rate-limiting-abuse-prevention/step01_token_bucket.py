@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Token bucket."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import TokenBucket
 
 
 def run(costs: list[int]) -> list[bool]:
+    """Run."""
     limiter = TokenBucket(capacity=5, refill_per_sec=0.0)
     return [limiter.allow(cost=c) for c in costs]
 

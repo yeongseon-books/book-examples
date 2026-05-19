@@ -9,6 +9,7 @@ from common import safe_calculate, search_knowledge
 
 
 def dispatch(tool: str, args: dict[str, str]) -> dict[str, object]:
+    """Dispatch."""
     if tool == "search":
         return {"success": True, "data": search_knowledge(args["query"])}
     if tool == "calculate":

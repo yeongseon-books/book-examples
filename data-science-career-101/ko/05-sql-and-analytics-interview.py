@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 5: Sql and analytics interview."""
+
 from __future__ import annotations
 
 import sqlite3
@@ -5,6 +7,7 @@ from typing import Any
 
 
 def build_connection() -> sqlite3.Connection:
+    """Build connection."""
     conn = sqlite3.connect(":memory:")
     cur = conn.cursor()
     cur.executescript(
@@ -58,6 +61,7 @@ def build_connection() -> sqlite3.Connection:
 
 
 def sql_questions() -> dict[str, str]:
+    """Sql questions."""
     return {
         "top_country_by_revenue": """
             SELECT u.country, SUM(o.amount) AS revenue
@@ -90,4 +94,5 @@ def sql_questions() -> dict[str, str]:
 
 
 def run_query(conn: sqlite3.Connection, query: str) -> list[tuple[Any, ...]]:
+    """Run query."""
     return conn.execute(query).fetchall()

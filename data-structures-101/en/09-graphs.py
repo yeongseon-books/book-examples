@@ -1,20 +1,26 @@
+"""Data Structures 101 - Episode 9: Graphs."""
+
 from __future__ import annotations
 
 from math import inf
 
 
 class Graph:
+    """Graph."""
+
     def __init__(self, directed: bool = False) -> None:
         self.directed = directed
         self.adj: dict[str, list[tuple[str, int]]] = {}
 
     def add_edge(self, u: str, v: str, w: int = 1) -> None:
+        """Add edge."""
         self.adj.setdefault(u, []).append((v, w))
         self.adj.setdefault(v, [])
         if not self.directed:
             self.adj[v].append((u, w))
 
     def bfs(self, start: str) -> list[str]:
+        """Bfs."""
         queue = [start]
         head = 0
         seen = {start}
@@ -30,6 +36,7 @@ class Graph:
         return out
 
     def dfs(self, start: str) -> list[str]:
+        """Dfs."""
         stack = [start]
         seen = set()
         out: list[str] = []
@@ -45,6 +52,7 @@ class Graph:
         return out
 
     def dijkstra(self, start: str) -> dict[str, int]:
+        """Dijkstra."""
         dist = {node: inf for node in self.adj}
         dist[start] = 0
         visited: set[str] = set()

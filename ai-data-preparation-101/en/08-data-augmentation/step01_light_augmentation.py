@@ -1,9 +1,12 @@
+"""Ai Data Preparation 101 - Episode 1: Light augmentation."""
+
 import random
 
 SYN = {"fast": "quick", "important": "critical", "quality": "reliability"}
 
 
 def augment(text: str, seed: int) -> str:
+    """Augment."""
     rng = random.Random(seed)
     out: list[str] = []
     for token in text.split():
@@ -15,6 +18,7 @@ def augment(text: str, seed: int) -> str:
 
 
 def run() -> dict[str, str]:
+    """Run."""
     src = "fast data preparation is important for model quality"
     aug = augment(src, seed=11)
     return {"source": src, "augmented": aug}

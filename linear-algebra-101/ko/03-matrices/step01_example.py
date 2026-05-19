@@ -1,7 +1,10 @@
+"""Linear Algebra 101 - Episode 1: Example."""
+
 import numpy as np
 
 
 def run():
+    """Run."""
     np.random.seed(0)
     a = np.array([[2.0, 1.0], [5.0, 3.0]])
     b = np.array([[1.0, 4.0], [2.0, 0.0]])

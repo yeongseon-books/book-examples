@@ -1,18 +1,27 @@
+"""Oop 101 - Episode 4: Inheritance."""
+
+
 class Employee:
+    """Employee."""
+
     def __init__(self, name: str, base_salary: int) -> None:
         self.name = name
         self.base_salary = base_salary
 
     def monthly_pay(self) -> int:
+        """Monthly pay."""
         return self.base_salary
 
 
 class SalesEmployee(Employee):
+    """Sales employee."""
+
     def __init__(self, name: str, base_salary: int, sales_bonus: int) -> None:
         super().__init__(name, base_salary)
         self.sales_bonus = sales_bonus
 
     def monthly_pay(self) -> int:
+        """Monthly pay."""
         return self.base_salary + self.sales_bonus
 
 

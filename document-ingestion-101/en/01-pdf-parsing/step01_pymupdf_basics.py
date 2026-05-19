@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 1: Pymupdf basics."""
+
 from __future__ import annotations
 
 import sys
@@ -11,6 +13,7 @@ from shared.ingestion_examples import extract_pdf_pages, make_demo_pdf
 
 
 def main() -> None:
+    """Main."""
     pdf_path = Path("/tmp/sample_en.pdf")
     make_demo_pdf(
         pdf_path,

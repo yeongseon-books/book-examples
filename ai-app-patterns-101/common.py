@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Ai App Patterns 101."""
+
 from __future__ import annotations
 
 import os
@@ -10,6 +12,7 @@ DEFAULT_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 
 def build_client() -> Groq:
+    """Build client."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY is not set.")
@@ -17,6 +20,7 @@ def build_client() -> Groq:
 
 
 def response_text(message: Any) -> str:
+    """Response text."""
     content = getattr(message, "content", "")
     if isinstance(content, str):
         return content.strip()
@@ -31,12 +35,15 @@ def response_text(message: Any) -> str:
 
 
 def print_section(title: str) -> None:
+    """Print section."""
     print(f"\n{'=' * 12} {title} {'=' * 12}")
 
 
 def as_messages(messages: list[dict[str, Any]]) -> Any:
+    """As messages."""
     return cast("Any", messages)
 
 
 def as_tools(tools: list[dict[str, Any]]) -> Any:
+    """As tools."""
     return cast("Any", tools)

@@ -1,13 +1,17 @@
+"""Computer Science Major 101 - Episode 6: Ai and data science."""
+
 import math
 
 
 def sigmoid(x: float) -> float:
+    """Sigmoid."""
     return 1.0 / (1.0 + math.exp(-x))
 
 
 def train_logistic_regression(
     features: list[list[float]], labels: list[int], lr: float = 0.1, epochs: int = 300
 ) -> tuple[list[float], float]:
+    """Train logistic regression."""
     weights = [0.0 for _ in features[0]]
     bias = 0.0
     sample_count = len(features)
@@ -28,6 +32,7 @@ def train_logistic_regression(
 
 
 def predict_probability(x: list[float], weights: list[float], bias: float) -> float:
+    """Predict probability."""
     return sigmoid(sum(w * xi for w, xi in zip(weights, x, strict=False)) + bias)
 
 

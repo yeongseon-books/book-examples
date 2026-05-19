@@ -1,9 +1,12 @@
+"""Tests for ep06 in Portfolio Project 101."""
+
 from pathlib import Path
 
 from ko.ep06_test_docs_coverage import generate_coverage_report
 
 
 def test_ep06_coverage_report(tmp_path: Path) -> None:
+    """Test ep06 coverage report."""
     (tmp_path / "m.py").write_text(
         '"""module"""\n\n\ndef a():\n    """d"""\n    return 1\n', encoding="utf-8"
     )

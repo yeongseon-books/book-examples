@@ -1,3 +1,5 @@
+"""Vector Search 101 - Episode 1: Indexflat search."""
+
 import faiss
 import numpy as np
 from numpy.typing import NDArray
@@ -17,6 +19,7 @@ CORPUS = [
 def build_index(
     model: SentenceTransformer, corpus: list[str]
 ) -> tuple[faiss.IndexFlatIP, NDArray[np.float32]]:
+    """Build index."""
     vectors = model.encode(
         corpus, normalize_embeddings=True, convert_to_numpy=True
     ).astype("float32")
@@ -31,6 +34,7 @@ def search(
     query: str,
     top_k: int = 3,
 ) -> list[tuple[int, float]]:
+    """Search."""
     query_vector = model.encode(
         [query], normalize_embeddings=True, convert_to_numpy=True
     ).astype("float32")
@@ -39,6 +43,7 @@ def search(
 
 
 def main() -> None:
+    """Main."""
     model = SentenceTransformer(MODEL_NAME)
     index, vectors = build_index(model, CORPUS)
 

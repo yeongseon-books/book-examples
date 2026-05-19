@@ -1,3 +1,5 @@
+"""Linux Cli 101 - Episode 1: Pipe redirect."""
+
 from __future__ import annotations
 
 import subprocess
@@ -6,6 +8,7 @@ from common import make_temp_workspace, run_cmd
 
 
 def run() -> dict[str, str | int]:
+    """Run."""
     ws = make_temp_workspace("ep06-")
     (ws / "log.txt").write_text("ok\nerror\nok\n", encoding="utf-8")
     p1 = subprocess.Popen(["cat", "log.txt"], cwd=ws, stdout=subprocess.PIPE, text=True)

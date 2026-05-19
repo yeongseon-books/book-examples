@@ -1,11 +1,15 @@
+"""Azure App Service 101 - Episode 1: Request lifecycle."""
+
 from __future__ import annotations
 
 
 def build_hops() -> list[str]:
+    """Build hops."""
     return ["client", "dns", "frontend", "worker", "app"]
 
 
 def diagnose_status(status_code: int, app_log_exists: bool) -> str:
+    """Diagnose status."""
     if status_code == 403:
         return "frontend_policy"
     if status_code == 502 and not app_log_exists:

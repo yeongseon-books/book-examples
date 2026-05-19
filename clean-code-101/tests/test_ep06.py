@@ -1,3 +1,5 @@
+"""Tests for ep06 in Clean Code 101."""
+
 import importlib.util
 from pathlib import Path
 
@@ -5,6 +7,7 @@ import pytest
 
 
 def load(path: str):
+    """Load."""
     module_path = Path(__file__).resolve().parent.parent / "ko" / path
     spec = importlib.util.spec_from_file_location(module_path.stem, module_path)
     assert spec is not None and spec.loader is not None
@@ -14,6 +17,7 @@ def load(path: str):
 
 
 def test_ep06_error_handling() -> None:
+    """Test ep06 error handling."""
     m = load("06-error-handling/step01_error_handling.py")
     ok = m.parse_int("42")
     bad = m.parse_int("x")

@@ -1,4 +1,8 @@
+"""Algorithms Python 101 - Episode 1: Greedy."""
+
+
 def activity_selection(activities: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """Activity selection."""
     sorted_acts = sorted(activities, key=lambda x: x[1])
     selected: list[tuple[int, int]] = []
     last_end = 0

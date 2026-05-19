@@ -1,3 +1,5 @@
+"""Tests for ep10 in Cloud Computing 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -12,6 +14,7 @@ fn = cast("Callable[..., object]", mod.well_architected_review)
 
 
 def test_ep10_behavior() -> None:
+    """Test ep10 behavior."""
     result_obj = fn(
         scores={
             "operational_excellence": 80,

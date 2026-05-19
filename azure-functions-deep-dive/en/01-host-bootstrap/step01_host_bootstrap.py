@@ -9,6 +9,7 @@ from common import AZ_CLI_SAMPLE, parse_host_json
 
 
 def run() -> dict[str, object]:
+    """Run."""
     host_json = {"functionTimeout": "00:05:00"}
     env = {
         "AzureFunctionsJobHost__functionTimeout": "00:02:00",

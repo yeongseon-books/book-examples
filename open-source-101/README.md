@@ -11,3 +11,11 @@ open-source-101 시리즈(EP01-EP10)용 오프라인 실행 예제 모음입니�
 ```bash
 python -m pytest -q
 ```
+
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```

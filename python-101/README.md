@@ -2,6 +2,14 @@
 
 `python-101` 시리즈의 에피소드별 실행 가능한 예제 코드 모음입니다.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

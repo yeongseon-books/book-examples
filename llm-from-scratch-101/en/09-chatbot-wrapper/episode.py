@@ -1,3 +1,5 @@
+"""Llm From Scratch 101 - Episode."""
+
 from common import CharTokenizer
 
 tok = CharTokenizer("User: Hello\nBot: Hi\n")

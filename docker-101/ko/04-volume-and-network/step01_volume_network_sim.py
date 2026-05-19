@@ -1,3 +1,5 @@
+"""Docker 101 - Episode 1: Volume network sim."""
+
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
@@ -6,6 +8,7 @@ from __future__ import annotations
 
 
 def run() -> dict[str, object]:
+    """Run."""
     named_volume_persists = True
     bridge_dns = {"api": "10.10.0.2", "db": "10.10.0.3"}
     can_resolve_db = "db" in bridge_dns

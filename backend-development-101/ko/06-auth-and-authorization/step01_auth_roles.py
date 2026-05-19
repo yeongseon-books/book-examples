@@ -12,15 +12,19 @@ from common import bearer_user, make_auth_token
 
 
 class LoginIn(BaseModel):
+    """Login in."""
+
     username: str
     password: str
 
 
 def build_app(secret: str = "dev-secret") -> FastAPI:
+    """Build app."""
     app = FastAPI()
 
     @app.post("/login")
     def login(payload: LoginIn):
+        """Login."""
         if payload.password != "pw123":
             raise HTTPException(status_code=401, detail="invalid credentials")
         token = make_auth_token(payload.username, secret)
@@ -28,10 +32,12 @@ def build_app(secret: str = "dev-secret") -> FastAPI:
 
     @app.get("/me")
     def me(user: dict[str, str] = Depends(bearer_user(secret))):
+        """Me."""
         return {"username": user["username"], "role": user["role"]}
 
     @app.delete("/admin/users/{user_id}")
     def delete_user(user_id: int, user: dict[str, str] = Depends(bearer_user(secret))):
+        """Delete user."""
         if user["role"] != "admin":
             raise HTTPException(status_code=403, detail="forbidden")
         return {"deleted": user_id}

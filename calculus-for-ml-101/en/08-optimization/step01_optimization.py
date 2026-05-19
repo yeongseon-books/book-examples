@@ -1,9 +1,12 @@
+"""Calculus For Ml 101 - Episode 1: Optimization."""
+
 import math
 
 
 def momentum_step(
     w: float, v: float, g: float, lr: float = 0.1, beta: float = 0.9
 ) -> tuple[float, float]:
+    """Momentum step."""
     v = beta * v + g
     return w - lr * v, v
 
@@ -19,6 +22,7 @@ def adam_step(
     b2: float = 0.999,
     eps: float = 1e-8,
 ) -> tuple[float, float, float]:
+    """Adam step."""
     m = b1 * m + (1 - b1) * g
     v = b2 * v + (1 - b2) * g * g
     mh = m / (1 - b1**t)
@@ -27,10 +31,12 @@ def adam_step(
 
 
 def cosine_lr(step: int, total: int, lr0: float = 0.1) -> float:
+    """Cosine lr."""
     return 0.5 * lr0 * (1 + math.cos(math.pi * step / total))
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     w, m, v = 2.0, 0.0, 0.0
     target = 0.0
     for t in range(1, 121):

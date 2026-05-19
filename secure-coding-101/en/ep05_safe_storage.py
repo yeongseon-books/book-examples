@@ -1,3 +1,5 @@
+"""Secure Coding 101 - Episode 5: Safe storage."""
+
 import base64
 import hashlib
 import hmac
@@ -12,10 +14,12 @@ except Exception:
 
 
 def insecure_store(secret_text: str) -> str:
+    """Insecure store."""
     return secret_text
 
 
 def safe_store(secret_text: str, key: bytes) -> str:
+    """Safe store."""
     if Fernet is not None:
         token = Fernet(key).encrypt(secret_text.encode())
         return token.decode()
@@ -26,6 +30,7 @@ def safe_store(secret_text: str, key: bytes) -> str:
 
 
 def run_demo():
+    """Run demo."""
     insecure_detected = insecure_store("db-password") == "db-password"
     if Fernet is not None:
         key = Fernet.generate_key()

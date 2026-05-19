@@ -1,3 +1,5 @@
+"""Rag Deep Dive - Episode 6: Evaluation."""
+
 from __future__ import annotations
 
 import json
@@ -7,18 +9,22 @@ from ko.ep05_rag_chain import run_chain
 
 
 def exact_match(pred: str, gold: str) -> float:
+    """Exact match."""
     return 1.0 if pred.strip().lower() == gold.strip().lower() else 0.0
 
 
 def containment(pred: str, gold: str) -> float:
+    """Containment."""
     return 1.0 if gold.strip().lower() in pred.strip().lower() else 0.0
 
 
 def hit_at_k(retrieved: list[str], source: str, k: int = 3) -> float:
+    """Hit at k."""
     return 1.0 if source in retrieved[:k] else 0.0
 
 
 def reciprocal_rank(retrieved: list[str], source: str) -> float:
+    """Reciprocal rank."""
     for i, x in enumerate(retrieved, start=1):
         if x == source:
             return 1.0 / i
@@ -28,6 +34,7 @@ def reciprocal_rank(retrieved: list[str], source: str) -> float:
 def evaluate(
     fixtures_dir: str = "fixtures", threshold: float = 0.66
 ) -> dict[str, float | bool]:
+    """Evaluate."""
     qa = json.loads(Path(fixtures_dir, "qa.json").read_text(encoding="utf-8"))
     em = cont = h3 = mrr = 0.0
     n = len(qa)

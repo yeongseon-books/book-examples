@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 1: Rate limiters."""
+
 import os
 import threading
 import time
@@ -7,6 +9,8 @@ from groq import Groq
 
 
 class TokenBucket:
+    """Token bucket."""
+
     def __init__(self, capacity: int, refill_rate: float) -> None:
         self._capacity = capacity
         self._tokens = float(capacity)
@@ -15,12 +19,14 @@ class TokenBucket:
         self._lock = threading.Lock()
 
     def _refill(self) -> None:
+        """Refill."""
         now = time.monotonic()
         elapsed = now - self._last_refill
         self._tokens = min(self._capacity, self._tokens + elapsed * self._rate)
         self._last_refill = now
 
     def acquire(self, tokens: int = 1, timeout: float = 5.0) -> bool:
+        """Acquire."""
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             with self._lock:
@@ -33,6 +39,8 @@ class TokenBucket:
 
 
 class SlidingWindowLimiter:
+    """Sliding window limiter."""
+
     def __init__(self, max_requests: int, window_seconds: float) -> None:
         self._max = max_requests
         self._window = window_seconds
@@ -40,6 +48,7 @@ class SlidingWindowLimiter:
         self._lock = threading.Lock()
 
     def acquire(self) -> bool:
+        """Acquire."""
         now = time.monotonic()
         with self._lock:
             cutoff = now - self._window
@@ -52,6 +61,7 @@ class SlidingWindowLimiter:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     bucket = TokenBucket(capacity=5, refill_rate=2.0)
 

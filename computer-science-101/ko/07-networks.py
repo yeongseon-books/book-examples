@@ -4,24 +4,29 @@ from collections import deque
 
 
 class Router:
+    """Router."""
+
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
         self.queue: deque[str] = deque()
         self.dropped = 0
 
     def receive(self, packet: str) -> None:
+        """Receive."""
         if len(self.queue) >= self.capacity:
             self.dropped += 1
         else:
             self.queue.append(packet)
 
     def forward_one(self) -> str | None:
+        """Forward one."""
         if self.queue:
             return self.queue.popleft()
         return None
 
 
 def simulate_line(packet_count: int, capacity: int, ticks: int) -> tuple[int, int]:
+    """Simulate line."""
     r1 = Router(capacity)
     r2 = Router(capacity)
     delivered = 0

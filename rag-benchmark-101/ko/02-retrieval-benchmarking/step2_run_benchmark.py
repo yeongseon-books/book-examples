@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 2: Run benchmark."""
+
 from __future__ import annotations
 
 import json
@@ -14,6 +16,7 @@ from ko.shared import CORPUS, QUERIES
 
 
 def main() -> None:
+    """Main."""
     print("검색 벤치마크 실행")
     doc_ids = [doc["id"] for doc in CORPUS]
     doc_texts = [doc["text"] for doc in CORPUS]
@@ -22,6 +25,7 @@ def main() -> None:
     )
 
     def search(query: str, limit: int) -> list[str]:
+        """Search."""
         query_vector = build_embeddings(
             [query], "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
         )[0]

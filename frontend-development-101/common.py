@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Frontend Development 101."""
+
 from __future__ import annotations
 
 import json
@@ -8,25 +10,32 @@ from html.parser import HTMLParser
 
 
 class _TagCollector(HTMLParser):
+    """Tag collector."""
+
     def __init__(self) -> None:
         super().__init__()
         self.tags: list[dict[str, object]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        """Handle starttag."""
         self.tags.append({"tag": tag, "attrs": dict(attrs)})
 
 
 class HTMLAnalyzer:
+    """HTML analyzer."""
+
     def __init__(self, html: str) -> None:
         collector = _TagCollector()
         collector.feed(html)
         self.tags = collector.tags
 
     def has_semantic_tags(self, required: set[str]) -> bool:
+        """Has semantic tags."""
         seen = {item["tag"] for item in self.tags}
         return required.issubset(seen)
 
     def missing_alt_images(self) -> int:
+        """Missing alt images."""
         count = 0
         for item in self.tags:
             if item["tag"] == "img":
@@ -37,6 +46,7 @@ class HTMLAnalyzer:
         return count
 
     def aria_issues(self) -> int:
+        """Aria issues."""
         issues = 0
         for item in self.tags:
             if item["tag"] in {"input", "button", "select", "textarea"}:
@@ -48,6 +58,8 @@ class HTMLAnalyzer:
 
 
 class CSSAnalyzer:
+    """CSS analyzer."""
+
     RULE_RE = re.compile(r"([^{}]+)\{([^{}]+)\}")
 
     def __init__(self, css: str) -> None:
@@ -55,6 +67,7 @@ class CSSAnalyzer:
         self.rules = self.RULE_RE.findall(css)
 
     def selector_specificity(self, selector: str) -> tuple[int, int, int]:
+        """Selector specificity."""
         a = selector.count("#")
         b = selector.count(".") + selector.count("[")
         c = sum(
@@ -63,6 +76,7 @@ class CSSAnalyzer:
         return a, b, c
 
     def unused_selectors(self, html: str) -> list[str]:
+        """Unused selectors."""
         analyzer = HTMLAnalyzer(html)
         classes = set()
         ids = set()
@@ -90,6 +104,7 @@ class CSSAnalyzer:
         return unused
 
     def enforce_tokens(self, token_prefix: str = "--color-") -> list[str]:
+        """Enforce tokens."""
         violations = []
         for _, body in self.rules:
             for line in body.split(";"):
@@ -101,10 +116,13 @@ class CSSAnalyzer:
 
 
 class JSAnalyzer:
+    """JS analyzer."""
+
     def __init__(self, js: str) -> None:
         self.js = js
 
     def declaration_counts(self) -> dict[str, int]:
+        """Declaration counts."""
         return {
             "var": len(re.findall(r"\bvar\b", self.js)),
             "let": len(re.findall(r"\blet\b", self.js)),
@@ -112,6 +130,7 @@ class JSAnalyzer:
         }
 
     def async_patterns(self) -> dict[str, int]:
+        """Async patterns."""
         return {
             "async": len(re.findall(r"\basync\b", self.js)),
             "await": len(re.findall(r"\bawait\b", self.js)),
@@ -119,29 +138,37 @@ class JSAnalyzer:
         }
 
     def component_names(self) -> list[str]:
+        """Component names."""
         names = re.findall(r"function\s+([A-Z][A-Za-z0-9_]*)", self.js)
         return names
 
 
 @dataclass
 class ComponentSim:
+    """Component sim."""
+
     props: dict[str, object]
     state: dict[str, object]
     renderer: Callable[[dict[str, object], dict[str, object]], str]
 
     def set_state(self, updates: dict[str, object]) -> None:
+        """Set state."""
         self.state.update(updates)
 
     def render(self) -> str:
+        """Render."""
         return self.renderer(self.props, self.state)
 
 
 @dataclass
 class RouterSim:
+    """Router sim."""
+
     routes: dict[str, Callable[[dict[str, str]], str]]
     history: list[str] = field(default_factory=list)
 
     def navigate(self, path: str) -> str:
+        """Navigate."""
         self.history.append(path)
         for pattern, handler in self.routes.items():
             if ":" not in pattern and pattern == path:
@@ -167,9 +194,12 @@ class RouterSim:
 
 @dataclass
 class MockFetch:
+    """Mock fetch."""
+
     responses: dict[str, dict[str, object]]
 
     def get(self, url: str) -> dict[str, object]:
+        """Get."""
         if url not in self.responses:
             raise KeyError(url)
         return self.responses[url]
@@ -177,22 +207,29 @@ class MockFetch:
 
 @dataclass
 class FormValidator:
+    """Form validator."""
+
     def validate_email(self, value: str) -> str | None:
+        """Validate email."""
         if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", value):
             return "invalid email"
         return None
 
     def validate_password(self, value: str) -> str | None:
+        """Validate password."""
         if len(value) < 8:
             return "password too short"
         return None
 
 
 class DesignTokenChecker:
+    """Design token checker."""
+
     def __init__(self, token_json: str) -> None:
         self.tokens = json.loads(token_json)
 
     def require_keys(self, keys: list[str]) -> list[str]:
+        """Require keys."""
         missing = []
         for key in keys:
             if key not in self.tokens:
@@ -201,11 +238,16 @@ class DesignTokenChecker:
 
 
 class BundleSimulator:
+    """Bundle simulator."""
+
     def concat(self, files: list[str]) -> str:
+        """Concat."""
         return "\n".join(files)
 
     def minify(self, content: str) -> str:
+        """Minify."""
         return re.sub(r"\s+", " ", content).strip()
 
     def estimate_size(self, content: str) -> int:
+        """Estimate size."""
         return len(content.encode("utf-8"))

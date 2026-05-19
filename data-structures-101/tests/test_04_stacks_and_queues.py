@@ -1,7 +1,10 @@
+"""Tests for 04 stacks and queues in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_stack_queue_and_use_cases():
+    """Test stack queue and use cases."""
     mod = load_module("ko/04-stacks-and-queues.py")
     s = mod.ArrayStack()
     s.push("a")

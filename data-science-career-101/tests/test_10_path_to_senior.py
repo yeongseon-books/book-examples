@@ -1,3 +1,5 @@
+"""Tests for 10 path to senior in Data Science Career 101."""
+
 from __future__ import annotations
 
 from .conftest import load_module
@@ -6,6 +8,7 @@ mod = load_module("ko/10-path-to-senior.py")
 
 
 def test_senior_readiness_flags_gaps() -> None:
+    """Test senior readiness flags gaps."""
     result = mod.assess_senior_readiness(
         {
             "technical_depth": 4.2,

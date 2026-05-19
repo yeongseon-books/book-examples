@@ -1,7 +1,10 @@
+"""Data Structures 101 - Episode 10: Choosing data structures."""
+
 from __future__ import annotations
 
 
 def recommend_structure(profile: dict[str, object]) -> tuple[str, str]:
+    """Recommend structure."""
     random_access = bool(profile.get("random_access", False))
     frequent_insert = bool(profile.get("frequent_insert", False))
     key_lookup = bool(profile.get("key_lookup", False))
@@ -22,6 +25,7 @@ def recommend_structure(profile: dict[str, object]) -> tuple[str, str]:
 
 
 def run_workload(structure: str, n: int = 1000) -> dict[str, int]:
+    """Run workload."""
     ops = 0
     if structure == "dynamic_array":
         data: list[int] = []
@@ -34,6 +38,8 @@ def run_workload(structure: str, n: int = 1000) -> dict[str, int]:
     elif structure == "linked_list":
 
         class Node:
+            """Node."""
+
             def __init__(self, value: int, next: Node | None = None) -> None:
                 self.value = value
                 self.next = next

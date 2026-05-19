@@ -17,6 +17,14 @@ stdlib sqlite3 + 순수 Python으로 데이터베이스 핵심 개념을 실행 
 - `en/`에는 동일 로직의 영어 주석 버전이 있습니다.
 - `tests/`에는 에피소드별 동작 검증 테스트가 있습니다.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

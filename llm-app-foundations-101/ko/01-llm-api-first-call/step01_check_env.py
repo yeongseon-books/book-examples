@@ -12,6 +12,7 @@ import os
 
 
 def main() -> None:
+    """Main."""
     api_key = os.environ["GROQ_API_KEY"]
     print(f"API 키를 불러왔습니다: {api_key[:6]}...")
     print("환경변수 설정 확인 완료.")

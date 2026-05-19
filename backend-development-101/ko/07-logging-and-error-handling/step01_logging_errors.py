@@ -14,12 +14,14 @@ log = logging.getLogger("backend101")
 
 
 def build_app() -> FastAPI:
+    """Build app."""
     app = FastAPI()
     request_id_middleware(app)
     domain_error_handlers(app)
 
     @app.get("/orders/{amount}")
     def create_order(amount: int):
+        """Create order."""
         if amount <= 0:
             raise app.state.DomainError("INVALID_AMOUNT", "amount must be positive")
         log.info("order accepted amount=%s", amount)

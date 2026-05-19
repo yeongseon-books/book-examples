@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Retrieval."""
+
 from __future__ import annotations
 
 from collections import defaultdict
@@ -10,6 +12,7 @@ from common.models import QueryGroundTruth, RetrievalMetrics
 def compute_retrieval_metrics(
     retrieved_ids: list[str], relevant_ids: set[str], k: int
 ) -> RetrievalMetrics:
+    """Compute retrieval metrics."""
     top_k = retrieved_ids[:k]
     hits = [doc_id for doc_id in top_k if doc_id in relevant_ids]
     precision = len(hits) / k if k else 0.0
@@ -30,6 +33,7 @@ def run_retrieval_benchmark(
     search_fn: Callable[[str, int], list[str]],
     k_values: list[int],
 ) -> dict[str, object]:
+    """Run retrieval benchmark."""
     per_query: list[dict[str, Any]] = []
     per_topic: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
@@ -43,6 +47,7 @@ def run_retrieval_benchmark(
         per_topic[case.topic].append(row)
 
     def average(rows: list[dict[str, Any]], key: str) -> float:
+        """Average."""
         values = [
             float(value)
             for row in rows

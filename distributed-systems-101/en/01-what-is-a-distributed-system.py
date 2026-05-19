@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 1: What is a distributed system."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,6 +11,7 @@ from en.common import FakeNetwork, SimulatedClock
 
 def run_demo() -> dict[str, object]:
     # Distributed calls always include latency and partial failure.
+    """Run demo."""
     clock = SimulatedClock()
     net = FakeNetwork(clock, seed=1, drop_rate=0.0, min_latency=2, max_latency=2)
     ok = net.send("client", "service", {"op": "ping"})

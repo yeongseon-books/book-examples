@@ -1,7 +1,10 @@
+"""Computer Science Major 101 - Episode 1: What cs majors learn."""
+
 from collections import deque
 
 
 def topological_curriculum_order(prerequisites: dict[str, list[str]]) -> list[str]:
+    """Topological curriculum order."""
     indegree: dict[str, int] = {node: 0 for node in prerequisites}
     graph: dict[str, list[str]] = {node: [] for node in prerequisites}
     for course, needs in prerequisites.items():

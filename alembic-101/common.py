@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Alembic 101."""
+
 # pyright: reportUnusedCallResult=false, reportAny=false, reportExplicitAny=false
 from __future__ import annotations
 
@@ -10,10 +12,12 @@ from sqlalchemy.engine import Engine
 
 
 def make_memory_engine(echo: bool = False) -> Engine:
+    """Make memory engine."""
     return create_engine("sqlite+pysqlite:///:memory:", echo=echo, future=True)
 
 
 def temp_alembic_tree() -> Path:
+    """Temp alembic tree."""
     base = Path(tempfile.mkdtemp(prefix="alembic101_"))
     (base / "alembic" / "versions").mkdir(parents=True, exist_ok=True)
     (base / "alembic.ini").write_text(
@@ -23,6 +27,7 @@ def temp_alembic_tree() -> Path:
 
 
 def ensure_version_table(engine: Engine, version: str = "base") -> None:
+    """Ensure version table."""
     with engine.begin() as conn:
         conn.execute(
             text(
@@ -36,6 +41,7 @@ def ensure_version_table(engine: Engine, version: str = "base") -> None:
 
 
 def get_version(engine: Engine) -> str:
+    """Get version."""
     with engine.connect() as conn:
         value = conn.execute(
             text("SELECT version_num FROM alembic_version")
@@ -44,6 +50,7 @@ def get_version(engine: Engine) -> str:
 
 
 def rows_count(engine: Engine, table_name: str) -> int:
+    """Rows count."""
     with engine.connect() as conn:
         return int(
             conn.execute(text(f"SELECT COUNT(*) FROM {table_name}")).scalar_one()
@@ -51,8 +58,10 @@ def rows_count(engine: Engine, table_name: str) -> int:
 
 
 def to_sqlite_url(path: Path) -> str:
+    """To sqlite url."""
     return f"sqlite:///{path}"
 
 
 def as_bool(value: Any) -> bool:
+    """As bool."""
     return str(value).lower() in {"1", "true", "yes", "on"}

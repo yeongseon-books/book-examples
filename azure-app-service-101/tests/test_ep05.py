@@ -1,3 +1,5 @@
+"""Tests for ep05 in Azure App Service 101."""
+
 from __future__ import annotations
 
 import os
@@ -8,6 +10,7 @@ from conftest import load_module
 
 
 def test_configuration_patterns() -> None:
+    """Test configuration patterns."""
     mod = load_module("ko/05-configuration/step01_configuration_patterns.py", "ep05")
     require_env = cast("Any", mod.require_env)
     key_vault_reference = cast("Any", mod.key_vault_reference)

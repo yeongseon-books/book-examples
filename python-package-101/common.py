@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Python Package 101."""
+
 from __future__ import annotations
 
 import ast
@@ -28,6 +30,7 @@ PEP508_RE = re.compile(
 def ep01_detect_package_vs_module(
     target: str, root: Path | None = None
 ) -> dict[str, Any]:
+    """Ep01 detect package vs module."""
     base = root or Path.cwd()
     package_init = base / target / "__init__.py"
     module_py = base / f"{target}.py"
@@ -46,6 +49,7 @@ def ep01_detect_package_vs_module(
 
 
 def ep02_validate_project_structure(project_root: Path) -> dict[str, Any]:
+    """Ep02 validate project structure."""
     has_src_layout = (project_root / "src").exists() and any(
         (project_root / "src").iterdir()
     )
@@ -57,6 +61,7 @@ def ep02_validate_project_structure(project_root: Path) -> dict[str, Any]:
 
 
 def ep03_parse_dependencies(pyproject_path: Path) -> list[dict[str, Any]]:
+    """Ep03 parse dependencies."""
     data = tomllib.loads(pyproject_path.read_text(encoding="utf-8"))
     deps = data.get("project", {}).get("dependencies", [])
     parsed: list[dict[str, Any]] = []
@@ -81,6 +86,7 @@ def ep03_parse_dependencies(pyproject_path: Path) -> list[dict[str, Any]]:
 
 
 def _build_fixture_package(root: Path) -> None:
+    """Build fixture package."""
     pkg = root / "demo_pkg"
     src = pkg / "src" / "demo_pkg"
     src.mkdir(parents=True, exist_ok=True)
@@ -102,6 +108,7 @@ description = "tiny demo package"
 
 
 def ep04_run_build_helper(work_root: Path | None = None) -> dict[str, Any]:
+    """Ep04 run build helper."""
     root = work_root or Path(tempfile.mkdtemp(prefix="ep04-build-"))
     _build_fixture_package(root)
     pkg = root / "demo_pkg"
@@ -141,6 +148,7 @@ REQUIRED_META = ["name", "version", "description", "license", "classifiers"]
 
 
 def ep05_validate_metadata(pyproject_path: Path) -> dict[str, Any]:
+    """Ep05 validate metadata."""
     data = tomllib.loads(pyproject_path.read_text(encoding="utf-8"))
     project = data.get("project", {})
     missing = [k for k in REQUIRED_META if k not in project]
@@ -153,6 +161,8 @@ def ep05_validate_metadata(pyproject_path: Path) -> dict[str, Any]:
 
 @dataclass(frozen=True)
 class SemVer:
+    """Sem ver."""
+
     major: int
     minor: int
     patch: int
@@ -160,6 +170,7 @@ class SemVer:
 
     @classmethod
     def parse(cls, value: str) -> SemVer:
+        """Parse."""
         m = re.match(r"^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?$", value)
         if not m:
             raise ValueError(f"invalid semver: {value}")
@@ -167,6 +178,7 @@ class SemVer:
         return cls(int(major), int(minor), int(patch), prerelease)
 
     def bump(self, part: str, prerelease: str | None = None) -> SemVer:
+        """Bump."""
         if part == "major":
             return SemVer(self.major + 1, 0, 0, prerelease)
         if part == "minor":
@@ -176,15 +188,18 @@ class SemVer:
         raise ValueError("part must be major/minor/patch")
 
     def __str__(self) -> str:
+        """Str."""
         base = f"{self.major}.{self.minor}.{self.patch}"
         return f"{base}-{self.prerelease}" if self.prerelease else base
 
 
 def ep06_bump_version(version: str, part: str, prerelease: str | None = None) -> str:
+    """Ep06 bump version."""
     return str(SemVer.parse(version).bump(part, prerelease=prerelease))
 
 
 def ep07_run_cli(args: list[str]) -> tuple[int, str]:
+    """Ep07 run cli."""
     parser_src = (
         "import argparse\n"
         "p=argparse.ArgumentParser()\n"
@@ -205,6 +220,7 @@ def ep07_run_cli(args: list[str]) -> tuple[int, str]:
 
 
 def ep08_count_annotations(module_path: Path) -> dict[str, Any]:
+    """Ep08 count annotations."""
     if shutil.which("mypy"):
         proc = subprocess.run(
             ["mypy", str(module_path)], capture_output=True, text=True, check=False
@@ -230,6 +246,7 @@ def ep08_count_annotations(module_path: Path) -> dict[str, Any]:
 
 
 def ep09_extract_docstrings(module_path: Path) -> dict[str, Any]:
+    """Ep09 extract docstrings."""
     tree = ast.parse(module_path.read_text(encoding="utf-8"))
     docs: list[dict[str, Any]] = []
     for node in ast.walk(tree):
@@ -254,6 +271,7 @@ def ep09_extract_docstrings(module_path: Path) -> dict[str, Any]:
 def ep10_generate_template(
     target_dir: Path, project_name: str = "sample_pkg"
 ) -> dict[str, Any]:
+    """Ep10 generate template."""
     root = target_dir / project_name
     (root / "src" / project_name).mkdir(parents=True, exist_ok=True)
     (root / "tests").mkdir(parents=True, exist_ok=True)

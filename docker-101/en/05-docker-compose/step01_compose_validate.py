@@ -1,3 +1,5 @@
+"""Docker 101 - Episode 1: Compose validate."""
+
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
@@ -7,6 +9,7 @@ from common import ComposeValidator
 
 
 def run() -> dict[str, object]:
+    """Run."""
     compose_yaml = """services:
   web:
     build: .

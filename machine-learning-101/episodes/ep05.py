@@ -1,9 +1,12 @@
+"""Machine Learning 101 - Episode 5."""
+
 from common import make_clf_dataset
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 
 
 def run() -> dict[str, float]:
+    """Run."""
     x, y = make_clf_dataset(class_sep=1.8)
     model = LogisticRegression(max_iter=1000, random_state=42).fit(x, y)
     pred = model.predict(x)

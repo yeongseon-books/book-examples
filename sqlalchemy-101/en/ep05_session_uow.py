@@ -1,9 +1,12 @@
+"""Sqlalchemy 101 - Episode 5: Session uow."""
+
 from common import User, create_schema, sync_engine
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 
 def run() -> tuple[int, bool]:
+    """Run."""
     engine = sync_engine()
     create_schema(engine)
     with Session(engine) as session:

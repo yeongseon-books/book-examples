@@ -9,6 +9,14 @@ stdlib sqlite3로 데이터 웨어하우스 핵심 개념(스타 스키마, ETL,
 - `common.py`: 공통 sqlite3 스키마/시드/타이밍 유틸리티
 - `tests/`: 에피소드별 행동 테스트
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

@@ -1,9 +1,12 @@
+"""Software Engineering 101 - Episode 10: Quality."""
+
 from __future__ import annotations
 
 from common import python_functions_with_docstrings, readability_score, todo_count
 
 
 def combined_quality_report(code_text: str) -> dict[str, float]:
+    """Combined quality report."""
     total, documented = python_functions_with_docstrings(code_text)
     doc_cov = 0.0 if total == 0 else documented / total
     debt = todo_count(code_text)

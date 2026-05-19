@@ -1,7 +1,10 @@
+"""Tests for ep05 in Sql 101."""
+
 from en.ep05_group_by import run_demo
 
 
 def test_ep05_group_by_aggregations_having():
+    """Test ep05 group by aggregations having."""
     rows = run_demo()
     assert rows[0]["employee_id"] == 2
     assert rows[0]["total_amount"] == 850

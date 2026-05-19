@@ -1,3 +1,5 @@
+"""Computer Networks 101 - Episode 5: Http and https."""
+
 # English mirror of the corresponding episode demo
 import http.client
 import http.server
@@ -8,6 +10,7 @@ from typing import cast
 
 
 def parse_http_request(raw: str) -> dict[str, object]:
+    """Parse http request."""
     head, body = raw.split("\r\n\r\n", 1)
     lines = head.split("\r\n")
     method, path, version = lines[0].split(" ")
@@ -27,6 +30,7 @@ def parse_http_request(raw: str) -> dict[str, object]:
 def build_http_response(
     status: int, body: str, content_type: str = "text/plain"
 ) -> bytes:
+    """Build http response."""
     payload = body.encode()
     lines = [
         f"HTTP/1.1 {status} OK",
@@ -40,7 +44,10 @@ def build_http_response(
 
 
 class DemoHandler(http.server.BaseHTTPRequestHandler):
+    """Demo handler."""
+
     def do_GET(self) -> None:
+        """Do  g e t."""
         payload = json.dumps({"path": self.path, "secure": False}).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
@@ -50,6 +57,7 @@ class DemoHandler(http.server.BaseHTTPRequestHandler):
 
 
 def run_local_http_demo() -> dict[str, object]:
+    """Run local http demo."""
     with socketserver.TCPServer(("127.0.0.1", 0), DemoHandler) as server:
         port = server.server_address[1]
         thread = threading.Thread(target=server.handle_request, daemon=True)

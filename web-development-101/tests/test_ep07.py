@@ -1,9 +1,12 @@
+"""Tests for ep07 in Web Development 101."""
+
 from pathlib import Path
 
 from en.ep07_db_connection import run
 
 
 def test_ep07_sqlite_crud(tmp_path):
+    """Test ep07 sqlite crud."""
     db_path = str(Path(tmp_path) / "ep07.db")
     app = run(db_path)
     c = app.test_client()

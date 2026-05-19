@@ -1,9 +1,12 @@
+"""Tests for ep08 in Operating Systems 101."""
+
 from typing import Any, cast
 
 from common import ep08_in_memory_fs
 
 
 def test_ep08_in_memory_and_tempfile_demo():
+    """Test ep08 in memory and tempfile demo."""
     out = cast("dict[str, Any]", ep08_in_memory_fs())
     assert "docs" in out["listing"]
     assert out["note"] == "os101"

@@ -1,8 +1,11 @@
+"""Tests for 09 sets and set operations in Data Structures Python 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     spec = importlib.util.spec_from_file_location("mod", path)
     mod = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
@@ -14,6 +17,7 @@ M = load(str(Path(__file__).resolve().parents[1] / "ko/09-sets-and-set-operation
 
 
 def test_set_ops_and_ordered_unique():
+    """Test set ops and ordered unique."""
     ops = M.set_operations({1, 2, 3, 4}, {3, 4, 5})
     assert ops["union"] == {1, 2, 3, 4, 5}
     assert ops["intersection"] == {3, 4}
@@ -23,5 +27,6 @@ def test_set_ops_and_ordered_unique():
 
 
 def test_set_membership_faster_than_list():
+    """Test set membership faster than list."""
     bench = M.membership_benchmark()
     assert bench["set_in"] < bench["list_in"]

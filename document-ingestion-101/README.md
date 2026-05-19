@@ -4,6 +4,14 @@
 
 This repository contains runnable examples for the Document Ingestion 101 series.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## Structure
 
 ```text

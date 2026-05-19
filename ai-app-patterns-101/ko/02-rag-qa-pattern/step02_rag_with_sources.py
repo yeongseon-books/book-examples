@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 2: Rag with sources."""
+
 from __future__ import annotations
 
 from common import (
@@ -26,6 +28,7 @@ DOCUMENTS = [
 
 
 def run_rag_with_sources() -> None:
+    """Run rag with sources."""
     client = build_client()
     store = SimpleVectorStore(DOCUMENTS)
     question = "운영 중인 RAG 서비스에서 출처 표기가 왜 중요한가요?"

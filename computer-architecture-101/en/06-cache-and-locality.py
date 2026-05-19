@@ -1,9 +1,13 @@
+"""Computer Architecture 101 - Episode 6: Cache and locality."""
+
 from __future__ import annotations
 
 import random
 
 
 class DirectMappedCache:
+    """Direct mapped cache."""
+
     def __init__(self, lines: int = 8, line_size: int = 4) -> None:
         self.lines: int = lines
         self.line_size: int = line_size
@@ -12,6 +16,7 @@ class DirectMappedCache:
         self.misses: int = 0
 
     def access(self, address: int) -> bool:
+        """Access."""
         block = address // self.line_size
         index = block % self.lines
         tag = block // self.lines
@@ -23,11 +28,13 @@ class DirectMappedCache:
         return False
 
     def hit_rate(self) -> float:
+        """Hit rate."""
         total = self.hits + self.misses
         return self.hits / total if total else 0.0
 
 
 def compare_locality(seed: int = 7) -> tuple[float, float]:
+    """Compare locality."""
     seq_cache = DirectMappedCache()
     for i in range(256):
         _ = seq_cache.access(i)

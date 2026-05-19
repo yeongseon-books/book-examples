@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 2: Sentiment branch graph."""
+
 from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
@@ -5,6 +7,8 @@ from typing_extensions import TypedDict
 
 
 class ReviewState(TypedDict):
+    """Review state."""
+
     review: str
     sentiment: Literal["positive", "negative"]
     action: str
@@ -12,6 +16,7 @@ class ReviewState(TypedDict):
 
 
 def classify_review(state: ReviewState):
+    """Classify review."""
     positive_keywords = ["great", "fast", "easy", "satisfied"]
     lowered = state["review"].lower()
     sentiment = (
@@ -24,18 +29,22 @@ def classify_review(state: ReviewState):
 
 
 def branch_selector(state: ReviewState) -> str:
+    """Branch selector."""
     return state["sentiment"]
 
 
 def handle_positive(state: ReviewState):
+    """Handle positive."""
     return {"action": "group as testimonial"}
 
 
 def handle_negative(state: ReviewState):
+    """Handle negative."""
     return {"action": "send to improvement backlog"}
 
 
 def finalize_response(state: ReviewState):
+    """Finalize response."""
     response = (
         f"Branch complete: {state['action']} | original review: {state['review']}"
     )
@@ -44,6 +53,7 @@ def finalize_response(state: ReviewState):
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(ReviewState)
     builder.add_node("classify_review", classify_review)
     builder.add_node("handle_positive", handle_positive)

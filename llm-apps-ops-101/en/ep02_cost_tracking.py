@@ -1,3 +1,5 @@
+"""Llm Apps Ops 101 - Episode 2: Cost tracking."""
+
 from __future__ import annotations
 
 import time
@@ -16,10 +18,13 @@ logger = build_logger("en.cost")
 
 @dataclass(slots=True)
 class PricingTable:
+    """Pricing table."""
+
     input_rate_per_million: float = DEFAULT_INPUT_RATE
     output_rate_per_million: float = DEFAULT_OUTPUT_RATE
 
     def calculate(self, *, input_tokens: int, output_tokens: int) -> float:
+        """Calculate."""
         input_cost = (input_tokens / 1_000_000) * self.input_rate_per_million
         output_cost = (output_tokens / 1_000_000) * self.output_rate_per_million
         return round(input_cost + output_cost, 8)
@@ -27,6 +32,8 @@ class PricingTable:
 
 @dataclass(slots=True)
 class CostRecord:
+    """Cost record."""
+
     feature: str
     input_tokens: int
     output_tokens: int
@@ -35,11 +42,14 @@ class CostRecord:
 
 
 class CostTracker:
+    """Cost tracker."""
+
     def __init__(self, pricing: PricingTable) -> None:
         self.pricing = pricing
         self.records: list[CostRecord] = []
 
     def track(self, feature: str, prompt: str, response: str) -> CostRecord:
+        """Track."""
         input_tokens = estimate_tokens(prompt)
         output_tokens = estimate_tokens(response)
         cost_usd = self.pricing.calculate(
@@ -66,6 +76,7 @@ class CostTracker:
         return record
 
     def summary(self) -> dict[str, Any]:
+        """Summary."""
         total_cost = round(sum(item.cost_usd for item in self.records), 8)
         total_tokens = sum(
             item.input_tokens + item.output_tokens for item in self.records
@@ -78,11 +89,14 @@ class CostTracker:
 
 
 class TTLCache:
+    """TTL cache."""
+
     def __init__(self, ttl_seconds: int = 30) -> None:
         self.ttl_seconds = ttl_seconds
         self._store: dict[str, tuple[float, str]] = {}
 
     def get(self, key: str) -> str | None:
+        """Get."""
         item = self._store.get(key)
         if item is None:
             return None
@@ -94,6 +108,7 @@ class TTLCache:
         return value
 
     def set(self, key: str, value: str) -> None:
+        """Set."""
         self._store[key] = (time.time() + self.ttl_seconds, value)
         logger.info(
             "Stored response in TTL cache.",
@@ -102,6 +117,7 @@ class TTLCache:
 
 
 def demo() -> None:
+    """Demo."""
     tracker = CostTracker(PricingTable())
     cache = TTLCache(ttl_seconds=10)
     prompt = "Summarize this week's incident review in three sentences."

@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 2: Heading chunking."""
+
 from __future__ import annotations
 
 import sys
@@ -29,6 +31,7 @@ Store file hashes so only changed files are reprocessed.
 
 
 def main() -> None:
+    """Main."""
     chunks = heading_chunks(MARKDOWN)
     print("Heading-aware chunks")
     for chunk in chunks:

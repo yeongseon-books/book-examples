@@ -1,7 +1,10 @@
+"""Tests for 02 arrays and dynamic arrays in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_dynamic_array_amortized_copy_ops():
+    """Test dynamic array amortized copy ops."""
     mod = load_module("ko/02-arrays-and-dynamic-arrays.py")
     arr = mod.DynamicArray()
     n = 1024

@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 1: Corpus queries."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +14,7 @@ from ko.shared import CORPUS, QUERIES
 
 
 def main() -> None:
+    """Main."""
     print("테스트 코퍼스")
     print(json.dumps(CORPUS, indent=2, ensure_ascii=False))
     print("\n질문/정답 집합")

@@ -1,9 +1,12 @@
+"""Azure Aks 101 - Episode 1: Scaling manifests."""
+
 from __future__ import annotations
 
 from common import dump_yaml
 
 
 def build_hpa() -> dict[str, object]:
+    """Build hpa."""
     return {
         "apiVersion": "autoscaling/v2",
         "kind": "HorizontalPodAutoscaler",
@@ -30,6 +33,7 @@ def build_hpa() -> dict[str, object]:
 
 
 def build_scaled_object() -> dict[str, object]:
+    """Build scaled object."""
     return {
         "apiVersion": "keda.sh/v1alpha1",
         "kind": "ScaledObject",
@@ -50,6 +54,7 @@ def build_scaled_object() -> dict[str, object]:
 
 
 def build_hpa_yaml() -> str:
+    """Build hpa yaml."""
     return dump_yaml(build_hpa())
 
 

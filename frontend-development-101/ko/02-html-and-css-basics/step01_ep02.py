@@ -1,3 +1,5 @@
+"""Frontend Development 101 - Episode 1: Ep02."""
+
 from __future__ import annotations
 
 from common import CSSAnalyzer
@@ -7,6 +9,7 @@ CSS_SAMPLE = """:root { --color-primary: #1d72ff; } .card { color: var(--color-p
 
 
 def run_demo() -> dict[str, object]:
+    """Run demo."""
     analyzer = CSSAnalyzer(CSS_SAMPLE)
     return {
         "specificity": analyzer.selector_specificity(".card"),

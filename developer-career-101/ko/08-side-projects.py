@@ -1,3 +1,5 @@
+"""Developer Career 101 - Episode 8: Side projects."""
+
 from common import RubricScorer
 
 SCORER = RubricScorer(
@@ -12,6 +14,7 @@ SCORER = RubricScorer(
 
 
 def evaluate_idea(values: dict[str, float]) -> dict:
+    """Evaluate idea."""
     total, breakdown = SCORER.score(values)
     if total >= 75:
         decision = "GO"

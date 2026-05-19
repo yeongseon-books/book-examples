@@ -1,16 +1,22 @@
+"""Compilers 101 - Episode 4: Semantic analysis."""
+
 from __future__ import annotations
 
 # pyright: reportMissingTypeArgument=false, reportUnknownParameterType=false, reportUnknownVariableType=false, reportUnusedCallResult=false, reportUnknownArgumentType=false
 
 
 class SemanticError(Exception):
+    """Semantic error."""
+
     pass
 
 
 def check_program(program: list[tuple]) -> dict[str, str]:
+    """Check program."""
     env: dict[str, str] = {}
 
     def type_of(node: tuple) -> str:
+        """Type of."""
         kind = node[0]
         if kind == "num":
             return "int"

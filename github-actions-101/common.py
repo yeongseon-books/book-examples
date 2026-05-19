@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Github Actions 101."""
+
 from __future__ import annotations
 
 import itertools
@@ -29,6 +31,7 @@ SHA_PIN = re.compile(r"^[0-9a-f]{40}$")
 
 
 def load_workflow(path: str) -> dict[str, Any]:
+    """Load workflow."""
     data = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
     if not isinstance(data, dict):
         raise ValueError("workflow must be a mapping")
@@ -38,7 +41,10 @@ def load_workflow(path: str) -> dict[str, Any]:
 
 
 class WorkflowParser:
+    """Workflow parser."""
+
     def parse(self, workflow: dict[str, Any]) -> dict[str, Any]:
+        """Parse."""
         jobs = workflow.get("jobs", {})
         parsed_jobs = {}
         for job_id, job in jobs.items():
@@ -57,6 +63,7 @@ class WorkflowParser:
         }
 
     def _parse_triggers(self, on_section: Any) -> list[str]:
+        """Parse triggers."""
         if isinstance(on_section, str):
             return [on_section]
         if isinstance(on_section, list):
@@ -66,6 +73,7 @@ class WorkflowParser:
         return []
 
     def _to_list(self, value: Any) -> list[str]:
+        """To list."""
         if isinstance(value, str):
             return [value]
         if isinstance(value, list):
@@ -74,7 +82,10 @@ class WorkflowParser:
 
 
 class WorkflowValidator:
+    """Workflow validator."""
+
     def validate(self, workflow: dict[str, Any]) -> list[str]:
+        """Validate."""
         issues: list[str] = []
         if "on" not in workflow:
             issues.append("missing on trigger")
@@ -97,9 +108,12 @@ class WorkflowValidator:
 
 
 class TriggerMatcher:
+    """Trigger matcher."""
+
     def matches(
         self, workflow: dict[str, Any], event_name: str, payload: dict[str, Any]
     ) -> bool:
+        """Matches."""
         on_section = workflow.get("on", {})
         if isinstance(on_section, str):
             return on_section == event_name
@@ -132,7 +146,10 @@ class TriggerMatcher:
 
 
 class JobGraphAnalyzer:
+    """Job graph analyzer."""
+
     def analyze(self, workflow: dict[str, Any]) -> dict[str, Any]:
+        """Analyze."""
         jobs = workflow.get("jobs", {})
         indeg = {k: 0 for k in jobs}
         graph: dict[str, list[str]] = defaultdict(list)
@@ -166,7 +183,10 @@ class JobGraphAnalyzer:
 
 
 class MatrixExpander:
+    """Matrix expander."""
+
     def expand(self, job: dict[str, Any]) -> list[dict[str, Any]]:
+        """Expand."""
         matrix = ((job.get("strategy") or {}).get("matrix")) or {}
         if not matrix:
             return [{}]
@@ -178,7 +198,10 @@ class MatrixExpander:
 
 
 class ActionUsageLinter:
+    """Action usage linter."""
+
     def lint(self, workflow: dict[str, Any]) -> list[str]:
+        """Lint."""
         warnings: list[str] = []
         for job in workflow.get("jobs", {}).values():
             for step in job.get("steps", []):
@@ -198,7 +221,10 @@ class ActionUsageLinter:
 
 
 class SecretsMaskingChecker:
+    """Secrets masking checker."""
+
     def check(self, workflow: dict[str, Any]) -> list[str]:
+        """Check."""
         issues: list[str] = []
         for job in workflow.get("jobs", {}).values():
             for step in job.get("steps", []):
@@ -215,7 +241,10 @@ class SecretsMaskingChecker:
 
 
 class ArtifactSimulator:
+    """Artifact simulator."""
+
     def flow(self, workflow: dict[str, Any]) -> dict[str, dict[str, set[str]]]:
+        """Flow."""
         produced: dict[str, set[str]] = defaultdict(set)
         consumed: dict[str, set[str]] = defaultdict(set)
         for job_id, job in workflow.get("jobs", {}).items():
@@ -231,7 +260,10 @@ class ArtifactSimulator:
 
 
 class DockerBuildSimulator:
+    """Docker build simulator."""
+
     def validate(self, step: dict[str, Any]) -> list[str]:
+        """Validate."""
         issues = []
         if not str(step.get("uses", "")).startswith("docker/build-push-action@"):
             return ["not docker build step"]
@@ -247,15 +279,20 @@ class DockerBuildSimulator:
 
 @dataclass
 class PipelineResult:
+    """Pipeline result."""
+
     order: list[str]
     success: bool
     failed_job: str | None
 
 
 class PipelineRunner:
+    """Pipeline runner."""
+
     def run(
         self, workflow: dict[str, Any], fail_jobs: set[str] | None = None
     ) -> PipelineResult:
+        """Run."""
         fail_jobs = fail_jobs or set()
         graph = JobGraphAnalyzer().analyze(workflow)
         if graph["has_cycle"]:

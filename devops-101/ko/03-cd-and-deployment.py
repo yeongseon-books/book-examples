@@ -1,7 +1,10 @@
+"""Devops 101 - Episode 3: Cd and deployment."""
+
 from __future__ import annotations
 
 
 def simulate_canary(version: str) -> dict[str, object]:
+    """Simulate canary."""
     phases = [10, 50, 100]
     timeline = []
     for traffic in phases:
@@ -22,6 +25,7 @@ def simulate_canary(version: str) -> dict[str, object]:
 
 
 def _is_healthy(timeline: list[dict[str, object]]) -> bool:
+    """Is healthy."""
     return all(
         item["healthy_instances"] > 0 and item["unhealthy_instances"] == 0
         for item in timeline

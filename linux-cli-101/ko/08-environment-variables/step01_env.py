@@ -1,3 +1,5 @@
+"""Linux Cli 101 - Episode 1: Env."""
+
 from __future__ import annotations
 
 import os
@@ -6,6 +8,7 @@ from common import EnvScope, make_temp_workspace, run_cmd
 
 
 def run() -> dict[str, str]:
+    """Run."""
     ws = make_temp_workspace("ep08-")
     original = os.environ.get("DEMO_VAR", "")
     with EnvScope({"DEMO_VAR": "linux-cli-101"}):

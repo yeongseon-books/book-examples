@@ -1,4 +1,8 @@
+"""Programming Languages 101 - Episode 3: Type system."""
+
+
 def check_expr_type(node: tuple) -> str:
+    """Check expr type."""
     tag = node[0]
     if tag == "int":
         return "Int"

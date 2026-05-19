@@ -1,3 +1,5 @@
+"""Tests for ep01 in Capstone Project 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -17,8 +19,10 @@ en_run = cast(
 
 
 def test_ep01_ko_behavior() -> None:
+    """Test ep01 ko behavior."""
     assert ko_run()["success"]
 
 
 def test_ep01_en_behavior() -> None:
+    """Test ep01 en behavior."""
     assert en_run()["success"]

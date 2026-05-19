@@ -1,7 +1,10 @@
+"""Tests for ep08 in Web Development 101."""
+
 from en.ep08_deployment import app_factory, gunicorn_fixture_text, readiness_check
 
 
 def test_ep08_readiness_and_health(monkeypatch):
+    """Test ep08 readiness and health."""
     monkeypatch.setenv("PORT", "8000")
     monkeypatch.setenv("CI", "true")
     assert readiness_check()["port_set"] is True

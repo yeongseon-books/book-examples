@@ -1,7 +1,10 @@
+"""Algorithms 101 - Episode 1: Fast power."""
+
 from __future__ import annotations
 
 
 def fast_power(base: int, exp: int) -> int:
+    """Fast power."""
     if exp == 0:
         return 1
     half = fast_power(base, exp // 2)
@@ -11,6 +14,7 @@ def fast_power(base: int, exp: int) -> int:
 
 
 def run() -> dict[str, int]:
+    """Run."""
     return {"base": 2, "exp": 30, "value": fast_power(2, 30)}
 
 

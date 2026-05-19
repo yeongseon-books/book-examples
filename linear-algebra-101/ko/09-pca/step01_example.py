@@ -1,8 +1,11 @@
+"""Linear Algebra 101 - Episode 1: Example."""
+
 import numpy as np
 from common import pca_fit, text_histogram
 
 
 def run():
+    """Run."""
     np.random.seed(0)
     rng = np.random.default_rng(0)
     x = rng.normal(size=(120, 2))

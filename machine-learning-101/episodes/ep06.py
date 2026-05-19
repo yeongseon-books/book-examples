@@ -1,9 +1,12 @@
+"""Machine Learning 101 - Episode 6."""
+
 from common import make_clf_dataset
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 
 
 def run() -> dict[str, float]:
+    """Run."""
     x, y = make_clf_dataset(class_sep=1.0)
     tree = DecisionTreeClassifier(max_depth=5, random_state=42).fit(x, y)
     rf = RandomForestClassifier(n_estimators=200, random_state=42).fit(x, y)

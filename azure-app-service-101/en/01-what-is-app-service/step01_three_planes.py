@@ -1,9 +1,12 @@
+"""Azure App Service 101 - Episode 1: Three planes."""
+
 from __future__ import annotations
 
 from common import build_webapp_show_command
 
 
 def classify_plane(endpoint: str) -> str:
+    """Classify plane."""
     if ".scm.azurewebsites.net" in endpoint:
         return "scm"
     if endpoint.startswith("https://management.azure.com"):
@@ -12,6 +15,7 @@ def classify_plane(endpoint: str) -> str:
 
 
 def runtime_assumptions() -> dict[str, bool]:
+    """Runtime assumptions."""
     return {
         "stateless": True,
         "ephemeral_instance": True,

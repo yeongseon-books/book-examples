@@ -1,9 +1,12 @@
+"""Tests for ep02 in Statistics 101."""
+
 import pytest
 from en.ep02_mean_median_variance_std_mode import run_demo as en_run
 from ko.ep02_mean_median_variance_std_mode import run_demo as ko_run
 
 
 def test_ep02_core_stats():
+    """Test ep02 core stats."""
     e = en_run()
     k = ko_run()
     assert e["mean_manual"] == pytest.approx(e["mean_numpy"])

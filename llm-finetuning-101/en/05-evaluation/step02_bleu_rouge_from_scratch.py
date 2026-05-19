@@ -15,10 +15,12 @@ HYPOTHESES = [
 
 
 def ngrams(tokens, n):
+    """Ngrams."""
     return [tuple(tokens[index : index + n]) for index in range(len(tokens) - n + 1)]
 
 
 def bleu_score(reference: str, hypothesis: str, max_n: int = 2) -> float:
+    """Bleu score."""
     ref_tokens = reference.split()
     hyp_tokens = hypothesis.split()
     precisions = []
@@ -43,6 +45,7 @@ def bleu_score(reference: str, hypothesis: str, max_n: int = 2) -> float:
 
 
 def rouge_l(reference: str, hypothesis: str) -> float:
+    """Rouge l."""
     ref_tokens = reference.split()
     hyp_tokens = hypothesis.split()
     dp = [[0] * (len(hyp_tokens) + 1) for _ in range(len(ref_tokens) + 1)]
@@ -61,6 +64,7 @@ def rouge_l(reference: str, hypothesis: str) -> float:
 
 
 def main() -> None:
+    """Main."""
     for index, (reference, hypothesis) in enumerate(
         zip(REFERENCES, HYPOTHESES, strict=False), start=1
     ):

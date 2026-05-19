@@ -1,9 +1,12 @@
+"""Functional Programming 101 - Episode 3: Immutable data."""
+
 from __future__ import annotations
 
 from common import ImmutableState, immutable_append, impossible_mutation
 
 
 def next_state(state: ImmutableState, value: int) -> ImmutableState:
+    """Next state."""
     return immutable_append(state, value)
 
 

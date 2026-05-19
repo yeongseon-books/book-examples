@@ -1,9 +1,12 @@
+"""Computer Science Major 101 - Episode 5: Database and network."""
+
 import socket
 import threading
 from typing import cast
 
 
 def _handle_client(conn: socket.socket, store: dict[str, str]) -> None:
+    """Handle client."""
     with conn:
         conn.settimeout(1.0)
         while True:
@@ -29,6 +32,7 @@ def _handle_client(conn: socket.socket, store: dict[str, str]) -> None:
 def start_kv_server(
     host: str = "127.0.0.1", port: int = 0
 ) -> tuple[socket.socket, int, dict[str, str], threading.Thread]:
+    """Start kv server."""
     store: dict[str, str] = {}
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((host, port))
@@ -37,6 +41,7 @@ def start_kv_server(
     bound_port = sockname[1]
 
     def _serve() -> None:
+        """Serve."""
         while True:
             try:
                 conn, _addr = cast(
@@ -52,6 +57,7 @@ def start_kv_server(
 
 
 def kv_client_request(host: str, port: int, command: str) -> str:
+    """Kv client request."""
     with socket.create_connection((host, port), timeout=1.0) as client:
         client.sendall((command + "\n").encode("utf-8"))
         return client.recv(4096).decode("utf-8").strip()

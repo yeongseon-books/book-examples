@@ -1,7 +1,10 @@
+"""Ai Data Preparation 101 - Episode 1: Self instruct mock."""
+
 import random
 
 
 def run(seed: int = 7) -> dict[str, object]:
+    """Run."""
     rng = random.Random(seed)
     seeds = [
         {

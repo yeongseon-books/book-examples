@@ -1,9 +1,12 @@
+"""Tests for ep03 in Azure App Service 101."""
+
 from __future__ import annotations
 
 from conftest import load_module
 
 
 def test_hosting_decision() -> None:
+    """Test hosting decision."""
     mod = load_module("ko/03-hosting-models/step01_hosting_decision.py", "ep03")
     assert (
         mod.choose_hosting_model(needs_windows_dependency=False, needs_os_control=False)

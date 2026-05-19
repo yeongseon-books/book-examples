@@ -1,8 +1,11 @@
+"""Tests for 09 avoiding pattern overuse in Design Patterns 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load():
+    """Load."""
     p = Path(__file__).resolve().parents[1] / "ko/09-avoiding-pattern-overuse.py"
     s = importlib.util.spec_from_file_location("ep09", p)
     m = importlib.util.module_from_spec(s)
@@ -11,5 +14,6 @@ def load():
 
 
 def test_same_result_simpler_code():
+    """Test same result simpler code."""
     m = load()
     assert m.over_engineered("Kim") == m.simple("Kim")

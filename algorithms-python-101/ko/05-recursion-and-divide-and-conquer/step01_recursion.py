@@ -1,4 +1,8 @@
+"""Algorithms Python 101 - Episode 1: Recursion."""
+
+
 def power(base: int, exp: int) -> int:
+    """Power."""
     if exp == 0:
         return 1
     if exp % 2 == 0:

@@ -6,6 +6,7 @@ import numpy as np
 
 
 def main() -> None:
+    """Main."""
     x = np.array([0.0, 1.0, 2.0, 3.0], dtype=float)
     y = np.array([1.0, 3.0, 5.0, 7.0], dtype=float)
     weight = 0.0

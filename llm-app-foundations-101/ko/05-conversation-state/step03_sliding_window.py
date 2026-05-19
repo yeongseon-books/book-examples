@@ -21,6 +21,7 @@ def ask(
     recent_turns: deque[ChatCompletionMessageParam],
     user_text: str,
 ) -> str:
+    """Ask."""
     recent_turns.append({"role": "user", "content": user_text})
 
     messages: list[ChatCompletionMessageParam] = [system_message, *recent_turns]
@@ -41,6 +42,7 @@ def ask(
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     system_message: ChatCompletionSystemMessageParam = {
         "role": "system",

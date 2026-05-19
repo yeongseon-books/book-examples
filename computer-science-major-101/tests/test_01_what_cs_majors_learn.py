@@ -1,7 +1,10 @@
+"""Tests for 01 what cs majors learn in Computer Science Major 101."""
+
 from conftest import load_module
 
 
 def test_topological_order_respects_prerequisites() -> None:
+    """Test topological order respects prerequisites."""
     mod = load_module("ko/01-what-cs-majors-learn.py")
     graph = {
         "math": [],

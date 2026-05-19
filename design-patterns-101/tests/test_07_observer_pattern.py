@@ -1,9 +1,12 @@
+"""Tests for 07 observer pattern in Design Patterns 101."""
+
 import gc
 import importlib.util
 from pathlib import Path
 
 
 def load():
+    """Load."""
     p = Path(__file__).resolve().parents[1] / "ko/07-observer-pattern.py"
     s = importlib.util.spec_from_file_location("ep07", p)
     m = importlib.util.module_from_spec(s)
@@ -12,6 +15,7 @@ def load():
 
 
 def test_subscribe_publish_unsubscribe_and_weakref():
+    """Test subscribe publish unsubscribe and weakref."""
     m = load()
     bus = m.EventBus()
     r = m.Recorder()

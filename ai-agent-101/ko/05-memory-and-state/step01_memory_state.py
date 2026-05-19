@@ -2,16 +2,20 @@
 
 
 class SlidingMemory:
+    """Sliding memory."""
+
     def __init__(self, max_items: int = 4):
         self.max_items = max_items
         self.items: list[str] = []
 
     def add(self, message: str) -> None:
+        """Add."""
         self.items.append(message)
         self.items = self.items[-self.max_items :]
 
 
 def checkpoint(state: dict[str, object]) -> dict[str, object]:
+    """Checkpoint."""
     return dict(state)
 
 

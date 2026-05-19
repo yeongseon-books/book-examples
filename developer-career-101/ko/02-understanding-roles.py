@@ -1,3 +1,5 @@
+"""Developer Career 101 - Episode 2: Understanding roles."""
+
 from common import keyword_score
 
 ROLE_KEYWORDS = {
@@ -12,6 +14,7 @@ ROLE_KEYWORDS = {
 
 
 def classify_job_description(text: str) -> dict:
+    """Classify job description."""
     scores = {role: keyword_score(text, kws) for role, kws in ROLE_KEYWORDS.items()}
     best_role = max(scores, key=lambda role: scores[role])
     return {"role": best_role, "scores": scores}

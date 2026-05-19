@@ -1,3 +1,5 @@
+"""Python 101 - Episode 10: Stdlib tour."""
+
 import itertools
 import json
 from collections import Counter
@@ -6,6 +8,7 @@ from pathlib import Path
 
 
 def stdlib_snapshot(words: list[str]) -> dict[str, object]:
+    """Stdlib snapshot."""
     now = datetime(2024, 1, 1, 12, 0, 0)
     counts = Counter(words)
     combos = list(itertools.islice(itertools.permutations([1, 2, 3], 2), 3))
@@ -21,6 +24,7 @@ def stdlib_snapshot(words: list[str]) -> dict[str, object]:
 
 
 def main() -> None:
+    """Main."""
     print(stdlib_snapshot(["a", "b", "a"]))
 
 

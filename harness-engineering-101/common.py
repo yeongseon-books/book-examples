@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Harness Engineering 101."""
+
 from __future__ import annotations
 
 import json
@@ -10,6 +12,8 @@ from typing import Any
 
 @dataclass
 class TaskSpec:
+    """Task spec."""
+
     goal: str
     inputs: dict[str, Any]
     output_keys: list[str]
@@ -19,6 +23,7 @@ class MockLLM:
     """Deterministic LLM stub based on input patterns."""
 
     def complete(self, prompt: str) -> str:
+        """Complete."""
         p = prompt.lower()
         if "forbidden" in p:
             return "blocked"
@@ -32,9 +37,12 @@ class MockLLM:
 
 
 class TaskHarness:
+    """Task harness."""
+
     def run(
         self, spec: TaskSpec, worker: Callable[[TaskSpec], dict[str, Any]]
     ) -> dict[str, Any]:
+        """Run."""
         if not spec.goal.strip():
             raise ValueError("goal is required")
         if not spec.output_keys:
@@ -47,10 +55,13 @@ class TaskHarness:
 
 
 class ContextHarness:
+    """Context harness."""
+
     def __init__(self, max_items: int = 5) -> None:
         self.max_items = max_items
 
     def build(self, items: list[str], query: str = "") -> list[str]:
+        """Build."""
         dedup = list(dict.fromkeys(items))
         if query:
             q = query.lower()
@@ -61,6 +72,8 @@ class ContextHarness:
 
 
 class ConstraintHarness:
+    """Constraint harness."""
+
     def __init__(
         self, forbidden_tokens: list[str], max_length: int, require_json: bool = False
     ) -> None:
@@ -69,6 +82,7 @@ class ConstraintHarness:
         self.require_json = require_json
 
     def validate_output(self, text: str) -> None:
+        """Validate output."""
         for token in self.forbidden_tokens:
             if token.lower() in text.lower():
                 raise ValueError(f"forbidden token detected: {token}")
@@ -83,6 +97,8 @@ class ConstraintHarness:
 
 @dataclass
 class ToolSpec:
+    """Tool spec."""
+
     name: str
     required_args: set[str]
     output_keys: set[str]
@@ -90,10 +106,13 @@ class ToolSpec:
 
 
 class ToolHarness:
+    """Tool harness."""
+
     def __init__(self, tools: list[ToolSpec]) -> None:
         self.tools = {t.name: t for t in tools}
 
     def invoke(self, name: str, args: dict[str, Any]) -> dict[str, Any]:
+        """Invoke."""
         if name not in self.tools:
             raise ValueError("unknown tool")
         spec = self.tools[name]
@@ -107,13 +126,18 @@ class ToolHarness:
 
 @dataclass
 class EvalCase:
+    """Eval case."""
+
     name: str
     prompt: str
     expected_substring: str
 
 
 class TestHarness:
+    """Test harness."""
+
     def run(self, llm: MockLLM, cases: list[EvalCase]) -> list[dict[str, Any]]:
+        """Run."""
         rows: list[dict[str, Any]] = []
         for case in cases:
             out = llm.complete(case.prompt)
@@ -128,12 +152,15 @@ class TestHarness:
 
 
 class FeedbackLoop:
+    """Feedback loop."""
+
     def __init__(self, max_iterations: int = 3) -> None:
         self.max_iterations = max_iterations
 
     def run(
         self, initial: str, improve: Callable[[str], str], score: Callable[[str], int]
     ) -> tuple[str, int]:
+        """Run."""
         current = initial
         current_score = score(current)
         for i in range(self.max_iterations):
@@ -147,12 +174,15 @@ class FeedbackLoop:
 
 
 class ApprovalGate:
+    """Approval gate."""
+
     def __init__(self, policy: str = "auto-approve") -> None:
         if policy not in {"auto-approve", "require-approve", "block"}:
             raise ValueError("invalid approval policy")
         self.policy = policy
 
     def decide(self, approved: bool | None = None) -> str:
+        """Decide."""
         if self.policy == "block":
             return "blocked"
         if self.policy == "auto-approve":
@@ -163,17 +193,21 @@ class ApprovalGate:
 
 
 class Observability:
+    """Observability."""
+
     def __init__(self, path: Path) -> None:
         self.path = path
         self.metrics: dict[str, float] = {"runs": 0, "total_ms": 0}
 
     def log_event(self, event: str, payload: dict[str, Any]) -> None:
+        """Log event."""
         row = {"event": event, "payload": payload}
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(row, ensure_ascii=True) + "\n")
 
     def time_call(self, fn: Callable[[], dict[str, Any]]) -> dict[str, Any]:
+        """Time call."""
         start = perf_counter()
         result = fn()
         elapsed = (perf_counter() - start) * 1000
@@ -184,6 +218,8 @@ class Observability:
 
 
 class ProductionHarness:
+    """Production harness."""
+
     def __init__(
         self,
         llm: MockLLM,
@@ -213,7 +249,10 @@ class ProductionHarness:
         tool_name: str,
         tool_args: dict[str, Any],
     ) -> dict[str, Any]:
+        """Run."""
+
         def worker(_: TaskSpec) -> dict[str, Any]:
+            """Worker."""
             ctx = self.context.build(context_items, query=spec.goal)
             decision = self.approval.decide(approved=True)
             if decision != "approved":

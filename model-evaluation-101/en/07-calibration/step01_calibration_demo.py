@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Calibration demo."""
+
 from __future__ import annotations
 
 from common import make_imbalanced, safe_split
@@ -7,6 +9,7 @@ from sklearn.metrics import brier_score_loss
 
 
 def run(seed: int = 42) -> dict[str, float | int]:
+    """Run."""
     X, y = make_imbalanced(
         n_samples=1200, weights=(0.75, 0.25), class_sep=0.7, random_state=seed
     )

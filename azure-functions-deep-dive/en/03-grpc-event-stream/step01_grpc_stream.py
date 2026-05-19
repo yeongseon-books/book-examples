@@ -9,6 +9,7 @@ from common import startup_handshake
 
 
 def run() -> dict[str, object]:
+    """Run."""
     host_capabilities = {"RpcHttpBodyOnly", "SharedMemoryDataTransfer"}
     worker_capabilities = {"SharedMemoryDataTransfer", "TypedDataCollection"}
     return startup_handshake("worker-42", host_capabilities, worker_capabilities)

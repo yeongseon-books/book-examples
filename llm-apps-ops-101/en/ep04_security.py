@@ -1,3 +1,5 @@
+"""Llm Apps Ops 101 - Episode 4: Security."""
+
 from __future__ import annotations
 
 import re
@@ -16,15 +18,20 @@ SENSITIVE_PATTERNS = {
 
 @dataclass(slots=True)
 class ValidationResult:
+    """Validation result."""
+
     accepted: bool
     reason: str
 
 
 class InputValidator:
+    """Input validator."""
+
     def __init__(self, max_length: int = 500) -> None:
         self.max_length = max_length
 
     def validate(self, text: str) -> ValidationResult:
+        """Validate."""
         if not text.strip():
             return ValidationResult(False, "Input is empty.")
         if len(text) > self.max_length:
@@ -42,7 +49,10 @@ class InputValidator:
 
 
 class OutputFilter:
+    """Output filter."""
+
     def redact(self, text: str) -> str:
+        """Redact."""
         filtered = text
         for name, pattern in SENSITIVE_PATTERNS.items():
             replaced = pattern.sub(f"[{name}-redacted]", filtered)
@@ -56,6 +66,7 @@ class OutputFilter:
 
 
 def demo() -> None:
+    """Demo."""
     validator = InputValidator()
     filter_ = OutputFilter()
     prompt = "Write a maintenance notice for the user whose email is admin@example.com."

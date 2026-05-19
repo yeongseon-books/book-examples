@@ -1,3 +1,5 @@
+"""Tests for ep04 in Cloud Computing 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -10,6 +12,7 @@ fn = cast("Callable[..., object]", mod.compute_scale_plan)
 
 
 def test_ep04_behavior() -> None:
+    """Test ep04 behavior."""
     result_obj = fn(baseline_rps=250, peak_rps=900)
     result = cast("dict[str, object]", result_obj)
     payload = cast("dict[str, object]", result["payload"])

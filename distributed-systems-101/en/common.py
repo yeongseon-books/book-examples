@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Distributed Systems 101."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path

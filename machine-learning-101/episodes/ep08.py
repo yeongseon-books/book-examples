@@ -1,9 +1,12 @@
+"""Machine Learning 101 - Episode 8."""
+
 import numpy as np
 from sklearn.linear_model import Lasso, LinearRegression, Ridge
 from sklearn.model_selection import train_test_split
 
 
 def run() -> dict[str, float]:
+    """Run."""
     rng = np.random.default_rng(42)
     x1 = rng.normal(size=200)
     x2 = x1 + rng.normal(scale=0.05, size=200)

@@ -1,3 +1,5 @@
+"""Azure App Service Deep Dive - Episode 1: Autoscale loop."""
+
 from __future__ import annotations
 
 from common import autoscale_decision
@@ -5,6 +7,7 @@ from common import autoscale_decision
 
 def evaluate(cpu: float, http_queue: float) -> str:
     # App Service autoscale의 OR(out)/AND(in) 성질을 단순화해 표현합니다.
+    """Evaluate."""
     return autoscale_decision({"cpu": cpu, "http_queue": http_queue})
 
 

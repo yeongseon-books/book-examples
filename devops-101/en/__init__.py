@@ -1,3 +1,5 @@
+"""Devops 101 package."""
+
 from . import (
     _01_what_is_devops,
     _02_ci_pipeline,

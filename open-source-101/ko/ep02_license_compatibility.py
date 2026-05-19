@@ -1,3 +1,5 @@
+"""Open Source 101 - Episode 2: License compatibility."""
+
 from __future__ import annotations
 
 from common import (
@@ -6,6 +8,7 @@ from common import (
 
 
 def run_example() -> object:
+    """Run example."""
     return is_license_compatible("MIT", "Apache-2.0")
 
 

@@ -7,6 +7,8 @@ from dataclasses import dataclass
 
 @dataclass
 class OptimizationCase:
+    """Optimization case."""
+
     name: str
     latency_ms: float
     throughput_rps: float
@@ -14,6 +16,7 @@ class OptimizationCase:
 
 
 def main() -> None:
+    """Main."""
     baseline = OptimizationCase("baseline fp16 single request", 420.0, 2.4, 14.0)
     cases = [
         baseline,

@@ -1,3 +1,5 @@
+"""Tests for ep02 in Azure Functions Deep Dive."""
+
 from conftest import load_module
 
 ko_run = load_module("ko/02-worker-process/step01_worker_process.py", "ko_ep02").run
@@ -5,6 +7,7 @@ en_run = load_module("en/02-worker-process/step01_worker_process.py", "en_ep02")
 
 
 def test_ep02_worker_catalog() -> None:
+    """Test ep02 worker catalog."""
     ko_result = ko_run()
     en_result = en_run()
     assert ko_result["worker_count"] == 2

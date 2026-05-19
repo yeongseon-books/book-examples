@@ -1,12 +1,16 @@
+"""Discrete Math 101 - Episode 5: Proof techniques."""
+
 # English runnable example
 import math
 
 
 def verify_induction(formula, direct, n_max=1000):
+    """Verify induction."""
     return all(formula(n) == direct(n) for n in range(1, n_max + 1))
 
 
 def sqrt2_contradiction_structure():
+    """Sqrt2 contradiction structure."""
     return [
         "assume sqrt(2)=p/q reduced",
         "2q^2=p^2 so p even",

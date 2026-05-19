@@ -1,7 +1,10 @@
+"""Capstone Project 101 - Episode 1: Role split."""
+
 from __future__ import annotations
 
 
 def run() -> dict[str, object]:
+    """Run."""
     members = ["A", "B", "C", "D"]
     primary = {"A": "lead", "B": "backend", "C": "frontend", "D": "data"}
     backup = {"backend": "C", "frontend": "B", "data": "A"}

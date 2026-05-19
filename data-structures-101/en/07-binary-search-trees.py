@@ -1,7 +1,11 @@
+"""Data Structures 101 - Episode 7: Binary search trees."""
+
 from __future__ import annotations
 
 
 class BSTNode:
+    """BST node."""
+
     def __init__(self, key: int) -> None:
         self.key = key
         self.left: BSTNode | None = None
@@ -9,10 +13,13 @@ class BSTNode:
 
 
 class BST:
+    """BST."""
+
     def __init__(self) -> None:
         self.root: BSTNode | None = None
 
     def insert(self, key: int) -> None:
+        """Insert."""
         if self.root is None:
             self.root = BSTNode(key)
             return
@@ -32,6 +39,7 @@ class BST:
                 return
 
     def find(self, key: int) -> bool:
+        """Find."""
         cur = self.root
         while cur is not None:
             if key == cur.key:
@@ -40,6 +48,7 @@ class BST:
         return False
 
     def _delete(self, node: BSTNode | None, key: int) -> BSTNode | None:
+        """Delete."""
         if node is None:
             return None
         if key < node.key:
@@ -60,12 +69,15 @@ class BST:
         return node
 
     def delete(self, key: int) -> None:
+        """Delete."""
         self.root = self._delete(self.root, key)
 
     def inorder(self) -> list[int]:
+        """Inorder."""
         out: list[int] = []
 
         def walk(n: BSTNode | None) -> None:
+            """Walk."""
             if n is None:
                 return
             walk(n.left)
@@ -76,7 +88,10 @@ class BST:
         return out
 
     def height(self) -> int:
+        """Height."""
+
         def h(node: BSTNode | None) -> int:
+            """H."""
             if node is None:
                 return -1
             return 1 + max(h(node.left), h(node.right))

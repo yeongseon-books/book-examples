@@ -1,7 +1,10 @@
+"""Python 101 - Episode 8: File io exceptions."""
+
 from pathlib import Path
 
 
 def parse_csv_like(text: str) -> list[tuple[str, int]]:
+    """Parse csv like."""
     rows: list[tuple[str, int]] = []
     for line in text.strip().splitlines():
         name, score = line.split(",")
@@ -10,6 +13,7 @@ def parse_csv_like(text: str) -> list[tuple[str, int]]:
 
 
 def write_and_read_demo(path: Path, text: str) -> str:
+    """Write and read demo."""
     try:
         with path.open("w", encoding="utf-8") as file:
             file.write(text)
@@ -22,6 +26,7 @@ def write_and_read_demo(path: Path, text: str) -> str:
 
 
 def main() -> None:
+    """Main."""
     sample = "Alice,90\nBob,85"
     print(parse_csv_like(sample))
 

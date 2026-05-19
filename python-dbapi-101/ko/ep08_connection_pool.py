@@ -1,3 +1,5 @@
+"""Python Dbapi 101 - Episode 8: Connection pool."""
+
 import queue
 from contextlib import contextmanager
 
@@ -5,6 +7,8 @@ from common import create_connection, initialize_schema
 
 
 class SqliteConnectionPool:
+    """Sqlite connection pool."""
+
     def __init__(self, size: int = 2):
         self._queue: queue.Queue = queue.Queue(maxsize=size)
         for _ in range(size):
@@ -14,6 +18,7 @@ class SqliteConnectionPool:
 
     @contextmanager
     def acquire(self):
+        """Acquire."""
         conn = self._queue.get(timeout=1)
         try:
             yield conn
@@ -21,11 +26,13 @@ class SqliteConnectionPool:
             self._queue.put(conn)
 
     def closeall(self) -> None:
+        """Closeall."""
         while not self._queue.empty():
             self._queue.get_nowait().close()
 
 
 def run_demo() -> dict[str, int]:
+    """Run demo."""
     pool = SqliteConnectionPool(size=2)
     with pool.acquire() as conn1:
         conn1.execute(

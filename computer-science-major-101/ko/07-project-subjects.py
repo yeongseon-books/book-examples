@@ -1,7 +1,10 @@
+"""Computer Science Major 101 - Episode 7: Project subjects."""
+
 from pathlib import Path
 
 
 def generate_project_skeleton(base_dir: Path, project_name: str) -> Path:
+    """Generate project skeleton."""
     root = base_dir / project_name
     _ = (root / "src").mkdir(parents=True, exist_ok=True)
     _ = (root / "tests").mkdir(parents=True, exist_ok=True)

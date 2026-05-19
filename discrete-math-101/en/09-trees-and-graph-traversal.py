@@ -1,8 +1,11 @@
+"""Discrete Math 101 - Episode 9: Trees and graph traversal."""
+
 # English runnable example
 from collections import defaultdict, deque
 
 
 def build_graph(edges, directed=False):
+    """Build graph."""
     g = defaultdict(list)
     for u, v in edges:
         g[u].append(v)
@@ -12,6 +15,7 @@ def build_graph(edges, directed=False):
 
 
 def bfs(g, start):
+    """Bfs."""
     q = deque([start])
     seen, out = {start}, []
     while q:
@@ -25,6 +29,7 @@ def bfs(g, start):
 
 
 def dfs_recursive(g, start, seen=None):
+    """Dfs recursive."""
     seen = seen or set()
     seen.add(start)
     out = [start]
@@ -35,6 +40,7 @@ def dfs_recursive(g, start, seen=None):
 
 
 def dfs_iterative(g, start):
+    """Dfs iterative."""
     stack, seen, out = [start], set(), []
     while stack:
         v = stack.pop()
@@ -47,6 +53,7 @@ def dfs_iterative(g, start):
 
 
 def topo_sort(g):
+    """Topo sort."""
     indeg = {v: 0 for v in g}
     for v in g:
         for u in g[v]:
@@ -64,6 +71,7 @@ def topo_sort(g):
 
 
 def connected_components(g):
+    """Connected components."""
     seen = set()
     comps = []
     for v in g:

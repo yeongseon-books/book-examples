@@ -1,3 +1,5 @@
+"""Alembic 101 - Episode 1: Data backfill."""
+
 from __future__ import annotations
 
 from common import make_memory_engine
@@ -5,6 +7,7 @@ from sqlalchemy import text
 
 
 def backfill_tier(batch_size: int = 2) -> int:
+    """Backfill tier."""
     engine = make_memory_engine()
     with engine.begin() as conn:
         conn.execute(

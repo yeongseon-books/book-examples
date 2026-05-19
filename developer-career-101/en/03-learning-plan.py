@@ -1,3 +1,5 @@
+"""Developer Career 101 - Episode 3: Learning plan."""
+
 PREREQUISITES = {
     "python-basics": [],
     "http-api": ["python-basics"],
@@ -8,10 +10,12 @@ PREREQUISITES = {
 
 
 def topo_order(prereqs: dict[str, list[str]]) -> list[str]:
+    """Topo order."""
     order: list[str] = []
     visited: set[str] = set()
 
     def visit(node: str) -> None:
+        """Visit."""
         if node in visited:
             return
         for dep in prereqs[node]:
@@ -27,6 +31,7 @@ def topo_order(prereqs: dict[str, list[str]]) -> list[str]:
 def build_12_week_plan(
     target_role: str, weekly_hours: int, current_skills: set[str]
 ) -> list[dict]:
+    """Build 12 week plan."""
     tasks = [s for s in topo_order(PREREQUISITES) if s not in current_skills]
     weeks = []
     i = 0

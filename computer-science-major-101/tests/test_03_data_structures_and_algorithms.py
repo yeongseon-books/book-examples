@@ -1,7 +1,10 @@
+"""Tests for 03 data structures and algorithms in Computer Science Major 101."""
+
 from conftest import load_module
 
 
 def test_linked_list_and_bst_behaviors() -> None:
+    """Test linked list and bst behaviors."""
     mod = load_module("ko/03-data-structures-and-algorithms.py")
 
     linked = mod.LinkedList()

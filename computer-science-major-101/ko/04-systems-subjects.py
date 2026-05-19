@@ -1,14 +1,19 @@
+"""Computer Science Major 101 - Episode 4: Systems subjects."""
+
 from dataclasses import dataclass
 
 
 @dataclass
 class PCB:
+    """PCB."""
+
     pid: int
     burst_time: int
     remaining: int
 
 
 def round_robin(processes: list[PCB], quantum: int) -> list[tuple[int, int]]:
+    """Round robin."""
     timeline: list[tuple[int, int]] = []
     queue = [PCB(p.pid, p.burst_time, p.remaining) for p in processes]
     while any(p.remaining > 0 for p in queue):

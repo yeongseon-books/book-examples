@@ -1,9 +1,12 @@
+"""Tests for ep07 in Information Security 101."""
+
 import secrets
 
 from common import SecretsVault
 
 
 def test_secret_rotation_keeps_readability():
+    """Test secret rotation keeps readability."""
     vault = SecretsVault(secrets.token_bytes(32))
     vault.put("k", "demo-secret")
     vault.rotate_master_key(secrets.token_bytes(32))

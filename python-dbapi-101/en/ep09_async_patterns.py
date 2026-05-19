@@ -1,10 +1,15 @@
+"""Python Dbapi 101 - Episode 9: Async patterns."""
+
 import asyncio
 
 from common import setup_demo_db
 
 
 async def run_with_thread_fallback() -> int:
+    """Run with thread fallback."""
+
     def blocking_count() -> int:
+        """Blocking count."""
         conn = setup_demo_db()
         value = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
         conn.close()
@@ -14,6 +19,7 @@ async def run_with_thread_fallback() -> int:
 
 
 async def run_with_aiosqlite_if_available() -> int:
+    """Run with aiosqlite if available."""
     try:
         import aiosqlite  # type: ignore
     except ImportError:
@@ -33,6 +39,7 @@ async def run_with_aiosqlite_if_available() -> int:
 
 
 def run_demo() -> dict[str, int]:
+    """Run demo."""
     count = asyncio.run(run_with_aiosqlite_if_available())
     return {"count": count}
 

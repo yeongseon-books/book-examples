@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Information Security 101."""
+
 import sys
 from pathlib import Path
 

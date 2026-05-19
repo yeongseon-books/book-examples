@@ -1,9 +1,12 @@
+"""Llm Api Production 101 - Episode 1: Chunk loop."""
+
 import os
 
 from groq import Groq
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     stream = client.chat.completions.create(
         model="llama-3.1-8b-instant",

@@ -1,3 +1,5 @@
+"""Database Systems 101 - Episode 1: What is a database."""
+
 from __future__ import annotations
 
 import json
@@ -6,12 +8,14 @@ from pathlib import Path
 
 
 def flat_file_deposit(path: Path, user_id: str, amount: int) -> None:
+    """Flat file deposit."""
     data = json.loads(path.read_text()) if path.exists() else {}
     data[user_id] = data.get(user_id, 0) + amount
     path.write_text(json.dumps(data))
 
 
 def sqlite_memory_demo() -> list[tuple[str, int]]:
+    """Sqlite memory demo."""
     conn = sqlite3.connect(":memory:")
     conn.execute(
         "CREATE TABLE accounts(user_id TEXT PRIMARY KEY, balance INTEGER NOT NULL)"
@@ -24,6 +28,7 @@ def sqlite_memory_demo() -> list[tuple[str, int]]:
 
 
 def sqlite_file_persistence_demo(path: Path) -> tuple[int, int]:
+    """Sqlite file persistence demo."""
     with sqlite3.connect(path) as db:
         db.execute(
             "CREATE TABLE IF NOT EXISTS kv(k TEXT PRIMARY KEY, v INTEGER NOT NULL)"

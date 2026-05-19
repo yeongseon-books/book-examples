@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 9: Logging and audit."""
+
 from common import AuditLogger
 
 logger = AuditLogger(b"audit-key")

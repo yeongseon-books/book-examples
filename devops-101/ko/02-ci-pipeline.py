@@ -1,3 +1,5 @@
+"""Devops 101 - Episode 2: Ci pipeline."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -8,16 +10,21 @@ from common import MockCommandRunner
 
 @dataclass
 class Stage:
+    """Stage."""
+
     name: str
     command: str
 
 
 class Pipeline:
+    """Pipeline."""
+
     def __init__(self, stages: list[Stage], runner: MockCommandRunner) -> None:
         self.stages = stages
         self.runner = runner
 
     def run(self) -> dict[str, object]:
+        """Run."""
         results: list[dict[str, object]] = []
         status = "passed"
         for stage in self.stages:
@@ -34,6 +41,7 @@ class Pipeline:
         }
 
     def _to_junit(self, results: list[dict[str, object]]) -> str:
+        """To junit."""
         suite = Element(
             "testsuite", attrib={"name": "ci-pipeline", "tests": str(len(results))}
         )

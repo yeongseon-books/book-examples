@@ -10,6 +10,7 @@ exceeds the token budget, then trim history if needed.
 
 
 def rough_token_count(messages: list[dict[str, str]]) -> int:
+    """Rough token count."""
     total_chars = sum(len(message["content"]) for message in messages)
     overhead = len(messages) * 12
     return (total_chars // 4) + overhead
@@ -19,6 +20,7 @@ def enforce_budget(
     messages: list[dict[str, str]],
     max_input_tokens: int = 6000,
 ) -> list[dict[str, str]]:
+    """Enforce budget."""
     if rough_token_count(messages) <= max_input_tokens:
         return messages
 
@@ -33,6 +35,7 @@ def enforce_budget(
 
 
 def main() -> None:
+    """Main."""
     system = {"role": "system", "content": "You are a helpful assistant."}
     short_history = [system] + [
         {

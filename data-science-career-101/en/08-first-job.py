@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 8: First job."""
+
 from __future__ import annotations
 
 ROLE_TASKS = {
@@ -8,6 +10,7 @@ ROLE_TASKS = {
 
 
 def generate_onboarding_tasks(role: str, week: int) -> list[str]:
+    """Generate onboarding tasks."""
     base = ROLE_TASKS[role]
     if week <= 1:
         return ["1:1 미팅 5건", "데이터 접근 권한 확인", *base[:1]]
@@ -17,6 +20,7 @@ def generate_onboarding_tasks(role: str, week: int) -> list[str]:
 
 
 def validate_first_month_checklist(items: list[str]) -> dict[str, object]:
+    """Validate first month checklist."""
     required = ["1:1", "데이터 지도", "작은 승리", "결정 기록"]
     missing = [key for key in required if not any(key in item for item in items)]
     return {"is_valid": not missing, "missing": missing}

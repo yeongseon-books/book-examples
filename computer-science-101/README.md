@@ -17,6 +17,14 @@
 
 `ko/`와 `en/`은 동일한 예제를 한국어/영어 설명으로 제공합니다.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

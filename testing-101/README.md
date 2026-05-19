@@ -5,3 +5,11 @@
 - 각 에피소드마다 작은 SUT와 테스트 개념 예제를 제공합니다.
 - `ko/`와 `en/`은 동일한 구조를 가집니다.
 - 루트 `tests/`가 개념별 테스트를 실행합니다.
+
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```

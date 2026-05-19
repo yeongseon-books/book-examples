@@ -1,3 +1,5 @@
+"""Computer Architecture 101 - Episode 1: What is computer architecture."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,6 +7,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Machine:
+    """Machine."""
+
     memory: list[tuple[str, int]]
     data: list[int]
     acc: int = 0
@@ -12,6 +16,7 @@ class Machine:
     halted: bool = False
 
     def step(self) -> None:
+        """Step."""
         op, arg = self.memory[self.pc]
         if op == "LOAD":
             self.acc = self.data[arg]
@@ -29,6 +34,7 @@ class Machine:
 
 
 def run_program() -> int:
+    """Run program."""
     program = [("LOAD", 0), ("ADD", 1), ("STORE", 2), ("HALT", 0)]
     data = [7, 5, 0]
     m = Machine(memory=program, data=data)

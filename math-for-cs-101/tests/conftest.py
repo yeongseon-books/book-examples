@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Math For Cs 101."""
+
 import importlib.util
 import sys
 from pathlib import Path
@@ -8,6 +10,7 @@ if str(ROOT) not in sys.path:
 
 
 def load_module(relative_path):
+    """Load module."""
     p = ROOT / relative_path
     spec = importlib.util.spec_from_file_location(p.stem, p)
     mod = importlib.util.module_from_spec(spec)

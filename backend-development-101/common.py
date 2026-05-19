@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Backend Development 101."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -13,10 +15,14 @@ from sqlalchemy.pool import StaticPool
 
 
 class Base(DeclarativeBase):
+    """Base."""
+
     pass
 
 
 class User(Base):
+    """User."""
+
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -24,6 +30,7 @@ class User(Base):
 
 
 def make_sqlite_engine() -> Any:
+    """Make sqlite engine."""
     return create_engine(
         "sqlite+pysqlite:///:memory:",
         future=True,
@@ -33,15 +40,18 @@ def make_sqlite_engine() -> Any:
 
 
 def init_db(engine: Any) -> None:
+    """Init db."""
     Base.metadata.create_all(engine)
 
 
 def make_auth_token(username: str, secret: str) -> str:
+    """Make auth token."""
     digest = sha256(f"{username}:{secret}".encode()).hexdigest()
     return f"{username}.{digest}"
 
 
 def verify_auth_token(token: str, secret: str) -> dict[str, str]:
+    """Verify auth token."""
     try:
         username, provided = token.split(".", 1)
     except ValueError as exc:
@@ -54,7 +64,10 @@ def verify_auth_token(token: str, secret: str) -> dict[str, str]:
 
 
 def bearer_user(secret: str):
+    """Bearer user."""
+
     def _dep(authorization: str = Header(default="")) -> dict[str, str]:
+        """Dep."""
         if not authorization.startswith("Bearer "):
             raise HTTPException(status_code=401, detail="missing bearer token")
         token = authorization.removeprefix("Bearer ")
@@ -65,26 +78,34 @@ def bearer_user(secret: str):
 
 @dataclass
 class InMemoryCache:
+    """In memory cache."""
+
     values: dict[str, Any]
 
     def get(self, key: str) -> Any:
+        """Get."""
         return self.values.get(key)
 
     def set(self, key: str, value: Any) -> None:
+        """Set."""
         self.values[key] = value
 
 
 @dataclass
 class InMemoryQueue:
+    """In memory queue."""
+
     jobs: list[dict[str, Any]]
 
     def enqueue(self, job_type: str, payload: dict[str, Any]) -> None:
+        """Enqueue."""
         self.jobs.append({"type": job_type, "payload": payload})
 
 
 def request_id_middleware(app: FastAPI) -> None:
     @app.middleware("http")
     async def add_request_id(request: Request, call_next):
+        """Add request id."""
         request_id = request.headers.get("X-Request-ID", "rid-demo")
         request.state.request_id = request_id
         response = await call_next(request)
@@ -93,7 +114,11 @@ def request_id_middleware(app: FastAPI) -> None:
 
 
 def domain_error_handlers(app: FastAPI) -> None:
+    """Domain error handlers."""
+
     class DomainError(Exception):
+        """Domain error."""
+
         def __init__(self, code: str, message: str):
             super().__init__(message)
             self.code = code
@@ -101,6 +126,7 @@ def domain_error_handlers(app: FastAPI) -> None:
 
     @app.exception_handler(DomainError)
     async def handle_domain_error(_: Request, exc: DomainError):
+        """Handle domain error."""
         return JSONResponse(
             status_code=400, content={"code": exc.code, "message": exc.message}
         )
@@ -109,4 +135,5 @@ def domain_error_handlers(app: FastAPI) -> None:
 
 
 def list_user_names(session: Session) -> list[str]:
+    """List user names."""
     return list(session.scalars(select(User.name)).all())

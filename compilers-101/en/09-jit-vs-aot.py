@@ -1,3 +1,5 @@
+"""Compilers 101 - Episode 9: Jit vs aot."""
+
 # English mirror of Korean episode example
 from __future__ import annotations
 
@@ -5,10 +7,12 @@ import time
 
 
 def compile_expr(expr: str):
+    """Compile expr."""
     return compile(expr, "<jit>", "eval")
 
 
 def aot_eval(expr: str, rounds: int) -> tuple[float, int]:
+    """Aot eval."""
     code = compile_expr(expr)
     t0 = time.perf_counter()
     val = 0
@@ -18,6 +22,7 @@ def aot_eval(expr: str, rounds: int) -> tuple[float, int]:
 
 
 def jit_eval(expr: str, rounds: int) -> tuple[float, int]:
+    """Jit eval."""
     cache: dict[str, object] = {}
     t0 = time.perf_counter()
     val = 0

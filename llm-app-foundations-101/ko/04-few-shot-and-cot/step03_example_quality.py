@@ -25,6 +25,7 @@ TARGET = "비밀번호 재설정 메일이 오지 않아 로그인하지 못하�
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     bad_examples: list[Any] = [

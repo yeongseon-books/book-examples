@@ -1,8 +1,11 @@
+"""Tests for ep03 in Clean Code 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     module_path = Path(__file__).resolve().parent.parent / "ko" / path
     spec = importlib.util.spec_from_file_location(module_path.stem, module_path)
     assert spec is not None and spec.loader is not None
@@ -12,6 +15,7 @@ def load(path: str):
 
 
 def test_ep03_small_functions() -> None:
+    """Test ep03 small functions."""
     m = load("03-small-functions/step01_small_functions.py")
     item = m.LineItem(price=100, qty=2)
     assert m.line_total(item) == 200

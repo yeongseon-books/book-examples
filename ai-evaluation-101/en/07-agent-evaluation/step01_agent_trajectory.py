@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Agent trajectory."""
+
 import sys
 from pathlib import Path
 
@@ -5,6 +7,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 
 def run() -> dict[str, float]:
+    """Run."""
     expected_tools = ["read_calendar", "read_emails", "summarize", "send_email"]
     actual_tools = ["read_calendar", "read_emails", "summarize", "send_email"]
     success = 1.0 if actual_tools[-1] == "send_email" else 0.0

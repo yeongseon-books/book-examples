@@ -1,3 +1,5 @@
+"""Compilers 101 - Episode 6: Intermediate representation."""
+
 # English mirror of Korean episode example
 from __future__ import annotations
 
@@ -5,12 +7,14 @@ from __future__ import annotations
 def ast_to_tac(
     node: tuple, out: list[str] | None = None, counter: list[int] | None = None
 ) -> tuple[list[str], str]:
+    """Ast to tac."""
     if out is None:
         out = []
     if counter is None:
         counter = [0]
 
     def fresh() -> str:
+        """Fresh."""
         counter[0] += 1
         return f"t{counter[0]}"
 

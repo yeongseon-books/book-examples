@@ -1,8 +1,11 @@
+"""Tests for 10 discrete math and algorithms in Discrete Math 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(p):
+    """Load."""
     s = importlib.util.spec_from_file_location("m", p)
     m = importlib.util.module_from_spec(s)
     s.loader.exec_module(m)
@@ -10,6 +13,7 @@ def load(p):
 
 
 def test_edit_distance_and_dijkstra():
+    """Test edit distance and dijkstra."""
     m = load(Path("ko/10-discrete-math-and-algorithms.py"))
     assert m.edit_distance("kitten", "sitting") == 3
     dist = m.dijkstra({"A": [("B", 2), ("C", 5)], "B": [("C", 1)]}, "A")

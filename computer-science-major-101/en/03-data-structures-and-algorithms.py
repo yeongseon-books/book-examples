@@ -1,17 +1,26 @@
+"""Computer Science Major 101 - Episode 3: Data structures and algorithms."""
+
+
 class LinkedListNode:
+    """Linked list node."""
+
     def __init__(self, value: int, nxt: "LinkedListNode | None" = None) -> None:
         self.value: int = value
         self.next: LinkedListNode | None = nxt
 
 
 class LinkedList:
+    """Linked list."""
+
     def __init__(self) -> None:
         self.head: LinkedListNode | None = None
 
     def insert_front(self, value: int) -> None:
+        """Insert front."""
         self.head = LinkedListNode(value, self.head)
 
     def find(self, value: int) -> bool:
+        """Find."""
         node = self.head
         while node:
             if node.value == value:
@@ -20,6 +29,7 @@ class LinkedList:
         return False
 
     def delete(self, value: int) -> bool:
+        """Delete."""
         prev: LinkedListNode | None = None
         node = self.head
         while node:
@@ -34,6 +44,8 @@ class LinkedList:
 
 
 class BSTNode:
+    """BST node."""
+
     def __init__(self, key: int, value: str) -> None:
         self.key: int = key
         self.value: str = value
@@ -42,13 +54,17 @@ class BSTNode:
 
 
 class BinarySearchTree:
+    """Binary search tree."""
+
     def __init__(self) -> None:
         self.root: BSTNode | None = None
 
     def insert(self, key: int, value: str) -> None:
+        """Insert."""
         self.root = self._insert(self.root, key, value)
 
     def _insert(self, node: BSTNode | None, key: int, value: str) -> BSTNode:
+        """Insert."""
         if node is None:
             return BSTNode(key, value)
         if key < node.key:
@@ -60,6 +76,7 @@ class BinarySearchTree:
         return node
 
     def find(self, key: int) -> str | None:
+        """Find."""
         node = self.root
         while node:
             if key == node.key:
@@ -68,9 +85,11 @@ class BinarySearchTree:
         return None
 
     def delete(self, key: int) -> None:
+        """Delete."""
         self.root = self._delete(self.root, key)
 
     def _delete(self, node: BSTNode | None, key: int) -> BSTNode | None:
+        """Delete."""
         if node is None:
             return None
         if key < node.key:

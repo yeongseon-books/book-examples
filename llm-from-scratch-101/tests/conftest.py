@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Llm From Scratch 101."""
+
 import sys
 from pathlib import Path
 

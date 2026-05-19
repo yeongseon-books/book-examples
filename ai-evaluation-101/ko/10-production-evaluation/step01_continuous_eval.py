@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Continuous eval."""
+
 import sys
 from pathlib import Path
 
@@ -5,6 +7,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 
 def run() -> dict[str, float | bool]:
+    """Run."""
     baseline_thumbs_down = 0.03
     baseline_std = 0.005
     today_thumbs_down = 0.047

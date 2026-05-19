@@ -14,6 +14,7 @@ from groq import Groq
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     question = "파이썬의 딕셔너리와 리스트 차이를 설명해 주세요."
 

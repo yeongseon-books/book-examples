@@ -15,6 +15,7 @@ from groq.types.chat import ChatCompletionMessageParam
 
 
 def ask(client: Groq, history: list[ChatCompletionMessageParam], user_text: str) -> str:
+    """Ask."""
     history.append({"role": "user", "content": user_text})
 
     completion = client.chat.completions.create(
@@ -34,6 +35,7 @@ def ask(client: Groq, history: list[ChatCompletionMessageParam], user_text: str)
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     history: list[ChatCompletionMessageParam] = [
         {

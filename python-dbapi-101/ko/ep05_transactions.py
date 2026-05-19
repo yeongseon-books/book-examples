@@ -1,7 +1,10 @@
+"""Python Dbapi 101 - Episode 5: Transactions."""
+
 from common import create_connection, initialize_schema
 
 
 def run_demo() -> dict[str, object]:
+    """Run demo."""
     conn = create_connection(":memory:")
     initialize_schema(conn)
 

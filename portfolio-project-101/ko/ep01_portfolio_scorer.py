@@ -1,9 +1,12 @@
+"""Portfolio Project 101 - Episode 1: Portfolio scorer."""
+
 from __future__ import annotations
 
 from common import clamp_score
 
 
 def score_portfolio_project(flags: dict[str, bool]) -> int:
+    """Score portfolio project."""
     weights = {
         "has_demo": 20,
         "has_tests": 20,

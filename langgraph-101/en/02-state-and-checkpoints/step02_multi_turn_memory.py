@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 2: Multi turn memory."""
+
 from typing import Annotated, cast
 
 from langchain_core.messages import AIMessage, HumanMessage
@@ -9,10 +11,13 @@ from typing_extensions import TypedDict
 
 
 class ChatState(TypedDict):
+    """Chat state."""
+
     messages: Annotated[list, add_messages]
 
 
 def find_name(messages: list) -> str | None:
+    """Find name."""
     for message in reversed(messages):
         if not isinstance(message, HumanMessage):
             continue
@@ -23,6 +28,7 @@ def find_name(messages: list) -> str | None:
 
 
 def assistant_node(state: ChatState):
+    """Assistant node."""
     last_message = state["messages"][-1]
     remembered_name = find_name(state["messages"][:-1]) or find_name(state["messages"])
 
@@ -38,6 +44,7 @@ def assistant_node(state: ChatState):
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(ChatState)
     builder.add_node("assistant", assistant_node)
     builder.add_edge(START, "assistant")

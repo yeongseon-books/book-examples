@@ -1,3 +1,5 @@
+"""Computer Networks 101 - Episode 9: Websocket and realtime."""
+
 # English mirror of the corresponding episode demo
 from __future__ import annotations
 
@@ -5,6 +7,7 @@ import struct
 
 
 def encode_masked_text_frame(payload: str, mask_key: bytes = b"ABCD") -> bytes:
+    """Encode masked text frame."""
     raw = payload.encode()
     first = 0x81
     second = 0x80 | len(raw)
@@ -13,6 +16,7 @@ def encode_masked_text_frame(payload: str, mask_key: bytes = b"ABCD") -> bytes:
 
 
 def parse_websocket_frame(frame: bytes) -> dict[str, object]:
+    """Parse websocket frame."""
     first, second = frame[0], frame[1]
     fin = bool(first & 0x80)
     opcode = first & 0x0F

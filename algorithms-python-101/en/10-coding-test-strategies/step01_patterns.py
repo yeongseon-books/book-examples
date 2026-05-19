@@ -1,4 +1,8 @@
+"""Algorithms Python 101 - Episode 1: Patterns."""
+
+
 def longest_unique_substring(text: str) -> int:
+    """Longest unique substring."""
     last_seen: dict[str, int] = {}
     left = 0
     best = 0

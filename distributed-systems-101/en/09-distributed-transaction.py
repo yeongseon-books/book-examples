@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 9: Distributed transaction."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,6 +11,7 @@ from en.common import Participant, two_phase_commit
 
 def run_demo() -> dict[str, object]:
     # In 2PC, one prepare failure forces full rollback.
+    """Run demo."""
     p1 = Participant("inventory", can_commit=True)
     p2 = Participant("payment", can_commit=False)
     ok = two_phase_commit([p1, p2])

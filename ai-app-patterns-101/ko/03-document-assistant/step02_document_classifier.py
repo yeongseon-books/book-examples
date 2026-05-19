@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 2: Document classifier."""
+
 from __future__ import annotations
 
 from common import (
@@ -16,6 +18,7 @@ DOCUMENTS = [
 
 
 def classify_documents() -> None:
+    """Classify documents."""
     client = build_client()
     system_prompt = "문서를 '운영 이슈', '기획 문서', '내부 가이드' 중 하나로 분류하고 이유를 한 줄로 설명하세요."
 

@@ -1,3 +1,5 @@
+"""Ai Web Dev 101 - Episode 1: Simple rag."""
+
 from __future__ import annotations
 
 import math
@@ -10,6 +12,7 @@ FAQ_DATA = [
 
 
 def embed(text: str) -> dict[str, int]:
+    """Embed."""
     tokens = [t.strip(".,!? ") for t in text.split() if t.strip(".,!? ")]
     bag: dict[str, int] = {}
     for token in tokens:
@@ -18,6 +21,7 @@ def embed(text: str) -> dict[str, int]:
 
 
 def cosine_sim(a: dict[str, int], b: dict[str, int]) -> float:
+    """Cosine sim."""
     keys = set(a) | set(b)
     dot = sum(a.get(k, 0) * b.get(k, 0) for k in keys)
     na = math.sqrt(sum(v * v for v in a.values()))
@@ -28,6 +32,7 @@ def cosine_sim(a: dict[str, int], b: dict[str, int]) -> float:
 
 
 def search(query: str) -> str:
+    """Search."""
     for doc in FAQ_DATA:
         if any(token and token in doc for token in query.split()):
             return doc
@@ -38,5 +43,6 @@ def search(query: str) -> str:
 
 
 def answer_with_rag(query: str) -> str:
+    """Answer with rag."""
     context = search(query)
     return f"근거: {context}\n답변: 제공된 근거 기준으로 안내드립니다."

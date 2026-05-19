@@ -1,9 +1,12 @@
+"""Tests for ep05 in Portfolio Project 101."""
+
 from pathlib import Path
 
 from ko.ep05_deployment_readiness import check_deployment_readiness
 
 
 def test_ep05_deployment_readiness(tmp_path: Path) -> None:
+    """Test ep05 deployment readiness."""
     (tmp_path / "Dockerfile").write_text("FROM python:3.12", encoding="utf-8")
     (tmp_path / ".env.example").write_text("APP_ENV=dev", encoding="utf-8")
     (tmp_path / "requirements.txt").write_text(

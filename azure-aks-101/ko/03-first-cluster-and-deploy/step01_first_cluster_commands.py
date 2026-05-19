@@ -1,9 +1,12 @@
+"""Azure Aks 101 - Episode 1: First cluster commands."""
+
 from __future__ import annotations
 
 from common import build_az_aks_create_command
 
 
 def build_bootstrap_flow() -> dict[str, list[str]]:
+    """Build bootstrap flow."""
     create = build_az_aks_create_command("rg-aks-101", "aks-101-cluster", 1)
     add_user_pool = [
         "az",

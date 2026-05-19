@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Computer Networks 101."""
+
 from __future__ import annotations
 
 import json
@@ -7,6 +9,7 @@ from collections.abc import Callable
 
 
 def start_tcp_echo_server() -> tuple[threading.Thread, int]:
+    """Start tcp echo server."""
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind(("127.0.0.1", 0))
@@ -14,6 +17,7 @@ def start_tcp_echo_server() -> tuple[threading.Thread, int]:
     port = server.getsockname()[1]
 
     def run() -> None:
+        """Run."""
         conn, _ = server.accept()
         with conn:
             data = conn.recv(4096)
@@ -27,11 +31,13 @@ def start_tcp_echo_server() -> tuple[threading.Thread, int]:
 
 
 def start_udp_echo_server() -> tuple[threading.Thread, int]:
+    """Start udp echo server."""
     server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     server.bind(("127.0.0.1", 0))
     port = server.getsockname()[1]
 
     def run() -> None:
+        """Run."""
         data, addr = server.recvfrom(4096)
         server.sendto(data, addr)
         server.close()
@@ -42,12 +48,14 @@ def start_udp_echo_server() -> tuple[threading.Thread, int]:
 
 
 def run_tcp_client(message: bytes, port: int) -> bytes:
+    """Run tcp client."""
     with socket.create_connection(("127.0.0.1", port), timeout=1.5) as client:
         client.sendall(message)
         return client.recv(4096)
 
 
 def run_udp_client(message: bytes, port: int) -> bytes:
+    """Run udp client."""
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as client:
         client.settimeout(1.5)
         client.sendto(message, ("127.0.0.1", port))
@@ -56,10 +64,12 @@ def run_udp_client(message: bytes, port: int) -> bytes:
 
 
 def parse_json_lines(raw: str) -> list[dict[str, object]]:
+    """Parse json lines."""
     return [json.loads(line) for line in raw.splitlines() if line.strip()]
 
 
 def retry_until(timeout_seconds: float, action: Callable[[], bool]) -> bool:
+    """Retry until."""
     deadline = timeout_seconds
     while deadline > 0:
         if action():

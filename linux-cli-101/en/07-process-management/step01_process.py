@@ -1,9 +1,12 @@
+"""Linux Cli 101 - Episode 1: Process."""
+
 from __future__ import annotations
 
 from common import ProcessManager
 
 
 def run() -> dict[str, int | bool]:
+    """Run."""
     pm = ProcessManager()
     proc = pm.spawn_sleep(20)
     running_before = pm.is_running(proc.pid)

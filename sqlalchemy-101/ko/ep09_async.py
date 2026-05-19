@@ -1,9 +1,12 @@
+"""Sqlalchemy 101 - Episode 9: Async."""
+
 from common import async_memory_engine
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
 async def run() -> int:
+    """Run."""
     engine = async_memory_engine()
     async with engine.connect() as conn:
         value = (await conn.execute(text("select 9"))).scalar_one()

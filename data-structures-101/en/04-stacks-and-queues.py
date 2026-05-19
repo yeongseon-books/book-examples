@@ -1,30 +1,39 @@
+"""Data Structures 101 - Episode 4: Stacks and queues."""
+
 from __future__ import annotations
 
 
 class Node:
+    """Node."""
+
     def __init__(self, value: str, next: Node | None = None) -> None:
         self.value = value
         self.next = next
 
 
 class ArrayStack:
+    """Array stack."""
+
     def __init__(self, capacity: int = 4) -> None:
         self._data: list[object | None] = [None] * capacity
         self._size = 0
 
     def _grow(self) -> None:
+        """Grow."""
         new: list[object | None] = [None] * (len(self._data) * 2)
         for i in range(self._size):
             new[i] = self._data[i]
         self._data = new
 
     def push(self, value: str) -> None:
+        """Push."""
         if self._size == len(self._data):
             self._grow()
         self._data[self._size] = value
         self._size += 1
 
     def pop(self) -> str:
+        """Pop."""
         if self._size == 0:
             raise IndexError("pop from empty stack")
         self._size -= 1
@@ -35,13 +44,17 @@ class ArrayStack:
 
 
 class LinkedListStack:
+    """Linked list stack."""
+
     def __init__(self) -> None:
         self._head: Node | None = None
 
     def push(self, value: str) -> None:
+        """Push."""
         self._head = Node(value=value, next=self._head)
 
     def pop(self) -> str:
+        """Pop."""
         if self._head is None:
             raise IndexError("pop from empty stack")
         value = self._head.value
@@ -50,12 +63,15 @@ class LinkedListStack:
 
 
 class ArrayQueue:
+    """Array queue."""
+
     def __init__(self, capacity: int = 4) -> None:
         self._data: list[object | None] = [None] * capacity
         self._front = 0
         self._size = 0
 
     def _grow(self) -> None:
+        """Grow."""
         new: list[object | None] = [None] * (len(self._data) * 2)
         for i in range(self._size):
             new[i] = self._data[(self._front + i) % len(self._data)]
@@ -63,6 +79,7 @@ class ArrayQueue:
         self._front = 0
 
     def enqueue(self, value: str) -> None:
+        """Enqueue."""
         if self._size == len(self._data):
             self._grow()
         idx = (self._front + self._size) % len(self._data)
@@ -70,6 +87,7 @@ class ArrayQueue:
         self._size += 1
 
     def dequeue(self) -> str:
+        """Dequeue."""
         if self._size == 0:
             raise IndexError("dequeue from empty queue")
         value = self._data[self._front]
@@ -81,11 +99,14 @@ class ArrayQueue:
 
 
 class LinkedListQueue:
+    """Linked list queue."""
+
     def __init__(self) -> None:
         self._head: Node | None = None
         self._tail: Node | None = None
 
     def enqueue(self, value: str) -> None:
+        """Enqueue."""
         node = Node(value=value)
         if self._tail is None:
             self._head = self._tail = node
@@ -94,6 +115,7 @@ class LinkedListQueue:
             self._tail = node
 
     def dequeue(self) -> str:
+        """Dequeue."""
         if self._head is None:
             raise IndexError("dequeue from empty queue")
         value = self._head.value
@@ -104,6 +126,7 @@ class LinkedListQueue:
 
 
 def is_balanced_parentheses(expr: str) -> bool:
+    """Is balanced parentheses."""
     pairs = {")": "(", "]": "[", "}": "{"}
     opens = set(pairs.values())
     stack = ArrayStack()
@@ -120,6 +143,7 @@ def is_balanced_parentheses(expr: str) -> bool:
 
 
 def bfs_order(graph: dict[str, list[str]], start: str) -> list[str]:
+    """Bfs order."""
     queue = ArrayQueue()
     queue.enqueue(start)
     seen = {start}

@@ -1,7 +1,10 @@
+"""Incident Response 101 - Episode 1: Example."""
+
 from common import Incident, SeverityClassifier
 
 
 def run() -> dict[str, str]:
+    """Run."""
     classifier = SeverityClassifier()
     sev = classifier.classify(users_affected=15000, revenue_loss=3000, regions=1)
     incident = Incident(id="INC-001", title="checkout timeout", severity=sev)

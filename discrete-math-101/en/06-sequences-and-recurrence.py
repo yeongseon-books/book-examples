@@ -1,18 +1,25 @@
+"""Discrete Math 101 - Episode 6: Sequences and recurrence."""
+
 # English runnable example
 from functools import cache
 
 
 def fib_naive(n):
+    """Fib naive."""
     return n if n < 2 else fib_naive(n - 1) + fib_naive(n - 2)
 
 
 @cache
 def fib_memo(n):
+    """Fib memo."""
     return n if n < 2 else fib_memo(n - 1) + fib_memo(n - 2)
 
 
 def fib_matrix(n):
+    """Fib matrix."""
+
     def mul(a, b):
+        """Mul."""
         return [
             [
                 a[0][0] * b[0][0] + a[0][1] * b[1][0],
@@ -25,6 +32,7 @@ def fib_matrix(n):
         ]
 
     def mpow(m, e):
+        """Mpow."""
         r = [[1, 0], [0, 1]]
         while e:
             if e & 1:
@@ -39,10 +47,12 @@ def fib_matrix(n):
 
 
 def recurrence_closed(n):
+    """Recurrence closed."""
     return 2**n - 1
 
 
 def recurrence_iter(n):
+    """Recurrence iter."""
     t = 0
     for _ in range(n):
         t = 2 * t + 1

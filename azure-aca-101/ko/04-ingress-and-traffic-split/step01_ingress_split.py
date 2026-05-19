@@ -1,18 +1,23 @@
+"""Azure Aca 101 - Episode 1: Ingress split."""
+
 from fastapi import FastAPI, Header
 from fastapi.testclient import TestClient
 
 
 def app_for_revision(name: str) -> FastAPI:
+    """App for revision."""
     app = FastAPI()
 
     @app.get("/")
     def read_root(x_revision: str | None = Header(default=None)) -> dict[str, str]:
+        """Read root."""
         return {"served_by": x_revision or name}
 
     return app
 
 
 def ingress_hostname(app_name: str, mode: str) -> str:
+    """Ingress hostname."""
     if mode == "external":
         return f"https://{app_name}.demo.koreacentral.azurecontainerapps.io"
     if mode == "internal":
@@ -23,6 +28,7 @@ def ingress_hostname(app_name: str, mode: str) -> str:
 
 
 def run() -> dict[str, str]:
+    """Run."""
     client = TestClient(app_for_revision("myapi--v1"))
     response = client.get("/")
     return {

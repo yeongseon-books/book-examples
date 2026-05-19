@@ -1,9 +1,12 @@
+"""Linux Cli 101 - Episode 1: Permissions."""
+
 from __future__ import annotations
 
 from common import make_temp_workspace, run_cmd
 
 
 def run() -> dict[str, str | int]:
+    """Run."""
     ws = make_temp_workspace("ep03-")
     target = ws / "secret.txt"
     target.write_text("top-secret\n", encoding="utf-8")

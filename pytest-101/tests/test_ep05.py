@@ -1,3 +1,5 @@
+"""Tests for ep05 in Pytest 101."""
+
 import pytest
 from en.ep05_validator import is_valid_password
 
@@ -13,4 +15,5 @@ from en.ep05_validator import is_valid_password
     ],
 )
 def test_ep05_password_validator_parametrized(password, expected):
+    """Test ep05 password validator parametrized."""
     assert is_valid_password(password) is expected

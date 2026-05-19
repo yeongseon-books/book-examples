@@ -1,3 +1,5 @@
+"""Tests for episodes in Functional Programming 101."""
+
 from __future__ import annotations
 
 from conftest import load_module
@@ -6,16 +8,19 @@ common = load_module("common.py", "common_mod")
 
 
 def test_ep01_pipeline_result() -> None:
+    """Test ep01 pipeline result."""
     ep = load_module("ko/01-what-is-fp.py", "ep01")
     assert ep.price_pipeline(5000) == 8730
 
 
 def test_ep02_pure_function_deterministic() -> None:
+    """Test ep02 pure function deterministic."""
     ep = load_module("ko/02-pure-functions.py", "ep02")
     assert ep.apply_discount(10000, 0.1) == ep.apply_discount(10000, 0.1)
 
 
 def test_ep03_immutability() -> None:
+    """Test ep03 immutability."""
     ep = load_module("ko/03-immutable-data.py", "ep03")
     state = common.ImmutableState(values=(1, 2))
     nxt = ep.next_state(state, 3)
@@ -25,6 +30,7 @@ def test_ep03_immutability() -> None:
 
 
 def test_ep04_higher_order_behavior() -> None:
+    """Test ep04 higher order behavior."""
     ep = load_module("ko/04-higher-order-functions.py", "ep04")
     assert ep.apply_to_items([1, 2, 3], lambda x: x + 5) == [6, 7, 8]
     only_big = ep.make_threshold_filter(10)
@@ -32,18 +38,21 @@ def test_ep04_higher_order_behavior() -> None:
 
 
 def test_ep05_map_filter_reduce_equivalence() -> None:
+    """Test ep05 map filter reduce equivalence."""
     ep = load_module("ko/05-map-filter-reduce.py", "ep05")
     values = [1, 2, 3, 4, 5, 6]
     assert ep.map_filter_reduce_total(values) == ep.comprehension_total(values)
 
 
 def test_ep06_closure_and_partial() -> None:
+    """Test ep06 closure and partial."""
     ep = load_module("ko/06-closure-and-partial.py", "ep06")
     assert ep.make_multiplier(4)(5) == 20
     assert ep.times_three()(7) == 21
 
 
 def test_ep07_recursion_and_tail_aware() -> None:
+    """Test ep07 recursion and tail aware."""
     ep = load_module("ko/07-recursion.py", "ep07")
     tree = {
         "value": 10,
@@ -54,6 +63,7 @@ def test_ep07_recursion_and_tail_aware() -> None:
 
 
 def test_ep08_lazy_evaluation_defers() -> None:
+    """Test ep08 lazy evaluation defers."""
     ep = load_module("ko/08-lazy-evaluation.py", "ep08")
     counter = common.SideEffectCounter()
     stream = ep.lazy_prices(counter)
@@ -64,6 +74,7 @@ def test_ep08_lazy_evaluation_defers() -> None:
 
 
 def test_ep09_composition_associative() -> None:
+    """Test ep09 composition associative."""
     ep = load_module("ko/09-function-composition.py", "ep09")
     left = common.compose(common.compose(ep.f, ep.g), ep.h)(10)
     right = common.compose(ep.f, common.compose(ep.g, ep.h))(10)
@@ -71,6 +82,7 @@ def test_ep09_composition_associative() -> None:
 
 
 def test_ep10_oop_fp_hybrid_equal_results() -> None:
+    """Test ep10 oop fp hybrid equal results."""
     ep = load_module("ko/10-oop-and-fp-balance.py", "ep10")
     items = [{"price": 1000, "qty": 2}, {"price": 500, "qty": 3}]
     cart = ep.Cart(items=items)

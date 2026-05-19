@@ -1,9 +1,12 @@
+"""Tests for ep02 in Harness Engineering 101."""
+
 import pytest
 from common import TaskHarness, TaskSpec
 from conftest import load_episode
 
 
 def test_ep02_task_harness_requires_output_key():
+    """Test ep02 task harness requires output key."""
     m = load_episode("ko", "02-task-harness")
     assert m.task_harness_example()["status"] == "done"
     h = TaskHarness()

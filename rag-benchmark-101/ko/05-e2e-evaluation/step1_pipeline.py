@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 1: Pipeline."""
+
 from __future__ import annotations
 
 import sys
@@ -14,6 +16,7 @@ PROMPT = "다음 컨텍스트만 사용해 질문에 답하세요. 정보가 없
 
 
 def main() -> None:
+    """Main."""
     case = PIPELINE_CASES[0]
     context = "\n\n".join(doc["text"] for doc in CORPUS[:3])
     print("종단간 파이프라인 샘플")

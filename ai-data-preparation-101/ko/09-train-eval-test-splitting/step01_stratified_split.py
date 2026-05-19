@@ -1,7 +1,10 @@
+"""Ai Data Preparation 101 - Episode 1: Stratified split."""
+
 from collections import defaultdict
 
 
 def run() -> dict[str, dict[str, int]]:
+    """Run."""
     rows = [
         {"id": "a", "label": "pos"},
         {"id": "b", "label": "pos"},

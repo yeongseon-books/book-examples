@@ -1,7 +1,10 @@
+"""Tests for 09 graphs in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_graph_bfs_dfs_dijkstra():
+    """Test graph bfs dfs dijkstra."""
     mod = load_module("ko/09-graphs.py")
     g = mod.Graph(directed=False)
     edges = [

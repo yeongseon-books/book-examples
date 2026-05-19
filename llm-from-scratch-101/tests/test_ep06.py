@@ -1,8 +1,11 @@
+"""Tests for ep06 in Llm From Scratch 101."""
+
 import numpy as np
 from common import cross_entropy
 
 
 def test_training_loss_decreases() -> None:
+    """Test training loss decreases."""
     x = np.eye(4)
     y = np.array([0, 1, 2, 3])
     w = np.zeros((4, 4))

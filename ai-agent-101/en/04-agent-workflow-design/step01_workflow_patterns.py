@@ -2,6 +2,7 @@
 
 
 def run_workflow(task: str, confidence: float) -> dict[str, object]:
+    """Run workflow."""
     steps: list[str] = ["plan"]
     if confidence < 0.5:
         steps.extend(["search_more", "review"])

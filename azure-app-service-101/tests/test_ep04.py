@@ -1,3 +1,5 @@
+"""Tests for ep04 in Azure App Service 101."""
+
 from __future__ import annotations
 
 from typing import Any, cast
@@ -7,6 +9,7 @@ from fastapi.testclient import TestClient
 
 
 def test_deploy_demo_app_health() -> None:
+    """Test deploy demo app health."""
     mod = load_module("ko/04-first-deploy/step01_offline_deploy_demo.py", "ep04")
     create_app = cast("Any", mod.create_app)
     build_startup_command = cast("Any", mod.build_startup_command)

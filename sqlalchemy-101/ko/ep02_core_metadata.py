@@ -1,7 +1,10 @@
+"""Sqlalchemy 101 - Episode 2: Core metadata."""
+
 from sqlalchemy import Column, DateTime, Integer, MetaData, Numeric, String, Table
 
 
 def run() -> list[str]:
+    """Run."""
     metadata = MetaData()
     Table(
         "products",

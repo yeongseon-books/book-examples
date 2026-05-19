@@ -16,6 +16,7 @@ OUTPUT_PATH = Path(__file__).resolve().parent / "outputs" / "synthetic_pairs.jso
 
 
 def extract_json(text: str):
+    """Extract json."""
     text = text.strip()
     if text.startswith("```"):
         lines = [line for line in text.splitlines() if not line.startswith("```")]
@@ -24,6 +25,7 @@ def extract_json(text: str):
 
 
 def main() -> None:
+    """Main."""
     if Groq is None:
         print("Skipping synthetic generation because the groq package is unavailable.")
         return

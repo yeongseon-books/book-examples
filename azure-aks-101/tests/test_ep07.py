@@ -1,7 +1,10 @@
+"""Tests for ep07 in Azure Aks 101."""
+
 from conftest import load_module
 
 
 def test_ep07_monitoring_queries_and_alert_targets() -> None:
+    """Test ep07 monitoring queries and alert targets."""
     ko = load_module("ko/07-monitoring-and-ops/step01_monitoring_queries.py", "ep07_ko")
     en = load_module("en/07-monitoring-and-ops/step01_monitoring_queries.py", "ep07_en")
     for module in (ko, en):

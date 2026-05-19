@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Compare embeddings."""
+
 from __future__ import annotations
 
 import json
@@ -15,6 +17,7 @@ from ko.shared import CORPUS, EMBEDDING_MODELS, QUERIES
 
 
 def main() -> None:
+    """Main."""
     print("임베딩 모델 비교")
     rows = []
     doc_ids = [doc["id"] for doc in CORPUS]
@@ -23,6 +26,7 @@ def main() -> None:
         doc_vectors, embed_ms = timed_embeddings(doc_texts, candidate.model_name)
 
         def search(query: str, limit: int) -> list[str]:
+            """Search."""
             query_vector = build_embeddings([query], candidate.model_name)[0]
             return cosine_ranking(query_vector, doc_vectors, doc_ids, limit)
 

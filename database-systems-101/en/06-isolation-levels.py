@@ -7,39 +7,48 @@ from dataclasses import dataclass
 
 @dataclass
 class VersionedValue:
+    """Versioned value."""
+
     txid: int
     value: int
     committed: bool
 
 
 class VersionedKVStore:
+    """Versioned k v store."""
+
     def __init__(self):
         self.data: dict[str, list[VersionedValue]] = {}
         self.next_txid = 1
 
     def begin(self) -> int:
+        """Begin."""
         txid = self.next_txid
         self.next_txid += 1
         return txid
 
     def write(self, txid: int, key: str, value: int) -> None:
+        """Write."""
         self.data.setdefault(key, []).append(
             VersionedValue(txid=txid, value=value, committed=False)
         )
 
     def commit(self, txid: int) -> None:
+        """Commit."""
         for versions in self.data.values():
             for v in versions:
                 if v.txid == txid:
                     v.committed = True
 
     def rollback(self, txid: int) -> None:
+        """Rollback."""
         for key in list(self.data.keys()):
             self.data[key] = [v for v in self.data[key] if v.txid != txid]
 
     def read(
         self, txid: int, key: str, level: str, snapshot_tx: int | None = None
     ) -> int | None:
+        """Read."""
         versions = self.data.get(key, [])
         if level == "read_uncommitted":
             return versions[-1].value if versions else None
@@ -52,6 +61,7 @@ class VersionedKVStore:
 
 
 def phantom_read_demo(level: str) -> tuple[int, int]:
+    """Phantom read demo."""
     rows: list[dict[str, int]] = [{"id": 1, "user_id": 7}]
     snapshot = list(rows)
     first = len([r for r in snapshot if r["user_id"] == 7])

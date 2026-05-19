@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Technical Writing 101."""
+
 from __future__ import annotations
 
 import re
@@ -6,18 +8,22 @@ from pathlib import Path
 
 
 def read_text(path: str) -> str:
+    """Read text."""
     return Path(path).read_text(encoding="utf-8")
 
 
 def _words(text: str) -> list[str]:
+    """Words."""
     return re.findall(r"[A-Za-z']+", text)
 
 
 def _sentences(text: str) -> list[str]:
+    """Sentences."""
     return [s for s in re.split(r"[.!?]+", text) if s.strip()]
 
 
 def ep01_readability(text: str, lang: str = "en") -> dict:
+    """Ep01 readability."""
     if lang == "en":
         words = _words(text)
         sents = _sentences(text)
@@ -43,6 +49,7 @@ def ep01_readability(text: str, lang: str = "en") -> dict:
 
 
 def ep02_audience_profile(text: str) -> dict:
+    """Ep02 audience profile."""
     depth_keywords = [
         "architecture",
         "latency",
@@ -71,6 +78,7 @@ def ep02_audience_profile(text: str) -> dict:
 
 
 def _heading_levels(text: str) -> list[int]:
+    """Heading levels."""
     levels = []
     for line in text.splitlines():
         m = re.match(r"^(#{1,6})\s+", line)
@@ -80,6 +88,7 @@ def _heading_levels(text: str) -> list[int]:
 
 
 def ep03_structure_lint(text: str) -> dict:
+    """Ep03 structure lint."""
     lines = text.splitlines()
     has_h1 = any(re.match(r"^#\s+", line) for line in lines)
     levels = _heading_levels(text)
@@ -96,6 +105,7 @@ def ep03_structure_lint(text: str) -> dict:
 
 
 def ep04_what_before_how(text: str) -> dict:
+    """Ep04 what before how."""
     headings = [
         re.sub(r"^#{1,6}\s+", "", ln).strip().lower()
         for ln in text.splitlines()
@@ -118,6 +128,7 @@ def ep04_what_before_how(text: str) -> dict:
 
 
 def _code_blocks(lines: list[str]) -> list[tuple[int, int, str]]:
+    """Code blocks."""
     out = []
     i = 0
     while i < len(lines):
@@ -137,6 +148,7 @@ def _code_blocks(lines: list[str]) -> list[tuple[int, int, str]]:
 
 
 def ep05_code_example_lint(text: str) -> dict:
+    """Ep05 code example lint."""
     lines = text.splitlines()
     blocks = _code_blocks(lines)
     missing_lang = 0
@@ -169,11 +181,14 @@ def ep05_code_example_lint(text: str) -> dict:
 
 
 class _ImageParser(HTMLParser):
+    """Image parser."""
+
     def __init__(self) -> None:
         super().__init__()
         self.img_missing_alt = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        """Handle starttag."""
         if tag != "img":
             return
         attr = {k: v for k, v in attrs}
@@ -182,6 +197,7 @@ class _ImageParser(HTMLParser):
 
 
 def ep06_figure_table_lint(text: str) -> dict:
+    """Ep06 figure table lint."""
     parser = _ImageParser()
     parser.feed(text)
     md_img_missing_alt = sum(
@@ -207,6 +223,7 @@ def ep06_figure_table_lint(text: str) -> dict:
 
 
 def ep07_readme_score(text: str) -> dict:
+    """Ep07 readme score."""
     required = ["install", "usage", "license"]
     lower = text.lower()
     present = [r for r in required if r in lower]
@@ -219,6 +236,7 @@ def ep07_readme_score(text: str) -> dict:
 
 
 def ep08_tutorial_structure(text: str) -> dict:
+    """Ep08 tutorial structure."""
     has_prereq = bool(re.search(r"^##\s+(Prerequisites|사전 준비)", text, flags=re.M))
     has_outcome = bool(
         re.search(r"^##\s+(Expected Outcome|결과|Outcome)", text, flags=re.M)
@@ -232,6 +250,7 @@ def ep08_tutorial_structure(text: str) -> dict:
 
 
 def ep09_blog_vs_docs(text: str) -> dict:
+    """Ep09 blog vs docs."""
     lower = text.lower()
     first_person = len(re.findall(r"\b(i|we|my|our)\b", lower))
     words = len(_words(text)) or 1
@@ -247,6 +266,7 @@ def ep09_blog_vs_docs(text: str) -> dict:
 
 
 def ep10_prepublish(text: str) -> dict:
+    """Ep10 prepublish."""
     r3 = ep03_structure_lint(text)
     r5 = ep05_code_example_lint(text)
     r6 = ep06_figure_table_lint(text)

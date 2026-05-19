@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Rag pipeline."""
+
 from __future__ import annotations
 
 import json
@@ -18,6 +20,7 @@ def answer_with_groq(
     prompt_template: str,
     model: str = "llama-3.1-8b-instant",
 ) -> str:
+    """Answer with groq."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     response = client.chat.completions.create(
         model=model,
@@ -42,6 +45,7 @@ def run_pipeline_benchmark(
     test_cases: list[PipelineCase],
     config: BenchmarkConfig,
 ) -> FullBenchmarkResult:
+    """Run pipeline benchmark."""
     doc_ids = [doc["id"] for doc in corpus]
     doc_texts = [doc["text"] for doc in corpus]
     doc_vectors = build_embeddings(doc_texts, config.embedding_model)
@@ -75,6 +79,7 @@ def run_pipeline_benchmark(
         relevances.append(judge["answer_relevance"].score)
 
     def average(values: list[float]) -> float:
+        """Average."""
         return sum(values) / len(values) if values else 0.0
 
     return FullBenchmarkResult(
@@ -90,4 +95,5 @@ def run_pipeline_benchmark(
 
 
 def result_to_json(result: FullBenchmarkResult) -> str:
+    """Result to json."""
     return json.dumps(result.summary(), indent=2, ensure_ascii=False)

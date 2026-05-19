@@ -1,3 +1,5 @@
+"""Developer Career 101 - Episode 6: System design interview."""
+
 REQUIRED_SECTIONS = [
     "functional_requirements",
     "non_functional_requirements",
@@ -9,6 +11,7 @@ REQUIRED_SECTIONS = [
 
 
 def generate_spec(prompt: str) -> dict:
+    """Generate spec."""
     return {
         "prompt": prompt,
         "functional_requirements": ["shorten", "redirect", "analytics"],
@@ -21,4 +24,5 @@ def generate_spec(prompt: str) -> dict:
 
 
 def is_complete_spec(spec: dict) -> bool:
+    """Is complete spec."""
     return all(key in spec and spec[key] for key in REQUIRED_SECTIONS)

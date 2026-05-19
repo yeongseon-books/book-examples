@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 2: Faiss filter."""
+
 from __future__ import annotations
 
 import sys
@@ -11,6 +13,7 @@ from shared.ingestion_examples import build_faiss_index, search_faiss
 
 
 def main() -> None:
+    """Main."""
     records = [
         {
             "text": "PDF 파서는 페이지 번호와 제목을 함께 저장합니다.",

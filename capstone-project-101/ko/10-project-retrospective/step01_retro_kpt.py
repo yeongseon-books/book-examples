@@ -1,9 +1,12 @@
+"""Capstone Project 101 - Episode 1: Retro kpt."""
+
 from __future__ import annotations
 
 from common import kpt_actionability
 
 
 def run() -> dict[str, object]:
+    """Run."""
     kpt = {"keep": ["scope_first"], "problem": ["no_ci"], "try": ["add_ci_template"]}
     actions = [{"who": "A", "what": "add_ci", "by": "next_sprint"}]
     return {

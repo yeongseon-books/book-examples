@@ -1,7 +1,10 @@
+"""Python Dbapi 101 - Episode 1: Pep249 conformance."""
+
 import sqlite3
 
 
 def run_demo() -> dict[str, object]:
+    """Run demo."""
     return {
         "module": sqlite3.__name__,
         "apilevel": sqlite3.apilevel,

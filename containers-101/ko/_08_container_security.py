@@ -1,3 +1,5 @@
+"""Containers 101 - Episode 8: Container security."""
+
 from __future__ import annotations
 
 import re
@@ -6,6 +8,7 @@ SECRET_PATTERN = re.compile(r"(PASSWORD|SECRET|TOKEN)=\S+", re.IGNORECASE)
 
 
 def scan_security(dockerfile: str, manifest_ref: str) -> list[str]:
+    """Scan security."""
     issues: list[str] = []
     upper = dockerfile.upper()
     if "USER " not in upper:

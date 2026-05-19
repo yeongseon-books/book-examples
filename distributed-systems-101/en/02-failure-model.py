@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 2: Failure model."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,6 +11,7 @@ from en.common import FakeNetwork, SimulatedClock
 
 def run_demo() -> dict[str, bool]:
     # Observe omission failure separately from network partition.
+    """Run demo."""
     clock = SimulatedClock()
     net = FakeNetwork(clock, seed=2, drop_rate=1.0)
     omitted = not net.send("a", "b", {"m": 1})

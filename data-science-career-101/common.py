@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Data Science Career 101."""
+
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
@@ -8,11 +10,14 @@ Track = str
 
 @dataclass(frozen=True)
 class LikertQuestion:
+    """Likert question."""
+
     prompt: str
     weights: dict[Track, float]
 
 
 def clamp_likert(value: int) -> int:
+    """Clamp likert."""
     return max(1, min(5, int(value)))
 
 
@@ -21,6 +26,7 @@ def weighted_likert_score(
     questions: Mapping[str, LikertQuestion],
     tracks: Iterable[Track],
 ) -> dict[Track, float]:
+    """Weighted likert score."""
     totals = {track: 0.0 for track in tracks}
     for key, question in questions.items():
         answer = clamp_likert(answers.get(key, 3))
@@ -31,12 +37,14 @@ def weighted_likert_score(
 
 
 def top_track(scores: Mapping[Track, float]) -> Track:
+    """Top track."""
     return sorted(scores.items(), key=lambda item: (-item[1], item[0]))[0][0]
 
 
 def score_rubric(
     scores: Mapping[str, float], weak_threshold: float = 2.5
 ) -> dict[str, str]:
+    """Score rubric."""
     result: dict[str, str] = {}
     for key, score in scores.items():
         if score >= 4.0:

@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Operating Systems 101."""
+
 from __future__ import annotations
 
 import mmap
@@ -11,6 +13,7 @@ from multiprocessing import Pipe, Process
 
 
 def ep01_os_info() -> dict[str, object]:
+    """Ep01 os info."""
     info: dict[str, object] = {
         "platform": platform.platform(),
         "system": platform.system(),
@@ -23,9 +26,11 @@ def ep01_os_info() -> dict[str, object]:
 
 
 def ep02_process_vs_thread() -> dict[str, int]:
+    """Ep02 process vs thread."""
     parent, child = Pipe(duplex=False)
 
     def worker(conn):
+        """Worker."""
         conn.send(os.getpid())
         conn.close()
 
@@ -37,6 +42,7 @@ def ep02_process_vs_thread() -> dict[str, int]:
     bucket: list[int] = []
 
     def thread_worker():
+        """Thread worker."""
         bucket.append(threading.get_ident())
 
     t = threading.Thread(target=thread_worker)
@@ -51,6 +57,7 @@ def ep02_process_vs_thread() -> dict[str, int]:
 
 
 def ep03_scheduler(tasks: list[str], quantum: int = 1) -> dict[str, list[str]]:
+    """Ep03 scheduler."""
     fifo_order = list(tasks)
     rr_order: list[str] = []
     q = deque((t, quantum) for t in tasks)
@@ -66,17 +73,20 @@ def ep03_scheduler(tasks: list[str], quantum: int = 1) -> dict[str, list[str]]:
 def ep04_race_condition(
     num_threads: int = 20, increments: int = 2000
 ) -> dict[str, int]:
+    """Ep04 race condition."""
     unsafe_counter = [0]
     safe_counter = [0]
     lock = threading.Lock()
 
     def unsafe_worker():
+        """Unsafe worker."""
         for _ in range(increments):
             unsafe_counter[0] += 1
             if unsafe_counter[0] % 7 == 0:
                 threading.Event().wait(0)
 
     def safe_worker():
+        """Safe worker."""
         for _ in range(increments):
             with lock:
                 safe_counter[0] += 1
@@ -99,18 +109,21 @@ def ep04_race_condition(
 
 
 def ep05_producer_consumer(count: int = 10, capacity: int = 3) -> dict[str, list[int]]:
+    """Ep05 producer consumer."""
     q: queue.Queue[int] = queue.Queue(maxsize=capacity)
     sem = threading.Semaphore(capacity)
     produced: list[int] = []
     consumed: list[int] = []
 
     def producer():
+        """Producer."""
         for i in range(count):
             sem.acquire()
             q.put(i)
             produced.append(i)
 
     def consumer():
+        """Consumer."""
         for _ in range(count):
             item = q.get()
             consumed.append(item)
@@ -126,6 +139,7 @@ def ep05_producer_consumer(count: int = 10, capacity: int = 3) -> dict[str, list
 
 
 def ep06_first_fit_allocator(total_size: int, requests: list[int]) -> dict[str, object]:
+    """Ep06 first fit allocator."""
     free_list = [(0, total_size)]
     allocated: list[tuple[int, int]] = []
     for size in requests:
@@ -146,6 +160,7 @@ def ep06_first_fit_allocator(total_size: int, requests: list[int]) -> dict[str, 
 
 
 def ep07_page_replacement(reference: list[int], frame_size: int) -> dict[str, int]:
+    """Ep07 page replacement."""
     fifo_frames: deque[int] = deque(maxlen=frame_size)
     lru_frames: list[int] = []
     fifo_faults = 0
@@ -166,13 +181,16 @@ def ep07_page_replacement(reference: list[int], frame_size: int) -> dict[str, in
 
 
 def ep08_in_memory_fs() -> dict[str, object]:
+    """Ep08 in memory fs."""
     fs = {"/": {"docs": {}, "hello.txt": "hi"}}
 
     def mkdir(path: str):
+        """Mkdir."""
         root = fs["/"]
         root[path] = {}
 
     def touch(path: str, content: str):
+        """Touch."""
         fs["/"][path] = content
 
     mkdir("tmp")
@@ -192,6 +210,7 @@ def ep08_in_memory_fs() -> dict[str, object]:
 
 
 def ep09_syscall_demo() -> dict[str, str]:
+    """Ep09 syscall demo."""
     with tempfile.NamedTemporaryFile(delete=False) as tf:
         path = tf.name
     fd = os.open(path, os.O_RDWR)
@@ -206,6 +225,7 @@ def ep09_syscall_demo() -> dict[str, str]:
 
 
 def ep10_namespace_simulator() -> dict[str, object]:
+    """Ep10 namespace simulator."""
     host = {"pid_ns": [1, 2], "mnt_ns": ["/", "/tmp"]}
     container = {
         "pid_ns": [1],
@@ -216,6 +236,7 @@ def ep10_namespace_simulator() -> dict[str, object]:
 
 
 def ep10_mmap_demo() -> int:
+    """Ep10 mmap demo."""
     with tempfile.TemporaryFile() as tf:
         tf.write(b"abcd")
         tf.seek(0)

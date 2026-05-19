@@ -1,8 +1,11 @@
+"""Tests for 10 choosing data structures in Data Structures Python 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     spec = importlib.util.spec_from_file_location("mod", path)
     mod = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
@@ -14,12 +17,14 @@ M = load(str(Path(__file__).resolve().parents[1] / "ko/10-choosing-data-structur
 
 
 def test_recommendation_table():
+    """Test recommendation table."""
     assert M.recommend_structure("frequent prepend") == "collections.deque"
     assert M.recommend_structure("priority retrieval") == "heapq"
     assert M.recommend_structure("unknown") == "list"
 
 
 def test_workload_benchmarks_contains_expected_keys():
+    """Test workload benchmarks contains expected keys."""
     bench = M.run_workload_benchmarks(3000)
     assert set(bench) == {"list_prepend", "deque_prepend", "heap_priority"}
     assert bench["deque_prepend"] < bench["list_prepend"]

@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 10: Statistical thinking ab test."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -8,6 +10,7 @@ from scipy import stats
 def sample_size_two_proportions(
     p1: float, p2: float, alpha: float = 0.05, power: float = 0.8
 ) -> int:
+    """Sample size two proportions."""
     z_alpha = stats.norm.ppf(1 - alpha / 2)
     z_beta = stats.norm.ppf(power)
     p_bar = 0.5 * (p1 + p2)
@@ -19,6 +22,7 @@ def sample_size_two_proportions(
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     g = rng()
     p_control = 0.10
     p_variant = 0.12

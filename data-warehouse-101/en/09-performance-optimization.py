@@ -1,3 +1,5 @@
+"""Data Warehouse 101 - Episode 9: Performance optimization."""
+
 # English example
 import sqlite3
 
@@ -5,6 +7,7 @@ from common import gen_synthetic_sales
 
 
 def run_demo() -> dict:
+    """Run demo."""
     conn = sqlite3.connect(":memory:")
     c = conn.cursor()
     c.execute("CREATE TABLE fact_sales(order_date TEXT,customer_id TEXT,amount REAL)")

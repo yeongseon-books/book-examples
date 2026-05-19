@@ -1,7 +1,10 @@
+"""Tests for ep09 in Llm From Scratch 101."""
+
 from common import CharTokenizer
 
 
 def test_chat_prompt_wrapper_has_tokens() -> None:
+    """Test chat prompt wrapper has tokens."""
     tok = CharTokenizer("User: Hello\nBot: Hi\n")
     history = [{"user": "Hello", "bot": "Hi"}]
     prompt = "Hello"

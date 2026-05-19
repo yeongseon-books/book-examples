@@ -1,9 +1,12 @@
+"""Serverless 101 - Episode 5: Autoscaling."""
+
 from __future__ import annotations
 
 from common import *
 
 
 def run_demo():
+    """Run demo."""
     if 5 == 1:
         return ep01_handler({"episode": 5}, {"request_id": "demo-5"})
     if 5 == 2:

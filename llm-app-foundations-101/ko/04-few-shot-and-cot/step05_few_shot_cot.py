@@ -15,6 +15,7 @@ from groq.types.chat import ChatCompletionMessageParam
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     messages: list[ChatCompletionMessageParam] = [

@@ -1,7 +1,10 @@
+"""Tests for ep10 in Oop 101."""
+
 from ko.ep10_when_to_avoid_oop import Cart, CartItem, total_functional
 
 
 def test_ep10_oop_vs_functional_total() -> None:
+    """Test ep10 oop vs functional total."""
     oop_total = Cart([CartItem("a", 100, 2), CartItem("b", 50, 3)]).total()
     func_total = total_functional(
         [

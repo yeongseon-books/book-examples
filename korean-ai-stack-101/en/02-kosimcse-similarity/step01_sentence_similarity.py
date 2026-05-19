@@ -14,10 +14,12 @@ SENTENCES = [
 
 
 def pairwise_similarity(embeddings: np.ndarray) -> np.ndarray:
+    """Pairwise similarity."""
     return embeddings @ embeddings.T
 
 
 def main() -> None:
+    """Main."""
     print(f"Loading model: {MODEL_NAME}")
     model = SentenceTransformer(MODEL_NAME)
     embeddings = model.encode(

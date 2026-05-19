@@ -1,3 +1,5 @@
+"""Tests for episodes in Observability 101."""
+
 import importlib.util
 import json
 import sys
@@ -9,6 +11,7 @@ if str(ROOT) not in sys.path:
 
 
 def load_module(rel_path: str):
+    """Load module."""
     path = ROOT / rel_path
     spec = importlib.util.spec_from_file_location(path.stem.replace("-", "_"), path)
     assert spec is not None and spec.loader is not None
@@ -18,6 +21,7 @@ def load_module(rel_path: str):
 
 
 def test_ep01_counter_increments():
+    """Test ep01 counter increments."""
     from common import ObservabilityStack
 
     stack = ObservabilityStack()
@@ -28,6 +32,7 @@ def test_ep01_counter_increments():
 
 
 def test_ep02_metric_log_trace_exist():
+    """Test ep02 metric log trace exist."""
     mod = load_module("ko/02-metric-log-trace.py")
     text, log_count, span_count = mod.run_demo()
     assert "requests_total" in text
@@ -36,6 +41,7 @@ def test_ep02_metric_log_trace_exist():
 
 
 def test_ep03_histogram_buckets_present():
+    """Test ep03 histogram buckets present."""
     mod = load_module("ko/03-metric-collection.py")
     out = mod.run_demo()
     assert "http_duration_seconds_bucket" in out
@@ -43,6 +49,7 @@ def test_ep03_histogram_buckets_present():
 
 
 def test_ep04_logger_json_with_context():
+    """Test ep04 logger json with context."""
     mod = load_module("ko/04-structured-logging.py")
     line = mod.run_demo()
     data = json.loads(line)
@@ -51,6 +58,7 @@ def test_ep04_logger_json_with_context():
 
 
 def test_ep05_trace_parent_child_relationship():
+    """Test ep05 trace parent child relationship."""
     from common import Tracer
 
     tracer = Tracer()
@@ -61,6 +69,7 @@ def test_ep05_trace_parent_child_relationship():
 
 
 def test_ep06_dashboard_sparkline_and_summary():
+    """Test ep06 dashboard sparkline and summary."""
     mod = load_module("ko/06-dashboard-design.py")
     spark, summary = mod.run_demo()
     assert len(spark) == 5
@@ -68,6 +77,7 @@ def test_ep06_dashboard_sparkline_and_summary():
 
 
 def test_ep07_alert_fires_with_duration_and_routes():
+    """Test ep07 alert fires with duration and routes."""
     mod = load_module("ko/07-alert-and-oncall.py")
     fired, owner = mod.run_demo()
     assert any(a["rule"] == "high_error" for a in fired)
@@ -75,6 +85,7 @@ def test_ep07_alert_fires_with_duration_and_routes():
 
 
 def test_ep08_slo_burn_rate_computation():
+    """Test ep08 slo burn rate computation."""
     mod = load_module("ko/08-sli-and-slo.py")
     sli, budget, burn = mod.run_demo()
     assert sli == 0.998
@@ -83,6 +94,7 @@ def test_ep08_slo_burn_rate_computation():
 
 
 def test_ep09_cardinality_explosion_threshold():
+    """Test ep09 cardinality explosion threshold."""
     mod = load_module("ko/09-cost-and-cardinality.py")
     result = mod.run_demo()
     assert result["unique_series"] > 1000
@@ -90,6 +102,7 @@ def test_ep09_cardinality_explosion_threshold():
 
 
 def test_ep10_stack_composes_signals():
+    """Test ep10 stack composes signals."""
     mod = load_module("ko/10-production-observability-stack.py")
     metrics, logs, spans = mod.run_demo()
     assert "http_requests_total" in metrics

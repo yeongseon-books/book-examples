@@ -1,20 +1,26 @@
+"""Langgraph 101 - Episode 1: Two node graph."""
+
 from langgraph.graph import END, START, StateGraph
 from typing_extensions import TypedDict
 
 
 class GraphState(TypedDict):
+    """Graph state."""
+
     user_input: str
     normalized_input: str
     reply: str
 
 
 def normalize_input(state: GraphState):
+    """Normalize input."""
     normalized = state["user_input"].strip()
     print(f"[normalize_input] 정리된 입력: {normalized}")
     return {"normalized_input": normalized}
 
 
 def create_reply(state: GraphState):
+    """Create reply."""
     reply = (
         f"안녕하세요. '{state['normalized_input']}' 주제로 LangGraph를 시작해봅시다."
     )
@@ -23,6 +29,7 @@ def create_reply(state: GraphState):
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(GraphState)
     builder.add_node("normalize_input", normalize_input)
     builder.add_node("create_reply", create_reply)

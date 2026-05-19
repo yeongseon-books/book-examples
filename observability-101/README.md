@@ -13,6 +13,14 @@
 - `en/`: 영어 에피소드 대응 스크립트 10개(동일 로직 미러)
 - `tests/`: 에피소드별 행동 테스트
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

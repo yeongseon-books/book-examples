@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 6: Consensus and raft."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,6 +11,7 @@ from en.common import RaftNode
 
 def run_demo() -> dict[str, object]:
     # Leader replicates log and commits after majority acknowledgement.
+    """Run demo."""
     leader = RaftNode("n1")
     f1 = RaftNode("n2")
     f2 = RaftNode("n3")

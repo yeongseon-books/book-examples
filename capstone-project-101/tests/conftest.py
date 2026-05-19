@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Capstone Project 101."""
+
 from __future__ import annotations
 
 import importlib.util
@@ -6,6 +8,7 @@ from types import ModuleType
 
 
 def load_module(path: str, name: str) -> ModuleType:
+    """Load module."""
     module_path = Path(__file__).resolve().parent.parent / path
     spec = importlib.util.spec_from_file_location(name, module_path)
     if spec is None or spec.loader is None:

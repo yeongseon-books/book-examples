@@ -1,3 +1,5 @@
+"""Distributed Systems 101 - Episode 4: Consistency and cap."""
+
 # pyright: reportMissingImports=false
 import sys
 from pathlib import Path
@@ -9,6 +11,7 @@ from en.common import ReplicaSet
 
 def cp_write(replica: ReplicaSet, partitioned: bool, key: str, value: int) -> bool:
     # In CP mode, reject writes without majority.
+    """Cp write."""
     total = len(replica.nodes)
     available = total - (2 if partitioned else 0)
     if available <= total // 2:
@@ -18,6 +21,7 @@ def cp_write(replica: ReplicaSet, partitioned: bool, key: str, value: int) -> bo
 
 
 def run_demo() -> dict[str, bool]:
+    """Run demo."""
     rs = ReplicaSet(["n1", "n2", "n3"])
     ok = cp_write(rs, partitioned=False, key="x", value=1)
     fail = cp_write(rs, partitioned=True, key="x", value=2)

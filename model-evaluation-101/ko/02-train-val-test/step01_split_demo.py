@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Split demo."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -5,6 +7,7 @@ from common import make_imbalanced, safe_split
 
 
 def run(seed: int = 42) -> dict[str, float]:
+    """Run."""
     X, y = make_imbalanced(n_samples=600, weights=(0.85, 0.15), random_state=seed)
     X_train, X_val, X_test, y_train, y_val, y_test = safe_split(X, y, random_state=seed)
     train_ratio = len(X_train) / len(X)

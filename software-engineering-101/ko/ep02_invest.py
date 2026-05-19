@@ -1,9 +1,12 @@
+"""Software Engineering 101 - Episode 2: Invest."""
+
 from __future__ import annotations
 
 from common import parse_markdown_table
 
 
 def invest_checklist(markdown_text: str) -> list[dict[str, object]]:
+    """Invest checklist."""
     rows = parse_markdown_table(markdown_text)
     out = []
     for row in rows:

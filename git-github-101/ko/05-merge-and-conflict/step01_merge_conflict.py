@@ -1,9 +1,12 @@
+"""Git Github 101 - Episode 1: Merge conflict."""
+
 from __future__ import annotations
 
 from common import MiniRepo
 
 
 def run() -> dict[str, str]:
+    """Run."""
     repo = MiniRepo()
     repo.commit("feat: base", {"notes.md": "line1\n"})
     repo.branch("feature/a")

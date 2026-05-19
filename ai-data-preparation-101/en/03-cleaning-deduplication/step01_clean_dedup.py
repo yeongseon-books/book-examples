@@ -1,3 +1,5 @@
+"""Ai Data Preparation 101 - Episode 1: Clean dedup."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import exact_dedup, jaccard_similarity, normalize_text
 
 
 def run() -> dict[str, int]:
+    """Run."""
     docs = [
         "<p>Data prep is important.</p>",
         "Data prep is important.",

@@ -1,9 +1,12 @@
+"""Sqlalchemy 101 - Episode 7: Loading strategies."""
+
 from common import Post, User, create_schema, sync_engine
 from sqlalchemy import select
 from sqlalchemy.orm import Session, joinedload, selectinload
 
 
 def run() -> dict[str, int]:
+    """Run."""
     engine = sync_engine()
     create_schema(engine)
     with Session(engine) as session:

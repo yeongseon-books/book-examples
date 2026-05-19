@@ -1,3 +1,5 @@
+"""Docker 101 - Episode 1: Env config validate."""
+
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
@@ -7,6 +9,7 @@ from common import EnvParser
 
 
 def run() -> dict[str, object]:
+    """Run."""
     env_content = """LOG_LEVEL=INFO
 DB_URL=postgres://db/app
 """

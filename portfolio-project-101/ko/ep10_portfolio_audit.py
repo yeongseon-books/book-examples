@@ -1,3 +1,5 @@
+"""Portfolio Project 101 - Episode 10: Portfolio audit."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -11,6 +13,7 @@ from ko.ep06_test_docs_coverage import generate_coverage_report
 
 
 def run_portfolio_audit(project_root: str | Path) -> dict[str, object]:
+    """Run portfolio audit."""
     root = Path(project_root)
     readme_ok, readme_missing = lint_readme_sections(read_text(root / "README.md"))
     deploy = check_deployment_readiness(root)

@@ -1,7 +1,10 @@
+"""Tests for 04 resume and portfolio in Developer Career 101."""
+
 from tests.test_01_what_is_developer_career import load
 
 
 def test_04_missing_experience_flagged_and_star_detected():
+    """Test 04 missing experience flagged and star detected."""
     mod = load("04-resume-and-portfolio.py")
     no_exp = "## Summary\nA\n## Skills\nPython"
     result = mod.validate_resume(no_exp)

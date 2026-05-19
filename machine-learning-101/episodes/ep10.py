@@ -1,3 +1,5 @@
+"""Machine Learning 101 - Episode 10."""
+
 import numpy as np
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
@@ -8,6 +10,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 def run() -> dict[str, float]:
+    """Run."""
     rng = np.random.default_rng(42)
     n = 200
     x_num = rng.normal(size=(n, 3))

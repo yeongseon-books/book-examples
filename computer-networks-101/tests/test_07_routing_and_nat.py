@@ -1,9 +1,12 @@
+"""Tests for 07 routing and nat in Computer Networks 101."""
+
 import ipaddress
 
 from tests._loader import load_ko
 
 
 def test_longest_prefix_match() -> None:
+    """Test longest prefix match."""
     ep = load_ko("07-routing-and-nat")
     table = ep.RoutingTable(
         [
@@ -16,6 +19,7 @@ def test_longest_prefix_match() -> None:
 
 
 def test_nat_translation() -> None:
+    """Test nat translation."""
     ep = load_ko("07-routing-and-nat")
     nat = ep.NatTable("203.0.113.9")
     public = nat.translate_outbound("192.168.0.10", 50000)

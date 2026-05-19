@@ -2,18 +2,23 @@
 
 
 class Table:
+    """Table."""
+
     def __init__(self, rows: list[dict]):
         self.rows = rows
 
     def select(self, *columns: str) -> "Table":
+        """Select."""
         return Table([{c: row[c] for c in columns} for row in self.rows])
 
     def where(self, predicate):
+        """Where."""
         return Table([row for row in self.rows if predicate(row)])
 
     def join(
         self, other: "Table", left_key: str, right_key: str, prefix_right: str = "r_"
     ) -> "Table":
+        """Join."""
         index: dict[object, list[dict]] = {}
         for row in other.rows:
             index.setdefault(row[right_key], []).append(row)

@@ -19,6 +19,7 @@ SENTENCE_PAIRS = [
 
 
 def cosine_similarity(left: np.ndarray, right: np.ndarray) -> float:
+    """Cosine similarity."""
     denominator = float(np.linalg.norm(left) * np.linalg.norm(right))
     if denominator == 0.0:
         return 0.0
@@ -28,6 +29,7 @@ def cosine_similarity(left: np.ndarray, right: np.ndarray) -> float:
 def format_scores(
     sentences: Iterable[tuple[str, str]], embeddings: np.ndarray
 ) -> list[str]:
+    """Format scores."""
     lines: list[str] = []
     for index, (left, right) in enumerate(sentences):
         score = cosine_similarity(embeddings[index * 2], embeddings[index * 2 + 1])
@@ -43,6 +45,7 @@ def format_scores(
 
 
 def main() -> None:
+    """Main."""
     print(f"Loading model: {MODEL_NAME}")
     model = SentenceTransformer(MODEL_NAME)
     flat_sentences = [sentence for pair in SENTENCE_PAIRS for sentence in pair]

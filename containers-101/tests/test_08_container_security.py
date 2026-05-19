@@ -1,7 +1,10 @@
+"""Tests for 08 container security in Containers 101."""
+
 from ko import _08_container_security as ep
 
 
 def test_scan_flags_root_and_latest():
+    """Test scan flags root and latest."""
     dockerfile = "\n".join(
         ["FROM python:latest", "USER root", "ENV DB_PASSWORD=secret123"]
     )
@@ -11,5 +14,6 @@ def test_scan_flags_root_and_latest():
 
 
 def test_scan_flags_sensitive_ports():
+    """Test scan flags sensitive ports."""
     issues = ep.scan_security("FROM x\nEXPOSE 22\nUSER app", "x:1.0")
     assert any(issue == "Sensitive port exposed" for issue in issues)

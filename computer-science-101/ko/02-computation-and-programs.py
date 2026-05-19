@@ -2,6 +2,7 @@
 
 
 def sum_of_squares_imperative(n: int) -> int:
+    """Sum of squares imperative."""
     total = 0
     for i in range(1, n + 1):
         total += i * i
@@ -9,12 +10,14 @@ def sum_of_squares_imperative(n: int) -> int:
 
 
 def sum_of_squares_recursive(n: int) -> int:
+    """Sum of squares recursive."""
     if n <= 0:
         return 0
     return n * n + sum_of_squares_recursive(n - 1)
 
 
 def sum_of_squares_functional(n: int) -> int:
+    """Sum of squares functional."""
     return sum(map(lambda x: x * x, range(1, n + 1)))
 
 

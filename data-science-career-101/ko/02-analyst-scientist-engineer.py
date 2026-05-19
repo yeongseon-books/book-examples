@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 2: Analyst scientist engineer."""
+
 from __future__ import annotations
 
 ROLE_KEYWORDS = {
@@ -8,6 +10,7 @@ ROLE_KEYWORDS = {
 
 
 def classify_job_description(text: str) -> dict[str, object]:
+    """Classify job description."""
     lowered = text.lower()
     score = {role: 0 for role in ROLE_KEYWORDS}
     for role, keywords in ROLE_KEYWORDS.items():

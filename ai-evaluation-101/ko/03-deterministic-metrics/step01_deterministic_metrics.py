@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Deterministic metrics."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import bleu1_like, exact_match, rouge_l_like
 
 
 def run() -> dict[str, float]:
+    """Run."""
     reference = "rag combines retrieval and generation"
     pred_good = "rag combines retrieval and generation"
     pred_para = "retrieval and generation are combined by rag"

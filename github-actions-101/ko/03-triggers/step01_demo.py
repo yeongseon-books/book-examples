@@ -1,7 +1,10 @@
+"""Github Actions 101 - Episode 1: Demo."""
+
 from common import WorkflowParser, WorkflowValidator, load_workflow
 
 
 def main() -> None:
+    """Main."""
     wf = load_workflow(
         __file__.replace("step01_demo.py", ".github/workflows/workflow.yml")
     )

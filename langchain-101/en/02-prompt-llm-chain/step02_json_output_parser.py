@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 2: Json output parser."""
+
 import os
 from typing import Any, cast
 
@@ -7,6 +9,7 @@ from langchain_groq import ChatGroq
 
 
 def build_chain():
+    """Build chain."""
     parser = JsonOutputParser()
     prompt = ChatPromptTemplate.from_template(
         "Return a study plan for the following topic as JSON only.\n"

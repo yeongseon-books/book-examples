@@ -1,7 +1,10 @@
+"""Containers 101 - Episode 9: Container vs vm."""
+
 from __future__ import annotations
 
 
 def simulate_overhead(container_count: int, vm_count: int) -> dict[str, int]:
+    """Simulate overhead."""
     return {
         "container_total_startup_ms": 120 * container_count,
         "vm_total_startup_ms": 4000 * vm_count,
@@ -11,6 +14,7 @@ def simulate_overhead(container_count: int, vm_count: int) -> dict[str, int]:
 
 
 def comparison_table(container_count: int, vm_count: int) -> list[tuple[str, int, int]]:
+    """Comparison table."""
     stats = simulate_overhead(container_count, vm_count)
     return [
         (

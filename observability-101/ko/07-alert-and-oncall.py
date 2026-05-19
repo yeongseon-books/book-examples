@@ -1,9 +1,12 @@
+"""Observability 101 - Episode 7: Alert and oncall."""
+
 from datetime import datetime, timedelta, timezone
 
 from common import AlertEngine, AlertRule, OnCallRouter
 
 
 def run_demo() -> tuple[list[dict[str, str]], str]:
+    """Run demo."""
     engine = AlertEngine(dedup_window_s=60)
     engine.add_rule(AlertRule("high_error", "error_rate", 0.05, 120, "page"))
     now = datetime.now(timezone.utc)

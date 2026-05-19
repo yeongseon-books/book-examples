@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 2: Heading chunking."""
+
 from __future__ import annotations
 
 import sys
@@ -29,6 +31,7 @@ PyMuPDF는 페이지별 텍스트와 메타데이터를 함께 제공합니다.
 
 
 def main() -> None:
+    """Main."""
     chunks = heading_chunks(MARKDOWN)
     print("헤딩 기반 청킹 결과")
     for chunk in chunks:

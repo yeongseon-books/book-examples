@@ -1,9 +1,12 @@
+"""Capstone Project 101 - Episode 1: Schedule plan."""
+
 from __future__ import annotations
 
 from common import MilestonePlan
 
 
 def run() -> dict[str, object]:
+    """Run."""
     plan = MilestonePlan(
         milestones=["MVP", "Demo", "Final"],
         weeks={1: "setup", 2: "core", 3: "polish"},

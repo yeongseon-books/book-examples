@@ -1,3 +1,5 @@
+"""Azure Aca Deep Dive - Episode 1: Ingress path."""
+
 from __future__ import annotations
 
 from common import as_json
@@ -6,10 +8,12 @@ from fastapi.testclient import TestClient
 
 
 def create_app() -> FastAPI:
+    """Create app."""
     app = FastAPI()
 
     @app.get("/ingress")
     def ingress(request: Request) -> dict[str, object]:
+        """Ingress."""
         proto = request.headers.get("x-forwarded-proto", "http")
         canary = request.headers.get("x-canary", "off")
         revision = "orders--green" if canary == "on" else "orders--blue"
@@ -19,6 +23,7 @@ def create_app() -> FastAPI:
 
 
 def run() -> dict[str, object]:
+    """Run."""
     app = create_app()
     client = TestClient(app)
     response = client.get(

@@ -1,3 +1,5 @@
+"""Tests for episodes in Github Actions 101."""
+
 import importlib.util
 import sys
 from pathlib import Path
@@ -24,10 +26,12 @@ load_workflow = common.load_workflow
 
 
 def wf(ep: str) -> dict[str, Any]:
+    """Wf."""
     return load_workflow(str(ROOT / "ko" / ep / ".github/workflows/workflow.yml"))
 
 
 def test_ep01_parse_and_validate_passes() -> None:
+    """Test ep01 parse and validate passes."""
     data = wf("01-what-is-github-actions")
     parsed = WorkflowParser().parse(data)
     assert parsed["triggers"] == ["push"]
@@ -35,6 +39,7 @@ def test_ep01_parse_and_validate_passes() -> None:
 
 
 def test_ep02_job_graph_and_parallelism() -> None:
+    """Test ep02 job graph and parallelism."""
     data = wf("02-workflow-and-job")
     graph = JobGraphAnalyzer().analyze(data)
     assert graph["has_cycle"] is False
@@ -42,6 +47,7 @@ def test_ep02_job_graph_and_parallelism() -> None:
 
 
 def test_ep03_trigger_matcher_push_main_src() -> None:
+    """Test ep03 trigger matcher push main src."""
     data = wf("03-triggers")
     ok = TriggerMatcher().matches(
         data, "push", {"ref": "refs/heads/main", "changed_files": ["src/app.py"]}
@@ -50,12 +56,14 @@ def test_ep03_trigger_matcher_push_main_src() -> None:
 
 
 def test_ep04_matrix_expands_to_six() -> None:
+    """Test ep04 matrix expands to six."""
     data = wf("04-python-test-automation")
     combos = MatrixExpander().expand(data["jobs"]["test"])
     assert len(combos) == 3
 
 
 def test_ep05_validator_rejects_bad_runner() -> None:
+    """Test ep05 validator rejects bad runner."""
     data = wf("05-lint-and-typecheck")
     data["jobs"]["lint"]["runs-on"] = "ubuntu-old"
     issues = WorkflowValidator().validate(data)
@@ -63,6 +71,7 @@ def test_ep05_validator_rejects_bad_runner() -> None:
 
 
 def test_ep06_artifact_upload_download_flow() -> None:
+    """Test ep06 artifact upload download flow."""
     data = wf("06-build-artifact")
     flow = ArtifactSimulator().flow(data)
     assert "dist" in flow["produced"]["build"]
@@ -70,12 +79,14 @@ def test_ep06_artifact_upload_download_flow() -> None:
 
 
 def test_ep07_docker_build_step_validates() -> None:
+    """Test ep07 docker build step validates."""
     data = wf("07-docker-build")
     step = data["jobs"]["docker"]["steps"][1]
     assert DockerBuildSimulator().validate(step) == []
 
 
 def test_ep08_pipeline_runner_dependency_order() -> None:
+    """Test ep08 pipeline runner dependency order."""
     data = wf("08-deploy-automation")
     result = PipelineRunner().run(data)
     assert result.success is True
@@ -85,18 +96,21 @@ def test_ep08_pipeline_runner_dependency_order() -> None:
 
 
 def test_ep09_secret_checker_catches_plaintext() -> None:
+    """Test ep09 secret checker catches plaintext."""
     data = wf("09-secret-management")
     issues = SecretsMaskingChecker().check(data)
     assert any("plaintext" in i for i in issues)
 
 
 def test_ep10_action_linter_warns_latest_tag() -> None:
+    """Test ep10 action linter warns latest tag."""
     data = wf("10-real-world-cicd-pipeline")
     warnings = ActionUsageLinter().lint(data)
     assert any("@latest" in w for w in warnings)
 
 
 def test_cycle_detection() -> None:
+    """Test cycle detection."""
     cyc = {
         "on": ["push"],
         "jobs": {

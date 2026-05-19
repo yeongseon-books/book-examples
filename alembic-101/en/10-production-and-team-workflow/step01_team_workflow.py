@@ -1,7 +1,10 @@
+"""Alembic 101 - Episode 1: Team workflow."""
+
 from __future__ import annotations
 
 
 def ci_checks() -> list[str]:
+    """Ci checks."""
     return [
         "pytest",
         "alembic check",
@@ -12,6 +15,7 @@ def ci_checks() -> list[str]:
 
 
 def health_payload(current: str, expected: str) -> dict[str, str]:
+    """Health payload."""
     return {
         "status": "ok" if current == expected else "drift",
         "alembic_version": current,

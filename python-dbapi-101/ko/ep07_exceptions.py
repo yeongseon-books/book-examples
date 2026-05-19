@@ -1,9 +1,12 @@
+"""Python Dbapi 101 - Episode 7: Exceptions."""
+
 import sqlite3
 
 from common import create_connection, initialize_schema
 
 
 def run_demo() -> dict[str, str]:
+    """Run demo."""
     conn = create_connection(":memory:")
     initialize_schema(conn)
     conn.execute("INSERT INTO users(name, email) VALUES (?, ?)", ("A", "a@example.com"))

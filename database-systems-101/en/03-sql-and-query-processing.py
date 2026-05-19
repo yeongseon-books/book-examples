@@ -8,6 +8,8 @@ from typing import Any
 
 @dataclass
 class Query:
+    """Query."""
+
     columns: list[str]
     table: str
     where_col: str | None = None
@@ -16,6 +18,7 @@ class Query:
 
 
 def parse_sql(sql: str) -> Query:
+    """Parse sql."""
     tokens = sql.strip().replace(",", " , ").split()
     s = tokens.index("SELECT")
     f = tokens.index("FROM")
@@ -41,6 +44,7 @@ def parse_sql(sql: str) -> Query:
 def execute_query(
     query: Query, tables: dict[str, list[dict[str, Any]]]
 ) -> list[dict[str, Any]]:
+    """Execute query."""
     rows = list(tables[query.table])
     if query.where_col is not None:
         rows = [r for r in rows if str(r[query.where_col]) == str(query.where_val)]

@@ -1,7 +1,10 @@
+"""Containers 101 - Episode 5: Volume."""
+
 from __future__ import annotations
 
 
 def resolve_mounts(spec: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Resolve mounts."""
     seen: set[str] = set()
     out: list[dict[str, str]] = []
     for mount in spec:
@@ -14,6 +17,7 @@ def resolve_mounts(spec: list[dict[str, str]]) -> list[dict[str, str]]:
 
 
 def detect_overlap(spec: list[dict[str, str]]) -> list[tuple[str, str]]:
+    """Detect overlap."""
     targets = [m["target"].rstrip("/") for m in spec]
     conflicts: list[tuple[str, str]] = []
     for i, left in enumerate(targets):

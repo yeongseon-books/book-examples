@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Azure App Service Deep Dive."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,6 +7,8 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class AppServiceLayers:
+    """App service layers."""
+
     front_end: str
     worker: str
     storage: str
@@ -12,6 +16,7 @@ class AppServiceLayers:
 
 
 def architecture_layers() -> AppServiceLayers:
+    """Architecture layers."""
     return AppServiceLayers(
         front_end="App Service Front-End + ARR",
         worker="Worker instances in an App Service Plan",
@@ -21,6 +26,7 @@ def architecture_layers() -> AppServiceLayers:
 
 
 def build_arr_routing_headers(enable_affinity: bool) -> dict[str, str]:
+    """Build arr routing headers."""
     headers = {"x-app-host": "my-app.azurewebsites.net"}
     if enable_affinity:
         headers["Cookie"] = "ARRAffinity=worker-2"
@@ -28,6 +34,7 @@ def build_arr_routing_headers(enable_affinity: bool) -> dict[str, str]:
 
 
 def sandbox_constraints(os_type: str) -> dict[str, object]:
+    """Sandbox constraints."""
     if os_type == "windows":
         return {
             "boundary": "iis-w3wp-sandbox",
@@ -48,6 +55,7 @@ def sandbox_constraints(os_type: str) -> dict[str, object]:
 
 
 def zipdeploy_command(app_name: str, resource_group: str, zip_path: str) -> str:
+    """Zipdeploy command."""
     return (
         "az webapp deployment source config-zip "
         f"-n {app_name} -g {resource_group} --src {zip_path}"
@@ -55,6 +63,7 @@ def zipdeploy_command(app_name: str, resource_group: str, zip_path: str) -> str:
 
 
 def run_from_package_enabled(app_settings: dict[str, str]) -> bool:
+    """Run from package enabled."""
     return app_settings.get("WEBSITE_RUN_FROM_PACKAGE", "0") in {"1", "true", "True"}
 
 
@@ -64,6 +73,7 @@ def autoscale_decision(
     out_threshold: float = 70.0,
     in_threshold: float = 30.0,
 ) -> str:
+    """Autoscale decision."""
     cpu = metrics.get("cpu", 0.0)
     queue = metrics.get("http_queue", 0.0)
     if cpu >= out_threshold or queue >= 100.0:
@@ -74,4 +84,5 @@ def autoscale_decision(
 
 
 def warmup_is_ready(status_code: int, allowed_statuses: set[int]) -> bool:
+    """Warmup is ready."""
     return status_code in allowed_statuses

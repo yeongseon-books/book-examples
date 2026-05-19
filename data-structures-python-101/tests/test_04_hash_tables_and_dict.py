@@ -1,8 +1,11 @@
+"""Tests for 04 hash tables and dict in Data Structures Python 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     spec = importlib.util.spec_from_file_location("mod", path)
     mod = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
@@ -14,6 +17,7 @@ M = load(str(Path(__file__).resolve().parents[1] / "ko/04-hash-tables-and-dict.p
 
 
 def test_counter_and_defaultdict_grouping():
+    """Test counter and defaultdict grouping."""
     c = M.aggregate_with_counter(["x", "y", "x", "x"])
     assert c["x"] == 3
     grouped = M.group_with_defaultdict([("a", 1), ("a", 2), ("b", 3)])
@@ -21,6 +25,7 @@ def test_counter_and_defaultdict_grouping():
 
 
 def test_dict_order_preserved_and_lookup_faster():
+    """Test dict order preserved and lookup faster."""
     assert M.ordered_dict_demo() == ["first", "second", "third"]
     bench = M.dict_vs_list_lookup()
     assert bench["dict_lookup"] < bench["list_lookup"]

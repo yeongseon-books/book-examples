@@ -1,3 +1,5 @@
+"""Api Design 101 - Episode 1: Problem json."""
+
 from __future__ import annotations
 
 from common import problem
@@ -6,10 +8,12 @@ from fastapi.responses import JSONResponse
 
 
 def build_app() -> FastAPI:
+    """Build app."""
     app = FastAPI()
 
     @app.get("/users/{uid}")
     def get_user(uid: int) -> JSONResponse:
+        """Get user."""
         body = problem(
             404, "user.not_found", "User not found", f"User {uid} does not exist."
         )

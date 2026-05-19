@@ -15,11 +15,13 @@ from groq import Groq
 
 
 def estimate_tokens(text: str) -> int:
+    """Estimate tokens."""
     encoding = tiktoken.get_encoding("cl100k_base")
     return len(encoding.encode(text))
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     long_text = " ".join(

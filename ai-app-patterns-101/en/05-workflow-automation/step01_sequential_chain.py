@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 1: Sequential chain."""
+
 from __future__ import annotations
 
 from common import (
@@ -12,6 +14,7 @@ REQUEST = "The customer wants to keep price stable while shortening time to laun
 
 
 def run_sequential_chain() -> None:
+    """Run sequential chain."""
     client = build_client()
 
     analyze_messages = [

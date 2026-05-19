@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Models."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,6 +7,8 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class QueryGroundTruth:
+    """Query ground truth."""
+
     query: str
     relevant_ids: set[str]
     topic: str
@@ -12,6 +16,8 @@ class QueryGroundTruth:
 
 @dataclass(frozen=True)
 class GenerationCase:
+    """Generation case."""
+
     question: str
     context: str
     answer: str
@@ -19,6 +25,8 @@ class GenerationCase:
 
 @dataclass(frozen=True)
 class PipelineCase:
+    """Pipeline case."""
+
     question: str
     relevant_ids: set[str]
     reference_answer: str
@@ -26,18 +34,24 @@ class PipelineCase:
 
 @dataclass(frozen=True)
 class EmbeddingCandidate:
+    """Embedding candidate."""
+
     label: str
     model_name: str
 
 
 @dataclass(frozen=True)
 class VectorIndexCandidate:
+    """Vector index candidate."""
+
     name: str
     factory: str
 
 
 @dataclass(frozen=True)
 class BenchmarkConfig:
+    """Benchmark config."""
+
     name: str
     embedding_model: str
     top_k: int = 3
@@ -46,6 +60,8 @@ class BenchmarkConfig:
 
 @dataclass
 class RetrievalMetrics:
+    """Retrieval metrics."""
+
     precision_at_k: float
     recall_at_k: float
     mrr: float
@@ -53,10 +69,12 @@ class RetrievalMetrics:
 
     @property
     def f1_at_k(self) -> float:
+        """F1 at k."""
         total = self.precision_at_k + self.recall_at_k
         return (2 * self.precision_at_k * self.recall_at_k / total) if total else 0.0
 
     def summary(self) -> dict[str, float]:
+        """Summary."""
         return {
             f"precision@{self.k}": round(self.precision_at_k, 4),
             f"recall@{self.k}": round(self.recall_at_k, 4),
@@ -67,12 +85,16 @@ class RetrievalMetrics:
 
 @dataclass
 class JudgeScore:
+    """Judge score."""
+
     score: float
     reason: str
 
 
 @dataclass
 class FullBenchmarkResult:
+    """Full benchmark result."""
+
     config_name: str
     precision_at_k: float
     recall_at_k: float
@@ -84,17 +106,21 @@ class FullBenchmarkResult:
 
     @property
     def retrieval_score(self) -> float:
+        """Retrieval score."""
         return (self.precision_at_k + self.recall_at_k + self.mrr) / 3
 
     @property
     def generation_score(self) -> float:
+        """Generation score."""
         return (self.faithfulness + self.answer_relevance) / 2
 
     @property
     def overall_score(self) -> float:
+        """Overall score."""
         return (self.retrieval_score + self.generation_score) / 2
 
     def summary(self) -> dict[str, float | int | str]:
+        """Summary."""
         return {
             "config": self.config_name,
             "overall_score": round(self.overall_score, 4),

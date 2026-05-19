@@ -9,6 +9,7 @@ from common import MockLLM, get_weather
 
 
 def run(goal: str) -> dict[str, object]:
+    """Run."""
     llm = MockLLM()
     history: list[dict[str, object]] = []
     state: dict[str, object] = {"goal": goal, "weather": None, "history": history}

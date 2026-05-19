@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Ai Data Preparation 101."""
+
 from __future__ import annotations
 
 import hashlib
@@ -10,6 +12,7 @@ Record = dict[str, str]
 
 
 def mock_documents() -> list[Record]:
+    """Mock documents."""
     return [
         {
             "id": "d1",
@@ -45,12 +48,14 @@ def mock_documents() -> list[Record]:
 
 
 def normalize_text(text: str) -> str:
+    """Normalize text."""
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"\s+", " ", text.strip())
     return text
 
 
 def exact_dedup(texts: list[str]) -> list[str]:
+    """Exact dedup."""
     seen: set[str] = set()
     out: list[str] = []
     for text in texts:
@@ -62,6 +67,7 @@ def exact_dedup(texts: list[str]) -> list[str]:
 
 
 def jaccard_similarity(a: str, b: str) -> float:
+    """Jaccard similarity."""
     ta = set(normalize_text(a).lower().split())
     tb = set(normalize_text(b).lower().split())
     if not ta and not tb:
@@ -70,10 +76,12 @@ def jaccard_similarity(a: str, b: str) -> float:
 
 
 def tokenize(text: str) -> list[str]:
+    """Tokenize."""
     return [tok for tok in re.split(r"\W+", text.lower()) if tok]
 
 
 def chunk_tokens(tokens: list[str], chunk_size: int, overlap: int) -> list[list[str]]:
+    """Chunk tokens."""
     chunks: list[list[str]] = []
     step = max(chunk_size - overlap, 1)
     for i in range(0, len(tokens), step):
@@ -92,6 +100,7 @@ PII_PATTERNS: dict[str, re.Pattern[str]] = {
 
 
 def redact_pii(text: str) -> str:
+    """Redact pii."""
     out = text
     for name, pattern in PII_PATTERNS.items():
         out = pattern.sub(f"[{name.upper()}]", out)
@@ -99,6 +108,7 @@ def redact_pii(text: str) -> str:
 
 
 def quality_signals(text: str) -> dict[str, float]:
+    """Quality signals."""
     n = max(len(text), 1)
     symbol_ratio = sum(1 for c in text if not c.isalnum() and not c.isspace()) / n
     digit_ratio = sum(1 for c in text if c.isdigit()) / n
@@ -112,6 +122,7 @@ def quality_signals(text: str) -> dict[str, float]:
 
 
 def seeded_shuffle(items: list[str], seed: int = 42) -> list[str]:
+    """Seeded shuffle."""
     out = list(items)
     rng = random.Random(seed)
     rng.shuffle(out)
@@ -120,10 +131,13 @@ def seeded_shuffle(items: list[str], seed: int = 42) -> list[str]:
 
 @dataclass
 class SplitResult:
+    """Split result."""
+
     train: list[dict[str, str]]
     val: list[dict[str, str]]
     test: list[dict[str, str]]
 
 
 def now_iso() -> str:
+    """Now iso."""
     return datetime.now(timezone.utc).isoformat()

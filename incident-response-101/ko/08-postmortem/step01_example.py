@@ -1,7 +1,10 @@
+"""Incident Response 101 - Episode 1: Example."""
+
 from common import Incident, IncidentTimeline, PostmortemGenerator, PreventionTracker
 
 
 def run() -> str:
+    """Run."""
     incident = Incident(id="INC-008", title="api error spike", severity="SEV2")
     timeline = IncidentTimeline()
     timeline.append("monitor", "detected", "2026-05-01T01:00:00+00:00")

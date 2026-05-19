@@ -18,6 +18,14 @@ Docker 데몬 없이 순수 Python으로 컨테이너 개념을 시뮬레이션�
 - `en/*.py`: `ko/`와 동일 로직의 영어 미러
 - `tests/`: 에피소드별 동작 테스트
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

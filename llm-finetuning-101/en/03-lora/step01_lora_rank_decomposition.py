@@ -6,6 +6,7 @@ import numpy as np
 
 
 def truncated_svd(matrix: np.ndarray, rank: int):
+    """Truncated svd."""
     u, s, vt = np.linalg.svd(matrix, full_matrices=False)
     u_r = u[:, :rank]
     s_r = np.diag(s[:rank])
@@ -14,6 +15,7 @@ def truncated_svd(matrix: np.ndarray, rank: int):
 
 
 def main() -> None:
+    """Main."""
     rng = np.random.default_rng(42)
     weight_update = rng.normal(size=(6, 6))
     for rank in (1, 2, 4):

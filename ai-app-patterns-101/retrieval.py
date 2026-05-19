@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Retrieval."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -10,12 +12,16 @@ from sentence_transformers import SentenceTransformer
 
 @dataclass
 class RetrievedDocument:
+    """Retrieved document."""
+
     source: str
     content: str
     score: float
 
 
 class SimpleVectorStore:
+    """Simple vector store."""
+
     def __init__(
         self,
         items: list[dict[str, str]],
@@ -31,6 +37,7 @@ class SimpleVectorStore:
         self.index.add(self.vectors)
 
     def search(self, query: str, top_k: int = 2) -> list[RetrievedDocument]:
+        """Search."""
         query_vector = self.encoder.encode([query], normalize_embeddings=True)
         distances, indices = self.index.search(
             np.asarray(query_vector, dtype="float32"), top_k

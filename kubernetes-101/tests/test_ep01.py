@@ -1,9 +1,12 @@
+"""Tests for ep01 in Kubernetes 101."""
+
 from pathlib import Path
 
 from common import ManifestParser
 
 
 def test_ep01_parse_basic_pod():
+    """Test ep01 parse basic pod."""
     docs = ManifestParser().extract(
         Path("ko/01-what-is-kubernetes/pod.yaml").read_text()
     )

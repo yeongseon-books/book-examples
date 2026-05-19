@@ -1,3 +1,5 @@
+"""Tests for 05 database and network in Computer Science Major 101."""
+
 import socket
 import threading
 from collections.abc import Callable
@@ -6,6 +8,7 @@ from conftest import load_module
 
 
 def test_tcp_kv_store_set_get() -> None:
+    """Test tcp kv store set get."""
     mod = load_module("ko/05-database-and-network.py")
     start_kv_server: Callable[
         [str, int], tuple[socket.socket, int, dict[str, str], threading.Thread]

@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Data Science Career 101."""
+
 from __future__ import annotations
 
 import importlib.util
@@ -6,6 +8,7 @@ from pathlib import Path
 
 
 def load_module(path: str):
+    """Load module."""
     module_path = Path(path)
     spec = importlib.util.spec_from_file_location(
         module_path.stem.replace("-", "_"), module_path

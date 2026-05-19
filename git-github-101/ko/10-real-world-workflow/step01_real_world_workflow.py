@@ -1,9 +1,12 @@
+"""Git Github 101 - Episode 1: Real world workflow."""
+
 from __future__ import annotations
 
 from common import WorkflowSimulator
 
 
 def run() -> dict[str, str]:
+    """Run."""
     wf = WorkflowSimulator()
     issue = wf.create_issue(10, "Prepare release")
     wf.repo.commit("feat: init", {"README.md": "x"})

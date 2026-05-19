@@ -1,7 +1,10 @@
+"""Incident Response 101 - Episode 1: Example."""
+
 from common import CommsTemplateRenderer, Incident
 
 
 def run() -> dict[str, str]:
+    """Run."""
     inc = Incident(id="INC-004", title="search latency", severity="SEV2")
     renderer = CommsTemplateRenderer()
     return {

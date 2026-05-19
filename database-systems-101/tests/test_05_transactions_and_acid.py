@@ -1,3 +1,5 @@
+"""Tests for 05 transactions and acid in Database Systems 101."""
+
 import contextlib
 from pathlib import Path
 
@@ -5,6 +7,7 @@ from conftest import load_ko_module
 
 
 def test_rollback_and_commit(tmp_path: Path):
+    """Test rollback and commit."""
     m = load_ko_module("05-transactions-and-acid.py")
     db_path = tmp_path / "bank.db"
     m.init_bank(db_path)
@@ -16,6 +19,7 @@ def test_rollback_and_commit(tmp_path: Path):
 
 
 def test_toy_wal_replay():
+    """Test toy wal replay."""
     m = load_ko_module("05-transactions-and-acid.py")
     wal = m.ToyWAL()
     wal.append_transfer("Alice", "Bob", 100)

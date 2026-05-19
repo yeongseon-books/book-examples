@@ -1,7 +1,10 @@
+"""Tests for ep03 in Rag Deep Dive."""
+
 from ko.ep03_retriever_mmr import mmr_rerank, top_k_retrieve
 
 
 def test_ep03_topk_and_mmr_lengths():
+    """Test ep03 topk and mmr lengths."""
     chunks = ["overlap helps context", "cosine similarity search", "prompt budget"]
     topk = top_k_retrieve("cosine", chunks, top_k=2)
     mmr = mmr_rerank("cosine", chunks, top_k=2)
@@ -10,6 +13,7 @@ def test_ep03_topk_and_mmr_lengths():
 
 
 def test_ep03_mmr_unique_indices():
+    """Test ep03 mmr unique indices."""
     chunks = ["a", "b", "c", "d"]
     mmr = mmr_rerank("a", chunks, top_k=3)
     ids = [x[0] for x in mmr]

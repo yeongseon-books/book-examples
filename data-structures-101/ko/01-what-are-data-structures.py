@@ -1,18 +1,25 @@
+"""Data Structures 101 - Episode 1: What are data structures."""
+
 from __future__ import annotations
 
 
 class OperationCounter:
+    """Operation counter."""
+
     def __init__(self) -> None:
         self.c = 0
 
     def inc(self, _name: str, amount: int = 1) -> None:
+        """Inc."""
         self.c += amount
 
     def total(self) -> int:
+        """Total."""
         return self.c
 
 
 def find_duplicates_quadratic(values: list[int]) -> tuple[list[int], int]:
+    """Find duplicates quadratic."""
     counter = OperationCounter()
     out: list[int] = []
     for i in range(len(values)):
@@ -24,6 +31,7 @@ def find_duplicates_quadratic(values: list[int]) -> tuple[list[int], int]:
 
 
 def find_duplicates_sorted(values: list[int]) -> tuple[list[int], int]:
+    """Find duplicates sorted."""
     counter = OperationCounter()
     arr = values[:]
     arr.sort()
@@ -36,13 +44,17 @@ def find_duplicates_sorted(values: list[int]) -> tuple[list[int], int]:
 
 
 class TinyHashSet:
+    """Tiny hash set."""
+
     def __init__(self, capacity: int = 16) -> None:
         self._buckets: list[list[int]] = [[] for _ in range(capacity)]
 
     def _index(self, value: int) -> int:
+        """Index."""
         return value % len(self._buckets)
 
     def add(self, value: int) -> bool:
+        """Add."""
         bucket = self._buckets[self._index(value)]
         for item in bucket:
             if item == value:
@@ -52,6 +64,7 @@ class TinyHashSet:
 
 
 def find_duplicates_hash(values: list[int]) -> tuple[list[int], int]:
+    """Find duplicates hash."""
     counter = OperationCounter()
     seen = TinyHashSet()
     dup = TinyHashSet()
@@ -64,6 +77,7 @@ def find_duplicates_hash(values: list[int]) -> tuple[list[int], int]:
 
 
 def run_demo(values: list[int]) -> dict[str, tuple[list[int], int]]:
+    """Run demo."""
     return {
         "quadratic": find_duplicates_quadratic(values),
         "sorted": find_duplicates_sorted(values),

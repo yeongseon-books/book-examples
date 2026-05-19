@@ -1,14 +1,19 @@
+"""Computer Science Major 101 - Episode 8: How to study cs."""
+
 from dataclasses import dataclass
 
 
 @dataclass
 class CardState:
+    """Card state."""
+
     repetitions: int
     interval: int
     easiness: float
 
 
 def sm2_step(state: CardState, quality: int) -> CardState:
+    """Sm2 step."""
     quality = max(0, min(5, quality))
     easiness = max(
         1.3, state.easiness + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))

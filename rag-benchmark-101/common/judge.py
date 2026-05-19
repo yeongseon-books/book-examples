@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Judge."""
+
 from __future__ import annotations
 
 import json
@@ -8,6 +10,7 @@ from common.models import JudgeScore
 
 
 def parse_score(raw: str, default: float = 3.0) -> JudgeScore:
+    """Parse score."""
     try:
         matched = re.search(r"\{.*\}", raw, re.DOTALL)
         if not matched:
@@ -23,6 +26,7 @@ def parse_score(raw: str, default: float = 3.0) -> JudgeScore:
 def judge_with_groq(
     system_prompt: str, user_prompt: str, model: str = "llama-3.1-8b-instant"
 ) -> JudgeScore:
+    """Judge with groq."""
     from groq import Groq
 
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
@@ -41,6 +45,7 @@ def judge_with_groq(
 def evaluate_generation(
     question: str, context: str, answer: str, language: str
 ) -> dict[str, JudgeScore]:
+    """Evaluate generation."""
     if language == "ko":
         faithfulness_user = (
             "다음 컨텍스트와 답변을 보고 faithfulness를 1-5점으로 평가하세요. "

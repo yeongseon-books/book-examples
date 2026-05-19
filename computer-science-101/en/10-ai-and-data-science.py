@@ -4,6 +4,7 @@
 def train_linear_regression(
     xs: list[float], ys: list[float], lr: float = 0.01, epochs: int = 3000
 ) -> tuple[float, float]:
+    """Train linear regression."""
     w = 0.0
     b = 0.0
     n = len(xs)
@@ -21,6 +22,7 @@ def train_linear_regression(
 
 
 def predict(x: float, w: float, b: float) -> float:
+    """Predict."""
     return w * x + b
 
 

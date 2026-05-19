@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 9: P value and p hacking."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -6,6 +8,7 @@ from scipy import stats
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     g = rng()
     baseline = g.normal(0, 1, size=40)
     variant = g.normal(0.3, 1, size=40)

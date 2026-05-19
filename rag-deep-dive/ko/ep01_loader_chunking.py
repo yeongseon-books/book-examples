@@ -1,9 +1,12 @@
+"""Rag Deep Dive - Episode 1: Loader chunking."""
+
 from __future__ import annotations
 
 from common import load_markdown_fixtures, sentence_split
 
 
 def fixed_size_chunks(text: str, size: int = 80, overlap: int = 20) -> list[str]:
+    """Fixed size chunks."""
     if size <= overlap:
         raise ValueError("size must be greater than overlap")
     out: list[str] = []
@@ -18,6 +21,7 @@ def fixed_size_chunks(text: str, size: int = 80, overlap: int = 20) -> list[str]
 
 
 def sentence_aware_chunks(text: str, max_chars: int = 120) -> list[str]:
+    """Sentence aware chunks."""
     sentences = sentence_split(text)
     chunks: list[str] = []
     cur = ""
@@ -34,6 +38,7 @@ def sentence_aware_chunks(text: str, max_chars: int = 120) -> list[str]:
 
 
 def run(fixtures_dir: str = "fixtures") -> dict[str, list[str]]:
+    """Run."""
     docs = load_markdown_fixtures(fixtures_dir)
     return {name: sentence_aware_chunks(text) for name, text in docs.items()}
 

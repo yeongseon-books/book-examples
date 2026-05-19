@@ -1,8 +1,11 @@
+"""Tests for ep06 in Backend Development 101."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
 
 def test_ep06_auth_and_role_checks() -> None:
+    """Test ep06 auth and role checks."""
     app = load_module(
         "ko/06-auth-and-authorization/step01_auth_roles.py", "ep06"
     ).build_app(secret="unit-secret")

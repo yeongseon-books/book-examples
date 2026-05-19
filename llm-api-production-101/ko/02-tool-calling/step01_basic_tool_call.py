@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 1: Basic tool call."""
+
 import json
 import os
 from typing import Any, cast
@@ -28,10 +30,12 @@ TOOLS = [
 
 
 def get_weather(city: str, unit: str = "celsius") -> dict:
+    """Get weather."""
     return {"city": city, "temperature": 22, "unit": unit, "condition": "맑음"}
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     response = client.chat.completions.create(
         model="llama-3.1-8b-instant",

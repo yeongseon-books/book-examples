@@ -1,12 +1,16 @@
+"""Python 101 - Episode 1: Hello world."""
+
 import platform
 import sys
 
 
 def get_runtime_info() -> dict[str, str]:
+    """Get runtime info."""
     return {"python_version": sys.version.split()[0], "platform": platform.system()}
 
 
 def main() -> None:
+    """Main."""
     print("Hello, Python 101!")
     info = get_runtime_info()
     print(f"Python: {info['python_version']}")

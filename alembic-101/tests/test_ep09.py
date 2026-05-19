@@ -1,5 +1,9 @@
+"""Tests for ep09 in Alembic 101."""
+
+
 # pyright: reportUnknownParameterType=false, reportMissingParameterType=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
 def test_ep09_deploy_order(load_module):
+    """Test ep09 deploy order."""
     m = load_module(
         "ko/09-deploy-ordering-and-blue-green/step01_deploy_ordering.py", "ep09"
     )

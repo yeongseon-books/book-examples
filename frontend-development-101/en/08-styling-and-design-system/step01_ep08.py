@@ -1,3 +1,5 @@
+"""Frontend Development 101 - Episode 1: Ep08."""
+
 from __future__ import annotations
 
 from common import DesignTokenChecker
@@ -8,5 +10,6 @@ TOKENS = (
 
 
 def run_demo() -> list[str]:
+    """Run demo."""
     checker = DesignTokenChecker(TOKENS)
     return checker.require_keys(["color.primary", "spacing.gutter", "font.body"])

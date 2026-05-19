@@ -1,5 +1,9 @@
+"""Tests for ep04 in Alembic 101."""
+
+
 # pyright: reportUnknownParameterType=false, reportMissingParameterType=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
 def test_ep04_autogen_limits(load_module):
+    """Test ep04 autogen limits."""
     m = load_module(
         "ko/04-autogenerate-and-its-limits/step01_autogenerate_limits.py", "ep04"
     )

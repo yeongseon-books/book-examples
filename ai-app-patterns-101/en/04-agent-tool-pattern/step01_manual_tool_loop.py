@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 1: Manual tool loop."""
+
 from __future__ import annotations
 
 import json
@@ -13,6 +15,7 @@ from common import (
 
 
 def lookup_shipping_status(order_id: str) -> str:
+    """Lookup shipping status."""
     statuses = {
         "ORD-100": "Order ORD-100 left the warehouse and is scheduled to arrive tomorrow.",
         "ORD-200": "Order ORD-200 is still waiting for payment confirmation.",
@@ -39,6 +42,7 @@ TOOLS = [
 
 
 def run_agent() -> None:
+    """Run agent."""
     client = build_client()
     messages: list[dict] = [
         {

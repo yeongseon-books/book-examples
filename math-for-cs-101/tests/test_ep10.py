@@ -1,9 +1,12 @@
+"""Tests for ep10 in Math For Cs 101."""
+
 from common import fast_power, gcd
 
 from tests.conftest import load_module
 
 
 def test_ep10_fast_power_matches_pow():
+    """Test ep10 fast power matches pow."""
     m = load_module("ko/10-algorithms-and-math/step01_algorithms_and_math.py")
     assert gcd(252, 105) == 21
     assert fast_power(7, 20, 101) == pow(7, 20, 101)

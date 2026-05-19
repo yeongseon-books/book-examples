@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 1: Complete pipeline."""
+
 from __future__ import annotations
 
 import sys
@@ -19,6 +21,7 @@ from shared.ingestion_examples import (
 
 
 def prepare_sources(base: Path) -> list[Path]:
+    """Prepare sources."""
     txt_path = write_text(
         base / "handbook.txt",
         "A document ingestion pipeline has a parser, a chunker, an indexer, and a state store.",
@@ -42,6 +45,7 @@ def prepare_sources(base: Path) -> list[Path]:
 
 
 def main() -> None:
+    """Main."""
     base = Path("/tmp/document_ingestion_en_complete")
     store = JsonStateStore(base / "state.json")
     sources = prepare_sources(base)

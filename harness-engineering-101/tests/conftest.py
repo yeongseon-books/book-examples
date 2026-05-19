@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Harness Engineering 101."""
+
 from __future__ import annotations
 
 import importlib.util
@@ -10,6 +12,7 @@ if str(ROOT) not in sys.path:
 
 
 def load_episode(lang: str, slug: str):
+    """Load episode."""
     path = ROOT / lang / slug / "step01_example.py"
     spec = importlib.util.spec_from_file_location(f"{lang}_{slug}", path)
     if spec is None or spec.loader is None:

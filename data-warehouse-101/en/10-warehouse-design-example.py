@@ -1,9 +1,12 @@
+"""Data Warehouse 101 - Episode 10: Warehouse design example."""
+
 # English example
 import sqlite3
 from random import Random
 
 
 def run_demo() -> dict:
+    """Run demo."""
     r = Random(99)
     conn = sqlite3.connect(":memory:")
     c = conn.cursor()

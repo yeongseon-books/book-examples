@@ -1,7 +1,10 @@
+"""Rag Deep Dive - Episode 4: Prompt builder."""
+
 from __future__ import annotations
 
 
 def build_prompt(question: str, contexts: list[str], budget_chars: int = 500) -> str:
+    """Build prompt."""
     used = 0
     kept: list[str] = []
     for idx, c in enumerate(contexts, start=1):

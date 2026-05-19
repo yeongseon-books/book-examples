@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Roc pr auc."""
+
 from __future__ import annotations
 
 from common import make_imbalanced, safe_split
@@ -6,6 +8,7 @@ from sklearn.metrics import average_precision_score, roc_auc_score
 
 
 def run(seed: int = 42) -> dict[str, float]:
+    """Run."""
     X, y = make_imbalanced(
         n_samples=1000, weights=(0.9, 0.1), class_sep=1.5, random_state=seed
     )

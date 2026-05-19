@@ -1,4 +1,8 @@
+"""Programming Languages 101 - Episode 7: Memory management."""
+
+
 def simulate_ref_count(edges: dict):
+    """Simulate ref count."""
     counts = {k: 0 for k in edges}
     for refs in edges.values():
         for r in refs:
@@ -7,6 +11,7 @@ def simulate_ref_count(edges: dict):
 
 
 def mark_and_sweep(edges: dict, roots: list):
+    """Mark and sweep."""
     marked = set()
     stack = list(roots)
     while stack:

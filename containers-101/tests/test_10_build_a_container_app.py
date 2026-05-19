@@ -1,9 +1,12 @@
+"""Tests for 10 build a container app in Containers 101."""
+
 from pathlib import Path
 
 from ko import _10_build_a_container_app as ep
 
 
 def test_pipeline_produces_layers_and_valid_manifest(tmp_path: Path):
+    """Test pipeline produces layers and valid manifest."""
     app_dir = tmp_path / "tiny_app"
     app_dir.mkdir()
     (app_dir / "main.py").write_text('print("ok")\n', encoding="utf-8")
@@ -14,6 +17,7 @@ def test_pipeline_produces_layers_and_valid_manifest(tmp_path: Path):
 
 
 def test_generated_dockerfile_is_lintable(tmp_path: Path):
+    """Test generated dockerfile is lintable."""
     app_dir = tmp_path / "tiny_app"
     app_dir.mkdir()
     dockerfile = ep.generate_dockerfile(app_dir)

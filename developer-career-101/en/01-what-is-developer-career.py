@@ -1,9 +1,12 @@
+"""Developer Career 101 - Episode 1: What is developer career."""
+
 from common import clamp
 
 
 def classify_stage(
     years: int, technical_depth: int, ownership: int, influence: int
 ) -> dict:
+    """Classify stage."""
     score = clamp(years * 6 + technical_depth * 2 + ownership * 1.6 + influence * 1.4)
     if score >= 90:
         stage = "staff"

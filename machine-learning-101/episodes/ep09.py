@@ -1,3 +1,5 @@
+"""Machine Learning 101 - Episode 9."""
+
 from common import make_clf_dataset
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, roc_auc_score
@@ -5,6 +7,7 @@ from sklearn.model_selection import cross_val_score, train_test_split
 
 
 def run() -> dict[str, float]:
+    """Run."""
     x, y = make_clf_dataset(class_sep=1.3)
     xtr, xte, ytr, yte = train_test_split(
         x, y, test_size=0.3, stratify=y, random_state=42

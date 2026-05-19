@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 3: Data collection."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -10,6 +12,7 @@ from common import ensure_dir, summarize_dataframe
 def generate_collected_data(
     output_dir: str | Path, seed: int = 42, n_users: int = 200
 ) -> dict[str, object]:
+    """Generate collected data."""
     out = ensure_dir(output_dir)
     rng = np.random.default_rng(seed)
     users = pd.DataFrame(

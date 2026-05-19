@@ -1,3 +1,5 @@
+"""Open Source 101 - Episode 1: License detector."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -8,6 +10,7 @@ from common import (
 
 
 def run_example() -> object:
+    """Run example."""
     text = Path("fixtures/LICENSE_MIT.txt").read_text(encoding="utf-8")
     return detect_spdx_license(text)
 

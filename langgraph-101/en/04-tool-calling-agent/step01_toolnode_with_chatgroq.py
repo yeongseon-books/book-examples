@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 1: Toolnode with chatgroq."""
+
 import os
 from typing import Annotated
 
@@ -11,6 +13,8 @@ from typing_extensions import TypedDict
 
 
 class AgentState(TypedDict):
+    """Agent state."""
+
     messages: Annotated[list, add_messages]
 
 
@@ -27,6 +31,7 @@ def get_meeting_room_status(room_name: str) -> str:
 
 
 def build_model() -> ChatGroq:
+    """Build model."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("Set GROQ_API_KEY before running this example.")
@@ -34,6 +39,7 @@ def build_model() -> ChatGroq:
 
 
 def assistant_node(state: AgentState):
+    """Assistant node."""
     model = build_model().bind_tools([get_meeting_room_status])
     response = model.invoke(
         [
@@ -47,6 +53,7 @@ def assistant_node(state: AgentState):
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(AgentState)
     builder.add_node("assistant", assistant_node)
     builder.add_node("tools", ToolNode([get_meeting_room_status]))

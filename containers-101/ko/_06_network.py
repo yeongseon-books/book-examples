@@ -1,9 +1,13 @@
+"""Containers 101 - Episode 6: Network."""
+
 from __future__ import annotations
 
 import ipaddress
 
 
 class BridgeNetwork:
+    """Bridge network."""
+
     def __init__(self, name: str, cidr: str) -> None:
         self.name = name
         self.pool = ipaddress.ip_network(cidr)
@@ -11,6 +15,7 @@ class BridgeNetwork:
         self.endpoints: dict[str, str] = {}
 
     def connect(self, container_name: str) -> str:
+        """Connect."""
         if container_name in self.endpoints:
             return self.endpoints[container_name]
         ip = str(next(self._hosts))
@@ -18,4 +23,5 @@ class BridgeNetwork:
         return ip
 
     def can_ping(self, source: str, target: str) -> bool:
+        """Can ping."""
         return source in self.endpoints and target in self.endpoints

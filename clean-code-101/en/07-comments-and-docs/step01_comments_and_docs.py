@@ -1,6 +1,10 @@
+"""Clean Code 101 - Episode 1: Comments and docs."""
+
+
 # The payment partner sometimes returns HTTP 200 with a failed status in body,
 # so this check uses payload status instead of response code.
 def is_paid(response: dict[str, object]) -> bool:
+    """Is paid."""
     return response.get("status") == "PAID"
 
 

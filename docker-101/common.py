@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Docker 101."""
+
 from __future__ import annotations
 
 import re
@@ -9,13 +11,18 @@ import yaml
 
 @dataclass
 class DockerInstruction:
+    """Docker instruction."""
+
     keyword: str
     value: str
     raw: str
 
 
 class DockerfileParser:
+    """Dockerfile parser."""
+
     def parse(self, content: str) -> list[DockerInstruction]:
+        """Parse."""
         instructions: list[DockerInstruction] = []
         for raw_line in content.splitlines():
             line = raw_line.strip()
@@ -31,7 +38,10 @@ class DockerfileParser:
 
 
 class DockerfileLinter:
+    """Dockerfile linter."""
+
     def lint(self, content: str) -> list[str]:
+        """Lint."""
         parser = DockerfileParser()
         ins = parser.parse(content)
         issues: list[str] = []
@@ -50,7 +60,10 @@ class DockerfileLinter:
 
 
 class ComposeValidator:
+    """Compose validator."""
+
     def validate(self, content: str) -> list[str]:
+        """Validate."""
         issues: list[str] = []
         data = yaml.safe_load(content) or {}
         services = data.get("services")
@@ -70,12 +83,16 @@ class ComposeValidator:
 
 
 class ImageLayerSimulator:
+    """Image layer simulator."""
+
     def estimate_size_mb(self, layers: list[dict[str, int]]) -> int:
+        """Estimate size mb."""
         return sum(layer.get("size_mb", 0) for layer in layers)
 
     def compare_multistage(
         self, builder_layers: list[dict[str, int]], runtime_layers: list[dict[str, int]]
     ) -> dict[str, int]:
+        """Compare multistage."""
         full = self.estimate_size_mb(builder_layers + runtime_layers)
         optimized = self.estimate_size_mb(runtime_layers)
         return {
@@ -86,7 +103,10 @@ class ImageLayerSimulator:
 
 
 class EnvParser:
+    """Env parser."""
+
     def parse_env_file(self, content: str) -> dict[str, str]:
+        """Parse env file."""
         values: dict[str, str] = {}
         for raw_line in content.splitlines():
             line = raw_line.strip()
@@ -100,20 +120,27 @@ class EnvParser:
 
 
 class SecurityPolicyChecker:
+    """Security policy checker."""
+
     def verify_runtime_flags(self, flags: list[str]) -> list[str]:
+        """Verify runtime flags."""
         required = {"--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges"}
         missing = sorted(required - set(flags))
         return [f"missing runtime flag: {m}" for m in missing]
 
 
 class HealthcheckVerifier:
+    """Healthcheck verifier."""
+
     def has_healthcheck(self, dockerfile_content: str) -> bool:
+        """Has healthcheck."""
         return bool(
             re.search(r"^HEALTHCHECK\b", dockerfile_content, flags=re.MULTILINE)
         )
 
 
 def parse_yaml(content: str) -> dict[str, Any]:
+    """Parse yaml."""
     data = yaml.safe_load(content)
     if isinstance(data, dict):
         return data

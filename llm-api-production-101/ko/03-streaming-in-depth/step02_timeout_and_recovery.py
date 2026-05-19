@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 2: Timeout and recovery."""
+
 import os
 import time
 
@@ -5,6 +7,7 @@ from groq import APIStatusError, Groq
 
 
 def stream_with_timeout(client: Groq, prompt: str, timeout_sec: float = 10.0) -> str:
+    """Stream with timeout."""
     stream = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[{"role": "user", "content": prompt}],
@@ -30,6 +33,7 @@ def stream_with_timeout(client: Groq, prompt: str, timeout_sec: float = 10.0) ->
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     result = stream_with_timeout(
         client,

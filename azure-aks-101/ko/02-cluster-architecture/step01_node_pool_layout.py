@@ -1,7 +1,10 @@
+"""Azure Aks 101 - Episode 1: Node pool layout."""
+
 from __future__ import annotations
 
 
 def build_node_pool_layout() -> dict[str, object]:
+    """Build node pool layout."""
     return {
         "system_pool": {"name": "syspool", "mode": "System", "min_nodes": 2},
         "user_pools": [

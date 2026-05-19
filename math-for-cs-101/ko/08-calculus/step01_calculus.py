@@ -1,7 +1,10 @@
+"""Math For Cs 101 - Episode 1: Calculus."""
+
 import numpy as np
 
 
 def trapezoid_integral(f, a, b, n=1000):
+    """Trapezoid integral."""
     xs = np.linspace(a, b, n + 1)
     ys = f(xs)
     h = (b - a) / n
@@ -9,6 +12,7 @@ def trapezoid_integral(f, a, b, n=1000):
 
 
 def simpson_integral(f, a, b, n=1000):
+    """Simpson integral."""
     if n % 2 == 1:
         n += 1
     xs = np.linspace(a, b, n + 1)

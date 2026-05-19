@@ -1,8 +1,11 @@
+"""Tests for 10 ai and data science in Computer Science 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(name, rel):
+    """Load."""
     spec = importlib.util.spec_from_file_location(
         name, Path(__file__).parent.parent / rel
     )
@@ -13,6 +16,7 @@ def load(name, rel):
 
 
 def test_gradient_descent_fits_slope():
+    """Test gradient descent fits slope."""
     m = load("ep10", "ko/10-ai-and-data-science.py")
     xs = [0, 1, 2, 3, 4, 5]
     ys = [1, 3, 5, 7, 9, 11]

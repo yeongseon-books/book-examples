@@ -1,7 +1,10 @@
+"""Sql 101 - Episode 3: Where."""
+
 from common import seed_db
 
 
 def run_demo():
+    """Run demo."""
     conn = seed_db()
     cur = conn.cursor()
     rows = cur.execute(

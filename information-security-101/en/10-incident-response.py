@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 10: Incident response."""
+
 from common import IncidentDetector
 
 detector = IncidentDetector()

@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 1: Sync stream."""
+
 import os
 from typing import Any, cast
 
@@ -7,6 +9,7 @@ from langchain_groq import ChatGroq
 
 
 def build_chain():
+    """Build chain."""
     prompt = ChatPromptTemplate.from_template(
         "LangChain streaming의 장점을 짧은 bullet 3개로 설명해 주세요."
     )

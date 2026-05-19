@@ -1,9 +1,12 @@
+"""Serverless 101 - Episode 2: Faas runtime."""
+
 from __future__ import annotations
 
 from common import *
 
 
 def run_demo():
+    """Run demo."""
     if 2 == 1:
         return ep01_handler({"episode": 2}, {"request_id": "demo-2"})
     if 2 == 2:

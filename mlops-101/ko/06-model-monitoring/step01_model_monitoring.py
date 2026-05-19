@@ -1,7 +1,10 @@
+"""Mlops 101 - Episode 1: Model monitoring."""
+
 from common import Monitoring
 
 
 def run_monitoring_demo() -> float:
+    """Run monitoring demo."""
     mon = Monitoring()
     mon.record(1, 10.0, ok=True)
     mon.record(0, 15.0, ok=False)

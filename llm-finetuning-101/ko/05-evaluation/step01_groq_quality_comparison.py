@@ -15,6 +15,7 @@ MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
 
 def complete(client: Any, system_prompt: str, user_prompt: str) -> str:
+    """Complete."""
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0.2,
@@ -27,6 +28,7 @@ def complete(client: Any, system_prompt: str, user_prompt: str) -> str:
 
 
 def judge(client: Any, prompt: str, first: str, second: str) -> str:
+    """Judge."""
     judge_prompt = textwrap.dedent(
         f"""
         두 응답 중 더 나은 답을 고르고 이유를 3줄 이내로 설명하세요.
@@ -47,6 +49,7 @@ def judge(client: Any, prompt: str, first: str, second: str) -> str:
 
 
 def main() -> None:
+    """Main."""
     if Groq is None:
         print("groq 패키지가 없어 비교를 건너뜁니다.")
         return

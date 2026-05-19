@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 2: Tool loop."""
+
 import json
 import os
 from typing import Any, cast
@@ -47,6 +49,7 @@ CART: list[dict] = []
 
 
 def search_product(query: str, max_results: int = 3) -> list[dict]:
+    """Search product."""
     return [
         {"id": value["id"], "name": name, "price": value["price"]}
         for name, value in CATALOG.items()
@@ -55,11 +58,13 @@ def search_product(query: str, max_results: int = 3) -> list[dict]:
 
 
 def add_to_cart(product_id: str, quantity: int) -> dict:
+    """Add to cart."""
     CART.append({"product_id": product_id, "quantity": quantity})
     return {"status": "added", "product_id": product_id, "quantity": quantity}
 
 
 def dispatch(name: str, args: dict):
+    """Dispatch."""
     if name == "search_product":
         return search_product(**args)
     if name == "add_to_cart":
@@ -68,6 +73,7 @@ def dispatch(name: str, args: dict):
 
 
 def run_loop(client: Groq, user_message: str) -> str:
+    """Run loop."""
     messages: list[dict[str, Any]] = [{"role": "user", "content": user_message}]
 
     while True:
@@ -111,6 +117,7 @@ def run_loop(client: Groq, user_message: str) -> str:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     answer = run_loop(client, "마우스를 2개 장바구니에 담아 주세요.")
     print(answer)

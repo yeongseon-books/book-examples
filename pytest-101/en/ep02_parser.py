@@ -1,4 +1,8 @@
+"""Pytest 101 - Episode 2: Parser."""
+
+
 def parse_key_value(text: str) -> dict[str, str]:
+    """Parse key value."""
     pairs = [chunk.strip() for chunk in text.split(",") if chunk.strip()]
     result: dict[str, str] = {}
     for pair in pairs:

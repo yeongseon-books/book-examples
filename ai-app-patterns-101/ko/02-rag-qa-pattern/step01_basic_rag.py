@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 1: Basic rag."""
+
 from __future__ import annotations
 
 from common import (
@@ -26,6 +28,7 @@ DOCUMENTS = [
 
 
 def run_basic_rag() -> None:
+    """Run basic rag."""
     client = build_client()
     store = SimpleVectorStore(DOCUMENTS)
     question = "RAG에서 검색 품질이 중요한 이유를 설명해 주세요."

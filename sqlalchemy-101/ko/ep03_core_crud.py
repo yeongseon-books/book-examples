@@ -1,3 +1,5 @@
+"""Sqlalchemy 101 - Episode 3: Core crud."""
+
 from sqlalchemy import (
     Column,
     Integer,
@@ -13,6 +15,7 @@ from sqlalchemy import (
 
 
 def run() -> dict[str, str]:
+    """Run."""
     metadata = MetaData()
     users = Table(
         "users",

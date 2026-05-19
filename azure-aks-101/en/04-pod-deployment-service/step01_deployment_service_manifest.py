@@ -1,9 +1,12 @@
+"""Azure Aks 101 - Episode 1: Deployment service manifest."""
+
 from __future__ import annotations
 
 from common import dump_yaml
 
 
 def build_manifest() -> dict[str, object]:
+    """Build manifest."""
     return {
         "apiVersion": "apps/v1",
         "kind": "Deployment",
@@ -28,6 +31,7 @@ def build_manifest() -> dict[str, object]:
 
 
 def build_manifest_yaml() -> str:
+    """Build manifest yaml."""
     return dump_yaml(build_manifest())
 
 

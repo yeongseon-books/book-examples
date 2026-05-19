@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 2: Safe tool retry."""
+
 from __future__ import annotations
 
 import json
@@ -13,6 +15,7 @@ from common import (
 
 
 def lookup_order_total(order_id: str) -> str:
+    """Lookup order total."""
     totals = {
         "ORD-300": "The total amount for order ORD-300 is 48,000 KRW.",
     }
@@ -40,6 +43,7 @@ TOOLS = [
 
 
 def run_safe_agent() -> None:
+    """Run safe agent."""
     client = build_client()
     messages: list[dict] = [
         {

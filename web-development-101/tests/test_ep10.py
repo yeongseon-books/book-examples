@@ -1,9 +1,12 @@
+"""Tests for ep10 in Web Development 101."""
+
 from pathlib import Path
 
 from en.ep10_small_web_app import run
 
 
 def test_ep10_todo_app_auth_and_rest(tmp_path):
+    """Test ep10 todo app auth and rest."""
     db_path = str(Path(tmp_path) / "ep10.db")
     app = run(db_path)
     c = app.test_client()

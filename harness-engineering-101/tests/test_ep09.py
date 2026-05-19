@@ -1,3 +1,5 @@
+"""Tests for ep09 in Harness Engineering 101."""
+
 import json
 from pathlib import Path
 
@@ -6,6 +8,7 @@ from conftest import load_episode
 
 
 def test_ep09_observability_writes_jsonl(tmp_path: Path):
+    """Test ep09 observability writes jsonl."""
     m = load_episode("ko", "09-observability")
     log_path = tmp_path / "events.jsonl"
     m.observability_example(log_path)

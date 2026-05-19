@@ -1,7 +1,10 @@
+"""Tests for 10 path to senior in Developer Career 101."""
+
 from tests.test_01_what_is_developer_career import load
 
 
 def test_10_gap_analysis_flags_weak_competencies():
+    """Test 10 gap analysis flags weak competencies."""
     mod = load("10-path-to-senior.py")
     scorecard = mod.readiness_scorecard(
         {

@@ -1,7 +1,10 @@
+"""Algorithms Python 101 - Episode 1: Graph traversal."""
+
 from collections import deque
 
 
 def bfs(graph: dict[str, list[str]], start: str) -> list[str]:
+    """Bfs."""
     visited = {start}
     queue = deque([start])
     order: list[str] = []

@@ -9,6 +9,7 @@ from common import FUNC_CLI_SAMPLE, specialize_placeholder
 
 
 def run(container_ready: bool, first_request: bool) -> dict[str, object]:
+    """Run."""
     result = specialize_placeholder(
         container_ready=container_ready, first_request=first_request
     )

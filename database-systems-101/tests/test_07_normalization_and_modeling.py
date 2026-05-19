@@ -1,7 +1,10 @@
+"""Tests for 07 normalization and modeling in Database Systems 101."""
+
 from conftest import load_ko_module
 
 
 def test_3nf_decomposition_preserves_dependencies():
+    """Test 3nf decomposition preserves dependencies."""
     m = load_ko_module("07-normalization-and-modeling.py")
     R = frozenset({"order_id", "user_id", "user_email", "product_id", "product_name"})
     F = [

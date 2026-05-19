@@ -1,7 +1,10 @@
+"""Tests for ep07 in Type Hints Python 101."""
+
 from ko.ep07_generics import Stack, call_with_log, clamp_to_zero
 
 
 def test_ep07_generics_stack_and_paramspec() -> None:
+    """Test ep07 generics stack and paramspec."""
     st: Stack[int] = Stack()
     st.push(10)
     assert st.pop() == 10

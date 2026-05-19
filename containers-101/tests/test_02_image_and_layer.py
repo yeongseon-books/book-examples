@@ -1,8 +1,11 @@
+"""Tests for 02 image and layer in Containers 101."""
+
 from common import Layer
 from ko import _02_image_and_layer as ep
 
 
 def test_layer_stacking_and_override():
+    """Test layer stacking and override."""
     layers = [
         Layer("base", {"/app/a.txt": "a", "/app/b.txt": "b"}),
         Layer("update", {"/app/b.txt": "B"}),
@@ -14,6 +17,7 @@ def test_layer_stacking_and_override():
 
 
 def test_copy_on_write_keeps_parent_immutable():
+    """Test copy on write keeps parent immutable."""
     parent = {"/x": "1"}
     original, child = ep.copy_on_write(parent, {"/x": "2"})
     assert original["/x"] == "1"

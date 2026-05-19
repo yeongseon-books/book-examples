@@ -1,3 +1,5 @@
+"""Tests for ep04 in Ai Agent 101."""
+
 from conftest import load_module
 
 run_workflow = load_module(
@@ -6,5 +8,6 @@ run_workflow = load_module(
 
 
 def test_ep04_branching_path() -> None:
+    """Test ep04 branching path."""
     result = run_workflow("report", 0.4)
     assert "search_more" in result["steps"]

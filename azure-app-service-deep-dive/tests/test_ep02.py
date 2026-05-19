@@ -1,3 +1,5 @@
+"""Tests for ep02 in Azure App Service Deep Dive."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
@@ -7,6 +9,7 @@ create_app = load_module(
 
 
 def test_ep02_arr_affinity_changes_worker_choice() -> None:
+    """Test ep02 arr affinity changes worker choice."""
     client = TestClient(create_app())
     sticky = client.get("/route", headers={"Cookie": "ARRAffinity=worker-2"}).json()
     random_pick = client.get("/route").json()

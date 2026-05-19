@@ -1,3 +1,5 @@
+"""Probability 101 - Episode 10: Naive bayes ml."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -6,6 +8,7 @@ import numpy as np
 def _train_bernoulli_nb(
     x: np.ndarray, y: np.ndarray, alpha: float = 1.0
 ) -> tuple[np.ndarray, np.ndarray]:
+    """Train bernoulli nb."""
     classes = np.array([0, 1])
     class_priors = np.array([(y == c).mean() for c in classes])
     feat_probs = np.zeros((2, x.shape[1]))
@@ -18,6 +21,7 @@ def _train_bernoulli_nb(
 def _predict(
     x: np.ndarray, class_priors: np.ndarray, feat_probs: np.ndarray
 ) -> np.ndarray:
+    """Predict."""
     log_priors = np.log(class_priors)
     log_like_1 = np.log(feat_probs)
     log_like_0 = np.log(1 - feat_probs)
@@ -31,6 +35,7 @@ def _predict(
 
 
 def run() -> dict[str, float]:
+    """Run."""
     x_train = np.array(
         [
             [1, 1, 0],

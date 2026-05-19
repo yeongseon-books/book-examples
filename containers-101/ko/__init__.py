@@ -1,3 +1,5 @@
+"""Containers 101 package."""
+
 from . import (
     _01_what_is_a_container,
     _02_image_and_layer,

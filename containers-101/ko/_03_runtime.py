@@ -1,7 +1,10 @@
+"""Containers 101 - Episode 3: Runtime."""
+
 from __future__ import annotations
 
 
 def validate_oci_config(config: dict) -> list[str]:
+    """Validate oci config."""
     errors: list[str] = []
     process = config.get("process")
     root = config.get("root")

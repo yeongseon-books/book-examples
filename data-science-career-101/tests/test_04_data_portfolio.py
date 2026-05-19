@@ -1,3 +1,5 @@
+"""Tests for 04 data portfolio in Data Science Career 101."""
+
 from __future__ import annotations
 
 from .conftest import load_module
@@ -6,6 +8,7 @@ mod = load_module("ko/04-data-portfolio.py")
 
 
 def test_missing_projects_section_is_flagged() -> None:
+    """Test missing projects section is flagged."""
     markdown = """
 ## About
 소개

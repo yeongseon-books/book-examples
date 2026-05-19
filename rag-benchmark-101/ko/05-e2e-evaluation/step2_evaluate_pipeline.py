@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 2: Evaluate pipeline."""
+
 from __future__ import annotations
 
 import sys
@@ -13,6 +15,7 @@ from ko.shared import CORPUS, PIPELINE_CASES
 
 
 def main() -> None:
+    """Main."""
     print("종단간 평가 실행")
     config = BenchmarkConfig(
         name="e2e-ko",

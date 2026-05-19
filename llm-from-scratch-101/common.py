@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Llm From Scratch 101."""
+
 from __future__ import annotations
 
 import math
@@ -9,12 +11,14 @@ np.random.seed(0)
 
 
 def softmax(x: np.ndarray, axis: int = -1) -> np.ndarray:
+    """Softmax."""
     shifted = x - np.max(x, axis=axis, keepdims=True)
     exps = np.exp(shifted)
     return exps / np.sum(exps, axis=axis, keepdims=True)
 
 
 def cross_entropy(logits: np.ndarray, targets: np.ndarray) -> float:
+    """Cross entropy."""
     probs = softmax(logits, axis=-1)
     idx = np.arange(targets.shape[0])
     picked = probs[idx, targets]
@@ -22,6 +26,8 @@ def cross_entropy(logits: np.ndarray, targets: np.ndarray) -> float:
 
 
 class CharTokenizer:
+    """Char tokenizer."""
+
     def __init__(self, corpus: str) -> None:
         chars = sorted(set(corpus))
         self.stoi = {ch: i for i, ch in enumerate(chars)}
@@ -29,21 +35,27 @@ class CharTokenizer:
         self.vocab_size = len(chars)
 
     def encode(self, text: str) -> list[int]:
+        """Encode."""
         return [self.stoi[ch] for ch in text if ch in self.stoi]
 
     def decode(self, token_ids: list[int]) -> str:
+        """Decode."""
         return "".join(self.itos[i] for i in token_ids)
 
 
 class Embedding:
+    """Embedding."""
+
     def __init__(self, vocab_size: int, emb_dim: int) -> None:
         self.weight = np.random.randn(vocab_size, emb_dim) * 0.02
 
     def __call__(self, idx: np.ndarray) -> np.ndarray:
+        """Call."""
         return self.weight[idx]
 
 
 def positional_encoding(seq_len: int, emb_dim: int) -> np.ndarray:
+    """Positional encoding."""
     pos = np.arange(seq_len)[:, None]
     div = np.exp(np.arange(0, emb_dim, 2) * (-math.log(10000.0) / emb_dim))
     pe = np.zeros((seq_len, emb_dim))
@@ -55,6 +67,7 @@ def positional_encoding(seq_len: int, emb_dim: int) -> np.ndarray:
 def scaled_dot_product_attention(
     q: np.ndarray, k: np.ndarray, v: np.ndarray, causal: bool = True
 ) -> tuple[np.ndarray, np.ndarray]:
+    """Scaled dot product attention."""
     d = q.shape[-1]
     scores = (q @ np.swapaxes(k, -1, -2)) / math.sqrt(d)
     if causal:
@@ -67,6 +80,8 @@ def scaled_dot_product_attention(
 
 
 class MultiHeadAttention:
+    """Multi head attention."""
+
     def __init__(self, n_embd: int, n_head: int) -> None:
         assert n_embd % n_head == 0
         self.n_embd = n_embd
@@ -78,6 +93,7 @@ class MultiHeadAttention:
         self.wo = np.random.randn(n_embd, n_embd) * 0.02
 
     def __call__(self, x: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        """Call."""
         b, t, _ = x.shape
         q = (
             (x @ self.wq)
@@ -100,18 +116,22 @@ class MultiHeadAttention:
 
 
 def _layer_norm(x: np.ndarray, eps: float = 1e-5) -> np.ndarray:
+    """Layer norm."""
     mean = x.mean(axis=-1, keepdims=True)
     var = x.var(axis=-1, keepdims=True)
     return (x - mean) / np.sqrt(var + eps)
 
 
 class TransformerBlock:
+    """Transformer block."""
+
     def __init__(self, n_embd: int, n_head: int, mlp_ratio: int = 2) -> None:
         self.attn = MultiHeadAttention(n_embd, n_head)
         self.w1 = np.random.randn(n_embd, n_embd * mlp_ratio) * 0.02
         self.w2 = np.random.randn(n_embd * mlp_ratio, n_embd) * 0.02
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
+        """Call."""
         a, _ = self.attn(_layer_norm(x))
         x = x + a
         h = np.tanh(_layer_norm(x) @ self.w1)
@@ -121,6 +141,8 @@ class TransformerBlock:
 
 @dataclass
 class TinyGPTConfig:
+    """Tiny g p t config."""
+
     vocab_size: int = 50
     block_size: int = 8
     n_embd: int = 16
@@ -129,6 +151,8 @@ class TinyGPTConfig:
 
 
 class TinyGPT:
+    """Tiny g p t."""
+
     def __init__(self, config: TinyGPTConfig) -> None:
         self.config = config
         self.tok_emb = Embedding(config.vocab_size, config.n_embd)
@@ -140,6 +164,7 @@ class TinyGPT:
         self.lm_head = np.random.randn(config.n_embd, config.vocab_size) * 0.02
 
     def forward(self, idx: np.ndarray) -> np.ndarray:
+        """Forward."""
         b, t = idx.shape
         x = self.tok_emb(idx) + self.pos[:t][None, :, :]
         for block in self.blocks:
@@ -148,6 +173,7 @@ class TinyGPT:
 
 
 def sample_topk(logits: np.ndarray, top_k: int = 5, temperature: float = 1.0) -> int:
+    """Sample topk."""
     scaled = logits / max(temperature, 1e-8)
     top_idx = np.argsort(scaled)[-top_k:]
     top_logits = scaled[top_idx]

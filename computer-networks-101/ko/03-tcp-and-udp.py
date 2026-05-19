@@ -1,9 +1,12 @@
+"""Computer Networks 101 - Episode 3: Tcp and udp."""
+
 import socket
 import threading
 from typing import cast
 
 
 def compare_transports(payload: bytes = b"transport-demo") -> dict[str, bytes]:
+    """Compare transports."""
     tcp_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     tcp_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     tcp_server.bind(("127.0.0.1", 0))
@@ -17,6 +20,7 @@ def compare_transports(payload: bytes = b"transport-demo") -> dict[str, bytes]:
     udp_port = udp_addr[1]
 
     def serve_tcp() -> None:
+        """Serve tcp."""
         conn, _addr = cast("tuple[socket.socket, tuple[str, int]]", tcp_server.accept())
         with conn:
             data = conn.recv(4096)
@@ -24,6 +28,7 @@ def compare_transports(payload: bytes = b"transport-demo") -> dict[str, bytes]:
         tcp_server.close()
 
     def serve_udp() -> None:
+        """Serve udp."""
         data, addr = cast("tuple[bytes, tuple[str, int]]", udp_server.recvfrom(4096))
         _ = udp_server.sendto(data, addr)
         udp_server.close()

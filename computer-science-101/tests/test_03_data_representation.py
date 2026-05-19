@@ -1,8 +1,11 @@
+"""Tests for 03 data representation in Computer Science 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(name, rel):
+    """Load."""
     spec = importlib.util.spec_from_file_location(
         name, Path(__file__).parent.parent / rel
     )
@@ -13,6 +16,7 @@ def load(name, rel):
 
 
 def test_utf8_and_float_behavior():
+    """Test utf8 and float behavior."""
     m = load("ep03", "ko/03-data-representation.py")
     assert m.int_to_binary(42) == "101010"
     assert m.utf8_bytes("가") == [234, 176, 128]

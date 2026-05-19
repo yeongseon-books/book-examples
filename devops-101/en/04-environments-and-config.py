@@ -1,3 +1,5 @@
+"""Devops 101 - Episode 4: Environments and config."""
+
 from __future__ import annotations
 
 import os
@@ -5,6 +7,7 @@ from pathlib import Path
 
 
 def parse_env_file(path: str) -> dict[str, str]:
+    """Parse env file."""
     values: dict[str, str] = {}
     for line in Path(path).read_text(encoding="utf-8").splitlines():
         stripped = line.strip()
@@ -18,6 +21,7 @@ def parse_env_file(path: str) -> dict[str, str]:
 def load_config(
     environment: str, required_keys: list[str], env_file: str | None = None
 ) -> dict[str, str]:
+    """Load config."""
     config = parse_env_file(env_file) if env_file else {}
     config.update({k: v for k, v in os.environ.items()})
     config["ENVIRONMENT"] = environment
@@ -30,6 +34,7 @@ def load_config(
 
 
 def redact_secrets(values: dict[str, str]) -> dict[str, str]:
+    """Redact secrets."""
     redacted = {}
     for key, value in values.items():
         if "PASSWORD" in key or "TOKEN" in key or "SECRET" in key:

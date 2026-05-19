@@ -17,10 +17,12 @@ SENTENCES = [
 
 
 def cosine_similarity(left: np.ndarray, right: np.ndarray) -> float:
+    """Cosine similarity."""
     return float(np.dot(left, right) / (np.linalg.norm(left) * np.linalg.norm(right)))
 
 
 def main() -> None:
+    """Main."""
     print(f"Loading multilingual model: {MODEL_NAME}")
     model = SentenceTransformer(MODEL_NAME)
     embeddings = model.encode(

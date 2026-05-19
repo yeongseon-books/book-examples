@@ -1,9 +1,12 @@
+"""Frontend Development 101 - Episode 1: Ep05."""
+
 from __future__ import annotations
 
 from common import RouterSim
 
 
 def run_demo() -> tuple[str, str]:
+    """Run demo."""
     router = RouterSim(
         routes={
             "/": lambda _: "home",

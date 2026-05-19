@@ -1,4 +1,8 @@
+"""Algorithms Python 101 - Episode 1: Complexity basics."""
+
+
 def linear_search(data: list[int], target: int) -> int:
+    """Linear search."""
     for i, value in enumerate(data):
         if value == target:
             return i
@@ -6,6 +10,7 @@ def linear_search(data: list[int], target: int) -> int:
 
 
 def binary_search(sorted_data: list[int], target: int) -> int:
+    """Binary search."""
     left, right = 0, len(sorted_data) - 1
     while left <= right:
         mid = (left + right) // 2

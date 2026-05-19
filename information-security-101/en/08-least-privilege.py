@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 8: Least privilege."""
+
 from common import LeastPrivilegeChecker
 
 checker = LeastPrivilegeChecker({"reader": {"log": {"read"}}})

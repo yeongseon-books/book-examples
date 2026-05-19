@@ -12,17 +12,20 @@ import tiktoken
 
 
 def count_tokens(text: str, encoding_name: str = "cl100k_base") -> int:
+    """Count tokens."""
     encoding = tiktoken.get_encoding(encoding_name)
     return len(encoding.encode(text))
 
 
 def estimate_messages_tokens(messages: list[dict[str, str]]) -> int:
+    """Estimate messages tokens."""
     encoding = tiktoken.get_encoding("cl100k_base")
     serialized = "\n".join(f"{m['role']}: {m['content']}" for m in messages)
     return len(encoding.encode(serialized))
 
 
 def main() -> None:
+    """Main."""
     samples = [
         "hello world",
         "unbelievable",

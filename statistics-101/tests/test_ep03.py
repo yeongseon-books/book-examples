@@ -1,8 +1,11 @@
+"""Tests for ep03 in Statistics 101."""
+
 import pytest
 from en.ep03_distributions_data import run_demo
 
 
 def test_ep03_distribution_arrays():
+    """Test ep03 distribution arrays."""
     r = run_demo()
     assert r["x_normal"].shape[0] == 121
     assert r["normal_pdf"].max() == pytest.approx(0.3989, rel=1e-2)

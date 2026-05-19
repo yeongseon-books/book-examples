@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Software Engineering 101."""
+
 from __future__ import annotations
 
 import ast
@@ -19,10 +21,12 @@ SECTION_HEADERS = [
 
 
 def read_text(path: str | Path) -> str:
+    """Read text."""
     return Path(path).read_text(encoding="utf-8")
 
 
 def parse_markdown_table(text: str) -> list[dict[str, str]]:
+    """Parse markdown table."""
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     rows = [line for line in lines if line.startswith("|") and line.endswith("|")]
     if len(rows) < 2:
@@ -38,6 +42,7 @@ def parse_markdown_table(text: str) -> list[dict[str, str]]:
 
 
 def semver_bump(version: str, part: str) -> str:
+    """Semver bump."""
     major, minor, patch = [int(v) for v in version.split(".")]
     if part == "major":
         return f"{major + 1}.0.0"
@@ -49,6 +54,7 @@ def semver_bump(version: str, part: str) -> str:
 
 
 def python_functions_with_docstrings(code: str) -> tuple[int, int]:
+    """Python functions with docstrings."""
     tree = ast.parse(code)
     funcs = [
         n
@@ -60,6 +66,7 @@ def python_functions_with_docstrings(code: str) -> tuple[int, int]:
 
 
 def todo_count(text: str) -> dict[str, int]:
+    """Todo count."""
     return {
         "TODO": len(re.findall(r"\bTODO\b", text)),
         "FIXME": len(re.findall(r"\bFIXME\b", text)),
@@ -67,6 +74,7 @@ def todo_count(text: str) -> dict[str, int]:
 
 
 def readability_score(lines: list[str]) -> float:
+    """Readability score."""
     if not lines:
         return 0.0
     avg_len = mean(len(l) for l in lines)
@@ -74,14 +82,18 @@ def readability_score(lines: list[str]) -> float:
 
 
 def dump_json(data: dict[str, Any]) -> str:
+    """Dump json."""
     return json.dumps(data, indent=2, ensure_ascii=False)
 
 
 @dataclass
 class BranchMachine:
+    """Branch machine."""
+
     state: str = "main"
 
     def apply(self, event: str) -> str:
+        """Apply."""
         transitions = {
             ("main", "feature_start"): "feature",
             ("feature", "open_pr"): "review",

@@ -1,14 +1,19 @@
+"""Data Structures Python 101 - Episode 5: Linked lists."""
+
 from collections import deque
 from dataclasses import dataclass
 
 
 @dataclass
 class Node:
+    """Node."""
+
     value: int
     next: "Node | None" = None
 
 
 def tiny_singly_linked_list(values: list[int]) -> Node | None:
+    """Tiny singly linked list."""
     head: Node | None = None
     tail: Node | None = None
     for v in values:
@@ -24,12 +29,14 @@ def tiny_singly_linked_list(values: list[int]) -> Node | None:
 
 
 def deque_rotation(values: list[int], steps: int) -> list[int]:
+    """Deque rotation."""
     dq = deque(values, maxlen=len(values) if values else None)
     dq.rotate(steps)
     return list(dq)
 
 
 def sliding_window(values: list[int], window: int) -> list[int]:
+    """Sliding window."""
     dq: deque[int] = deque(maxlen=window)
     sums: list[int] = []
     for v in values:

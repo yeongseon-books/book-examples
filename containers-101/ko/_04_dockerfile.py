@@ -1,3 +1,5 @@
+"""Containers 101 - Episode 4: Dockerfile."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,11 +7,14 @@ from dataclasses import dataclass
 
 @dataclass
 class Instruction:
+    """Instruction."""
+
     opcode: str
     args: str
 
 
 def parse_dockerfile(source: str) -> list[Instruction]:
+    """Parse dockerfile."""
     out: list[Instruction] = []
     for raw in source.splitlines():
         line = raw.strip()
@@ -21,6 +26,7 @@ def parse_dockerfile(source: str) -> list[Instruction]:
 
 
 def lint_dockerfile(source: str) -> list[str]:
+    """Lint dockerfile."""
     warnings: list[str] = []
     has_user = False
     for ins in parse_dockerfile(source):

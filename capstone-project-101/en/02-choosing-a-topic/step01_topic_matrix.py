@@ -1,9 +1,12 @@
+"""Capstone Project 101 - Episode 1: Topic matrix."""
+
 from __future__ import annotations
 
 from common import best_by_total
 
 
 def run() -> dict[str, object]:
+    """Run."""
     score = {
         "schedule_checker": [4, 5, 4],
         "mood_diary": [3, 4, 5],

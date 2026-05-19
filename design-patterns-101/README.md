@@ -15,6 +15,14 @@
 - 09-avoiding-pattern-overuse
 - 10-pythonic-patterns
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

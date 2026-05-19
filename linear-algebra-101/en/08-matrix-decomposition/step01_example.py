@@ -1,7 +1,10 @@
+"""Linear Algebra 101 - Episode 1: Example."""
+
 import numpy as np
 
 
 def run():
+    """Run."""
     np.random.seed(0)
     a = np.array([[3.0, 1.0], [1.0, 3.0], [1.0, 1.0]])
     u, s, vt = np.linalg.svd(a, full_matrices=False)

@@ -9,6 +9,7 @@ from common import deterministic_score, now_iso
 
 
 def run(request_id: str, prompt: str) -> dict[str, object]:
+    """Run."""
     tokens = len(prompt.split()) * 10
     cost = round(tokens / 1000 * 0.002, 6)
     return {

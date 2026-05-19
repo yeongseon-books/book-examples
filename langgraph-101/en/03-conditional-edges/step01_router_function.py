@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 1: Router function."""
+
 from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
@@ -5,12 +7,15 @@ from typing_extensions import TypedDict
 
 
 class RouteState(TypedDict):
+    """Route state."""
+
     text: str
     route: Literal["positive", "negative"]
     result: str
 
 
 def classify_text(state: RouteState):
+    """Classify text."""
     positive_keywords = ["good", "great", "love", "recommend"]
     lowered = state["text"].lower()
     route = (
@@ -23,22 +28,26 @@ def classify_text(state: RouteState):
 
 
 def route_selector(state: RouteState) -> str:
+    """Route selector."""
     return state["route"]
 
 
 def positive_path(state: RouteState):
+    """Positive path."""
     return {
         "result": f"Moved to the positive path: '{state['text']}' was classified as positive."
     }
 
 
 def negative_path(state: RouteState):
+    """Negative path."""
     return {
         "result": f"Moved to the negative path: '{state['text']}' needs more review."
     }
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(RouteState)
     builder.add_node("classify_text", classify_text)
     builder.add_node("positive", positive_path)

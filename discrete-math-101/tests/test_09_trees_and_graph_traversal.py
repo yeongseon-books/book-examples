@@ -1,8 +1,11 @@
+"""Tests for 09 trees and graph traversal in Discrete Math 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(p):
+    """Load."""
     s = importlib.util.spec_from_file_location("m", p)
     m = importlib.util.module_from_spec(s)
     s.loader.exec_module(m)
@@ -10,6 +13,7 @@ def load(p):
 
 
 def test_topological_sort_valid_order():
+    """Test topological sort valid order."""
     m = load(Path("ko/09-trees-and-graph-traversal.py"))
     g = {1: [2, 3], 2: [4], 3: [4], 4: []}
     order = m.topo_sort(g)

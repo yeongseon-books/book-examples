@@ -1,3 +1,5 @@
+"""Compilers 101 - Episode 7: Optimization basics."""
+
 from __future__ import annotations
 
 from typing import TypeAlias
@@ -6,6 +8,7 @@ Inst: TypeAlias = tuple[str, str | None, str | int | None, str | int | None]
 
 
 def constant_fold(node: tuple) -> tuple:
+    """Constant fold."""
     if node[0] == "num":
         return node
     _, op, left, right = node
@@ -19,6 +22,7 @@ def constant_fold(node: tuple) -> tuple:
 
 
 def dce(instructions: list[Inst]) -> list[Inst]:
+    """Dce."""
     used: set[str] = set()
     result: list[Inst] = []
     for op, dst, a, b in reversed(instructions):

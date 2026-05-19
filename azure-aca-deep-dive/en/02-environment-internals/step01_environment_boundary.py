@@ -1,9 +1,12 @@
+"""Azure Aca Deep Dive - Episode 1: Environment boundary."""
+
 from __future__ import annotations
 
 from common import AzPlan, as_json, dry_run_az
 
 
 def run() -> dict[str, object]:
+    """Run."""
     plan = AzPlan(
         command="az containerapp env show --name aca-prod-env --resource-group rg-aca --query appLogsConfiguration",
         payload={

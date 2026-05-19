@@ -7,6 +7,8 @@ from dataclasses import dataclass
 
 @dataclass
 class OcrField:
+    """Ocr field."""
+
     name: str
     text: str
     confidence: float
@@ -14,6 +16,8 @@ class OcrField:
 
 @dataclass
 class OcrResult:
+    """Ocr result."""
+
     image_path: str
     fields: list[OcrField]
 
@@ -22,6 +26,7 @@ class MockClovaOcrClient:
     """Mock client that returns sample receipt text."""
 
     def extract_text(self, image_path: str) -> OcrResult:
+        """Extract text."""
         fields = [
             OcrField(name="store", text="Hanbit Books", confidence=0.99),
             OcrField(name="timestamp", text="2026-05-01 14:30", confidence=0.98),
@@ -31,6 +36,7 @@ class MockClovaOcrClient:
 
 
 def main() -> None:
+    """Main."""
     client = MockClovaOcrClient()
     result = client.extract_text("sample_receipt.png")
     print("Mock OCR extraction result")

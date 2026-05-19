@@ -1,17 +1,22 @@
+"""Data Structures Python 101 - Episode 7: Heaps and priority queues."""
+
 import heapq
 
 
 def min_heap_pop_order(values: list[int]) -> list[int]:
+    """Min heap pop order."""
     heap = values[:]
     heapq.heapify(heap)
     return [heapq.heappop(heap) for _ in range(len(heap))]
 
 
 def top_n_largest(values: list[int], n: int) -> list[int]:
+    """Top n largest."""
     return heapq.nlargest(n, values)
 
 
 def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
+    """Merge sorted lists."""
     return list(heapq.merge(*lists))
 
 

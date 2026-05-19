@@ -15,6 +15,8 @@ RAW_LINES = [
 
 @dataclass
 class Receipt:
+    """Receipt."""
+
     merchant: str
     purchased_at: str
     amount_krw: Decimal
@@ -22,6 +24,7 @@ class Receipt:
 
 
 def parse_receipt(lines: list[str]) -> Receipt:
+    """Parse receipt."""
     mapping = dict(line.split(": ", 1) for line in lines)
     amount = Decimal(mapping["amount"].replace(",", "").replace(" KRW", ""))
     return Receipt(
@@ -33,6 +36,7 @@ def parse_receipt(lines: list[str]) -> Receipt:
 
 
 def main() -> None:
+    """Main."""
     receipt = parse_receipt(RAW_LINES)
     print("Structured OCR output")
     print("=" * 40)

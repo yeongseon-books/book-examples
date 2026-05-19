@@ -1,4 +1,8 @@
+"""Computer Science Major 101 - Episode 9: Build your portfolio."""
+
+
 def validate_portfolio_readme(content: str) -> tuple[bool, list[str]]:
+    """Validate portfolio readme."""
     required = ["about", "projects", "skills", "contact"]
     lower = content.lower()
     missing = [section for section in required if f"## {section}" not in lower]

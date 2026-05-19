@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 1: Json mode."""
+
 import json
 import os
 
@@ -5,6 +7,7 @@ from groq import Groq
 
 
 def call_json_mode(client: Groq, prompt: str) -> dict:
+    """Call json mode."""
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
@@ -22,6 +25,7 @@ def call_json_mode(client: Groq, prompt: str) -> dict:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     result = call_json_mode(
         client,

@@ -1,7 +1,10 @@
+"""Tests for 09 mentoring networking in Developer Career 101."""
+
 from tests.test_01_what_is_developer_career import load
 
 
 def test_09_recommends_oldest_contact():
+    """Test 09 recommends oldest contact."""
     mod = load("09-mentoring-networking.py")
     contacts = [
         mod.Contact("A", priority=5, days_since_touch=10),

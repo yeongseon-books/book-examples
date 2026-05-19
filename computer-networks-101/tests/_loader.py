@@ -1,8 +1,11 @@
+"""Computer Networks 101 - Loader."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load_ko(slug: str):
+    """Load ko."""
     path = Path(__file__).resolve().parents[1] / "ko" / f"{slug}.py"
     spec = importlib.util.spec_from_file_location(slug.replace("-", "_"), path)
     if spec is None or spec.loader is None:

@@ -1,3 +1,5 @@
+"""Pandas 101 - Episode 9: Apply vs vectorized."""
+
 from __future__ import annotations
 
 import tempfile
@@ -10,6 +12,7 @@ from common import make_sales_df, make_students_df
 
 def run() -> dict[str, object]:
     # EP01
+    """Run."""
     pd.Series([10, 20, 30], name="sales")
     df1 = pd.DataFrame(
         {

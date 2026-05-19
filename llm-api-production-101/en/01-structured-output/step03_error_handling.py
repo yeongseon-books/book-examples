@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 3: Error handling."""
+
 import json
 import os
 
@@ -5,6 +7,8 @@ from groq import Groq
 
 
 class SchemaError(Exception):
+    """Schema error."""
+
     pass
 
 
@@ -14,6 +18,7 @@ Respond with JSON: {"name": string, "price": number, "in_stock": boolean}
 
 
 def extract_product(client: Groq, text: str) -> dict:
+    """Extract product."""
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
@@ -42,6 +47,7 @@ def extract_product(client: Groq, text: str) -> dict:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     cases = [
         "The product is a wireless mouse, the price is 35000, and it is in stock.",

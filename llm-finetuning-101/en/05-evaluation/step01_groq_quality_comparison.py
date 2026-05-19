@@ -15,6 +15,7 @@ MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
 
 def complete(client: Any, system_prompt: str, user_prompt: str) -> str:
+    """Complete."""
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0.2,
@@ -27,6 +28,7 @@ def complete(client: Any, system_prompt: str, user_prompt: str) -> str:
 
 
 def judge(client: Any, prompt: str, first: str, second: str) -> str:
+    """Judge."""
     judge_prompt = textwrap.dedent(
         f"""
         Pick the better answer and explain why in up to three lines.
@@ -49,6 +51,7 @@ def judge(client: Any, prompt: str, first: str, second: str) -> str:
 
 
 def main() -> None:
+    """Main."""
     if Groq is None:
         print("Skipping comparison because the groq package is unavailable.")
         return

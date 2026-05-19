@@ -1,8 +1,11 @@
+"""Tests for ep05 in Azure Aks 101."""
+
 from common import load_yaml
 from conftest import load_module
 
 
 def test_ep05_ingress_yaml_shape() -> None:
+    """Test ep05 ingress yaml shape."""
     ko = load_module(
         "ko/05-networking-and-ingress/step01_ingress_manifest.py", "ep05_ko"
     )

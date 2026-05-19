@@ -1,7 +1,10 @@
+"""Tests for 07 monitoring and alerting in Devops 101."""
+
 from ko import _07_monitoring_and_alerting as ep07
 
 
 def test_alert_rule_threshold_above_and_below() -> None:
+    """Test alert rule threshold above and below."""
     store = ep07.MetricStore(window=3)
     for sample in [0.02, 0.03, 0.025]:
         store.observe("error_rate", sample)

@@ -1,7 +1,10 @@
+"""Tests for 09 incident and oncall in Devops 101."""
+
 from ko import _09_incident_and_oncall as ep09
 
 
 def test_rotation_excludes_vacation_and_postmortem_sections() -> None:
+    """Test rotation excludes vacation and postmortem sections."""
     selected = ep09.pick_oncall(["alice", "bob", "carol"], vacation={"bob"}, offset=1)
     assert selected == "carol"
 

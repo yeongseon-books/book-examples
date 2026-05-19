@@ -1,3 +1,5 @@
+"""Tests for ep02 in Cloud Computing 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -10,6 +12,7 @@ fn = cast("Callable[..., object]", mod.shared_responsibility)
 
 
 def test_ep02_behavior() -> None:
+    """Test ep02 behavior."""
     result_obj = fn(model="PaaS")
     result = cast("dict[str, object]", result_obj)
     payload = cast("dict[str, object]", result["payload"])

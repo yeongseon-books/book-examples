@@ -1,4 +1,8 @@
+"""Computer Science Major 101 - Episode 10: Skills before graduation."""
+
+
 def score_skills(rubric: dict[str, int], threshold: int = 3) -> dict[str, object]:
+    """Score skills."""
     if not rubric:
         return {"average": 0.0, "gaps": [], "levels": {}}
     average = sum(rubric.values()) / len(rubric)

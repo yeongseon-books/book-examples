@@ -1,7 +1,10 @@
+"""Multimodal Ai 101 - Episode 1: Video understanding."""
+
 from common import MockImageEncoder, VideoSummarizer, synthetic_image
 
 
 def run() -> int:
+    """Run."""
     encoder = MockImageEncoder()
     frames = [encoder.encode(synthetic_image(i)) for i in range(9, 12)]
     clip = VideoSummarizer().pool(frames, mode="mean")

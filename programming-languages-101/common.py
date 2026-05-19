@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Programming Languages 101."""
+
 import ast
 from dataclasses import dataclass
 
@@ -6,6 +8,7 @@ _ALLOWED_UNARY = (ast.UAdd, ast.USub)
 
 
 def safe_eval_arith(expr: str) -> float:
+    """Safe eval arith."""
     node = ast.parse(expr, mode="eval")
     for n in ast.walk(node):
         if isinstance(n, ast.Call):
@@ -23,10 +26,13 @@ def safe_eval_arith(expr: str) -> float:
 
 @dataclass
 class FeatureScore:
+    """Feature score."""
+
     orthogonality: int
     readability: int
     safety: int
     tooling: int
 
     def total(self) -> int:
+        """Total."""
         return self.orthogonality + self.readability + self.safety + self.tooling

@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 1: Pipeline."""
+
 from __future__ import annotations
 
 import sys
@@ -14,6 +16,7 @@ PROMPT = "Answer the question using only the context below. If the answer is mis
 
 
 def main() -> None:
+    """Main."""
     case = PIPELINE_CASES[0]
     context = "\n\n".join(doc["text"] for doc in CORPUS[:3])
     print("End-to-end pipeline sample")

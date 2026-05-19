@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Math For Cs 101."""
+
 import heapq
 import math
 import random
@@ -5,6 +7,7 @@ from collections import deque
 
 
 def truth_table(op):
+    """Truth table."""
     rows = []
     for p in (False, True):
         for q in (False, True):
@@ -13,11 +16,13 @@ def truth_table(op):
 
 
 def is_injective(mapping):
+    """Is injective."""
     values = list(mapping.values())
     return len(values) == len(set(values))
 
 
 def bfs(graph, start):
+    """Bfs."""
     visited = set([start])
     order = []
     queue = deque([start])
@@ -32,10 +37,12 @@ def bfs(graph, start):
 
 
 def dfs(graph, start):
+    """Dfs."""
     visited = set()
     order = []
 
     def _visit(node):
+        """Visit."""
         visited.add(node)
         order.append(node)
         for nxt in graph.get(node, []):
@@ -47,6 +54,7 @@ def dfs(graph, start):
 
 
 def monte_carlo_estimate(fn, sampler, n, seed=42):
+    """Monte carlo estimate."""
     rnd = random.Random(seed)
     total = 0.0
     for _ in range(n):
@@ -55,10 +63,12 @@ def monte_carlo_estimate(fn, sampler, n, seed=42):
 
 
 def numerical_derivative(f, x, h=1e-5):
+    """Numerical derivative."""
     return (f(x + h) - f(x - h)) / (2 * h)
 
 
 def gradient_descent(grad, x0, lr=0.1, steps=100):
+    """Gradient descent."""
     x = float(x0)
     for _ in range(steps):
         x = x - lr * grad(x)
@@ -66,10 +76,12 @@ def gradient_descent(grad, x0, lr=0.1, steps=100):
 
 
 def entropy(probs):
+    """Entropy."""
     return -sum(p * math.log2(p) for p in probs if p > 0)
 
 
 def kl_divergence(p, q):
+    """Kl divergence."""
     return sum(
         pi * math.log2(pi / qi)
         for pi, qi in zip(p, q, strict=False)
@@ -78,6 +90,7 @@ def kl_divergence(p, q):
 
 
 def gcd(a, b):
+    """Gcd."""
     x, y = abs(a), abs(b)
     while y:
         x, y = y, x % y
@@ -85,6 +98,7 @@ def gcd(a, b):
 
 
 def fast_power(base, exp, mod=None):
+    """Fast power."""
     if exp < 0:
         raise ValueError("exp must be non-negative")
     result = 1
@@ -99,6 +113,7 @@ def fast_power(base, exp, mod=None):
 
 
 def huffman_code_lengths(freqs):
+    """Huffman code lengths."""
     heap = [(w, {sym: 0}) for sym, w in freqs.items()]
     heapq.heapify(heap)
     if len(heap) == 1:

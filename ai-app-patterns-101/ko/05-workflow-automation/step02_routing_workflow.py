@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 2: Routing workflow."""
+
 from __future__ import annotations
 
 from common import (
@@ -15,6 +17,7 @@ REQUESTS = [
 
 
 def route_request(client, request: str) -> tuple[str, str]:
+    """Route request."""
     classifier_messages = [
         {
             "role": "system",
@@ -54,6 +57,7 @@ def route_request(client, request: str) -> tuple[str, str]:
 
 
 def run_routing_workflow() -> None:
+    """Run routing workflow."""
     client = build_client()
     for request in REQUESTS:
         route, output = route_request(client, request)

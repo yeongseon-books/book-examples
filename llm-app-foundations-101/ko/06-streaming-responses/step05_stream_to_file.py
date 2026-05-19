@@ -16,6 +16,7 @@ from groq import Groq
 
 
 def sentence_chunks(stream) -> Generator[str, None, None]:
+    """Sentence chunks."""
     buffer = ""
     for chunk in stream:
         delta = chunk.choices[0].delta.content
@@ -30,6 +31,7 @@ def sentence_chunks(stream) -> Generator[str, None, None]:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     output_path = Path(__file__).with_name("summary.txt")
 

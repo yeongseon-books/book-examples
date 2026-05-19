@@ -1,3 +1,5 @@
+"""Tests for ep07 in Portfolio Project 101."""
+
 from pathlib import Path
 from typing import Any, cast
 
@@ -6,6 +8,7 @@ from ko.ep07_adr_parser import parse_adr
 
 
 def test_ep07_adr_parser() -> None:
+    """Test ep07 adr parser."""
     parsed = cast(
         "dict[str, Any]", parse_adr(read_text(Path("fixtures/sample_adr.md")))
     )

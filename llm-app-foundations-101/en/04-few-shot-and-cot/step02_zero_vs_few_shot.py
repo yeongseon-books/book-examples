@@ -26,6 +26,7 @@ TICKET = (
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     zero_shot = client.chat.completions.create(

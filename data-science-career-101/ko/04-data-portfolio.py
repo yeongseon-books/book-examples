@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 4: Data portfolio."""
+
 from __future__ import annotations
 
 import re
@@ -7,6 +9,7 @@ PROJECT_REQUIRED = ["problem", "data", "method", "result", "code"]
 
 
 def validate_portfolio_readme(markdown: str) -> dict[str, object]:
+    """Validate portfolio readme."""
     lower = markdown.lower()
     missing_sections = [
         section for section in REQUIRED_SECTIONS if f"## {section}" not in lower

@@ -1,7 +1,11 @@
+"""Data Structures 101 - Episode 3: Linked lists."""
+
 from __future__ import annotations
 
 
 class Node:
+    """Node."""
+
     def __init__(
         self, value: int, next: Node | None = None, prev: Node | None = None
     ) -> None:
@@ -11,12 +15,15 @@ class Node:
 
 
 class SinglyLinkedList:
+    """Singly linked list."""
+
     def __init__(self) -> None:
         self.head: Node | None = None
         self.tail: Node | None = None
         self.size = 0
 
     def insert_head(self, value: int) -> None:
+        """Insert head."""
         node = Node(value=value, next=self.head)
         self.head = node
         if self.tail is None:
@@ -24,6 +31,7 @@ class SinglyLinkedList:
         self.size += 1
 
     def insert_tail(self, value: int) -> None:
+        """Insert tail."""
         node = Node(value=value)
         if self.tail is None:
             self.head = self.tail = node
@@ -33,6 +41,7 @@ class SinglyLinkedList:
         self.size += 1
 
     def find(self, value: int) -> bool:
+        """Find."""
         cur = self.head
         while cur is not None:
             if cur.value == value:
@@ -41,6 +50,7 @@ class SinglyLinkedList:
         return False
 
     def remove(self, value: int) -> bool:
+        """Remove."""
         prev = None
         cur = self.head
         while cur is not None:
@@ -57,6 +67,7 @@ class SinglyLinkedList:
         return False
 
     def reverse(self) -> None:
+        """Reverse."""
         prev = None
         cur = self.head
         self.tail = self.head
@@ -68,6 +79,7 @@ class SinglyLinkedList:
         self.head = prev
 
     def to_list(self) -> list[int]:
+        """To list."""
         cur = self.head
         out: list[int] = []
         while cur is not None:
@@ -77,11 +89,14 @@ class SinglyLinkedList:
 
 
 class DoublyLinkedList:
+    """Doubly linked list."""
+
     def __init__(self) -> None:
         self.head: Node | None = None
         self.tail: Node | None = None
 
     def insert_head(self, value: int) -> None:
+        """Insert head."""
         node = Node(value=value, next=self.head)
         if self.head is not None:
             self.head.prev = node
@@ -90,6 +105,7 @@ class DoublyLinkedList:
         self.head = node
 
     def insert_tail(self, value: int) -> None:
+        """Insert tail."""
         node = Node(value=value, prev=self.tail)
         if self.tail is not None:
             self.tail.next = node
@@ -98,6 +114,7 @@ class DoublyLinkedList:
         self.tail = node
 
     def remove(self, value: int) -> bool:
+        """Remove."""
         cur = self.head
         while cur is not None:
             if cur.value == value:
@@ -114,6 +131,7 @@ class DoublyLinkedList:
         return False
 
     def find(self, value: int) -> bool:
+        """Find."""
         cur = self.head
         while cur is not None:
             if cur.value == value:
@@ -122,6 +140,7 @@ class DoublyLinkedList:
         return False
 
     def reverse(self) -> None:
+        """Reverse."""
         cur = self.head
         self.head, self.tail = self.tail, self.head
         while cur is not None:
@@ -129,6 +148,7 @@ class DoublyLinkedList:
             cur = cur.prev
 
     def to_list(self) -> list[int]:
+        """To list."""
         out: list[int] = []
         cur = self.head
         while cur is not None:

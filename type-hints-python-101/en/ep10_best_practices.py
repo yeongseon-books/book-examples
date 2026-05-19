@@ -1,3 +1,5 @@
+"""Type Hints Python 101 - Episode 10: Best practices."""
+
 import ast
 from typing import TypeAlias
 
@@ -5,6 +7,7 @@ Score: TypeAlias = dict[str, int]
 
 
 def score_module_typing(source: str) -> Score:
+    """Score module typing."""
     tree = ast.parse(source)
     score: Score = {"annotated_functions": 0, "has_any": 0, "aliases": 0}
 

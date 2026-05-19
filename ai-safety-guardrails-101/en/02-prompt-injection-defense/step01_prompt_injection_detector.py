@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Prompt injection detector."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import detect_prompt_injection
 
 
 def run(user_input: str) -> dict[str, str | bool]:
+    """Run."""
     decision = detect_prompt_injection(user_input)
     return {"allowed": decision.allowed, "reason": decision.reason}
 

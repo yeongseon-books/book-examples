@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 1: Basic rag."""
+
 from __future__ import annotations
 
 from common import (
@@ -26,6 +28,7 @@ DOCUMENTS = [
 
 
 def run_basic_rag() -> None:
+    """Run basic rag."""
     client = build_client()
     store = SimpleVectorStore(DOCUMENTS)
     question = "Why is retrieval quality so important in RAG?"

@@ -1,3 +1,5 @@
+"""Database Systems 101 - Episode 4: Indexes."""
+
 from __future__ import annotations
 
 import random
@@ -5,6 +7,8 @@ import time
 
 
 class BSTNode:
+    """BST node."""
+
     def __init__(self, key: int, row: dict[str, int]):
         self.key = key
         self.rows = [row]
@@ -13,10 +17,13 @@ class BSTNode:
 
 
 class BSTIndex:
+    """BST index."""
+
     def __init__(self):
         self.root = None
 
     def insert(self, key: int, row: dict[str, int]) -> None:
+        """Insert."""
         if self.root is None:
             self.root = BSTNode(key, row)
             return
@@ -37,6 +44,7 @@ class BSTIndex:
                 cur = cur.right
 
     def lookup(self, key: int) -> tuple[list[dict[str, int]], int]:
+        """Lookup."""
         cur = self.root
         steps = 0
         while cur is not None:
@@ -48,19 +56,24 @@ class BSTIndex:
 
 
 class HashIndex:
+    """Hash index."""
+
     def __init__(self):
         self.store: dict[int, list[dict[str, int]]] = {}
 
     def insert(self, key: int, row: dict[str, int]) -> None:
+        """Insert."""
         self.store.setdefault(key, []).append(row)
 
     def lookup(self, key: int) -> tuple[list[dict[str, int]], int]:
+        """Lookup."""
         return self.store.get(key, []), 1
 
 
 def full_scan(
     rows: list[dict[str, int]], target: int
 ) -> tuple[list[dict[str, int]], int]:
+    """Full scan."""
     out = []
     steps = 0
     for r in rows:
@@ -71,6 +84,7 @@ def full_scan(
 
 
 def benchmark_lookup(n: int = 10_000, seed: int = 42) -> dict[str, float | int]:
+    """Benchmark lookup."""
     random.seed(seed)
     rows = [{"id": i, "user_id": random.randint(1, 1000), "v": i * 3} for i in range(n)]
     target = rows[n // 2]["user_id"]

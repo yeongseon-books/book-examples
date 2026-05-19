@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 3: Learning path."""
+
 from __future__ import annotations
 
 from collections import defaultdict, deque
@@ -34,6 +36,7 @@ PREREQS = {
 
 
 def topo_sort(topics: list[str]) -> list[str]:
+    """Topo sort."""
     indegree = {topic: 0 for topic in topics}
     graph = defaultdict(list)
     for topic in topics:
@@ -56,6 +59,7 @@ def topo_sort(topics: list[str]) -> list[str]:
 def generate_12_week_plan(
     target_role: str, weekly_hours: int, current_skills: set[str]
 ) -> list[dict[str, object]]:
+    """Generate 12 week plan."""
     topics = ROLE_TOPICS[target_role]
     ordered = [topic for topic in topo_sort(topics) if topic not in current_skills]
     if not ordered:

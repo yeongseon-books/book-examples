@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 1: Format router."""
+
 from __future__ import annotations
 
 import sys
@@ -17,6 +19,7 @@ from shared.ingestion_examples import (
 
 
 def prepare_files(base: Path) -> list[Path]:
+    """Prepare files."""
     txt_path = write_text(
         base / "guide.txt", "Plain text documents can be loaded directly."
     )
@@ -40,6 +43,7 @@ def prepare_files(base: Path) -> list[Path]:
 
 
 def main() -> None:
+    """Main."""
     base = Path("/tmp/document_ingestion_en_router")
     paths = prepare_files(base)
     for path in paths:

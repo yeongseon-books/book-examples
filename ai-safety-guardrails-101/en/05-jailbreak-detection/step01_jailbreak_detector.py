@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Jailbreak detector."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import detect_jailbreak
 
 
 def run(user_input: str) -> dict[str, str | bool]:
+    """Run."""
     decision = detect_jailbreak(user_input)
     return {"allowed": decision.allowed, "reason": decision.reason}
 

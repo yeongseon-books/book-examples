@@ -1,9 +1,12 @@
+"""Tests for ep10 in Python Package 101."""
+
 from pathlib import Path
 
 from common import ep10_generate_template
 
 
 def test_ep10_generate_skeleton(tmp_path: Path) -> None:
+    """Test ep10 generate skeleton."""
     out = ep10_generate_template(tmp_path, project_name="pkg10")
     root = Path(out["root"])
     assert (root / "pyproject.toml").exists()

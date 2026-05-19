@@ -15,6 +15,7 @@ from groq import Groq
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     messages: list[Any] = [

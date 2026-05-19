@@ -36,12 +36,14 @@ SAMPLE_DATA = [
 
 
 def load_records(source: Path):
+    """Load records."""
     if source.exists():
         return json.loads(source.read_text(encoding="utf-8"))
     return SAMPLE_DATA
 
 
 def write_jsonl(path: Path, rows) -> None:
+    """Write jsonl."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as handle:
         for row in rows:
@@ -49,6 +51,7 @@ def write_jsonl(path: Path, rows) -> None:
 
 
 def main() -> None:
+    """Main."""
     base_dir = Path(__file__).resolve().parent
     source = base_dir / "outputs" / "synthetic_pairs.json"
     rows = load_records(source)

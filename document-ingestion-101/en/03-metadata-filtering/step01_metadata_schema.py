@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 1: Metadata schema."""
+
 from __future__ import annotations
 
 import sys
@@ -9,6 +11,7 @@ if str(ROOT) not in sys.path:
 
 
 def build_chunks() -> list[dict[str, object]]:
+    """Build chunks."""
     return [
         {
             "text": "The PDF parser extracts text page by page.",
@@ -36,6 +39,7 @@ def build_chunks() -> list[dict[str, object]]:
 
 
 def main() -> None:
+    """Main."""
     print("Chunk metadata schema example")
     for chunk in build_chunks():
         print(chunk)

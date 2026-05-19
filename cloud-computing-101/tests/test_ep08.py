@@ -1,3 +1,5 @@
+"""Tests for ep08 in Cloud Computing 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -10,6 +12,7 @@ fn = cast("Callable[..., object]", mod.create_alarm_plan)
 
 
 def test_ep08_behavior() -> None:
+    """Test ep08 behavior."""
     result_obj = fn(threshold=80.0, periods=5)
     result = cast("dict[str, object]", result_obj)
     payload = cast("dict[str, object]", result["payload"])

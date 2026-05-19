@@ -1,3 +1,5 @@
+"""Api Design 101 - Episode 1: Pagination filter."""
+
 from __future__ import annotations
 
 from common import decode_cursor, encode_cursor
@@ -9,6 +11,7 @@ ITEMS = [
 
 
 def build_app() -> FastAPI:
+    """Build app."""
     app = FastAPI()
 
     @app.get("/orders")
@@ -17,6 +20,7 @@ def build_app() -> FastAPI:
         cursor: str | None = Query(default=None),
         status: str | None = Query(default=None),
     ) -> dict[str, object]:
+        """List orders."""
         filtered = (
             ITEMS if status is None else [i for i in ITEMS if i["status"] == status]
         )

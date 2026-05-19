@@ -17,6 +17,14 @@
 - `en/`: 동일 로직의 영어 미러 스크립트
 - `tests/`: 에피소드별 pytest 테스트
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

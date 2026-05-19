@@ -1,7 +1,10 @@
+"""Tests for ep05 in Technical Writing 101."""
+
 from en.ep05_code_validator import analyze
 
 
 def test_ep05_code_rules():
+    """Test ep05 code rules."""
     good = analyze("fixtures/ep05_good.md")
     bad = analyze("fixtures/ep05_bad.md")
     assert good["missing_language_tags"] == 0

@@ -25,6 +25,8 @@ EXPECTED_INDEX = 3
 
 @dataclass
 class BenchmarkResult:
+    """Benchmark result."""
+
     label: str
     best_index: int
     best_score: float
@@ -32,10 +34,12 @@ class BenchmarkResult:
 
 
 def score_documents(vector: np.ndarray, matrix: np.ndarray) -> np.ndarray:
+    """Score documents."""
     return matrix @ vector
 
 
 def benchmark_model(label: str, model_name: str) -> BenchmarkResult:
+    """Benchmark model."""
     started = time.perf_counter()
     model = SentenceTransformer(model_name)
     query_embedding = model.encode(
@@ -56,6 +60,7 @@ def benchmark_model(label: str, model_name: str) -> BenchmarkResult:
 
 
 def main() -> None:
+    """Main."""
     print("한국어 임베딩 모델 간단 벤치마크")
     print(f"질의: {QUERY}")
     print("=" * 70)

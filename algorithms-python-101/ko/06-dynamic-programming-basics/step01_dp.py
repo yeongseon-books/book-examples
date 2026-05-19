@@ -1,4 +1,8 @@
+"""Algorithms Python 101 - Episode 1: Dp."""
+
+
 def climb_stairs(n: int) -> int:
+    """Climb stairs."""
     if n <= 2:
         return n
     prev2, prev1 = 1, 2

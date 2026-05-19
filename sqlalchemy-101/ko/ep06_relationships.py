@@ -1,8 +1,11 @@
+"""Sqlalchemy 101 - Episode 6: Relationships."""
+
 from common import Post, Tag, User, create_schema, sync_engine
 from sqlalchemy.orm import Session
 
 
 def run() -> tuple[int, int]:
+    """Run."""
     engine = sync_engine()
     create_schema(engine)
     with Session(engine) as session:

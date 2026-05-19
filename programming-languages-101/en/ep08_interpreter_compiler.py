@@ -1,4 +1,8 @@
+"""Programming Languages 101 - Episode 8: Interpreter compiler."""
+
+
 def interpret(expr):
+    """Interpret."""
     tag = expr[0]
     if tag == "num":
         return expr[1]
@@ -8,9 +12,11 @@ def interpret(expr):
 
 
 def compile_bytecode(expr):
+    """Compile bytecode."""
     code = []
 
     def walk(node):
+        """Walk."""
         if node[0] == "num":
             code.append(("PUSH", node[1]))
         elif node[0] == "add":

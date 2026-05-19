@@ -1,7 +1,10 @@
+"""Tests for 08 heaps in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_heap_pop_order_and_heapsort():
+    """Test heap pop order and heapsort."""
     mod = load_module("ko/08-heaps.py")
     h = mod.MinHeap()
     values = [5, 1, 8, 2, 3]

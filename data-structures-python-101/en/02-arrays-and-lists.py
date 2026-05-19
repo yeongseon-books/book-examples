@@ -1,3 +1,5 @@
+"""Data Structures Python 101 - Episode 2: Arrays and lists."""
+
 from array import array
 from collections import deque
 from collections.abc import Callable
@@ -8,6 +10,7 @@ from typing import Any
 def time_op(
     fn: Callable[..., Any], *args: Any, repeat: int = 5, loops: int = 1, **kwargs: Any
 ) -> float:
+    """Time op."""
     best = float("inf")
     for _ in range(repeat):
         start = perf_counter()
@@ -18,17 +21,20 @@ def time_op(
 
 
 def list_idioms(values: list[int]) -> dict[str, list[int] | int]:
+    """List idioms."""
     copied = values[:]
     comp = [x * 2 for x in values if x % 2 == 0]
     return {"slice": values[1:4], "copy_first": copied[0], "comp": comp}
 
 
 def typed_array_sum(values: list[int]) -> int:
+    """Typed array sum."""
     arr = array("i", values)
     return sum(arr)
 
 
 def prepend_list(n: int) -> int:
+    """Prepend list."""
     data: list[int] = []
     for i in range(n):
         data.insert(0, i)
@@ -36,6 +42,7 @@ def prepend_list(n: int) -> int:
 
 
 def prepend_deque(n: int) -> int:
+    """Prepend deque."""
     data: deque[int] = deque()
     for i in range(n):
         data.appendleft(i)
@@ -43,6 +50,7 @@ def prepend_deque(n: int) -> int:
 
 
 def prepend_benchmark(n: int = 10_000) -> dict[str, float]:
+    """Prepend benchmark."""
     return {
         "list_insert0": time_op(prepend_list, n, repeat=3),
         "deque_appendleft": time_op(prepend_deque, n, repeat=3),

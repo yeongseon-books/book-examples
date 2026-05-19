@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 5: Estimation bias."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -5,6 +7,7 @@ from common import rng
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     g = rng()
     true_mean = 5.0
     n = 30

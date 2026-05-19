@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Ai Agent 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -8,6 +10,7 @@ Weather = dict[str, str | int]
 
 
 def get_weather(city: str) -> Weather:
+    """Get weather."""
     data: dict[str, Weather] = {
         "Seoul": {"temp": 22, "condition": "clear"},
         "Tokyo": {"temp": 18, "condition": "rain"},
@@ -17,6 +20,7 @@ def get_weather(city: str) -> Weather:
 
 
 def search_knowledge(query: str) -> list[dict[str, str]]:
+    """Search knowledge."""
     corpus = [
         {"title": "FastAPI", "snippet": "FastAPI is async and type-driven."},
         {"title": "Flask", "snippet": "Flask is minimal and flexible."},
@@ -32,6 +36,7 @@ def search_knowledge(query: str) -> list[dict[str, str]]:
 
 
 def safe_calculate(expression: str) -> float:
+    """Safe calculate."""
     allowed = set("0123456789+-*/(). ")
     if not set(expression) <= allowed:
         raise ValueError("unsafe expression")
@@ -39,17 +44,23 @@ def safe_calculate(expression: str) -> float:
 
 
 def deterministic_score(text: str) -> float:
+    """Deterministic score."""
     return round((sum(ord(ch) for ch in text) % 100) / 100, 2)
 
 
 @dataclass
 class ToolCall:
+    """Tool call."""
+
     name: str
     args: dict[str, str]
 
 
 class MockLLM:
+    """Mock l l m."""
+
     def next_action(self, goal: str, state: dict[str, object]) -> ToolCall | str:
+        """Next action."""
         g = goal.lower()
         if "weather" in g or "날씨" in g:
             city = "Tokyo" if "tokyo" in g or "도쿄" in g else "Seoul"
@@ -65,10 +76,12 @@ class MockLLM:
 
 
 def now_iso() -> str:
+    """Now iso."""
     return datetime.now(timezone.utc).isoformat()
 
 
 def retry(operation: Callable[[], object], max_attempts: int = 3) -> object:
+    """Retry."""
     last_error: Exception | None = None
     for _ in range(max_attempts):
         try:

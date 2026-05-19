@@ -1,9 +1,12 @@
+"""Capstone Project 101 - Episode 1: Mvp scope."""
+
 from __future__ import annotations
 
 from common import assert_offline
 
 
 def run() -> dict[str, object]:
+    """Run."""
     assert_offline({"use_network": False})
     return {
         "flow": "register -> upload -> share",

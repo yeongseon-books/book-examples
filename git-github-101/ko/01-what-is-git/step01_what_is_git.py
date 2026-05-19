@@ -1,9 +1,12 @@
+"""Git Github 101 - Episode 1: What is git."""
+
 from __future__ import annotations
 
 from common import cleanup_dir, make_temp_repo, run_git
 
 
 def run() -> dict[str, str]:
+    """Run."""
     repo = make_temp_repo()
     try:
         version = run_git(repo, "--version").stdout.strip()

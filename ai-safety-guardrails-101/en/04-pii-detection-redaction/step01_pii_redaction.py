@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Pii redaction."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import redact_pii
 
 
 def run(text: str) -> str:
+    """Run."""
     return redact_pii(text)
 
 

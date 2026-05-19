@@ -4,6 +4,7 @@ from __future__ import annotations
 
 
 def print_banner(title: str) -> str:
+    """Print banner."""
     line = f"=== {title} ==="
     print(line)
     return line

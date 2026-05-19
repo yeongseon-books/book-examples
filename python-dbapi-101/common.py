@@ -34,22 +34,26 @@ SEED_ORDERS = [
 
 
 def create_connection(db_path: str = ":memory:") -> sqlite3.Connection:
+    """Create connection."""
     conn = sqlite3.connect(db_path)
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
 
 
 def initialize_schema(conn: sqlite3.Connection) -> None:
+    """Initialize schema."""
     conn.executescript(SCHEMA_SQL)
 
 
 def seed_data(conn: sqlite3.Connection) -> None:
+    """Seed data."""
     conn.executemany("INSERT INTO users(name, email) VALUES (?, ?)", SEED_USERS)
     conn.executemany("INSERT INTO orders(user_id, amount) VALUES (?, ?)", SEED_ORDERS)
     conn.commit()
 
 
 def setup_demo_db(db_path: str = ":memory:") -> sqlite3.Connection:
+    """Setup demo db."""
     conn = create_connection(db_path)
     initialize_schema(conn)
     seed_data(conn)
@@ -57,4 +61,5 @@ def setup_demo_db(db_path: str = ":memory:") -> sqlite3.Connection:
 
 
 def file_db_path(tmp_dir: Path, name: str = "demo.db") -> str:
+    """File db path."""
     return str(tmp_dir / name)

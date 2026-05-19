@@ -1,8 +1,11 @@
+"""Linear Algebra 101 - Episode 1: Example."""
+
 import numpy as np
 from common import fit_linear_regression_normal_eq, fit_logistic_regression_gd
 
 
 def run():
+    """Run."""
     np.random.seed(0)
     rng = np.random.default_rng(0)
 

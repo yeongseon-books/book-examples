@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 3: Cryptography and hash."""
+
 from common import PasswordHasher, SymmetricCipher
 
 hasher = PasswordHasher()

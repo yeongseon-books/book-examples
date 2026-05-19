@@ -1,7 +1,10 @@
+"""Observability 101 - Episode 3: Metric collection."""
+
 from common import MetricRegistry
 
 
 def run_demo() -> str:
+    """Run demo."""
     reg = MetricRegistry()
     c = reg.counter("http_requests_total", {"path": "/api"})
     c.inc()

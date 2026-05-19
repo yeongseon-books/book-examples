@@ -1,3 +1,5 @@
+"""Tests for ep10 in Multimodal Ai 101."""
+
 from conftest import load_module
 
 run = load_module(
@@ -6,6 +8,7 @@ run = load_module(
 
 
 def test_ep10_end_to_end_app() -> None:
+    """Test ep10 end to end app."""
     result = run("summarize")
     assert result["top_hit"] in {"doc-1", "doc-2", "doc-3"}
     assert abs(float(result["audio_norm"]) - 1.0) < 1e-6

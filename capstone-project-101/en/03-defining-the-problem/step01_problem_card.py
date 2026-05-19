@@ -1,7 +1,10 @@
+"""Capstone Project 101 - Episode 1: Problem card."""
+
 from __future__ import annotations
 
 
 def run() -> dict[str, str]:
+    """Run."""
     return {
         "observation": "Timetable conflicts happen frequently during enrollment",
         "user": "Freshmen and double-major students",

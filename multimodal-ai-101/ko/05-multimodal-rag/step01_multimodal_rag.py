@@ -1,7 +1,10 @@
+"""Multimodal Ai 101 - Episode 1: Multimodal rag."""
+
 from common import MultimodalRAG
 
 
 def run(query: str = "receipt") -> str:
+    """Run."""
     rag = MultimodalRAG(
         [
             {"id": "doc-1", "image": "grid-a", "text": "receipt with totals"},

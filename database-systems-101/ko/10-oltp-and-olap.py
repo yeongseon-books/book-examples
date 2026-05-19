@@ -1,3 +1,5 @@
+"""Database Systems 101 - Episode 10: Oltp and olap."""
+
 from __future__ import annotations
 
 import random
@@ -7,6 +9,7 @@ from collections import defaultdict
 
 
 def setup_orders(n: int = 20_000, seed: int = 123) -> sqlite3.Connection:
+    """Setup orders."""
     random.seed(seed)
     db = sqlite3.connect(":memory:")
     db.executescript(
@@ -36,6 +39,7 @@ def setup_orders(n: int = 20_000, seed: int = 123) -> sqlite3.Connection:
 
 
 def run_oltp_workload(db: sqlite3.Connection, iterations: int = 500) -> float:
+    """Run oltp workload."""
     start = time.perf_counter()
     for i in range(iterations):
         user_id = (i % 2000) + 1
@@ -46,6 +50,7 @@ def run_oltp_workload(db: sqlite3.Connection, iterations: int = 500) -> float:
 
 
 def run_olap_workload(db: sqlite3.Connection) -> tuple[float, list[tuple[str, int]]]:
+    """Run olap workload."""
     start = time.perf_counter()
     rows = db.execute(
         "SELECT country, SUM(total) FROM orders WHERE status='paid' GROUP BY country ORDER BY country"
@@ -56,6 +61,7 @@ def run_olap_workload(db: sqlite3.Connection) -> tuple[float, list[tuple[str, in
 def column_store_aggregate(
     rows: list[tuple[int, int, str, int, str]],
 ) -> list[tuple[str, int]]:
+    """Column store aggregate."""
     status = [r[2] for r in rows]
     total = [r[3] for r in rows]
     country = [r[4] for r in rows]

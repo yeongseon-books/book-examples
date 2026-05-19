@@ -1,8 +1,11 @@
+"""Tests for 08 graph theory basics in Discrete Math 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(p):
+    """Load."""
     s = importlib.util.spec_from_file_location("m", p)
     m = importlib.util.module_from_spec(s)
     s.loader.exec_module(m)
@@ -10,6 +13,7 @@ def load(p):
 
 
 def test_bipartite_cases():
+    """Test bipartite cases."""
     m = load(Path("ko/08-graph-theory-basics.py"))
     k = m.Graph()
     left = ["a1", "a2", "a3"]

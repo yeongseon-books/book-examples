@@ -1,7 +1,10 @@
+"""Tests for 08 query optimization in Database Systems 101."""
+
 from conftest import load_ko_module
 
 
 def test_optimizer_picks_lower_estimated_cost_plan():
+    """Test optimizer picks lower estimated cost plan."""
     m = load_ko_module("08-query-optimization.py")
     stats = {"A": 1000, "B": 100, "C": 5000}
     best_plan, best_cost = m.pick_best_plan(stats)

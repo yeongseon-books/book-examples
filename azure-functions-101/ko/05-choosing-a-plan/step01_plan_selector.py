@@ -1,9 +1,12 @@
+"""Azure Functions 101 - Episode 1: Plan selector."""
+
 from __future__ import annotations
 
 
 def choose_plan(
     needs_vnet: bool, strict_cold_start: bool, existing_app_service: bool
 ) -> str:
+    """Choose plan."""
     if existing_app_service:
         return "Dedicated"
     if strict_cold_start:
@@ -14,6 +17,7 @@ def choose_plan(
 
 
 def run() -> dict[str, str]:
+    """Run."""
     return {"plan": choose_plan(True, False, False)}
 
 

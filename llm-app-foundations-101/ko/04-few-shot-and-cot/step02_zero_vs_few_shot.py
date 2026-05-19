@@ -24,6 +24,7 @@ TICKET = "팀 요금제인데 이번 달 청구 금액이 예상보다 두 배 �
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     zero_shot = client.chat.completions.create(

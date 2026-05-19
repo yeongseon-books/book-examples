@@ -1,7 +1,10 @@
+"""Sql 101 - Episode 1: Overview."""
+
 from common import seed_db
 
 
 def run_demo():
+    """Run demo."""
     conn = seed_db()
     cur = conn.cursor()
     cur.execute("CREATE TABLE demo (id INTEGER PRIMARY KEY, label TEXT)")

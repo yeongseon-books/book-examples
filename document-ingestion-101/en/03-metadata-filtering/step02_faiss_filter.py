@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 2: Faiss filter."""
+
 from __future__ import annotations
 
 import sys
@@ -11,6 +13,7 @@ from shared.ingestion_examples import build_faiss_index, search_faiss
 
 
 def main() -> None:
+    """Main."""
     records = [
         {
             "text": "The PDF parser stores page numbers and titles together with text.",

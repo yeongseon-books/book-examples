@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Rubric scoring."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import MockLLMJudge
 
 
 def run() -> dict[str, object]:
+    """Run."""
     judge = MockLLMJudge()
     answer = "Because RAG grounds generation on retrieved evidence, hallucination risk is reduced for factual tasks."
     scores = judge.rubric_score("Explain RAG", answer)

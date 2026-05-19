@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 7: Modeling."""
+
 from __future__ import annotations
 
 from common import make_synthetic_classification
@@ -7,6 +9,7 @@ from sklearn.model_selection import cross_val_score, train_test_split
 
 
 def train_models(seed: int = 42) -> dict[str, float]:
+    """Train models."""
     df = make_synthetic_classification(seed=seed, n=800)
     X = df.drop(columns=["target"])
     y = df["target"]

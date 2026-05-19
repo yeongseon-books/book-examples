@@ -11,6 +11,7 @@ from common import target_based_instances
 def run(
     backlog: int, target_per_instance: int, current_instances: int
 ) -> dict[str, int]:
+    """Run."""
     desired = target_based_instances(backlog, target_per_instance, current_instances)
     return {
         "backlog": backlog,

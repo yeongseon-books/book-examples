@@ -1,8 +1,11 @@
+"""Tests for 01 what is computer science in Computer Science 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(name: str, rel: str):
+    """Load."""
     spec = importlib.util.spec_from_file_location(
         name, Path(__file__).parent.parent / rel
     )
@@ -13,6 +16,7 @@ def load(name: str, rel: str):
 
 
 def test_binary_increment():
+    """Test binary increment."""
     m = load("ep01", "ko/01-what-is-computer-science.py")
     assert m.increment_binary("110") == "111"
     assert m.increment_binary("111") == "1000"

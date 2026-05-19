@@ -1,8 +1,11 @@
+"""Tests for ep07 in Harness Engineering 101."""
+
 from common import FeedbackLoop
 from conftest import load_episode
 
 
 def test_ep07_feedback_loop_stops_at_max_iterations():
+    """Test ep07 feedback loop stops at max iterations."""
     m = load_episode("ko", "07-feedback-loop")
     text, iters = m.feedback_loop_example()
     assert "improved" in text

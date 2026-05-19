@@ -1,3 +1,5 @@
+"""Azure App Service Deep Dive - Episode 1: Architecture map."""
+
 from __future__ import annotations
 
 import sys
@@ -10,6 +12,7 @@ from common import architecture_layers
 
 def run() -> dict[str, str]:
     # App Service의 핵심 박스를 요약합니다.
+    """Run."""
     layers = architecture_layers()
     return {
         "front_end": layers.front_end,

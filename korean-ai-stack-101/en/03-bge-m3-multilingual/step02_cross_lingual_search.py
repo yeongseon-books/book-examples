@@ -15,6 +15,7 @@ DOCUMENTS = [
 
 
 def main() -> None:
+    """Main."""
     print(f"Loading model: {MODEL_NAME}")
     model = SentenceTransformer(MODEL_NAME)
     query_embedding = model.encode(

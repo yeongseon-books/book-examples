@@ -1,7 +1,10 @@
+"""Alembic 101 - Episode 1: Online offline batch."""
+
 from __future__ import annotations
 
 
 def render_upgrade_sql(revision_from: str, revision_to: str) -> str:
+    """Render upgrade sql."""
     return "\n".join(
         [
             "BEGIN;",
@@ -14,6 +17,7 @@ def render_upgrade_sql(revision_from: str, revision_to: str) -> str:
 
 
 def requires_batch(dialect_name: str) -> bool:
+    """Requires batch."""
     return dialect_name == "sqlite"
 
 

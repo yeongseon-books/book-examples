@@ -1,9 +1,12 @@
+"""Devops 101 - Episode 1: What is devops."""
+
 from __future__ import annotations
 
 from common import EventLog
 
 
 def compute_dora_metrics(event_log: EventLog) -> dict[str, float]:
+    """Compute dora metrics."""
     commits = {}
     deployments = {}
     incidents = []

@@ -1,8 +1,11 @@
+"""Tests for 03 sets and functions in Discrete Math 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(p):
+    """Load."""
     s = importlib.util.spec_from_file_location("m", p)
     m = importlib.util.module_from_spec(s)
     s.loader.exec_module(m)
@@ -10,6 +13,7 @@ def load(p):
 
 
 def test_power_set_and_injective():
+    """Test power set and injective."""
     m = load(Path("ko/03-sets-and-functions.py"))
     ps = m.power_set({"a", "b", "c"})
     assert len(ps) == 8

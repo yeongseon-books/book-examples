@@ -1,4 +1,9 @@
+"""Oop 101 - Episode 3: Encapsulation."""
+
+
 class BankAccount:
+    """Bank account."""
+
     owner: str
     _balance: int
 
@@ -8,14 +13,17 @@ class BankAccount:
 
     @property
     def balance(self) -> int:
+        """Balance."""
         return self._balance
 
     def deposit(self, amount: int) -> None:
+        """Deposit."""
         if amount <= 0:
             raise ValueError("amount must be positive")
         self._balance += amount
 
     def withdraw(self, amount: int) -> None:
+        """Withdraw."""
         if amount <= 0:
             raise ValueError("amount must be positive")
         if amount > self._balance:

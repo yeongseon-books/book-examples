@@ -7,6 +7,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Scenario:
+    """Scenario."""
+
     model_name: str
     parameters_billion: float
     hours: float
@@ -16,14 +18,17 @@ class Scenario:
 
 
 def estimate_vram_gb(parameters_billion: float, bytes_per_param: int = 2) -> float:
+    """Estimate vram gb."""
     return parameters_billion * 1_000_000_000 * bytes_per_param / 1024**3
 
 
 def estimate_training_cost(hours: float, gpu_hour_price: float) -> float:
+    """Estimate training cost."""
     return hours * gpu_hour_price
 
 
 def main() -> None:
+    """Main."""
     scenarios = [
         Scenario("7B full fine-tuning", 7.0, 18.0, 2.9, 0.18, 5),
         Scenario("7B LoRA", 7.0, 4.0, 2.9, 0.12, 2),

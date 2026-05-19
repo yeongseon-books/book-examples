@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Azure Aca Deep Dive."""
+
 from __future__ import annotations
 
 import json
@@ -7,11 +9,14 @@ from dataclasses import dataclass
 
 @dataclass
 class AzPlan:
+    """Az plan."""
+
     command: str
     payload: dict[str, object]
 
 
 def dry_run_az(command: str) -> dict[str, object]:
+    """Dry run az."""
     completed = subprocess.run(
         ["python3", "-c", f"print({command!r})"],
         capture_output=True,
@@ -22,8 +27,10 @@ def dry_run_az(command: str) -> dict[str, object]:
 
 
 def as_json(data: dict[str, object]) -> str:
+    """As json."""
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
 def traffic_total(traffic: list[dict[str, int | str]]) -> int:
+    """Traffic total."""
     return int(sum(int(item["weight"]) for item in traffic))

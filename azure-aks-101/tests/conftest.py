@@ -1,3 +1,5 @@
+"""Pytest configuration and fixtures for Azure Aks 101."""
+
 from __future__ import annotations
 
 import importlib.util
@@ -11,6 +13,7 @@ if str(ROOT) not in sys.path:
 
 
 def load_module(relative_path: str, module_name: str) -> ModuleType:
+    """Load module."""
     target = ROOT / relative_path
     spec = importlib.util.spec_from_file_location(module_name, target)
     if spec is None or spec.loader is None:

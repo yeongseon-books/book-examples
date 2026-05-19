@@ -1,9 +1,12 @@
+"""Azure Aca Deep Dive - Episode 1: Dapr sidecar."""
+
 from __future__ import annotations
 
 from common import AzPlan, as_json, dry_run_az
 
 
 def run() -> dict[str, object]:
+    """Run."""
     plan = AzPlan(
         command=(
             "az containerapp update -n orders -g rg-aca --enable-dapr true "

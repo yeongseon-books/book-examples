@@ -1,3 +1,5 @@
+"""Sqlalchemy 101 - Episode 10: Production patterns."""
+
 import time
 
 from sqlalchemy import create_engine, text
@@ -6,6 +8,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 
 def run() -> dict[str, str]:
+    """Run."""
     engine = create_engine(
         "sqlite:///:memory:",
         pool_pre_ping=True,

@@ -1,3 +1,5 @@
+"""Tests for ep07 in Clean Code 101."""
+
 import importlib.util
 from pathlib import Path
 
@@ -5,6 +7,7 @@ import pytest
 
 
 def load(path: str):
+    """Load."""
     module_path = Path(__file__).resolve().parent.parent / "ko" / path
     spec = importlib.util.spec_from_file_location(module_path.stem, module_path)
     assert spec is not None and spec.loader is not None
@@ -14,6 +17,7 @@ def load(path: str):
 
 
 def test_ep07_comments_docs() -> None:
+    """Test ep07 comments docs."""
     m = load("07-comments-and-docs/step01_comments_and_docs.py")
     assert m.is_paid({"status": "PAID"}) is True
     assert m.discount(100, 0.25) == 75

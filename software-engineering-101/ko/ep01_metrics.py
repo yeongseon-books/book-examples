@@ -1,3 +1,5 @@
+"""Software Engineering 101 - Episode 1: Metrics."""
+
 from __future__ import annotations
 
 import json
@@ -6,6 +8,7 @@ from pathlib import Path
 
 
 def compute_process_metrics(path: str) -> dict[str, float]:
+    """Compute process metrics."""
     events = json.loads(Path(path).read_text(encoding="utf-8"))
     lead_times = []
     cycle_times = []

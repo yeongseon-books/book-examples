@@ -1,9 +1,12 @@
+"""Statistics 101 - Episode 2: Mean median variance std mode."""
+
 from __future__ import annotations
 
 import numpy as np
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     data = np.array([1, 2, 2, 3, 4, 5, 5, 5], dtype=float)
     mean_manual = float(np.sum(data) / data.size)
     median_manual = float(np.sort(data)[data.size // 2])

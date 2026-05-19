@@ -1,8 +1,11 @@
+"""Tests for ep02 in Backend Development 101."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
 
 def test_ep02_status_header_and_validation() -> None:
+    """Test ep02 status header and validation."""
     app = load_module(
         "ko/02-building-an-http-server/step01_status_headers.py", "ep02"
     ).build_app()

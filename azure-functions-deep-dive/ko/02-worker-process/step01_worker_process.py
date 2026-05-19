@@ -9,6 +9,7 @@ from common import resolve_worker_configs
 
 
 def run() -> dict[str, object]:
+    """Run."""
     configs = [
         {"language": "python", "defaultExecutablePath": "python", "entry": "worker.py"},
         {"language": "node", "defaultExecutablePath": "node", "entry": "worker.js"},

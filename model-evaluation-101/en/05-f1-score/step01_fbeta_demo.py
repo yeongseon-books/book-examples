@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Fbeta demo."""
+
 from __future__ import annotations
 
 from common import make_imbalanced, safe_split
@@ -6,6 +8,7 @@ from sklearn.metrics import f1_score, fbeta_score, precision_score, recall_score
 
 
 def run(seed: int = 42) -> dict[str, float]:
+    """Run."""
     X, y = make_imbalanced(
         n_samples=1000, weights=(0.87, 0.13), class_sep=0.9, random_state=seed
     )

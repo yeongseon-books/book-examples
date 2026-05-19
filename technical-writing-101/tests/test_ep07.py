@@ -1,7 +1,10 @@
+"""Tests for ep07 in Technical Writing 101."""
+
 from en.ep07_readme_scorer import analyze
 
 
 def test_ep07_readme_score():
+    """Test ep07 readme score."""
     good = analyze("fixtures/ep07_readme_good.md")
     bad = analyze("fixtures/ep07_readme_bad.md")
     assert good["required_score"] == 1.0

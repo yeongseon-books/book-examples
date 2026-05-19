@@ -20,6 +20,7 @@ QUESTION = "봄 여행지로 어디가 좋을까요?"
 
 
 def require_api_key() -> str:
+    """Require api key."""
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY 환경 변수가 필요합니다.")
@@ -27,6 +28,7 @@ def require_api_key() -> str:
 
 
 def retrieve(question: str, documents: list[str], top_k: int = 2) -> list[str]:
+    """Retrieve."""
     model = SentenceTransformer(MODEL_NAME)
     embeddings = model.encode(
         documents, normalize_embeddings=True, convert_to_numpy=True
@@ -41,6 +43,7 @@ def retrieve(question: str, documents: list[str], top_k: int = 2) -> list[str]:
 
 
 def generate_answer(question: str, contexts: list[str]) -> str:
+    """Generate answer."""
     client = Groq(api_key=require_api_key())
     joined_context = "\n".join(f"- {context}" for context in contexts)
     prompt = (
@@ -63,6 +66,7 @@ def generate_answer(question: str, contexts: list[str]) -> str:
 
 
 def main() -> None:
+    """Main."""
     contexts = retrieve(QUESTION, DOCUMENTS)
     print("검색된 문맥")
     print("=" * 40)

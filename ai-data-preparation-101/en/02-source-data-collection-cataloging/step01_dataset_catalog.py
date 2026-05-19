@@ -1,8 +1,11 @@
+"""Ai Data Preparation 101 - Episode 1: Dataset catalog."""
+
 import hashlib
 import json
 
 
 def run() -> dict[str, str | int]:
+    """Run."""
     rows = ["hello,world", "data,prep", "catalog,entry"]
     payload = "\n".join(rows).encode("utf-8")
     return {

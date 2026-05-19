@@ -1,3 +1,5 @@
+"""Tests for ep07 in Azure Aca 101."""
+
 from conftest import load_module
 
 run = load_module(
@@ -6,6 +8,7 @@ run = load_module(
 
 
 def test_ep07_observability_outputs() -> None:
+    """Test ep07 observability outputs."""
     data = run()
     assert data["errors"]["myapi--v2"] == 2
     assert "ContainerAppConsoleLogs_CL" in data["kql"][0]

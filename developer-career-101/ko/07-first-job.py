@@ -1,4 +1,8 @@
+"""Developer Career 101 - Episode 7: First job."""
+
+
 def onboarding_plan(role: str) -> dict:
+    """Onboarding plan."""
     return {
         "role": role,
         "30": ["codebase tour", "glossary", "shadow on-call"],
@@ -8,4 +12,5 @@ def onboarding_plan(role: str) -> dict:
 
 
 def validate_onboarding(plan: dict) -> bool:
+    """Validate onboarding."""
     return all(k in plan and len(plan[k]) >= 2 for k in ["30", "60", "90"])

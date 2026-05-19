@@ -1,9 +1,12 @@
+"""Software Engineering 101 - Episode 6: Versioning."""
+
 from __future__ import annotations
 
 from common import BranchMachine, semver_bump
 
 
 def changelog_parser(text: str) -> dict[str, int]:
+    """Changelog parser."""
     return {
         "feat": sum(1 for l in text.splitlines() if l.strip().startswith("- feat:")),
         "fix": sum(1 for l in text.splitlines() if l.strip().startswith("- fix:")),
@@ -11,6 +14,7 @@ def changelog_parser(text: str) -> dict[str, int]:
 
 
 def branch_state_machine(events: list[str]) -> str:
+    """Branch state machine."""
     machine = BranchMachine()
     for event in events:
         machine.apply(event)

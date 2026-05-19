@@ -1,7 +1,10 @@
+"""Capstone Project 101 - Episode 1: Presentation flow."""
+
 from __future__ import annotations
 
 
 def run() -> dict[str, object]:
+    """Run."""
     return {
         "story": ["problem", "solution", "demo", "result", "next"],
         "slides": {"problem": 2, "solution": 3, "demo": 1, "result": 2, "next": 1},

@@ -16,6 +16,14 @@
 - `ko/10-understanding-performance.py`
 - `en/`는 `ko/`와 동일 로직을 영어 경로로 미러링했습니다.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

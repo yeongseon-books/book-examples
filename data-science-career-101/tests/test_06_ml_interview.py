@@ -1,3 +1,5 @@
+"""Tests for 06 ml interview in Data Science Career 101."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -8,12 +10,14 @@ mod = load_module("ko/06-ml-interview.py")
 
 
 def test_cv_folds_non_overlapping() -> None:
+    """Test cv folds non overlapping."""
     folds = mod.k_fold_indices(30, k=5, seed=7)
     for train_idx, test_idx in folds:
         assert set(train_idx).isdisjoint(set(test_idx))
 
 
 def test_knn_accuracy_above_baseline() -> None:
+    """Test knn accuracy above baseline."""
     x = np.array(
         [[0, 0], [0, 1], [1, 0], [1, 1], [5, 5], [5, 6], [6, 5], [6, 6]], dtype=float
     )

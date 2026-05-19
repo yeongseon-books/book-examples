@@ -1,3 +1,5 @@
+"""Vector Search 101 - Episode 1: Batch embeddings."""
+
 import numpy as np
 from numpy.typing import NDArray
 from sentence_transformers import SentenceTransformer
@@ -20,10 +22,12 @@ PAIRS = [
 
 
 def cosine_similarity(left: NDArray[np.float32], right: NDArray[np.float32]) -> float:
+    """Cosine similarity."""
     return float(np.dot(left, right))
 
 
 def main() -> None:
+    """Main."""
     model = SentenceTransformer(MODEL_NAME)
     flat_sentences = [sentence for pair in PAIRS for sentence in pair]
     embeddings = model.encode(

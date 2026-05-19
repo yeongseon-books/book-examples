@@ -1,7 +1,10 @@
+"""Tests for ep03 in Azure Aks 101."""
+
 from conftest import load_module
 
 
 def test_ep03_cluster_bootstrap_command_flow() -> None:
+    """Test ep03 cluster bootstrap command flow."""
     ko = load_module(
         "ko/03-first-cluster-and-deploy/step01_first_cluster_commands.py", "ep03_ko"
     )

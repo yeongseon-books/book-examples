@@ -1,8 +1,11 @@
+"""Compilers 101 - Episode 7: Optimization basics."""
+
 # English mirror of Korean episode example
 from __future__ import annotations
 
 
 def constant_fold(node: tuple) -> tuple:
+    """Constant fold."""
     if node[0] == "num":
         return node
     _, op, left, right = node
@@ -16,6 +19,7 @@ def constant_fold(node: tuple) -> tuple:
 
 
 def dce(instructions: list[tuple]) -> list[tuple]:
+    """Dce."""
     used = set()
     result: list[tuple] = []
     for op, dst, a, b in reversed(instructions):

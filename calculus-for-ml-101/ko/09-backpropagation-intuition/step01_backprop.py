@@ -1,4 +1,9 @@
+"""Calculus For Ml 101 - Episode 1: Backprop."""
+
+
 class Node:
+    """Node."""
+
     def __init__(self, val: float, parents=(), local=()):
         self.val = val
         self.parents = parents
@@ -7,14 +12,17 @@ class Node:
 
 
 def add(a: Node, b: Node) -> Node:
+    """Add."""
     return Node(a.val + b.val, (a, b), (1.0, 1.0))
 
 
 def mul(a: Node, b: Node) -> Node:
+    """Mul."""
     return Node(a.val * b.val, (a, b), (b.val, a.val))
 
 
 def backward(n: Node) -> None:
+    """Backward."""
     n.grad = 1.0
     stack = [n]
     while stack:
@@ -25,6 +33,7 @@ def backward(n: Node) -> None:
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     a, b, c = Node(2.0), Node(3.0), Node(4.0)
     y = mul(add(a, b), c)
     backward(y)

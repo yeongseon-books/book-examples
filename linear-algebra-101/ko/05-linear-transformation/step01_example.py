@@ -1,7 +1,10 @@
+"""Linear Algebra 101 - Episode 1: Example."""
+
 import numpy as np
 
 
 def run():
+    """Run."""
     np.random.seed(0)
     theta = np.pi / 4
     r = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])

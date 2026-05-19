@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Ai Safety Guardrails 101."""
+
 from __future__ import annotations
 
 import base64
@@ -9,12 +11,17 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class GuardDecision:
+    """Guard decision."""
+
     allowed: bool
     reason: str
 
 
 class MockLLM:
+    """Mock l l m."""
+
     def complete(self, prompt: str) -> str:
+        """Complete."""
         if "password" in prompt.lower() or "비밀번호" in prompt:
             return "The password is 1234"
         return (
@@ -56,6 +63,7 @@ PII_PATTERNS = {
 
 
 def detect_prompt_injection(text: str) -> GuardDecision:
+    """Detect prompt injection."""
     lowered = text.lower()
     for pattern in PROMPT_INJECTION_PATTERNS:
         if re.search(pattern, lowered, re.IGNORECASE):
@@ -64,6 +72,7 @@ def detect_prompt_injection(text: str) -> GuardDecision:
 
 
 def _decode_base64_fragments(text: str) -> str:
+    """Decode base64 fragments."""
     tokens = re.findall(r"[A-Za-z0-9+/=]{12,}", text)
     decoded_parts: list[str] = []
     for token in tokens:
@@ -79,6 +88,7 @@ def _decode_base64_fragments(text: str) -> str:
 
 
 def detect_jailbreak(text: str) -> GuardDecision:
+    """Detect jailbreak."""
     candidates = [text.lower(), _decode_base64_fragments(text).lower()]
     for candidate in candidates:
         for pattern in JAILBREAK_PATTERNS:
@@ -88,6 +98,7 @@ def detect_jailbreak(text: str) -> GuardDecision:
 
 
 def filter_output(text: str, max_chars: int = 160) -> str:
+    """Filter output."""
     redacted = redact_pii(text)
     for phrase in FORBIDDEN_PHRASES:
         redacted = re.sub(re.escape(phrase), "[BLOCKED]", redacted, flags=re.IGNORECASE)
@@ -97,6 +108,7 @@ def filter_output(text: str, max_chars: int = 160) -> str:
 
 
 def redact_pii(text: str) -> str:
+    """Redact pii."""
     out = text
     for name, pattern in PII_PATTERNS.items():
         out = pattern.sub(f"<{name.upper()}_REDACTED>", out)
@@ -104,6 +116,7 @@ def redact_pii(text: str) -> str:
 
 
 def toxicity_bias_score(text: str) -> dict[str, int]:
+    """Toxicity bias score."""
     lowered = text.lower()
     return {
         category: sum(1 for kw in kws if kw in lowered)
@@ -119,6 +132,7 @@ KB = {
 
 
 def verify_grounded_answer(answer: str, kb: dict[str, str]) -> GuardDecision:
+    """Verify grounded answer."""
     cited = re.findall(r"\[kb:([a-z0-9\-]+)\]", answer)
     if not cited:
         return GuardDecision(False, "missing_citation")
@@ -131,6 +145,8 @@ def verify_grounded_answer(answer: str, kb: dict[str, str]) -> GuardDecision:
 
 
 class TokenBucket:
+    """Token bucket."""
+
     def __init__(self, capacity: int, refill_per_sec: float) -> None:
         self.capacity = capacity
         self.refill_per_sec = refill_per_sec
@@ -138,6 +154,7 @@ class TokenBucket:
         self.last_refill = time.monotonic()
 
     def allow(self, cost: int = 1) -> bool:
+        """Allow."""
         now = time.monotonic()
         elapsed = now - self.last_refill
         self.tokens = min(self.capacity, self.tokens + elapsed * self.refill_per_sec)
@@ -150,6 +167,8 @@ class TokenBucket:
 
 @dataclass
 class AuditRecord:
+    """Audit record."""
+
     ts: float
     event: str
     payload: str
@@ -158,10 +177,13 @@ class AuditRecord:
 
 
 class AuditLog:
+    """Audit log."""
+
     def __init__(self) -> None:
         self.records: list[AuditRecord] = []
 
     def append(self, event: str, payload: str) -> AuditRecord:
+        """Append."""
         prev_hash = self.records[-1].self_hash if self.records else "0" * 64
         raw = f"{event}|{payload}|{prev_hash}".encode()
         self_hash = hashlib.sha256(raw).hexdigest()
@@ -176,6 +198,7 @@ class AuditLog:
         return rec
 
     def verify_chain(self) -> bool:
+        """Verify chain."""
         prev = "0" * 64
         for rec in self.records:
             expected = hashlib.sha256(

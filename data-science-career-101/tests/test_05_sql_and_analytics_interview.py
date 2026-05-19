@@ -1,3 +1,5 @@
+"""Tests for 05 sql and analytics interview in Data Science Career 101."""
+
 from __future__ import annotations
 
 from .conftest import load_module
@@ -6,6 +8,7 @@ mod = load_module("ko/05-sql-and-analytics-interview.py")
 
 
 def test_sql_reference_queries_return_expected_outputs() -> None:
+    """Test sql reference queries return expected outputs."""
     conn = mod.build_connection()
     queries = mod.sql_questions()
     top_country = mod.run_query(conn, queries["top_country_by_revenue"])

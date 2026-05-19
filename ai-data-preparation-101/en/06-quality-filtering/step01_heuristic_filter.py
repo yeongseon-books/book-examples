@@ -1,3 +1,5 @@
+"""Ai Data Preparation 101 - Episode 1: Heuristic filter."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import quality_signals
 
 
 def run() -> dict[str, object]:
+    """Run."""
     samples = [
         "This sentence looks normal and useful for training data pipelines.",
         "BUY NOW!!! 999999 CLICK CLICK CLICK",

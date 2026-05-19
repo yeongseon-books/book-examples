@@ -2,6 +2,7 @@
 
 
 def supervisor(task: str) -> dict[str, str]:
+    """Supervisor."""
     worker = (
         "ResearchWorker"
         if "조사" in task or "research" in task.lower()

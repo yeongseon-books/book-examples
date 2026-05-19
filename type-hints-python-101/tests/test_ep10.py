@@ -1,7 +1,10 @@
+"""Tests for ep10 in Type Hints Python 101."""
+
 from ko.ep10_best_practices import score_module_typing
 
 
 def test_ep10_ast_checklist_scorer() -> None:
+    """Test ep10 ast checklist scorer."""
     source = 'from typing import Any\nNameAlias: str = "x"\ndef f(a: int) -> int:\n    return a\n'
     score = score_module_typing(source)
     assert score["annotated_functions"] >= 1

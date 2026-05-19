@@ -1,8 +1,11 @@
+"""Tests for ep08 in Probability 101."""
+
 import pytest
 from ko.ep08_continuous_distributions import run
 
 
 def test_ep08_continuous_distributions():
+    """Test ep08 continuous distributions."""
     out = run(120_000)
     assert out["normal_pdf_0"] == pytest.approx(0.39894228, rel=1e-6)
     assert out["normal_cdf_0"] == pytest.approx(0.5, rel=1e-9)

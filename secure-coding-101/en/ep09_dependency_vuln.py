@@ -1,3 +1,5 @@
+"""Secure Coding 101 - Episode 9: Dependency vuln."""
+
 from common import assert_demo
 
 FAKE_CVE_DB = {
@@ -7,10 +9,12 @@ FAKE_CVE_DB = {
 
 
 def insecure_accept_all(requirements_text: str) -> bool:
+    """Insecure accept all."""
     return True
 
 
 def parse_requirements(requirements_text: str) -> list[tuple[str, str]]:
+    """Parse requirements."""
     items = []
     for line in requirements_text.splitlines():
         line = line.strip()
@@ -22,6 +26,7 @@ def parse_requirements(requirements_text: str) -> list[tuple[str, str]]:
 
 
 def find_vulnerable(requirements_text: str) -> list[str]:
+    """Find vulnerable."""
     bad = []
     for name, ver in parse_requirements(requirements_text):
         if ver in FAKE_CVE_DB.get(name, set()):
@@ -30,6 +35,7 @@ def find_vulnerable(requirements_text: str) -> list[str]:
 
 
 def run_demo():
+    """Run demo."""
     reqs = "flask==0.12\nrequests==2.31.0"
     insecure_detected = insecure_accept_all(reqs) is True
     safe_ok = find_vulnerable(reqs) == ["flask==0.12"]

@@ -9,6 +9,7 @@ from common import MockLLM, get_weather, safe_calculate
 
 
 def run(goal: str) -> dict[str, object]:
+    """Run."""
     llm = MockLLM()
     state: dict[str, object] = {"weather": None}
     action = llm.next_action(goal, state)

@@ -15,6 +15,7 @@ from groq import AsyncGroq
 
 
 async def main() -> None:
+    """Main."""
     client = AsyncGroq(api_key=os.environ["GROQ_API_KEY"])
 
     stream = await client.chat.completions.create(

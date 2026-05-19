@@ -31,6 +31,7 @@ else:
 
 
 def main() -> None:
+    """Main."""
     training_args_kwargs = {
         "output_dir": "./artifacts/sft-demo",
         "per_device_train_batch_size": 2,

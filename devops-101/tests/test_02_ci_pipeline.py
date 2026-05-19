@@ -1,3 +1,5 @@
+"""Tests for 02 ci pipeline in Devops 101."""
+
 from xml.etree import ElementTree
 
 from common import MockCommandRunner
@@ -5,6 +7,7 @@ from ko import _02_ci_pipeline as ep02
 
 
 def test_pipeline_halts_on_first_failure_and_xml_is_valid() -> None:
+    """Test pipeline halts on first failure and xml is valid."""
     runner = MockCommandRunner(
         {"lint": (1, "", "lint failed"), "test": (0, "ok", ""), "build": (0, "ok", "")}
     )

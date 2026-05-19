@@ -1,7 +1,10 @@
+"""Tests for ep06 in Kubernetes 101."""
+
 from common import ConfigMapSecretLoader
 
 
 def test_ep06_env_from_merges_config_and_secret():
+    """Test ep06 env from merges config and secret."""
     pod = {
         "spec": {
             "containers": [

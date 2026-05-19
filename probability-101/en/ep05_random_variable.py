@@ -1,3 +1,5 @@
+"""Probability 101 - Episode 5: Random variable."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -5,6 +7,7 @@ from common import make_rng
 
 
 def run(n: int = 200_000) -> dict[str, float]:
+    """Run."""
     values = np.array([0, 1, 2, 3])
     probs = np.array([0.1, 0.2, 0.4, 0.3])
     rng = make_rng()

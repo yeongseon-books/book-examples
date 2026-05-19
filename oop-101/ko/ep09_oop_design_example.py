@@ -1,19 +1,26 @@
+"""Oop 101 - Episode 9: Oop design example."""
+
 from dataclasses import dataclass
 
 
 @dataclass
 class Product:
+    """Product."""
+
     sku: str
     price: int
 
 
 class Inventory:
+    """Inventory."""
+
     stock: dict[str, int]
 
     def __init__(self, stock: dict[str, int]) -> None:
         self.stock = stock
 
     def reserve(self, sku: str, qty: int) -> bool:
+        """Reserve."""
         current = self.stock.get(sku, 0)
         if qty <= 0 or current < qty:
             return False
@@ -22,11 +29,16 @@ class Inventory:
 
 
 class PaymentProcessor:
+    """Payment processor."""
+
     def pay(self, amount: int) -> bool:
+        """Pay."""
         return amount > 0
 
 
 class OrderService:
+    """Order service."""
+
     inventory: Inventory
     payment: PaymentProcessor
 
@@ -35,6 +47,7 @@ class OrderService:
         self.payment = payment
 
     def order(self, product: Product, qty: int) -> str:
+        """Order."""
         if not self.inventory.reserve(product.sku, qty):
             return "out_of_stock"
         total = product.price * qty

@@ -8,6 +8,7 @@ FD = tuple[frozenset[str], frozenset[str]]
 
 
 def closure(attrs: frozenset[str], fds: list[FD]) -> frozenset[str]:
+    """Closure."""
     result = set(attrs)
     changed = True
     while changed:
@@ -20,6 +21,7 @@ def closure(attrs: frozenset[str], fds: list[FD]) -> frozenset[str]:
 
 
 def candidate_keys(relation: frozenset[str], fds: list[FD]) -> list[frozenset[str]]:
+    """Candidate keys."""
     attrs = sorted(relation)
     keys = []
     for r in range(1, len(attrs) + 1):
@@ -31,6 +33,7 @@ def candidate_keys(relation: frozenset[str], fds: list[FD]) -> list[frozenset[st
 
 
 def synthesize_3nf(relation: frozenset[str], fds: list[FD]) -> list[frozenset[str]]:
+    """Synthesize 3nf."""
     schemas = [lhs | rhs for lhs, rhs in fds]
     keys = candidate_keys(relation, fds)
     if keys and not any(keys[0].issubset(s) for s in schemas):
@@ -43,6 +46,7 @@ def synthesize_3nf(relation: frozenset[str], fds: list[FD]) -> list[frozenset[st
 
 
 def is_dependency_preserved(decomposition: list[frozenset[str]], fds: list[FD]) -> bool:
+    """Is dependency preserved."""
     return all(any((lhs | rhs).issubset(r) for r in decomposition) for lhs, rhs in fds)
 
 

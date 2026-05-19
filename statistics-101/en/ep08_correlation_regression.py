@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 8: Correlation regression."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -5,6 +7,7 @@ from common import rng
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     g = rng()
     x = np.linspace(0, 10, 60)
     y = 1.5 + 2.2 * x + g.normal(0, 1.5, size=x.size)

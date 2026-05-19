@@ -1,3 +1,5 @@
+"""Tests for ep06 in Azure App Service Deep Dive."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
@@ -7,6 +9,7 @@ check_ready = module.check_ready
 
 
 def test_ep06_warmup_contract_and_status_filter() -> None:
+    """Test ep06 warmup contract and status filter."""
     warming = TestClient(create_app(False)).get("/warmup")
     ready = TestClient(create_app(True)).get("/warmup")
     assert warming.status_code == 503

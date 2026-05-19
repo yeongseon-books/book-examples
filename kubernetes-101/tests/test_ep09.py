@@ -1,9 +1,12 @@
+"""Tests for ep09 in Kubernetes 101."""
+
 from pathlib import Path
 
 from common import HelmTemplater
 
 
 def test_ep09_helm_template_substitution():
+    """Test ep09 helm template substitution."""
     template = Path("ko/09-helm/chart-template.yaml").read_text()
     values = {
         "name": "web",

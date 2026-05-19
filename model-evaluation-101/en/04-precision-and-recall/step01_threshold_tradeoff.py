@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Threshold tradeoff."""
+
 from __future__ import annotations
 
 from common import compute_pr_at_threshold, make_imbalanced, safe_split
@@ -5,6 +7,7 @@ from sklearn.linear_model import LogisticRegression
 
 
 def run(seed: int = 42) -> dict[str, dict[str, float]]:
+    """Run."""
     X, y = make_imbalanced(
         n_samples=1000, weights=(0.9, 0.1), class_sep=1.0, random_state=seed
     )

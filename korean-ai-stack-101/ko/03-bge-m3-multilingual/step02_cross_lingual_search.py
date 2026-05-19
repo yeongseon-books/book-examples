@@ -15,6 +15,7 @@ DOCUMENTS = [
 
 
 def main() -> None:
+    """Main."""
     print(f"모델 로드: {MODEL_NAME}")
     model = SentenceTransformer(MODEL_NAME)
     query_embedding = model.encode(

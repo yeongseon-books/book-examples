@@ -14,6 +14,7 @@ USER_PROMPT = (
 
 
 def require_api_key() -> str:
+    """Require api key."""
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("The GROQ_API_KEY environment variable is required.")
@@ -21,6 +22,7 @@ def require_api_key() -> str:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=require_api_key())
     response = client.chat.completions.create(
         model=MODEL_NAME,

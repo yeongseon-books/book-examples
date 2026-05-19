@@ -14,6 +14,7 @@ from groq import Groq
 
 
 def call_with_max_tokens(client: Groq, max_tokens: int) -> None:
+    """Call with max tokens."""
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
@@ -38,6 +39,7 @@ def call_with_max_tokens(client: Groq, max_tokens: int) -> None:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     call_with_max_tokens(client, max_tokens=40)

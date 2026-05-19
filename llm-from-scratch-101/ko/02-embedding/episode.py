@@ -1,3 +1,5 @@
+"""Llm From Scratch 101 - Episode."""
+
 import numpy as np
 from common import Embedding, positional_encoding
 

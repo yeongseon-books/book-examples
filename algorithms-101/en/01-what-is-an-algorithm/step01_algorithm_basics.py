@@ -1,7 +1,10 @@
+"""Algorithms 101 - Episode 1: Algorithm basics."""
+
 from __future__ import annotations
 
 
 def two_sum_hash(nums: list[int], target: int) -> tuple[int, int] | None:
+    """Two sum hash."""
     seen: dict[int, int] = {}
     for i, x in enumerate(nums):
         comp = target - x
@@ -12,6 +15,7 @@ def two_sum_hash(nums: list[int], target: int) -> tuple[int, int] | None:
 
 
 def run() -> dict[str, object]:
+    """Run."""
     data = [2, 7, 11, 15]
     pair = two_sum_hash(data, 9)
     return {"input": data, "target": 9, "pair": pair}

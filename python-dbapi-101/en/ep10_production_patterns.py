@@ -1,3 +1,5 @@
+"""Python Dbapi 101 - Episode 10: Production patterns."""
+
 from __future__ import annotations
 
 import sqlite3
@@ -8,6 +10,7 @@ from common import create_connection, initialize_schema
 
 
 def execute_with_retry(conn: sqlite3.Connection, sql: str, params=(), retries: int = 3):
+    """Execute with retry."""
     last_error = None
     for attempt in range(retries):
         try:
@@ -22,6 +25,7 @@ def execute_with_retry(conn: sqlite3.Connection, sql: str, params=(), retries: i
 
 @contextmanager
 def transaction(conn: sqlite3.Connection):
+    """Transaction."""
     try:
         conn.execute("BEGIN")
         yield
@@ -32,6 +36,7 @@ def transaction(conn: sqlite3.Connection):
 
 
 def run_demo() -> dict[str, int]:
+    """Run demo."""
     conn = create_connection(":memory:")
     initialize_schema(conn)
 

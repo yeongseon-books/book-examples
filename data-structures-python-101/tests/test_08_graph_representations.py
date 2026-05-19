@@ -1,8 +1,11 @@
+"""Tests for 08 graph representations in Data Structures Python 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     spec = importlib.util.spec_from_file_location("mod", path)
     mod = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
@@ -14,6 +17,7 @@ M = load(str(Path(__file__).resolve().parents[1] / "ko/08-graph-representations.
 
 
 def test_conversions_and_traversals():
+    """Test conversions and traversals."""
     edges = [("A", "B"), ("A", "C"), ("B", "D"), ("C", "D")]
     adj = M.edge_list_to_adj_list(edges)
     assert adj["A"] == ["B", "C"]

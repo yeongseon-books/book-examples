@@ -1,8 +1,11 @@
+"""Tests for 07 networks in Computer Science 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(name, rel):
+    """Load."""
     spec = importlib.util.spec_from_file_location(
         name, Path(__file__).parent.parent / rel
     )
@@ -13,6 +16,7 @@ def load(name, rel):
 
 
 def test_packet_drop_occurs_when_queue_small():
+    """Test packet drop occurs when queue small."""
     m = load("ep07", "ko/07-networks.py")
     delivered, dropped = m.simulate_line(packet_count=12, capacity=2, ticks=20)
     assert delivered <= 12

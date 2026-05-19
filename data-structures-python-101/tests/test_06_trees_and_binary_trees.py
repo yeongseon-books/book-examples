@@ -1,9 +1,12 @@
+"""Tests for 06 trees and binary trees in Data Structures Python 101."""
+
 import importlib.util
 import sys
 from pathlib import Path
 
 
 def load(path: str):
+    """Load."""
     spec = importlib.util.spec_from_file_location("mod", path)
     mod = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
@@ -16,11 +19,13 @@ M = load(str(Path(__file__).resolve().parents[1] / "ko/06-trees-and-binary-trees
 
 
 def test_bfs_and_dfs_names():
+    """Test bfs and dfs names."""
     root = M.TreeNode("root", [M.TreeNode("a"), M.TreeNode("b", [M.TreeNode("c")])])
     assert M.bfs_names(root) == ["root", "a", "b", "c"]
     assert M.dfs_names(root) == ["root", "a", "b", "c"]
 
 
 def test_xml_tags():
+    """Test xml tags."""
     tags = M.xml_tags("<root><item/><item><name/></item></root>")
     assert tags == ["root", "item", "item", "name"]

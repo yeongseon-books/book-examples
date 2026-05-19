@@ -1,7 +1,10 @@
+"""Alembic 101 - Episode 1: Deploy ordering."""
+
 from __future__ import annotations
 
 
 def plan_deploy(change_kind: str) -> list[str]:
+    """Plan deploy."""
     if change_kind == "add_column":
         return ["migration", "deploy"]
     if change_kind == "drop_column":
@@ -10,6 +13,7 @@ def plan_deploy(change_kind: str) -> list[str]:
 
 
 def blue_green_compatible(schema_stage: str) -> bool:
+    """Blue green compatible."""
     return schema_stage in {"expand", "dual-write", "read-new"}
 
 

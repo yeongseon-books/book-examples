@@ -11,6 +11,7 @@ from common import InMemoryCache, InMemoryQueue, request_id_middleware
 
 
 def build_app() -> FastAPI:
+    """Build app."""
     app = FastAPI()
     cache = InMemoryCache(values={})
     queue = InMemoryQueue(jobs=[])
@@ -18,6 +19,7 @@ def build_app() -> FastAPI:
 
     @app.post("/tasks/{task_id}")
     def create_task(task_id: str):
+        """Create task."""
         cached = cache.get(task_id)
         if cached is not None:
             return {"task_id": task_id, "status": cached, "source": "cache"}
@@ -27,6 +29,7 @@ def build_app() -> FastAPI:
 
     @app.get("/ops/metrics")
     def metrics():
+        """Metrics."""
         return {"queued_jobs": len(queue.jobs), "cached_keys": len(cache.values)}
 
     return app

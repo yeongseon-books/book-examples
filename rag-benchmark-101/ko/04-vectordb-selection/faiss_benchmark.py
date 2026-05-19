@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Faiss benchmark."""
+
 from __future__ import annotations
 
 import json
@@ -15,6 +17,7 @@ from ko.shared import CORPUS, QUERIES, VECTOR_INDEXES
 
 
 def main() -> None:
+    """Main."""
     print("FAISS 인덱스 비교")
     doc_ids = [doc["id"] for doc in CORPUS]
     doc_vectors = build_embeddings(

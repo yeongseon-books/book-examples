@@ -19,6 +19,7 @@ def summarize_history(
     history_chunk: list[ChatCompletionMessageParam],
     current_summary: str,
 ) -> str:
+    """Summarize history."""
     prompt: list[ChatCompletionMessageParam] = [
         {
             "role": "system",
@@ -49,6 +50,7 @@ def build_messages(
     recent_turns: list[ChatCompletionMessageParam],
     user_text: str,
 ) -> list[ChatCompletionMessageParam]:
+    """Build messages."""
     messages: list[ChatCompletionMessageParam] = [system_message]
     if summary_text:
         messages.append(
@@ -60,6 +62,7 @@ def build_messages(
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     system_message: ChatCompletionSystemMessageParam = {
         "role": "system",

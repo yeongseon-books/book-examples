@@ -1,8 +1,11 @@
+"""Computer Networks 101 - Episode 2: Ip and subnet."""
+
 # English mirror of the corresponding episode demo
 import ipaddress
 
 
 def summarize_network(cidr: str) -> dict[str, object]:
+    """Summarize network."""
     net = ipaddress.ip_network(cidr)
     subnets = list(net.subnets(prefixlen_diff=2))
     return {

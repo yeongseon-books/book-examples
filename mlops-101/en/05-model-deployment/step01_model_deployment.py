@@ -1,9 +1,12 @@
+"""Mlops 101 - Episode 1: Model deployment."""
+
 import pickle
 
 from common import ModelRegistry, ModelServer, TrainingPipeline
 
 
 def run_deployment_demo() -> dict[str, float | int]:
+    """Run deployment demo."""
     registry = ModelRegistry()
     result = TrainingPipeline(registry).run()
     record = registry.get_by_stage("Staging")

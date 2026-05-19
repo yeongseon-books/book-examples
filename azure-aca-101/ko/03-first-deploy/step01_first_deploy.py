@@ -1,3 +1,5 @@
+"""Azure Aca 101 - Episode 1: First deploy."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import az
 
 
 def deployment_plan() -> list[str]:
+    """Deployment plan."""
     rg = az(
         "group", "create", "--name", "rg-aca-101-demo", "--location", "eastus"
     ).render()
@@ -45,6 +48,7 @@ def deployment_plan() -> list[str]:
 
 
 def run() -> dict[str, object]:
+    """Run."""
     plan = deployment_plan()
     return {"steps": len(plan), "commands": plan}
 

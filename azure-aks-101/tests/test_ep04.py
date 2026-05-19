@@ -1,8 +1,11 @@
+"""Tests for ep04 in Azure Aks 101."""
+
 from common import load_yaml
 from conftest import load_module
 
 
 def test_ep04_deployment_yaml_shape() -> None:
+    """Test ep04 deployment yaml shape."""
     ko = load_module(
         "ko/04-pod-deployment-service/step01_deployment_service_manifest.py", "ep04_ko"
     )

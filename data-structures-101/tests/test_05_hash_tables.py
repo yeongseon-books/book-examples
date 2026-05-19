@@ -1,7 +1,10 @@
+"""Tests for 05 hash tables in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_hash_table_lookup_and_collision_count():
+    """Test hash table lookup and collision count."""
     mod = load_module("ko/05-hash-tables.py")
     table = mod.HashTableChaining(capacity=4)
     k1 = mod.BadKey(1)

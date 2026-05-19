@@ -1,7 +1,10 @@
+"""Tests for ep08 in Llm From Scratch 101."""
+
 import numpy as np
 
 
 def test_finetuning_updates_parameters() -> None:
+    """Test finetuning updates parameters."""
     x = np.eye(3)
     y = np.array([0, 1, 2])
     w = np.zeros((3, 3))

@@ -1,8 +1,12 @@
+"""Langgraph 101 - Episode 2: Three node pipeline."""
+
 from langgraph.graph import END, START, StateGraph
 from typing_extensions import TypedDict
 
 
 class PipelineState(TypedDict):
+    """Pipeline state."""
+
     raw_text: str
     cleaned_text: str
     keywords: list[str]
@@ -10,12 +14,14 @@ class PipelineState(TypedDict):
 
 
 def clean_text(state: PipelineState):
+    """Clean text."""
     cleaned_text = " ".join(state["raw_text"].split())
     print(f"[clean_text] 정리된 문장: {cleaned_text}")
     return {"cleaned_text": cleaned_text}
 
 
 def extract_keywords(state: PipelineState):
+    """Extract keywords."""
     tokens = [token.strip(",.") for token in state["cleaned_text"].split()]
     keywords = tokens[:3]
     print(f"[extract_keywords] 핵심 키워드: {keywords}")
@@ -23,12 +29,14 @@ def extract_keywords(state: PipelineState):
 
 
 def summarize_text(state: PipelineState):
+    """Summarize text."""
     summary = f"이 파이프라인은 {', '.join(state['keywords'])} 중심으로 흐릅니다."
     print(f"[summarize_text] 요약: {summary}")
     return {"summary": summary}
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(PipelineState)
     builder.add_node("clean_text", clean_text)
     builder.add_node("extract_keywords", extract_keywords)

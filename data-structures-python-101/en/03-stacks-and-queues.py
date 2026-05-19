@@ -1,7 +1,10 @@
+"""Data Structures Python 101 - Episode 3: Stacks and queues."""
+
 from collections import deque
 
 
 def is_balanced_parentheses(text: str) -> bool:
+    """Is balanced parentheses."""
     stack: list[str] = []
     pairs = {")": "(", "]": "[", "}": "{"}
     for ch in text:
@@ -13,6 +16,7 @@ def is_balanced_parentheses(text: str) -> bool:
 
 
 def bfs_order(graph: dict[str, list[str]], start: str) -> list[str]:
+    """Bfs order."""
     visited = {start}
     q: deque[str] = deque([start])
     out: list[str] = []

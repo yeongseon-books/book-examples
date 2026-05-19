@@ -8,10 +8,13 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Relation:
+    """Relation."""
+
     schema: tuple[str, ...]
     rows: frozenset[tuple[object, ...]]
 
     def select(self, predicate):
+        """Select."""
         return Relation(
             self.schema,
             frozenset(
@@ -22,18 +25,22 @@ class Relation:
         )
 
     def project(self, columns: tuple[str, ...]):
+        """Project."""
         idx = [self.schema.index(c) for c in columns]
         return Relation(columns, frozenset(tuple(r[i] for i in idx) for r in self.rows))
 
     def union(self, other: Relation):
+        """Union."""
         assert self.schema == other.schema
         return Relation(self.schema, self.rows | other.rows)
 
     def difference(self, other: Relation):
+        """Difference."""
         assert self.schema == other.schema
         return Relation(self.schema, self.rows - other.rows)
 
     def join(self, other: Relation, left_key: str, right_key: str):
+        """Join."""
         li = self.schema.index(left_key)
         ri = other.schema.index(right_key)
         out_schema = self.schema + tuple(c for c in other.schema if c != right_key)
@@ -46,6 +53,7 @@ class Relation:
 
 
 def sqlite_join_result() -> list[tuple[str, str]]:
+    """Sqlite join result."""
     db = sqlite3.connect(":memory:")
     db.executescript(
         """

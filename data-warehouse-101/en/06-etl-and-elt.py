@@ -1,3 +1,5 @@
+"""Data Warehouse 101 - Episode 6: Etl and elt."""
+
 # English example
 import sqlite3
 
@@ -5,6 +7,7 @@ import pandas as pd
 
 
 def run_demo() -> dict:
+    """Run demo."""
     src = pd.DataFrame(
         [
             {"order_id": 1, "region": "KR", "amount": 10.0},

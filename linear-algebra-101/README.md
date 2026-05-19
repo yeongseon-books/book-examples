@@ -7,6 +7,14 @@
 - 공통 유틸리티는 `common.py`에 모아 두었습니다.
 - 검증은 `pytest -q`로 실행하며, 에피소드별 동작 테스트를 포함합니다.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행 방법
 
 ```bash

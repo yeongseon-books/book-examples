@@ -1,8 +1,11 @@
+"""Tests for ep04 in Backend Development 101."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
 
 def test_ep04_service_business_rule() -> None:
+    """Test ep04 service business rule."""
     app = load_module("ko/04-service-layer/step01_service_layer.py", "ep04").build_app()
     client = TestClient(app)
     assert client.post("/register", json={"name": "Kim", "age": 20}).status_code == 200

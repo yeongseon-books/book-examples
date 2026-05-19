@@ -1,9 +1,12 @@
+"""Serverless 101 - Episode 7: Queue worker."""
+
 from __future__ import annotations
 
 from common import *
 
 
 def run_demo():
+    """Run demo."""
     if 7 == 1:
         return ep01_handler({"episode": 7}, {"request_id": "demo-7"})
     if 7 == 2:

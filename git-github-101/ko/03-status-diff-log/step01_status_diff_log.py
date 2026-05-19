@@ -1,3 +1,5 @@
+"""Git Github 101 - Episode 1: Status diff log."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -6,6 +8,7 @@ from common import cleanup_dir, make_temp_repo, run_git, write_file
 
 
 def run() -> dict[str, str]:
+    """Run."""
     repo = make_temp_repo()
     try:
         write_file(Path(repo) / "notes.md", "hello\n")

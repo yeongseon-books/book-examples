@@ -1,9 +1,12 @@
+"""Azure Aca Deep Dive - Episode 1: Keda translation."""
+
 from __future__ import annotations
 
 from common import AzPlan, as_json, dry_run_az
 
 
 def run() -> dict[str, object]:
+    """Run."""
     plan = AzPlan(
         command=(
             "az containerapp update -n worker -g rg-aca --min-replicas 0 --max-replicas 30 "

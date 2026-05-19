@@ -1,7 +1,10 @@
+"""Compilers 101 - Episode 1: What is a compiler."""
+
 from __future__ import annotations
 
 
 def compile_pipeline(source: str) -> dict[str, object]:
+    """Compile pipeline."""
     tokens = ["2", "+", "3", "*", "4"]
     ast = ("bin", "+", ("num", 2), ("bin", "*", ("num", 3), ("num", 4)))
     ir = ["t1 = 3 * 4", "t2 = 2 + t1", "ret t2"]

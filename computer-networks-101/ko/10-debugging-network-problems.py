@@ -1,3 +1,5 @@
+"""Computer Networks 101 - Episode 10: Debugging network problems."""
+
 from collections import defaultdict
 from statistics import mean
 
@@ -5,6 +7,7 @@ from common import parse_json_lines
 
 
 def analyze_packet_log(raw_json_lines: str) -> dict[str, object]:
+    """Analyze packet log."""
     packets = parse_json_lines(raw_json_lines)
     sends: dict[tuple[str, int], float] = {}
     rtts: list[float] = []

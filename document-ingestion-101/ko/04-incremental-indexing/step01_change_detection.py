@@ -1,3 +1,5 @@
+"""Document Ingestion 101 - Episode 1: Change detection."""
+
 from __future__ import annotations
 
 import sys
@@ -11,6 +13,7 @@ from shared.ingestion_examples import JsonStateStore, incremental_scan, write_te
 
 
 def main() -> None:
+    """Main."""
     workspace = Path("/tmp/document_ingestion_ko_change_detection")
     doc_a = write_text(workspace / "guide.txt", "첫 번째 버전의 가이드 문서")
     doc_b = write_text(workspace / "runbook.txt", "운영 런북 초안")

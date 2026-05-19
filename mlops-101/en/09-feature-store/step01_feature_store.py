@@ -1,7 +1,10 @@
+"""Mlops 101 - Episode 1: Feature store."""
+
 from common import FeatureStore
 
 
 def run_feature_store_demo() -> dict[str, float | int | str] | None:
+    """Run feature store demo."""
     fs = FeatureStore()
     fs.ingest_offline({"entity_id": "u1", "event_ts": 100, "f1": 1.0})
     fs.ingest_offline({"entity_id": "u1", "event_ts": 200, "f1": 2.0})

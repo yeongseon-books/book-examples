@@ -1,7 +1,10 @@
+"""Data Science 101 - Episode 2: Problem to data problem."""
+
 from __future__ import annotations
 
 
 def make_data_problem_spec() -> dict[str, object]:
+    """Make data problem spec."""
     return {
         "business_question": "어떤 사용자가 30일 내 이탈할 가능성이 높은가?",
         "prediction_type": "binary_classification",
@@ -19,6 +22,7 @@ def make_data_problem_spec() -> dict[str, object]:
 
 
 def validate_spec(spec: dict[str, object]) -> bool:
+    """Validate spec."""
     required = {
         "business_question",
         "prediction_type",

@@ -1,9 +1,12 @@
+"""Statistics 101 - Episode 1: Stats overview."""
+
 from __future__ import annotations
 
 import numpy as np
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     data = np.array([3, 5, 7, 7, 10, 12, 15], dtype=float)
     return {
         "count": float(data.size),

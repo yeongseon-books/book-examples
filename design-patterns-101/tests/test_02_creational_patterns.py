@@ -1,8 +1,11 @@
+"""Tests for 02 creational patterns in Design Patterns 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load():
+    """Load."""
     p = Path(__file__).resolve().parents[1] / "ko/02-creational-patterns.py"
     s = importlib.util.spec_from_file_location("ep02", p)
     m = importlib.util.module_from_spec(s)
@@ -11,6 +14,7 @@ def load():
 
 
 def test_creational_patterns():
+    """Test creational patterns."""
     m = load()
     assert m.MODULE_SINGLETON is m.MODULE_SINGLETON
     assert m.DecoratedSingleton() is m.DecoratedSingleton()

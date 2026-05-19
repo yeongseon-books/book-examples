@@ -1,7 +1,10 @@
+"""Devops 101 - Episode 6: Containers and build."""
+
 from __future__ import annotations
 
 
 def lint_dockerfile(text: str) -> dict[str, object]:
+    """Lint dockerfile."""
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     warnings: list[str] = []
 
@@ -27,6 +30,7 @@ def lint_dockerfile(text: str) -> dict[str, object]:
 
 
 def estimate_image_size(lines: list[str]) -> int:
+    """Estimate image size."""
     score = 50
     for line in lines:
         if line.startswith("FROM "):

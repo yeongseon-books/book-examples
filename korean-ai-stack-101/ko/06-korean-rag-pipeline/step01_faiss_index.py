@@ -17,6 +17,7 @@ INDEX_PATH = "korean_documents.faiss"
 
 
 def build_index(documents: list[str]) -> tuple[faiss.IndexFlatIP, int]:
+    """Build index."""
     model = SentenceTransformer(MODEL_NAME)
     embeddings = model.encode(
         documents, normalize_embeddings=True, convert_to_numpy=True
@@ -27,6 +28,7 @@ def build_index(documents: list[str]) -> tuple[faiss.IndexFlatIP, int]:
 
 
 def main() -> None:
+    """Main."""
     index, dimension = build_index(DOCUMENTS)
     faiss.write_index(index, INDEX_PATH)
     print("FAISS 인덱스를 생성했습니다.")

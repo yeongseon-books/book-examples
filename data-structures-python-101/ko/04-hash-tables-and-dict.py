@@ -1,3 +1,5 @@
+"""Data Structures Python 101 - Episode 4: Hash tables and dict."""
+
 from collections import Counter, defaultdict
 from collections.abc import Callable
 from time import perf_counter
@@ -7,6 +9,7 @@ from typing import Any
 def time_op(
     fn: Callable[..., Any], *args: Any, repeat: int = 5, loops: int = 1, **kwargs: Any
 ) -> float:
+    """Time op."""
     best = float("inf")
     for _ in range(repeat):
         start = perf_counter()
@@ -17,10 +20,12 @@ def time_op(
 
 
 def aggregate_with_counter(items: list[str]) -> Counter[str]:
+    """Aggregate with counter."""
     return Counter(items)
 
 
 def group_with_defaultdict(pairs: list[tuple[str, int]]) -> dict[str, list[int]]:
+    """Group with defaultdict."""
     grouped: defaultdict[str, list[int]] = defaultdict(list)
     for k, v in pairs:
         grouped[k].append(v)
@@ -28,11 +33,13 @@ def group_with_defaultdict(pairs: list[tuple[str, int]]) -> dict[str, list[int]]
 
 
 def ordered_dict_demo() -> list[str]:
+    """Ordered dict demo."""
     d = {"first": 1, "second": 2, "third": 3}
     return list(d.keys())
 
 
 def dict_vs_list_lookup(size: int = 30_000, target: int = 29_999) -> dict[str, float]:
+    """Dict vs list lookup."""
     values = list(range(size))
     mapping = {x: x for x in values}
     return {

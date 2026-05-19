@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Pandas 101."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -5,10 +7,12 @@ import pandas as pd
 
 
 def rng(seed: int = 42) -> np.random.Generator:
+    """Rng."""
     return np.random.default_rng(seed)
 
 
 def make_sales_df(rows: int = 120, seed: int = 42) -> pd.DataFrame:
+    """Make sales df."""
     gen = rng(seed)
     regions = np.array(["East", "West", "North", "South"])
     channels = np.array(["Online", "Store"])
@@ -33,6 +37,7 @@ def make_sales_df(rows: int = 120, seed: int = 42) -> pd.DataFrame:
 
 
 def make_students_df(seed: int = 42) -> pd.DataFrame:
+    """Make students df."""
     gen = rng(seed)
     names = ["Kim", "Lee", "Park", "Choi", "Han", "Jung", "Seo", "Lim"]
     scores = gen.integers(55, 100, size=len(names))

@@ -1,7 +1,10 @@
+"""Portfolio Project 101 - Episode 8: Outline generator."""
+
 from __future__ import annotations
 
 
 def generate_blog_outline(meta: dict[str, str]) -> str:
+    """Generate blog outline."""
     return "\n".join(
         [
             f"# {meta.get('project_name', 'Project')} Blog Outline",

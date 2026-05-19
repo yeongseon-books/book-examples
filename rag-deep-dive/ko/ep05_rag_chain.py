@@ -1,3 +1,5 @@
+"""Rag Deep Dive - Episode 5: Rag chain."""
+
 from __future__ import annotations
 
 from common import load_markdown_fixtures, mock_llm_answer
@@ -8,6 +10,7 @@ from ko.ep04_prompt_builder import build_prompt
 
 
 def run_chain(question: str, fixtures_dir: str = "fixtures") -> dict[str, str]:
+    """Run chain."""
     docs = load_markdown_fixtures(fixtures_dir)
     all_chunks: list[str] = []
     for content in docs.values():

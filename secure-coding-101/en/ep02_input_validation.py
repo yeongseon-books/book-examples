@@ -1,3 +1,5 @@
+"""Secure Coding 101 - Episode 2: Input validation."""
+
 import re
 
 from common import assert_demo
@@ -7,10 +9,12 @@ ROLE_ALLOWLIST = {"viewer", "editor", "admin"}
 
 
 def insecure_validate(payload: dict) -> bool:
+    """Insecure validate."""
     return True
 
 
 def safe_validate(payload: dict) -> bool:
+    """Safe validate."""
     username = payload.get("username", "")
     role = payload.get("role", "")
     if not isinstance(username, str) or not USERNAME_RE.match(username):
@@ -19,6 +23,7 @@ def safe_validate(payload: dict) -> bool:
 
 
 def run_demo():
+    """Run demo."""
     bad = {"username": "A!", "role": "root"}
     good = {"username": "safe_user", "role": "viewer"}
     insecure_detected = insecure_validate(bad) is True

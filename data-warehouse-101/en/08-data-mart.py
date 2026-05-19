@@ -1,8 +1,11 @@
+"""Data Warehouse 101 - Episode 8: Data mart."""
+
 # English example
 from common import make_dw
 
 
 def run_demo() -> dict:
+    """Run demo."""
     conn = make_dw(600)
     conn.execute(
         "CREATE TABLE finance_mart_monthly AS SELECT d.year AS fiscal_year,d.month AS fiscal_month,ROUND(SUM(f.amount),2) AS booked_revenue FROM fact_sales f JOIN dim_date d ON d.date_key=f.date_key GROUP BY d.year,d.month"

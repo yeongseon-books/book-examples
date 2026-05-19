@@ -1,7 +1,10 @@
+"""Observability 101 - Episode 5: Distributed tracing."""
+
 from common import Tracer
 
 
 def run_demo() -> tuple[str, int]:
+    """Run demo."""
     tracer = Tracer()
     with tracer.start_span("api") as root:
         headers = tracer.inject(root.trace_id, {"user_tier": "pro"})

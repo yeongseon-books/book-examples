@@ -1,3 +1,5 @@
+"""Secure Coding 101 - Episode 8: Xss csrf."""
+
 import hashlib
 import hmac
 import html
@@ -7,20 +9,24 @@ from common import assert_demo
 
 
 def insecure_render(comment: str) -> str:
+    """Insecure render."""
     return f"<p>{comment}</p>"
 
 
 def safe_render(comment: str) -> str:
+    """Safe render."""
     return f"<p>{html.escape(comment)}</p>"
 
 
 def make_csrf_token(session_id: str, key: bytes) -> str:
+    """Make csrf token."""
     nonce = secrets.token_hex(8)
     sig = hmac.new(key, f"{session_id}:{nonce}".encode(), hashlib.sha256).hexdigest()
     return f"{nonce}.{sig}"
 
 
 def verify_csrf_token(session_id: str, token: str, key: bytes) -> bool:
+    """Verify csrf token."""
     try:
         nonce, sig = token.split(".", 1)
     except ValueError:
@@ -32,6 +38,7 @@ def verify_csrf_token(session_id: str, token: str, key: bytes) -> bool:
 
 
 def run_demo():
+    """Run demo."""
     payload = "<script>alert(1)</script>"
     insecure_detected = "<script>" in insecure_render(payload)
     key = b"demo-csrf-key"

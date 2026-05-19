@@ -17,6 +17,7 @@ DOCUMENTS = [
 def semantic_search(
     query: str, documents: list[str], model_name: str
 ) -> list[tuple[str, float]]:
+    """Semantic search."""
     model = SentenceTransformer(model_name)
     query_embedding = model.encode(
         [query], normalize_embeddings=True, convert_to_numpy=True
@@ -34,6 +35,7 @@ def semantic_search(
 
 
 def main() -> None:
+    """Main."""
     print("Semantic sentence search results")
     print(f"Query: {QUERY}")
     print("=" * 60)

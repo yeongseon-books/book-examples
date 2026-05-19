@@ -1,8 +1,11 @@
+"""Linear Algebra 101 - Episode 1: Example."""
+
 import numpy as np
 from common import power_iteration
 
 
 def run():
+    """Run."""
     np.random.seed(0)
     a = np.array([[4.0, 1.0], [2.0, 3.0]])
     vals, vecs = np.linalg.eig(a)

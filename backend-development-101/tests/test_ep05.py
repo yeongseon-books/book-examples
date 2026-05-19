@@ -1,8 +1,11 @@
+"""Tests for ep05 in Backend Development 101."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
 
 def test_ep05_sqlite_repository_flow() -> None:
+    """Test ep05 sqlite repository flow."""
     app = load_module(
         "ko/05-database-layer/step01_repository_sqlite.py", "ep05"
     ).build_app()

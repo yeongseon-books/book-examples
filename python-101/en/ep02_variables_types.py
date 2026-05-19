@@ -1,4 +1,8 @@
+"""Python 101 - Episode 2: Variables types."""
+
+
 def calculate_basics(a: int, b: int) -> dict[str, float | int | bool]:
+    """Calculate basics."""
     return {
         "sum": a + b,
         "difference": a - b,
@@ -9,6 +13,7 @@ def calculate_basics(a: int, b: int) -> dict[str, float | int | bool]:
 
 
 def main() -> None:
+    """Main."""
     age = 20
     height = 170.5
     name = "Alex"

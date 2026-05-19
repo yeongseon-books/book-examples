@@ -25,6 +25,14 @@ pip install -r requirements.txt
 - EP09 설계 예제: 주문, 재고, 결제를 통합한 작은 도메인
 - EP10 OOP를 피할 때: 함수형 파이프라인과 OOP 비교
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

@@ -20,11 +20,14 @@ RAW_TURN_LIMIT = 6
 
 
 class ChatState(TypedDict):
+    """Chat state."""
+
     summary_text: str
     recent_turns: list[ChatCompletionMessageParam]
 
 
 def message_text(message: ChatCompletionMessageParam) -> str:
+    """Message text."""
     content = message.get("content")
     if isinstance(content, str):
         return content
@@ -32,6 +35,7 @@ def message_text(message: ChatCompletionMessageParam) -> str:
 
 
 def rough_token_count(messages: list[ChatCompletionMessageParam]) -> int:
+    """Rough token count."""
     total_chars = sum(len(message_text(message)) for message in messages)
     return (total_chars // 4) + len(messages) * 12
 
@@ -41,6 +45,7 @@ def summarize_old_turns(
     old_turns: list[ChatCompletionMessageParam],
     current_summary: str,
 ) -> str:
+    """Summarize old turns."""
     prompt: list[ChatCompletionMessageParam] = [
         {
             "role": "system",
@@ -71,6 +76,7 @@ def build_messages(
     recent_turns: list[ChatCompletionMessageParam],
     user_text: str,
 ) -> list[ChatCompletionMessageParam]:
+    """Build messages."""
     messages: list[ChatCompletionMessageParam] = [system_message]
     if summary_text:
         messages.append(
@@ -90,6 +96,7 @@ def compress_if_needed(
     next_user_text: str,
     state: ChatState,
 ) -> None:
+    """Compress if needed."""
     summary_text = state["summary_text"]
     recent_turns = state["recent_turns"]
     messages = build_messages(
@@ -118,6 +125,7 @@ def ask(
     state: ChatState,
     user_text: str,
 ) -> str:
+    """Ask."""
     compress_if_needed(client, system_message, user_text, state)
     messages = build_messages(
         system_message, state["summary_text"], state["recent_turns"], user_text
@@ -140,6 +148,7 @@ def ask(
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     system_message: ChatCompletionSystemMessageParam = {
         "role": "system",

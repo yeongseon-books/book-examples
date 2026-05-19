@@ -1,3 +1,5 @@
+"""Docker 101 - Episode 1: Image optimization sim."""
+
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
@@ -7,6 +9,7 @@ from common import ImageLayerSimulator
 
 
 def run() -> dict[str, object]:
+    """Run."""
     simulator = ImageLayerSimulator()
     builder = [
         {"name": "deps", "size_mb": 240},

@@ -1,3 +1,5 @@
+"""Data Warehouse 101 - Episode 2: Oltp and olap."""
+
 # English example
 import sqlite3
 
@@ -5,6 +7,7 @@ from common import make_dw, time_query
 
 
 def run_demo() -> dict:
+    """Run demo."""
     conn = sqlite3.connect(":memory:")
     conn.execute(
         "CREATE TABLE orders_oltp(order_id INTEGER PRIMARY KEY, customer_id TEXT, amount REAL)"

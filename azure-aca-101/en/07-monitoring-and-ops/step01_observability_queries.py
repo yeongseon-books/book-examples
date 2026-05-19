@@ -1,3 +1,5 @@
+"""Azure Aca 101 - Episode 1: Observability queries."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import mock_log_rows
 
 
 def revision_error_counts() -> dict[str, int]:
+    """Revision error counts."""
     counts: dict[str, int] = {}
     for row in mock_log_rows():
         if "ERROR" in row["Log_s"]:
@@ -16,6 +19,7 @@ def revision_error_counts() -> dict[str, int]:
 
 
 def kql_examples(app_name: str) -> list[str]:
+    """Kql examples."""
     return [
         f'ContainerAppConsoleLogs_CL | where ContainerAppName_s == "{app_name}" | top 100 by TimeGenerated desc',
         f'ContainerAppConsoleLogs_CL | where ContainerAppName_s == "{app_name}" and Log_s contains "ERROR" | summarize ErrorCount=count() by RevisionName_s',
@@ -24,6 +28,7 @@ def kql_examples(app_name: str) -> list[str]:
 
 
 def run() -> dict[str, object]:
+    """Run."""
     return {"errors": revision_error_counts(), "kql": kql_examples("fastapi-aca-demo")}
 
 

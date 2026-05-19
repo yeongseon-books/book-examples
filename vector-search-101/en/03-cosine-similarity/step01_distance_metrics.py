@@ -1,3 +1,5 @@
+"""Vector Search 101 - Episode 1: Distance metrics."""
+
 import numpy as np
 from numpy.typing import NDArray
 from sentence_transformers import SentenceTransformer
@@ -11,18 +13,22 @@ SENTENCES = [
 
 
 def cosine_similarity(left: NDArray[np.float32], right: NDArray[np.float32]) -> float:
+    """Cosine similarity."""
     return float(np.dot(left, right))
 
 
 def euclidean_distance(left: NDArray[np.float32], right: NDArray[np.float32]) -> float:
+    """Euclidean distance."""
     return float(np.linalg.norm(left - right))
 
 
 def dot_product(left: NDArray[np.float32], right: NDArray[np.float32]) -> float:
+    """Dot product."""
     return float(np.dot(left, right))
 
 
 def main() -> None:
+    """Main."""
     model = SentenceTransformer(MODEL_NAME)
     vectors = model.encode(SENTENCES, normalize_embeddings=True, convert_to_numpy=True)
     query_vector = vectors[0]

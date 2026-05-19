@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 1: What is data science."""
+
 from __future__ import annotations
 
 from common import make_synthetic_classification
@@ -7,6 +9,7 @@ from sklearn.model_selection import train_test_split
 
 
 def run_demo(seed: int = 42) -> dict[str, float]:
+    """Run demo."""
     df = make_synthetic_classification(seed=seed, n=500)
     X = df.drop(columns=["target"])
     y = df["target"]

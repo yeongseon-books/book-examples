@@ -1,7 +1,10 @@
+"""Incident Response 101 - Episode 1: Example."""
+
 from common import SeverityClassifier
 
 
 def run() -> dict[str, str]:
+    """Run."""
     classifier = SeverityClassifier()
     sev = classifier.classify(users_affected=250000, revenue_loss=5000, regions=2)
     return {"severity": sev, "cadence_min": "15" if sev == "SEV1" else "30"}

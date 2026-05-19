@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Error analysis."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -7,6 +9,7 @@ from sklearn.metrics import classification_report
 
 
 def run(seed: int = 42) -> dict[str, object]:
+    """Run."""
     X, y = make_imbalanced(
         n_samples=1000, weights=(0.8, 0.2), class_sep=1.0, random_state=seed
     )

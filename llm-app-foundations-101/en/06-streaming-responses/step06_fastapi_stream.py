@@ -17,12 +17,16 @@ app = FastAPI()
 
 
 def get_client() -> AsyncGroq:
+    """Get client."""
     return AsyncGroq(api_key=os.environ["GROQ_API_KEY"])
 
 
 @app.get("/chat/stream")
 async def chat_stream(prompt: str) -> StreamingResponse:
+    """Chat stream."""
+
     async def event_gen():
+        """Event gen."""
         client = get_client()
         stream = await client.chat.completions.create(
             model="llama-3.1-8b-instant",

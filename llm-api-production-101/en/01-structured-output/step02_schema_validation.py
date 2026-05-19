@@ -1,3 +1,5 @@
+"""Llm Api Production 101 - Episode 2: Schema validation."""
+
 import json
 import os
 
@@ -14,6 +16,7 @@ Respond with JSON matching this schema exactly:
 
 
 def classify_ticket(client: Groq, ticket: str) -> dict:
+    """Classify ticket."""
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
@@ -27,6 +30,7 @@ def classify_ticket(client: Groq, ticket: str) -> dict:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     tickets = [
         "This month's bill is more than double last month.",

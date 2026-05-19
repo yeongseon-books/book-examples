@@ -1,3 +1,5 @@
+"""Rag Deep Dive - Episode 5: Rag chain."""
+
 from ko.ep05_rag_chain import run_chain
 
 if __name__ == "__main__":

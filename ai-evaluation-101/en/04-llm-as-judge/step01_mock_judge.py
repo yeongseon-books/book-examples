@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Mock judge."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import MockLLMJudge
 
 
 def run() -> dict[str, str]:
+    """Run."""
     judge = MockLLMJudge()
     prompt = "Explain why RAG is useful"
     answer_a = "RAG reduces hallucination because it uses retrieved evidence."

@@ -1,13 +1,17 @@
+"""Azure App Service Deep Dive - Episode 1: Arr affinity demo."""
+
 from __future__ import annotations
 
 from fastapi import FastAPI, Request
 
 
 def create_app() -> FastAPI:
+    """Create app."""
     app = FastAPI()
 
     @app.get("/route")
     def route(request: Request) -> dict[str, str | bool]:
+        """Route."""
         cookie = request.headers.get("cookie", "")
         sticky = "ARRAffinity=" in cookie
         worker = "worker-2" if sticky else "worker-random"

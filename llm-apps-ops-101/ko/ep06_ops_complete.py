@@ -1,3 +1,5 @@
+"""Llm Apps Ops 101 - Episode 6: Ops complete."""
+
 from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException
@@ -17,17 +19,21 @@ judge = LLMJudge()
 
 
 class OpsRequest(BaseModel):
+    """Ops request."""
+
     prompt: str = Field(min_length=1, max_length=1200)
     evaluate: bool = True
 
 
 @app.get("/health")
 def health() -> dict[str, str]:
+    """Health."""
     return {"status": "ok", "ts": utc_now()}
 
 
 @app.post("/answer")
 def answer(request: OpsRequest) -> dict[str, object]:
+    """Answer."""
     validation = validator.validate(request.prompt)
     if not validation.accepted:
         raise HTTPException(status_code=400, detail=validation.reason)

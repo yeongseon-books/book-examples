@@ -1,7 +1,10 @@
+"""Python Dbapi 101 - Episode 2: Connection cursor lifecycle."""
+
 from common import create_connection, initialize_schema
 
 
 def run_demo() -> dict[str, object]:
+    """Run demo."""
     with create_connection(":memory:") as conn:
         initialize_schema(conn)
         cur = conn.cursor()

@@ -1,15 +1,20 @@
+"""Azure Functions 101 - Episode 1: Queue to invoice."""
+
 from __future__ import annotations
 
 
 def build_invoice(payload: dict[str, int]) -> dict[str, int]:
+    """Build invoice."""
     return {"id": payload["order_id"], "amount": payload["total"]}
 
 
 def process_order(payload: dict[str, int]) -> dict[str, int]:
+    """Process order."""
     return build_invoice(payload)
 
 
 def run() -> dict[str, int]:
+    """Run."""
     return process_order({"order_id": 101, "total": 35000})
 
 

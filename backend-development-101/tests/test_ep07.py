@@ -1,8 +1,11 @@
+"""Tests for ep07 in Backend Development 101."""
+
 from conftest import load_module
 from fastapi.testclient import TestClient
 
 
 def test_ep07_request_id_and_domain_error() -> None:
+    """Test ep07 request id and domain error."""
     app = load_module(
         "ko/07-logging-and-error-handling/step01_logging_errors.py", "ep07"
     ).build_app()

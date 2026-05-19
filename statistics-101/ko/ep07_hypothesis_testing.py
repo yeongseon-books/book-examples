@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 7: Hypothesis testing."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -6,6 +8,7 @@ from scipy import stats
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     g = rng()
     x = g.normal(51, 10, size=30)
     n1 = x.size

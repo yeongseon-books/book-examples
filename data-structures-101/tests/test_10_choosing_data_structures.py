@@ -1,7 +1,10 @@
+"""Tests for 10 choosing data structures in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_recommender_and_benchmark_shape():
+    """Test recommender and benchmark shape."""
     mod = load_module("ko/10-choosing-data-structures.py")
     ds, _ = mod.recommend_structure({"key_lookup": True})
     assert ds == "hash_table"

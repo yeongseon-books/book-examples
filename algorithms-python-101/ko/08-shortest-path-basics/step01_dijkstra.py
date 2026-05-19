@@ -1,7 +1,10 @@
+"""Algorithms Python 101 - Episode 1: Dijkstra."""
+
 import heapq
 
 
 def dijkstra(graph: dict[str, list[tuple[str, int]]], start: str) -> dict[str, int]:
+    """Dijkstra."""
     dist: dict[str, int] = {start: 0}
     heap: list[tuple[int, str]] = [(0, start)]
     while heap:

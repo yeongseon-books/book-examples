@@ -1,3 +1,5 @@
+"""Docker 101 - Episode 1: Image container lifecycle."""
+
 from __future__ import annotations
 
 # pyright: reportMissingImports=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
@@ -6,6 +8,7 @@ from __future__ import annotations
 
 
 def run() -> dict[str, object]:
+    """Run."""
     lifecycle = ["created", "running", "stopped", "removed"]
     immutable_image = True
     return {"success": True, "lifecycle": lifecycle, "immutable_image": immutable_image}

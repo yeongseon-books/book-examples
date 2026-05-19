@@ -1,7 +1,10 @@
+"""Tests for ep04 in Portfolio Project 101."""
+
 from ko.ep04_flask_demo import create_app
 
 
 def test_ep04_flask_endpoints() -> None:
+    """Test ep04 flask endpoints."""
     app = create_app()
     client = app.test_client()
     r1 = client.get("/health")

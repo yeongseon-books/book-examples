@@ -1,3 +1,5 @@
+"""Statistics 101 - Episode 4: Sample vs population."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -5,6 +7,7 @@ from common import rng
 
 
 def run_demo() -> dict[str, float]:
+    """Run demo."""
     g = rng()
     population = np.arange(1, 101, dtype=float)
     sample = g.choice(population, size=20, replace=False)

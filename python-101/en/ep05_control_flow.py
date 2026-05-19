@@ -1,4 +1,8 @@
+"""Python 101 - Episode 5: Control flow."""
+
+
 def fizzbuzz(n: int) -> list[str]:
+    """Fizzbuzz."""
     out: list[str] = []
     for i in range(1, n + 1):
         if i % 15 == 0:
@@ -13,6 +17,7 @@ def fizzbuzz(n: int) -> list[str]:
 
 
 def main() -> None:
+    """Main."""
     print(fizzbuzz(20))
     x = 0
     while x < 3:

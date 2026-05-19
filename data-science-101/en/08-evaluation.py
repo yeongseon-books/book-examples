@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 8: Evaluation."""
+
 from __future__ import annotations
 
 import math
@@ -21,6 +23,7 @@ from sklearn.model_selection import train_test_split
 def manual_classification_metrics(
     y_true: np.ndarray, y_pred: np.ndarray
 ) -> dict[str, float]:
+    """Manual classification metrics."""
     tp = int(((y_true == 1) & (y_pred == 1)).sum())
     tn = int(((y_true == 0) & (y_pred == 0)).sum())
     fp = int(((y_true == 0) & (y_pred == 1)).sum())
@@ -37,6 +40,7 @@ def manual_classification_metrics(
 def manual_regression_metrics(
     y_true: np.ndarray, y_pred: np.ndarray
 ) -> dict[str, float]:
+    """Manual regression metrics."""
     errors = y_true - y_pred
     mae = float(np.abs(errors).mean())
     rmse = float(math.sqrt((errors**2).mean()))
@@ -47,6 +51,7 @@ def manual_regression_metrics(
 
 
 def compare_metrics(seed: int = 42) -> dict[str, float]:
+    """Compare metrics."""
     cdf = make_synthetic_classification(seed=seed, n=700)
     Xc, yc = cdf.drop(columns=["target"]), cdf["target"]
     Xtr, Xte, ytr, yte = train_test_split(

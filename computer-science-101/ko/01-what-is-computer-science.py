@@ -5,11 +5,14 @@ from dataclasses import dataclass
 
 @dataclass
 class TuringMachine:
+    """Turing machine."""
+
     tape: list[str]
     head: int
     state: str = "carry"
 
     def step(self) -> None:
+        """Step."""
         if self.state == "carry":
             symbol = self.tape[self.head]
             if symbol == "1":
@@ -22,12 +25,14 @@ class TuringMachine:
                 raise ValueError(f"알 수 없는 심볼: {symbol}")
 
     def run(self) -> str:
+        """Run."""
         while self.state != "halt":
             self.step()
         return "".join(self.tape).lstrip("0") or "0"
 
 
 def increment_binary(binary: str) -> str:
+    """Increment binary."""
     tape = ["0"] + list(binary)
     machine = TuringMachine(tape=tape, head=len(tape) - 1)
     return machine.run()

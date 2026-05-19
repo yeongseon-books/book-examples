@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 5: Exploratory data analysis."""
+
 from __future__ import annotations
 
 import pandas as pd
@@ -5,6 +7,7 @@ from common import make_synthetic_classification
 
 
 def make_eda_report(seed: int = 42) -> str:
+    """Make eda report."""
     df = make_synthetic_classification(seed=seed, n=600)
     feature_cols = [c for c in df.columns if c.startswith("feature_")]
     desc = df[feature_cols].describe().round(3)

@@ -1,3 +1,5 @@
+"""Information Security 101 - Episode 5: Web security basics."""
+
 from common import WebRequestSanitizer
 
 s = WebRequestSanitizer()

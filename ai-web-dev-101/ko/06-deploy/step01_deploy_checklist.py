@@ -1,9 +1,12 @@
+"""Ai Web Dev 101 - Episode 1: Deploy checklist."""
+
 from __future__ import annotations
 
 
 def deployment_checklist(
     has_requirements: bool, uses_env_var: bool, has_healthcheck: bool
 ) -> dict[str, object]:
+    """Deployment checklist."""
     checks = {
         "dependencies": has_requirements,
         "secrets": uses_env_var,
@@ -17,5 +20,6 @@ def deployment_checklist(
 def estimate_monthly_cost(
     requests_per_day: int, avg_tokens: int, price_per_1k_tokens: float
 ) -> float:
+    """Estimate monthly cost."""
     monthly_tokens = requests_per_day * 30 * avg_tokens
     return round((monthly_tokens / 1000) * price_per_1k_tokens, 4)

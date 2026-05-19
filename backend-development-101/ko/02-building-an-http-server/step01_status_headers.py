@@ -5,10 +5,12 @@ from fastapi.responses import JSONResponse
 
 
 def build_app() -> FastAPI:
+    """Build app."""
     app = FastAPI()
 
     @app.get("/items/{item_id}")
     def get_item(item_id: int):
+        """Get item."""
         if item_id < 0:
             raise HTTPException(status_code=400, detail="item_id must be >= 0")
         return JSONResponse(

@@ -1,7 +1,10 @@
+"""Tests for 03 linked lists in Data Structures 101."""
+
 from conftest import load_module
 
 
 def test_singly_and_doubly_linked_lists():
+    """Test singly and doubly linked lists."""
     mod = load_module("ko/03-linked-lists.py")
     sll = mod.SinglyLinkedList()
     for v in [1, 2, 3]:

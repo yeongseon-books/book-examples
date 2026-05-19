@@ -1,3 +1,5 @@
+"""Langgraph 101 - Episode 2: Streaming pipeline."""
+
 import os
 from typing import Annotated, cast
 
@@ -13,6 +15,8 @@ from typing_extensions import TypedDict
 
 
 class StreamingState(TypedDict):
+    """Streaming state."""
+
     messages: Annotated[list, add_messages]
 
 
@@ -27,6 +31,7 @@ def lookup_blog_metric(metric_name: str) -> str:
 
 
 def build_model() -> ChatGroq:
+    """Build model."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY를 먼저 설정하세요.")
@@ -34,12 +39,14 @@ def build_model() -> ChatGroq:
 
 
 def assistant_node(state: StreamingState):
+    """Assistant node."""
     model = build_model().bind_tools([lookup_blog_metric])
     response = model.invoke(state["messages"])
     return {"messages": [response]}
 
 
 def should_continue(state: StreamingState):
+    """Should continue."""
     last_message = state["messages"][-1]
     if isinstance(last_message, AIMessage) and last_message.tool_calls:
         return "tools"
@@ -47,6 +54,7 @@ def should_continue(state: StreamingState):
 
 
 def build_graph():
+    """Build graph."""
     builder = StateGraph(StreamingState)
     builder.add_node("assistant", assistant_node)
     builder.add_node("tools", ToolNode([lookup_blog_metric]))

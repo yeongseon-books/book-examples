@@ -17,6 +17,14 @@ Python 내장 자료구조와 stdlib(`collections`, `heapq`, `bisect`)을 활용
 
 각 에피소드는 `ko/`와 `en/`에 동일한 실행 가능한 예제 스크립트를 제공합니다.
 
+## Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## 실행
 
 ```bash

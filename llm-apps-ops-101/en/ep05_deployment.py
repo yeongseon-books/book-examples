@@ -1,3 +1,5 @@
+"""Llm Apps Ops 101 - Episode 5: Deployment."""
+
 from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException
@@ -12,23 +14,29 @@ filter_ = OutputFilter()
 
 
 class ChatRequest(BaseModel):
+    """Chat request."""
+
     prompt: str = Field(min_length=1, max_length=1000)
     temperature: float = Field(default=0.2, ge=0.0, le=1.0)
     max_tokens: int = Field(default=250, ge=32, le=512)
 
 
 class HealthResponse(BaseModel):
+    """Health response."""
+
     status: str
     ts: str
 
 
 @app.get("/health", response_model=HealthResponse)
 def health() -> HealthResponse:
+    """Health."""
     return HealthResponse(status="ok", ts=utc_now())
 
 
 @app.post("/chat")
 def chat(request: ChatRequest) -> dict[str, object]:
+    """Chat."""
     validation = validator.validate(request.prompt)
     if not validation.accepted:
         raise HTTPException(status_code=400, detail=validation.reason)

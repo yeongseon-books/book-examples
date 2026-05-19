@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 9: Result interpretation."""
+
 from __future__ import annotations
 
 from typing import Any, cast
@@ -11,6 +13,7 @@ from sklearn.model_selection import train_test_split
 
 
 def interpret_results(seed: int = 42) -> str:
+    """Interpret results."""
     df = make_synthetic_classification(seed=seed, n=800)
     X = df.drop(columns=["target"])
     y = df["target"]

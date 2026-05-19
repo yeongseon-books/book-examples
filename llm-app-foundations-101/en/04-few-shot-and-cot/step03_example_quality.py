@@ -25,6 +25,7 @@ TARGET = "I cannot log in because the password reset email never arrives."
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     bad_examples: list[Any] = [

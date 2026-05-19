@@ -1,3 +1,5 @@
+"""Rag Benchmark 101 - Episode 2: Llm judge."""
+
 from __future__ import annotations
 
 import json
@@ -13,6 +15,7 @@ from ko.shared import GENERATION_CASE
 
 
 def main() -> None:
+    """Main."""
     print("Groq 기반 LLM-as-judge 데모")
     result = evaluate_generation(
         question=GENERATION_CASE.question,

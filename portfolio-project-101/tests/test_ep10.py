@@ -1,3 +1,5 @@
+"""Tests for ep10 in Portfolio Project 101."""
+
 from pathlib import Path
 from typing import Any, cast
 
@@ -6,6 +8,7 @@ from ko.ep10_portfolio_audit import run_portfolio_audit
 
 
 def test_ep10_end_to_end_audit(tmp_path: Path) -> None:
+    """Test ep10 end to end audit."""
     (tmp_path / "README.md").write_text(
         read_text(Path("fixtures/sample_readme.md")), encoding="utf-8"
     )

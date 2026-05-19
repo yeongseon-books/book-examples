@@ -1,3 +1,5 @@
+"""Functional Programming 101 - Episode 10: Oop and fp balance."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,17 +7,22 @@ from dataclasses import dataclass
 
 @dataclass
 class Cart:
+    """Cart."""
+
     items: list[dict[str, int]]
 
     def total(self) -> int:
+        """Total."""
         return sum(item["price"] * item["qty"] for item in self.items)
 
 
 def total_fp(items: list[dict[str, int]]) -> int:
+    """Total fp."""
     return sum(item["price"] * item["qty"] for item in items)
 
 
 def total_hybrid(cart: Cart) -> int:
+    """Total hybrid."""
     return total_fp(cart.items)
 
 

@@ -1,3 +1,5 @@
+"""Model Evaluation 101 - Episode 1: Accuracy trap."""
+
 from __future__ import annotations
 
 from common import make_imbalanced, safe_split
@@ -7,6 +9,7 @@ from sklearn.metrics import accuracy_score, recall_score
 
 
 def run(seed: int = 42) -> dict[str, float]:
+    """Run."""
     X, y = make_imbalanced(
         n_samples=1200, weights=(0.95, 0.05), class_sep=0.8, random_state=seed
     )

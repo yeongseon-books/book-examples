@@ -1,3 +1,5 @@
+"""Tests for ep09 in Cloud Computing 101."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -10,6 +12,7 @@ fn = cast("Callable[..., object]", mod.cost_guardrail_plan)
 
 
 def test_ep09_behavior() -> None:
+    """Test ep09 behavior."""
     result_obj = fn(monthly_budget_usd=500)
     result = cast("dict[str, object]", result_obj)
     payload = cast("dict[str, object]", result["payload"])

@@ -1,8 +1,11 @@
+"""Tests for 05 volume in Containers 101."""
+
 import pytest
 from ko import _05_volume as ep
 
 
 def test_detect_mount_overlap():
+    """Test detect mount overlap."""
     spec = [
         {"type": "bind", "source": "/host/a", "target": "/data"},
         {"type": "volume", "source": "cache", "target": "/data/cache"},
@@ -11,6 +14,7 @@ def test_detect_mount_overlap():
 
 
 def test_duplicate_target_raises():
+    """Test duplicate target raises."""
     spec = [
         {"type": "bind", "source": "/host/a", "target": "/data"},
         {"type": "tmpfs", "source": "tmpfs", "target": "/data"},

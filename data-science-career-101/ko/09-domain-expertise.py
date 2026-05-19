@@ -1,3 +1,5 @@
+"""Data Science Career 101 - Episode 9: Domain expertise."""
+
 from __future__ import annotations
 
 DOMAIN_MAP = {
@@ -20,6 +22,7 @@ DOMAIN_MAP = {
 
 
 def build_domain_spec(industry: str) -> dict[str, object]:
+    """Build domain spec."""
     key = industry.lower()
     if key not in DOMAIN_MAP:
         raise ValueError(f"unsupported industry: {industry}")

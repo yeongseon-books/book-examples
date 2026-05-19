@@ -7,6 +7,7 @@ from pathlib import Path
 
 
 def init_bank(db_path: Path) -> None:
+    """Init bank."""
     with sqlite3.connect(db_path) as db:
         db.executescript(
             """
@@ -20,6 +21,7 @@ def init_bank(db_path: Path) -> None:
 def transfer(
     db_path: Path, src: int, dst: int, amount: int, fail_midway: bool = False
 ) -> None:
+    """Transfer."""
     with sqlite3.connect(db_path) as db:
         try:
             db.execute("BEGIN")
@@ -38,20 +40,25 @@ def transfer(
 
 
 class ToyWAL:
+    """Toy w a l."""
+
     def __init__(self):
         self.state = {"Alice": 1000, "Bob": 1000}
         self.log: list[tuple[str, str, int]] = []
 
     def append_transfer(self, src: str, dst: str, amount: int) -> None:
+        """Append transfer."""
         self.log.append((src, dst, amount))
 
     def apply(self) -> None:
+        """Apply."""
         for src, dst, amount in self.log:
             self.state[src] -= amount
             self.state[dst] += amount
 
 
 def balances(db_path: Path) -> dict[str, int]:
+    """Balances."""
     with sqlite3.connect(db_path) as db:
         return {
             owner: bal

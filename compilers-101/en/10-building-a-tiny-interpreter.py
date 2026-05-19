@@ -1,8 +1,11 @@
+"""Compilers 101 - Episode 10: Building a tiny interpreter."""
+
 # English mirror of Korean episode example
 from __future__ import annotations
 
 
 def tokenize(src: str) -> list[tuple[str, object]]:
+    """Tokenize."""
     out: list[tuple[str, object]] = []
     i = 0
     while i < len(src):
@@ -31,14 +34,17 @@ def tokenize(src: str) -> list[tuple[str, object]]:
 
 
 def run(src: str) -> int:
+    """Run."""
     tokens = tokenize(src)
     pos = 0
     env: dict[str, int] = {}
 
     def peek():
+        """Peek."""
         return tokens[pos]
 
     def eat(kind: str):
+        """Eat."""
         nonlocal pos
         tok = tokens[pos]
         if tok[0] != kind:
@@ -47,6 +53,7 @@ def run(src: str) -> int:
         return tok
 
     def factor() -> int:
+        """Factor."""
         tok = peek()
         if tok[0] == "NUM":
             eat("NUM")
@@ -65,6 +72,7 @@ def run(src: str) -> int:
         raise SyntaxError("bad factor")
 
     def term() -> int:
+        """Term."""
         v = factor()
         while peek()[0] in {"*", "/"}:
             op = eat(peek()[0])[0]
@@ -73,6 +81,7 @@ def run(src: str) -> int:
         return v
 
     def expr() -> int:
+        """Expr."""
         v = term()
         while peek()[0] in {"+", "-"}:
             op = eat(peek()[0])[0]
@@ -81,6 +90,7 @@ def run(src: str) -> int:
         return v
 
     def statement() -> int:
+        """Statement."""
         if peek()[0] == "ID" and tokens[pos + 1][0] == "=":
             name = eat("ID")[1]
             eat("=")

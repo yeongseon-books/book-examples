@@ -1,7 +1,10 @@
+"""Tests for 09 replication and backup in Database Systems 101."""
+
 from conftest import load_ko_module
 
 
 def test_follower_catches_up_and_pitr_works():
+    """Test follower catches up and pitr works."""
     m = load_ko_module("09-replication-and-backup.py")
     rf = m.LeaderFollowerReplication(followers=1)
     rf.write("counter", 1)

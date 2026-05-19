@@ -1,3 +1,5 @@
+"""Ai Web Dev 101 - Episode 1: Prompt builder."""
+
 from __future__ import annotations
 
 
@@ -8,6 +10,7 @@ def build_prompt(
     output_format: str,
     examples: list[str] | None = None,
 ) -> str:
+    """Build prompt."""
     lines = [
         f"[SYSTEM]\n{system_role}",
         f"[TASK]\n{task}",
@@ -20,4 +23,5 @@ def build_prompt(
 
 
 def choose_temperature(kind: str) -> float:
+    """Choose temperature."""
     return 0.2 if kind in {"code", "extract"} else 0.8

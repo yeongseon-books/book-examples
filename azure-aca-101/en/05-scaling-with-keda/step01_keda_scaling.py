@@ -1,3 +1,5 @@
+"""Azure Aca 101 - Episode 1: Keda scaling."""
+
 import sys
 from pathlib import Path
 
@@ -7,18 +9,21 @@ from common import mock_scale_decision
 
 
 def scale_http(concurrency: int) -> int:
+    """Scale http."""
     return mock_scale_decision(
         signal=concurrency, threshold=50, min_replicas=1, max_replicas=10
     )
 
 
 def scale_servicebus(messages: int) -> int:
+    """Scale servicebus."""
     return mock_scale_decision(
         signal=messages, threshold=5, min_replicas=0, max_replicas=10
     )
 
 
 def run() -> dict[str, int]:
+    """Run."""
     return {
         "http_replicas": scale_http(120),
         "worker_replicas": scale_servicebus(26),

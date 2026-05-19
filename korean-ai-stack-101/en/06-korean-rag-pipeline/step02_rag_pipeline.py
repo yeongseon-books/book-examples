@@ -20,6 +20,7 @@ QUESTION = "Which destination would be good for a spring trip?"
 
 
 def require_api_key() -> str:
+    """Require api key."""
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("The GROQ_API_KEY environment variable is required.")
@@ -27,6 +28,7 @@ def require_api_key() -> str:
 
 
 def retrieve(question: str, documents: list[str], top_k: int = 2) -> list[str]:
+    """Retrieve."""
     model = SentenceTransformer(MODEL_NAME)
     embeddings = model.encode(
         documents, normalize_embeddings=True, convert_to_numpy=True
@@ -41,6 +43,7 @@ def retrieve(question: str, documents: list[str], top_k: int = 2) -> list[str]:
 
 
 def generate_answer(question: str, contexts: list[str]) -> str:
+    """Generate answer."""
     client = Groq(api_key=require_api_key())
     joined_context = "\n".join(f"- {context}" for context in contexts)
     prompt = (
@@ -63,6 +66,7 @@ def generate_answer(question: str, contexts: list[str]) -> str:
 
 
 def main() -> None:
+    """Main."""
     contexts = retrieve(QUESTION, DOCUMENTS)
     print("Retrieved context")
     print("=" * 40)

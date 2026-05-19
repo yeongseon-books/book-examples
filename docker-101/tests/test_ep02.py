@@ -1,3 +1,5 @@
+"""Tests for ep02 in Docker 101."""
+
 # pyright: reportAny=false
 from conftest import load_module
 
@@ -7,6 +9,7 @@ run = load_module(
 
 
 def test_ep02() -> None:
+    """Test ep02."""
     result = run()
     assert result["success"] is True
     assert result["lifecycle"][-1] == "removed"

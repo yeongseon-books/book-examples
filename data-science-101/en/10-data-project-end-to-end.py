@@ -1,3 +1,5 @@
+"""Data Science 101 - Episode 10: Data project end to end."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -10,6 +12,7 @@ from sklearn.model_selection import train_test_split
 
 
 def run_pipeline(output_dir: str | Path, seed: int = 42) -> dict[str, object]:
+    """Run pipeline."""
     out = ensure_dir(output_dir)
 
     raw = make_dirty_dataset(seed=seed, n=500)

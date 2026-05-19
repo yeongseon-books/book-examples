@@ -1,5 +1,9 @@
+"""Tests for ep02 in Alembic 101."""
+
+
 # pyright: reportUnknownParameterType=false, reportMissingParameterType=false, reportUnknownVariableType=false, reportUnknownMemberType=false, reportUnknownArgumentType=false
 def test_ep02_env(load_module, monkeypatch):
+    """Test ep02 env."""
     m = load_module(
         "ko/02-env-py-and-target-metadata/step01_env_target_metadata.py", "ep02"
     )

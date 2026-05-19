@@ -1,3 +1,5 @@
+"""Tests for ep01 in Azure Aks Deep Dive."""
+
 from __future__ import annotations
 
 import importlib.util
@@ -12,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def load_module(relative_path: str, module_name: str) -> ModuleType:
+    """Load module."""
     path = ROOT / relative_path
     spec = importlib.util.spec_from_file_location(module_name, path)
     if spec is None or spec.loader is None:
@@ -22,12 +25,15 @@ def load_module(relative_path: str, module_name: str) -> ModuleType:
 
 
 class Ep01Module(Protocol):
+    """Ep01 module."""
+
     app: FastAPI
 
     def az_show_command(self, cluster_name: str, resource_group: str) -> str: ...
 
 
 def test_control_plane_fastapi_surface_ko() -> None:
+    """Test control plane fastapi surface ko."""
     module = cast(
         "Ep01Module",
         load_module(
@@ -43,6 +49,7 @@ def test_control_plane_fastapi_surface_ko() -> None:
 
 
 def test_control_plane_command_preview_en() -> None:
+    """Test control plane command preview en."""
     module = cast(
         "Ep01Module",
         load_module(

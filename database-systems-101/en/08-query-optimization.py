@@ -9,6 +9,7 @@ import time
 def estimate_join_cost(
     left_rows: int, right_rows: int, method: str = "nested_loop"
 ) -> int:
+    """Estimate join cost."""
     if method == "nested_loop":
         return left_rows * right_rows
     if method == "hash_join":
@@ -17,6 +18,7 @@ def estimate_join_cost(
 
 
 def estimate_plan_cost(stats: dict[str, int], plan: tuple[str, str, str]) -> int:
+    """Estimate plan cost."""
     a, b, c = plan
     ab = estimate_join_cost(stats[a], stats[b], "hash_join")
     ab_rows = max(1, min(stats[a], stats[b]) // 10)
@@ -25,6 +27,7 @@ def estimate_plan_cost(stats: dict[str, int], plan: tuple[str, str, str]) -> int
 
 
 def pick_best_plan(stats: dict[str, int]) -> tuple[tuple[str, str, str], int]:
+    """Pick best plan."""
     plans = (("A", "B", "C"), ("A", "C", "B"))
     scored = [(p, estimate_plan_cost(stats, p)) for p in plans]
     return min(scored, key=lambda x: x[1])
@@ -33,6 +36,7 @@ def pick_best_plan(stats: dict[str, int]) -> tuple[tuple[str, str, str], int]:
 def run_join_simulation(
     plan: tuple[str, str, str], stats: dict[str, int], seed: int = 0
 ) -> float:
+    """Run join simulation."""
     random.seed(seed)
     start = time.perf_counter()
     n = estimate_plan_cost(stats, plan) // 20

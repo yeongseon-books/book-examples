@@ -1,8 +1,11 @@
+"""Tests for ep03 in Harness Engineering 101."""
+
 from common import ContextHarness
 from conftest import load_episode
 
 
 def test_ep03_context_harness_dedup_and_budget():
+    """Test ep03 context harness dedup and budget."""
     m = load_episode("ko", "03-context-harness")
     out = m.context_harness_example()
     assert len(out) == 3

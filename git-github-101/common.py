@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Git Github 101."""
+
 from __future__ import annotations
 
 import os
@@ -19,6 +21,7 @@ GIT_ENV = {
 
 
 def make_temp_repo() -> str:
+    """Make temp repo."""
     repo = tempfile.mkdtemp(prefix="git-github-101-")
     run_git(repo, "init", "-q")
     run_git(repo, "branch", "-M", "main")
@@ -28,6 +31,7 @@ def make_temp_repo() -> str:
 def run_git(
     cwd: str, *args: str, check: bool = True
 ) -> subprocess.CompletedProcess[str]:
+    """Run git."""
     env = os.environ.copy()
     env.update(GIT_ENV)
     return subprocess.run(
@@ -41,15 +45,19 @@ def run_git(
 
 
 def write_file(path: Path, content: str) -> None:
+    """Write file."""
     path.write_text(content, encoding="utf-8")
 
 
 def cleanup_dir(path: str) -> None:
+    """Cleanup dir."""
     shutil.rmtree(path, ignore_errors=True)
 
 
 @dataclass
 class Commit:
+    """Commit."""
+
     id: str
     message: str
     parent: str | None
@@ -58,12 +66,15 @@ class Commit:
 
 @dataclass
 class MiniRepo:
+    """Mini repo."""
+
     branches: dict[str, str | None] = field(default_factory=lambda: {"main": None})
     commits: dict[str, Commit] = field(default_factory=dict)
     head: str = "main"
     _seq: int = 0
 
     def commit(self, message: str, files: dict[str, str]) -> str:
+        """Commit."""
         self._seq += 1
         cid = f"c{self._seq:03d}"
         parent = self.branches[self.head]
@@ -72,17 +83,21 @@ class MiniRepo:
         return cid
 
     def branch(self, name: str) -> None:
+        """Branch."""
         self.branches[name] = self.branches[self.head]
 
     def switch(self, name: str) -> None:
+        """Switch."""
         if name not in self.branches:
             raise KeyError(name)
         self.head = name
 
     def branch_tip(self, name: str) -> str | None:
+        """Branch tip."""
         return self.branches.get(name)
 
     def history(self, branch: str) -> list[str]:
+        """History."""
         tip = self.branches[branch]
         result: list[str] = []
         while tip:
@@ -93,6 +108,7 @@ class MiniRepo:
     def merge_preview(
         self, source: str, target: str, path: str, base: str, ours: str, theirs: str
     ) -> str:
+        """Merge preview."""
         if ours != theirs and ours != base and theirs != base:
             return f"<<<<<<< {target}\n{ours}\n=======\n{theirs}\n>>>>>>> {source}\n"
         return theirs if ours == base else ours
@@ -100,6 +116,8 @@ class MiniRepo:
 
 @dataclass
 class PullRequestModel:
+    """Pull request model."""
+
     number: int
     title: str
     source: str
@@ -109,14 +127,18 @@ class PullRequestModel:
     linked_issues: list[int] = field(default_factory=list)
 
     def review(self, comment: str) -> None:
+        """Review."""
         self.reviews.append(comment)
 
     def merge(self) -> None:
+        """Merge."""
         self.state = "merged"
 
 
 @dataclass
 class IssueModel:
+    """Issue model."""
+
     number: int
     title: str
     labels: list[str] = field(default_factory=list)
@@ -124,17 +146,21 @@ class IssueModel:
     state: str = "open"
 
     def close(self) -> None:
+        """Close."""
         self.state = "closed"
 
 
 @dataclass
 class WorkflowSimulator:
+    """Workflow simulator."""
+
     repo: MiniRepo = field(default_factory=MiniRepo)
     prs: list[PullRequestModel] = field(default_factory=list)
     issues: dict[int, IssueModel] = field(default_factory=dict)
     tags: dict[str, str] = field(default_factory=dict)
 
     def create_issue(self, number: int, title: str) -> IssueModel:
+        """Create issue."""
         issue = IssueModel(number=number, title=title)
         self.issues[number] = issue
         return issue
@@ -142,6 +168,7 @@ class WorkflowSimulator:
     def create_pr(
         self, title: str, source: str, target: str, linked_issue: int | None = None
     ) -> PullRequestModel:
+        """Create pr."""
         pr = PullRequestModel(
             number=len(self.prs) + 1, title=title, source=source, target=target
         )
@@ -151,6 +178,7 @@ class WorkflowSimulator:
         return pr
 
     def squash_merge(self, pr: PullRequestModel, message: str) -> str:
+        """Squash merge."""
         self.repo.switch(pr.target)
         cid = self.repo.commit(message, {"squash": pr.title})
         pr.merge()
@@ -160,15 +188,19 @@ class WorkflowSimulator:
         return cid
 
     def tag(self, name: str, commit_id: str) -> None:
+        """Tag."""
         self.tags[name] = commit_id
 
 
 class CommitMessageLinter:
+    """Commit message linter."""
+
     PATTERN = re.compile(
         r"^(feat|fix|docs|style|refactor|test|chore)(\([a-z0-9_-]+\))?: .{1,50}$"
     )
 
     def lint(self, message: str) -> dict[str, Any]:
+        """Lint."""
         errors: list[str] = []
         if not self.PATTERN.match(message):
             errors.append("subject must follow conventional commits and <=50 chars")

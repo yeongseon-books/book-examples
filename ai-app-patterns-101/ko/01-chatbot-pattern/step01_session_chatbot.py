@@ -1,3 +1,5 @@
+"""Ai App Patterns 101 - Episode 1: Session chatbot."""
+
 from __future__ import annotations
 
 from common import (
@@ -14,6 +16,7 @@ SYSTEM_PROMPT = (
 
 
 def run_session_chatbot() -> None:
+    """Run session chatbot."""
     client = build_client()
     sessions: dict[str, list[dict[str, str]]] = {
         "demo-user": [

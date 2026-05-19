@@ -12,6 +12,7 @@ USER_PROMPT = "제주 감귤 탄산수에 대한 3문장 소개를 한국어로 
 
 
 def require_api_key() -> str:
+    """Require api key."""
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY 환경 변수가 필요합니다.")
@@ -19,6 +20,7 @@ def require_api_key() -> str:
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=require_api_key())
     response = client.chat.completions.create(
         model=MODEL_NAME,

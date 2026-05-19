@@ -1,3 +1,5 @@
+"""Vector Search 101 - Episode 1: First vector."""
+
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
@@ -10,6 +12,7 @@ SENTENCES = [
 
 
 def main() -> None:
+    """Main."""
     model = SentenceTransformer(MODEL_NAME)
     vectors = model.encode(SENTENCES, normalize_embeddings=True, convert_to_numpy=True)
 

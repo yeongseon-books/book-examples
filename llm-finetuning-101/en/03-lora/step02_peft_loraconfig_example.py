@@ -15,6 +15,7 @@ else:
 
 
 def main() -> None:
+    """Main."""
     config_kwargs = {
         "r": 16,
         "lora_alpha": 32,

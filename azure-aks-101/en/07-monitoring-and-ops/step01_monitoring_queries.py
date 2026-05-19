@@ -1,7 +1,10 @@
+"""Azure Aks 101 - Episode 1: Monitoring queries."""
+
 from __future__ import annotations
 
 
 def build_kql_queries() -> dict[str, str]:
+    """Build kql queries."""
     return {
         "recent_events": "KubeEvents | where not(isempty(Namespace)) | sort by TimeGenerated desc | take 50",
         "pod_logs": "ContainerLogV2 | where PodNamespace == 'default' | where PodName startswith 'fastapi-hello'",
@@ -10,6 +13,7 @@ def build_kql_queries() -> dict[str, str]:
 
 
 def build_alert_targets() -> list[str]:
+    """Build alert targets."""
     return [
         "deployment_available_replicas",
         "pod_restart_spike",

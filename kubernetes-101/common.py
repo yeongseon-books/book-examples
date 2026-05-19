@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Kubernetes 101."""
+
 from __future__ import annotations
 
 import base64
@@ -10,13 +12,17 @@ import yaml
 
 
 class ManifestParser:
+    """Manifest parser."""
+
     def parse(self, content: str) -> list[dict[str, Any]]:
+        """Parse."""
         docs = [d for d in yaml.safe_load_all(content) if d]
         if not isinstance(docs, list):
             return []
         return docs
 
     def extract(self, content: str) -> list[dict[str, Any]]:
+        """Extract."""
         result: list[dict[str, Any]] = []
         for doc in self.parse(content):
             if not isinstance(doc, dict):
@@ -32,7 +38,10 @@ class ManifestParser:
 
 
 class PodValidator:
+    """Pod validator."""
+
     def validate(self, pod: dict[str, Any]) -> list[str]:
+        """Validate."""
         errors: list[str] = []
         if pod.get("kind") != "Pod":
             errors.append("kind must be Pod")
@@ -60,7 +69,10 @@ class PodValidator:
 
 
 class DeploymentSimulator:
+    """Deployment simulator."""
+
     def rollout(self, deployment: dict[str, Any]) -> dict[str, Any]:
+        """Rollout."""
         spec = deployment.get("spec", {})
         replicas = int(spec.get("replicas", 1))
         strategy = spec.get("strategy", {}).get("rollingUpdate", {})
@@ -77,12 +89,16 @@ class DeploymentSimulator:
 
 
 class ServiceResolver:
+    """Service resolver."""
+
     def resolve_type(self, service: dict[str, Any]) -> str:
+        """Resolve type."""
         return service.get("spec", {}).get("type", "ClusterIP")
 
     def match_pods(
         self, service: dict[str, Any], pods: list[dict[str, Any]]
     ) -> list[dict[str, Any]]:
+        """Match pods."""
         selector = service.get("spec", {}).get("selector", {})
         matched: list[dict[str, Any]] = []
         for pod in pods:
@@ -93,7 +109,10 @@ class ServiceResolver:
 
 
 class IngressRouter:
+    """Ingress router."""
+
     def route(self, ingress: dict[str, Any], host: str, path: str) -> str | None:
+        """Route."""
         rules = ingress.get("spec", {}).get("rules", [])
         for rule in rules:
             if rule.get("host") != host:
@@ -113,12 +132,15 @@ class IngressRouter:
 
 
 class ConfigMapSecretLoader:
+    """Config map secret loader."""
+
     def load_env(
         self,
         pod: dict[str, Any],
         configmaps: dict[str, dict[str, str]],
         secrets: dict[str, dict[str, str]],
     ) -> dict[str, str]:
+        """Load env."""
         env: dict[str, str] = {}
         c = pod.get("spec", {}).get("containers", [{}])[0]
         for item in c.get("envFrom", []):
@@ -131,6 +153,7 @@ class ConfigMapSecretLoader:
         return env
 
     def decode_secret(self, secret: dict[str, Any]) -> dict[str, str]:
+        """Decode secret."""
         decoded: dict[str, str] = {}
         for k, v in secret.get("data", {}).items():
             decoded[k] = base64.b64decode(v).decode("utf-8")
@@ -138,7 +161,10 @@ class ConfigMapSecretLoader:
 
 
 class VolumeBinder:
+    """Volume binder."""
+
     def bind(self, pvs: list[dict[str, Any]], pvc: dict[str, Any]) -> str | None:
+        """Bind."""
         req = (
             pvc.get("spec", {})
             .get("resources", {})
@@ -163,6 +189,8 @@ class VolumeBinder:
 
 
 class HPAController:
+    """HPA controller."""
+
     def desired_replicas(
         self,
         current_replicas: int,
@@ -171,6 +199,7 @@ class HPAController:
         min_replicas: int,
         max_replicas: int,
     ) -> int:
+        """Desired replicas."""
         if target_cpu <= 0:
             return current_replicas
         desired = int((current_replicas * current_cpu + target_cpu - 1) / target_cpu)
@@ -178,10 +207,15 @@ class HPAController:
 
 
 class HelmTemplater:
+    """Helm templater."""
+
     pattern = re.compile(r"{{\s*\.Values\.([a-zA-Z0-9_.]+)\s*}}")
 
     def render(self, template: str, values: dict[str, Any]) -> str:
+        """Render."""
+
         def lookup(key: str) -> str:
+            """Lookup."""
             cur: Any = values
             for part in key.split("."):
                 if isinstance(cur, dict):
@@ -195,17 +229,22 @@ class HelmTemplater:
 
 @dataclass
 class ClusterStateSimulator:
+    """Cluster state simulator."""
+
     objects: dict[tuple[str, str], dict[str, Any]]
 
     def __init__(self) -> None:
         self.objects = {}
 
     def apply(self, manifest: dict[str, Any]) -> None:
+        """Apply."""
         key = (manifest.get("kind", ""), manifest.get("metadata", {}).get("name", ""))
         self.objects[key] = copy.deepcopy(manifest)
 
     def delete(self, kind: str, name: str) -> None:
+        """Delete."""
         self.objects.pop((kind, name), None)
 
     def get(self, kind: str, name: str) -> dict[str, Any] | None:
+        """Get."""
         return self.objects.get((kind, name))

@@ -1,7 +1,10 @@
+"""Tests for ep03 in Testing 101."""
+
 from ko.ep03_integration_test import NameValidator, UserRepository, UserService
 
 
 def test_ep03_integration_register_persists_user(in_memory_db):
+    """Test ep03 integration register persists user."""
     service = UserService(UserRepository(in_memory_db), NameValidator())
     ok = service.register(1, "Alice")
     assert ok is True

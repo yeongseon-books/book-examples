@@ -1,8 +1,11 @@
+"""Tests for 02 propositions and logic in Discrete Math 101."""
+
 import importlib.util
 from pathlib import Path
 
 
 def load(p):
+    """Load."""
     s = importlib.util.spec_from_file_location("m", p)
     m = importlib.util.module_from_spec(s)
     s.loader.exec_module(m)
@@ -10,6 +13,7 @@ def load(p):
 
 
 def test_truth_table_and_tautology():
+    """Test truth table and tautology."""
     m = load(Path("ko/02-propositions-and-logic.py"))
     rows = [m.evaluate(p, q) for p in [False, True] for q in [False, True]]
     assert rows == [False, False, True, False]

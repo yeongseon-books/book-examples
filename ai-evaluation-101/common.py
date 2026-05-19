@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Ai Evaluation 101."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -7,13 +9,18 @@ from statistics import mean, stdev
 
 @dataclass(frozen=True)
 class EvalExample:
+    """Eval example."""
+
     case_id: str
     prompt: str
     reference: str
 
 
 class MockLLMJudge:
+    """Mock l l m judge."""
+
     def score_pair(self, prompt: str, answer_a: str, answer_b: str) -> str:
+        """Score pair."""
         a = self._score_text(prompt, answer_a)
         b = self._score_text(prompt, answer_b)
         if a == b:
@@ -21,6 +28,7 @@ class MockLLMJudge:
         return "A" if a > b else "B"
 
     def rubric_score(self, prompt: str, answer: str) -> dict[str, int]:
+        """Rubric score."""
         lowered = answer.lower()
         correctness = (
             5
@@ -38,6 +46,7 @@ class MockLLMJudge:
         }
 
     def _score_text(self, prompt: str, answer: str) -> int:
+        """Score text."""
         prompt_words = set(_tokens(prompt))
         overlap = len(prompt_words.intersection(_tokens(answer)))
         bonus = (
@@ -52,15 +61,18 @@ class MockLLMJudge:
 
 
 def _tokens(text: str) -> list[str]:
+    """Tokens."""
     cleaned = "".join(ch.lower() if ch.isalnum() else " " for ch in text)
     return [t for t in cleaned.split() if t]
 
 
 def exact_match(prediction: str, reference: str) -> int:
+    """Exact match."""
     return int(prediction.strip().lower() == reference.strip().lower())
 
 
 def bleu1_like(prediction: str, reference: str) -> float:
+    """Bleu1 like."""
     p = _tokens(prediction)
     r = _tokens(reference)
     if not p or not r:
@@ -70,6 +82,7 @@ def bleu1_like(prediction: str, reference: str) -> float:
 
 
 def rouge_l_like(prediction: str, reference: str) -> float:
+    """Rouge l like."""
     p = _tokens(prediction)
     r = _tokens(reference)
     if not p or not r:
@@ -79,6 +92,7 @@ def rouge_l_like(prediction: str, reference: str) -> float:
 
 
 def _lcs_length(a: list[str], b: list[str]) -> int:
+    """Lcs length."""
     dp = [[0 for _ in range(len(b) + 1)] for _ in range(len(a) + 1)]
     for i in range(1, len(a) + 1):
         for j in range(1, len(b) + 1):
@@ -90,6 +104,7 @@ def _lcs_length(a: list[str], b: list[str]) -> int:
 
 
 def precision_at_k(retrieved: list[str], relevant: set[str], k: int) -> float:
+    """Precision at k."""
     sliced = retrieved[:k]
     if not sliced:
         return 0.0
@@ -97,6 +112,7 @@ def precision_at_k(retrieved: list[str], relevant: set[str], k: int) -> float:
 
 
 def recall_at_k(retrieved: list[str], relevant: set[str], k: int) -> float:
+    """Recall at k."""
     if not relevant:
         return 0.0
     sliced = retrieved[:k]
@@ -104,6 +120,7 @@ def recall_at_k(retrieved: list[str], relevant: set[str], k: int) -> float:
 
 
 def welch_t_test(sample_a: list[float], sample_b: list[float]) -> tuple[float, float]:
+    """Welch t test."""
     if len(sample_a) < 2 or len(sample_b) < 2:
         raise ValueError("each sample must have at least two values")
     mean_a = mean(sample_a)
@@ -120,4 +137,5 @@ def welch_t_test(sample_a: list[float], sample_b: list[float]) -> tuple[float, f
 
 
 def _normal_cdf(x: float) -> float:
+    """Normal cdf."""
     return 0.5 * (1 + erf(x / sqrt(2)))

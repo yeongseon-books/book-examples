@@ -1,11 +1,15 @@
+"""Python 101 - Episode 7: Modules packages."""
+
 from en.mymath import add, sub
 
 
 def compute_pair(x: int, y: int) -> tuple[int, int]:
+    """Compute pair."""
     return add(x, y), sub(x, y)
 
 
 def main() -> None:
+    """Main."""
     plus, minus = compute_pair(7, 3)
     print("sum:", plus)
     print("difference:", minus)

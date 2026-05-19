@@ -1,3 +1,5 @@
+"""Azure Aca 101 - Episode 1: Revision model."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import mock_revision_weights
 
 
 def classify_change(change: str) -> str:
+    """Classify change."""
     revision_changes = {"image", "env", "secret", "cpu", "memory", "scale", "dapr"}
     if change in revision_changes:
         return "new_revision"
@@ -16,6 +19,7 @@ def classify_change(change: str) -> str:
 
 
 def run() -> dict[str, object]:
+    """Run."""
     return {
         "image": classify_change("image"),
         "traffic": classify_change("traffic"),

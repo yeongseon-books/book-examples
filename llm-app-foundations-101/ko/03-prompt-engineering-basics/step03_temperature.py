@@ -14,6 +14,7 @@ from groq import Groq
 
 
 def main() -> None:
+    """Main."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     prompt = "FastAPI를 처음 배우는 개발자에게 세 문장으로 소개해 주세요."
 

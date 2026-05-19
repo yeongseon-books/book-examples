@@ -1,7 +1,10 @@
+"""Incident Response 101 - Episode 1: Example."""
+
 from common import RCAFramework
 
 
 def run() -> dict[str, object]:
+    """Run."""
     rca = RCAFramework()
     whys = rca.five_whys(
         "checkout timeout",

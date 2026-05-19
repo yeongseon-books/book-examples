@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 2: Runnable map."""
+
 import os
 from typing import Any, cast
 
@@ -8,6 +10,7 @@ from langchain_groq import ChatGroq
 
 
 def build_chain():
+    """Build chain."""
     prompt = ChatPromptTemplate.from_template(
         "주제: {topic}\n난이도: {level}\n위 정보를 바탕으로 학습 계획을 2단계로 작성해 주세요."
     )

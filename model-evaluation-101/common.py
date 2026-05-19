@@ -1,3 +1,5 @@
+"""Shared utilities and domain models for Model Evaluation 101."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -22,6 +24,7 @@ def make_imbalanced(
     class_sep: float = 1.0,
     random_state: int = 42,
 ) -> tuple[Any, Any]:
+    """Make imbalanced."""
     X, y = make_classification(
         n_samples=n_samples,
         n_features=8,
@@ -40,6 +43,7 @@ def safe_split(
     y: np.ndarray,
     random_state: int = 42,
 ) -> tuple[Any, Any, Any, Any, Any, Any]:
+    """Safe split."""
     X_train, X_rest, y_train, y_rest = train_test_split(
         X,
         y,
@@ -62,6 +66,7 @@ def compute_pr_at_threshold(
     y_prob: np.ndarray,
     threshold: float,
 ) -> dict[str, float]:
+    """Compute pr at threshold."""
     y_pred = (y_prob >= threshold).astype(int)
     return {
         "precision": float(precision_score(y_true, y_pred)),
@@ -70,6 +75,7 @@ def compute_pr_at_threshold(
 
 
 def print_confusion(y_true: np.ndarray, y_pred: np.ndarray) -> str:
+    """Print confusion."""
     cm = confusion_matrix(y_true, y_pred)
     tn, fp, fn, tp = cm.ravel()
     return f"TN={tn} FP={fp} FN={fn} TP={tp}"
@@ -81,6 +87,7 @@ def evaluation_report(
     y: np.ndarray,
     threshold: float = 0.5,
 ) -> dict[str, Any]:
+    """Evaluation report."""
     prob = model.predict_proba(X)[:, 1]
     pred = (prob >= threshold).astype(int)
     cm = confusion_matrix(y, pred)

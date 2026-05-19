@@ -1,7 +1,10 @@
+"""Tests for 02 relational model in Database Systems 101."""
+
 from conftest import load_ko_module
 
 
 def test_join_matches_sqlite_result():
+    """Test join matches sqlite result."""
     m = load_ko_module("02-relational-model.py")
     users = m.Relation(("id", "name"), frozenset({(1, "Alice"), (2, "Bob")}))
     orders = m.Relation(

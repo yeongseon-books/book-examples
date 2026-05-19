@@ -1,3 +1,5 @@
+"""Tests for ep10 in Algorithms 101."""
+
 from collections.abc import Callable
 from typing import cast
 
@@ -15,6 +17,7 @@ en_max_subarray = cast("Callable[[list[int]], int]", en.max_subarray)
 
 
 def test_ep10_kadane() -> None:
+    """Test ep10 kadane."""
     sample = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
     assert ko_max_subarray(sample) == 6
     assert en_max_subarray(sample) == 6

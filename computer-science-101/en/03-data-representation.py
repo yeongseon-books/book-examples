@@ -4,14 +4,17 @@ import math
 
 
 def int_to_binary(n: int) -> str:
+    """Int to binary."""
     return format(n, "b")
 
 
 def utf8_bytes(text: str) -> list[int]:
+    """Utf8 bytes."""
     return list(text.encode("utf-8"))
 
 
 def float_sum_issue() -> tuple[float, bool]:
+    """Float sum issue."""
     value = 0.1 + 0.2
     return value, math.isclose(value, 0.3)
 

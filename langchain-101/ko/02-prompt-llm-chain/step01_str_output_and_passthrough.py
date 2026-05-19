@@ -1,3 +1,5 @@
+"""Langchain 101 - Episode 1: Str output and passthrough."""
+
 import os
 from typing import Any, cast
 
@@ -8,6 +10,7 @@ from langchain_groq import ChatGroq
 
 
 def build_chain():
+    """Build chain."""
     prompt = ChatPromptTemplate.from_template(
         "주제: {topic}\n학습 목적: {goal}\n한 문단으로 실전 조언을 작성해 주세요."
     )

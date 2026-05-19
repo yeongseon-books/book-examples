@@ -1,3 +1,5 @@
+"""Ai Web Dev 101 - Episode 1: First call."""
+
 from __future__ import annotations
 
 import sys
@@ -10,6 +12,7 @@ from common import MockLLM
 
 
 def first_ai_call(user_prompt: str) -> dict[str, object]:
+    """First ai call."""
     llm = MockLLM()
     response = llm.chat(
         system="너는 친절한 번역가입니다.", user=user_prompt, temperature=0.2

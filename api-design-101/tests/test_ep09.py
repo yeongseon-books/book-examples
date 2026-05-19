@@ -1,9 +1,12 @@
+"""Tests for ep09 in Api Design 101."""
+
 from __future__ import annotations
 
 from .helpers import client_for, load_module
 
 
 def test_ep09_versioning_headers() -> None:
+    """Test ep09 versioning headers."""
     mod = load_module("ko/09-api-versioning/step01_versioning_strategy.py", "ep09_ko")
     app = mod.build_app()
     c = client_for(app)

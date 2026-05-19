@@ -1,3 +1,5 @@
+"""Ai Safety Guardrails 101 - Episode 1: Output filter pipeline."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import filter_output
 
 
 def run(raw_output: str) -> str:
+    """Run."""
     return filter_output(raw_output, max_chars=80)
 
 

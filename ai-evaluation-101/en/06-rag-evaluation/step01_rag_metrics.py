@@ -1,3 +1,5 @@
+"""Ai Evaluation 101 - Episode 1: Rag metrics."""
+
 import sys
 from pathlib import Path
 
@@ -7,6 +9,7 @@ from common import precision_at_k, recall_at_k
 
 
 def run() -> dict[str, float]:
+    """Run."""
     retrieved = ["doc_rag_intro", "doc_vector_db", "doc_unrelated"]
     relevant = {"doc_rag_intro", "doc_vector_db"}
     answer = "RAG combines retrieval and generation."
