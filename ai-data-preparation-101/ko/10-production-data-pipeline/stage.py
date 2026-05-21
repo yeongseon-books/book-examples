@@ -3,21 +3,21 @@
 import pandas as pd
 from datetime import datetime
 
-# Stage 1: Ingest
+# 1단계: Ingest
 def stage_ingest(sources: list[str]) -> pd.DataFrame:
     dfs = [pd.read_json(s, lines=True) for s in sources]
     df = pd.concat(dfs, ignore_index=True)
     df["ingested_at"] = datetime.utcnow()
     return df
 
-# Stage 2: Clean + Dedup (Ep3)
+# 2단계: Clean + Dedup (Ep3)
 def stage_clean(df: pd.DataFrame) -> pd.DataFrame:
     df["text"] = df["text"].str.strip().str.replace(r"\s+", " ", regex=True)
     df = df[df["text"].str.len() >= 50]
     df = df.drop_duplicates(subset=["text"])
     return df
 
-# Stage 3: PII (Ep4)
+# 3단계: PII (Ep4)
 from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine
 
@@ -31,14 +31,14 @@ def stage_pii(df: pd.DataFrame) -> pd.DataFrame:
     df["text"] = df["text"].map(redact)
     return df
 
-# Stage 4: Quality (Ep6)
+# 4단계: Quality (Ep6)
 def stage_quality(df: pd.DataFrame) -> pd.DataFrame:
     def passes(t: str) -> bool:
         words = t.split()
         return 50 <= len(words) <= 100_000
     return df[df["text"].map(passes)]
 
-# Stage 5: Tokenize/Chunk (Ep5)
+# 5단계: Tokenize/Chunk (Ep5)
 def stage_chunk(df: pd.DataFrame, max_tokens: int = 500) -> pd.DataFrame:
     rows = []
     for _, r in df.iterrows():
@@ -48,7 +48,7 @@ def stage_chunk(df: pd.DataFrame, max_tokens: int = 500) -> pd.DataFrame:
             rows.append({**r.to_dict(), "chunk_id": i, "text": c})
     return pd.DataFrame(rows)
 
-# Stage 6: Split + Version (Ep9)
+# 6단계: Split + Version (Ep9)
 def stage_split(df: pd.DataFrame, time_col: str = "ingested_at") -> dict:
     df = df.sort_values(time_col)
     n = len(df)

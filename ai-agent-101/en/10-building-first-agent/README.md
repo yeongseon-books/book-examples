@@ -28,7 +28,7 @@ Example code for Ai Agent 101 series, episode 10.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-building-first-agent/Dockerfile
+python en/10-building-first-agent/fastapi_wrapper.py
 ```
 
 ## Related Article

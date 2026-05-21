@@ -29,7 +29,7 @@ Api Design 101 시리즈 7편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-error-response-design/before_after.json
+python ko/07-error-response-design/snippet.py
 ```
 
 ## 관련 글

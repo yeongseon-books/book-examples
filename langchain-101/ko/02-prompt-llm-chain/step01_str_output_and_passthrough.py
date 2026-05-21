@@ -40,6 +40,6 @@ if __name__ == "__main__":
 
 
 # Expected output:
-# Step 1: Understand the concept
-# Step 2: Apply it to a real problem
+# 1단계: Understand the concept
+# 2단계: Apply it to a real problem
 # (Parsed as plain string via StrOutputParser)

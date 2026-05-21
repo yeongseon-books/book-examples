@@ -31,7 +31,7 @@ Frontend Development 101 시리즈 9편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-build-tools-and-bundling/before_after.html
+python ko/09-build-tools-and-bundling/step01_ep09.py
 ```
 
 ## 관련 글

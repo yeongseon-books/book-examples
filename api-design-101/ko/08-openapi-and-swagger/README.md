@@ -30,7 +30,7 @@ Api Design 101 시리즈 8편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-openapi-and-swagger/1_examples.yaml
+python ko/08-openapi-and-swagger/code_first.py
 ```
 
 ## 관련 글

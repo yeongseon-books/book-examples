@@ -26,7 +26,7 @@ Example code for Frontend Development 101 series, episode 3.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/03-javascript-basics/before_after.js
+python en/03-javascript-basics/step01_ep03.py
 ```
 
 ## Related Article

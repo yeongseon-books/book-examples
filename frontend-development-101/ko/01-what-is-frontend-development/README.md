@@ -31,7 +31,7 @@ Frontend Development 101 시리즈 1편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-what-is-frontend-development/1_index_html.html
+python ko/01-what-is-frontend-development/step01_ep01.py
 ```
 
 ## 관련 글

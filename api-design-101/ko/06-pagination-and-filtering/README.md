@@ -27,7 +27,7 @@ Api Design 101 시리즈 6편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-pagination-and-filtering/cursor.json
+python ko/06-pagination-and-filtering/cursor.py
 ```
 
 ## 관련 글

@@ -8,5 +8,5 @@ class TextSchema(pa.DataFrameModel):
     source: Series[str]
     ingested_at: Series["datetime64[ns]"]
 
-# Validate at every stage entry
+# 각 단계 진입 시 검증
 TextSchema.validate(df)

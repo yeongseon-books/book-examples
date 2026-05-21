@@ -24,7 +24,7 @@ Example code for Kubernetes 101 series, episode 10.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-kubernetes-in-operation/ops.yaml
+python en/10-kubernetes-in-operation/step01.py
 ```
 
 ## Related Article

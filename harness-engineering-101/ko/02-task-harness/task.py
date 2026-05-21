@@ -31,6 +31,6 @@ task = VerifiableTask(
     verifier=verify_report,
 )
 
-# Verify the agent's output
+# 검증: the agent's output
 result = {"summary": "...", "metrics": {}, "anomalies": [], "next_actions": []}
 assert task.verify(result)

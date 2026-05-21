@@ -28,7 +28,7 @@ Github Actions 101 시리즈 10편 예제 코드입니다.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-real-world-cicd-pipeline/3_main_staging.yaml
+python ko/10-real-world-cicd-pipeline/step01_demo.py
 ```
 
 ## 관련 글

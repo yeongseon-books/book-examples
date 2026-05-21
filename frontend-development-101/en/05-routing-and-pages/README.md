@@ -21,7 +21,7 @@ Example code for Frontend Development 101 series, episode 5.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/05-routing-and-pages/example.css
+python en/05-routing-and-pages/step01_ep05.py
 ```
 
 ## Related Article

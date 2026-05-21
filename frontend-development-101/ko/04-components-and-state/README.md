@@ -30,7 +30,7 @@ Frontend Development 101 시리즈 4편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-components-and-state/before_after.html
+python ko/04-components-and-state/step01_ep04.py
 ```
 
 ## 관련 글

@@ -22,7 +22,7 @@ Example code for Frontend Development 101 series, episode 7.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/07-forms-and-validation/before_after.js
+python en/07-forms-and-validation/step01_ep07.py
 ```
 
 ## Related Article

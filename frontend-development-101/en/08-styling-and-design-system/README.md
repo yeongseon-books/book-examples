@@ -22,7 +22,7 @@ Example code for Frontend Development 101 series, episode 8.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/08-styling-and-design-system/example.css
+python en/08-styling-and-design-system/step01_ep08.py
 ```
 
 ## Related Article

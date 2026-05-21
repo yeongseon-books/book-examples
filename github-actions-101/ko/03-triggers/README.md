@@ -29,7 +29,7 @@ Github Actions 101 시리즈 3편 예제 코드입니다.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-triggers/1_push_pr.yaml
+python ko/03-triggers/step01_demo.py
 ```
 
 ## 관련 글

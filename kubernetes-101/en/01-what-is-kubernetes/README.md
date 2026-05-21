@@ -24,7 +24,7 @@ Example code for Kubernetes 101 series, episode 1.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/01-what-is-kubernetes/pod.yaml
+python en/01-what-is-kubernetes/step01.py
 ```
 
 ## Related Article

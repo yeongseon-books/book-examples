@@ -31,7 +31,7 @@ def plan_and_execute_agent(user_query: str, tools: List[Dict]) -> str:
     for idx, step in enumerate(steps):
         print(f"[Step {idx + 1}] {step['description']}")
 
-        # Execute tool
+        # 도구 실행
         tool_result = execute_tool(step["tool"], step["params"])
         results.append({
             "step": idx + 1,

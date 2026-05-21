@@ -23,7 +23,7 @@ Example code for Kubernetes 101 series, episode 4.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/04-service/service.yaml
+python en/04-service/step01.py
 ```
 
 ## Related Article

@@ -24,7 +24,7 @@ Example code for Frontend Development 101 series, episode 6.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/06-api-calls-and-async/before_after.js
+python en/06-api-calls-and-async/step01_ep06.py
 ```
 
 ## Related Article

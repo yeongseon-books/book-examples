@@ -25,7 +25,7 @@ Harness Engineering 101 시리즈 6편 예제 코드입니다.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-test-harness/agent-tests.yml
+python ko/06-test-harness/agent_3.py
 ```
 
 ## 관련 글

@@ -26,7 +26,7 @@ Backend Development 101 시리즈 9편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-deploying-the-backend/Dockerfile
+python ko/09-deploying-the-backend/fastapi.py
 ```
 
 ## 관련 글

@@ -11,7 +11,7 @@ train = fetch_20newsgroups(subset="train", categories=categories)
 test = fetch_20newsgroups(subset="test", categories=categories)
 
 def clean(text: str) -> str:
-    # Strip headers, quotes, emails
+    # headers, quotes, emails 제거
     text = re.sub(r"^(From|Subject|Lines|Organization):.*$", "", text, flags=re.M)
     text = re.sub(r"^>.*$", "", text, flags=re.M)
     text = re.sub(r"\S+@\S+", "", text)

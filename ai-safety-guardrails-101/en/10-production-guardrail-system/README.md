@@ -23,7 +23,7 @@ Example code for Ai Safety Guardrails 101 series, episode 10.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-production-guardrail-system/example_audit_event_emitted_by_the_pipel.json
+python en/10-production-guardrail-system/fail_open_vs_fail_closed.py
 ```
 
 ## Related Article

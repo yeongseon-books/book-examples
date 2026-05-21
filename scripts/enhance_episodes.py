@@ -148,6 +148,27 @@ def extract_learning_goals(md_path: Path) -> list[str]:
     return goals[:5]
 
 
+def get_run_command(
+    files: list[str], lang_dir: str, episode_slug: str, ko: bool
+) -> str:
+    if not files:
+        default_target = f"{lang_dir}/{episode_slug}/step01.py"
+        return f"python {default_target}"
+
+    py_file = next((f for f in files if f.endswith(".py")), None)
+    if py_file:
+        return f"python {lang_dir}/{episode_slug}/{py_file}"
+
+    first_file = files[0]
+    target = f"{lang_dir}/{episode_slug}/{first_file}"
+    note = (
+        "# 설정/구성 파일입니다. 내용을 확인하세요."
+        if ko
+        else "# Configuration file. Review contents."
+    )
+    return f"cat {target}\n{note}"
+
+
 def generate_readme(manifest: EpisodeManifest, ko: bool = True) -> str:
     """Generate README.md content for an episode."""
     title = manifest.title_ko if ko else manifest.title_en
@@ -166,6 +187,8 @@ def generate_readme(manifest: EpisodeManifest, ko: bool = True) -> str:
         if ep_dir.exists()
         else []
     )
+
+    run_command = get_run_command(files, lang_dir, manifest.episode_slug, ko)
 
     if ko:
         content = f"""# {title}
@@ -202,7 +225,7 @@ def generate_readme(manifest: EpisodeManifest, ko: bool = True) -> str:
 cd {manifest.series}
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/{manifest.episode_slug}/{files[0] if files else "step01.py"}
+{run_command}
 ```
 
 ## 관련 글
@@ -242,7 +265,7 @@ Example code for {series_upper} series, episode {ep_num}.
 cd {manifest.series}
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/{manifest.episode_slug}/{files[0] if files else "step01.py"}
+{run_command}
 ```
 
 ## Related Article
@@ -265,7 +288,7 @@ def get_series_episodes(series: str) -> list[str]:
 
 def process_series(series: str, dry_run: bool = False) -> dict[str, Any]:
     """Process all episodes in a series."""
-    results = {"series": series, "episodes": [], "errors": []}
+    results: dict[str, Any] = {"series": series, "episodes": [], "errors": []}
     episodes = get_series_episodes(series)
 
     for ep_slug in episodes:

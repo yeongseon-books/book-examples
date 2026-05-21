@@ -8,5 +8,5 @@ for train_idx, test_idx in gss.split(df, groups=groups):
     train_df = df.iloc[train_idx]
     test_df = df.iloc[test_idx]
 
-# Verify: no shared user_id
+# 검증: no shared user_id
 assert set(train_df["user_id"]) & set(test_df["user_id"]) == set()

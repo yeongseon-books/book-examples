@@ -13,6 +13,6 @@ def execute_tool(tool_name: str, arguments: str) -> str:
 
     return json.dumps({"error": "Unknown tool"})
 
-# Execute tool
+# 도구 실행
 tool_call = response.choices[0].message.tool_calls[0]
 result = execute_tool(tool_call.function.name, tool_call.function.arguments)

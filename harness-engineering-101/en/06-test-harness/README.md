@@ -23,7 +23,7 @@ Example code for Harness Engineering 101 series, episode 6.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/06-test-harness/agent-tests.yml
+python en/06-test-harness/building_an_eval_dataset.py
 ```
 
 ## Related Article

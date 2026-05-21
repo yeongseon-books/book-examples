@@ -17,7 +17,7 @@ class GuardrailPipeline:
     def run(self, request: dict) -> dict:
         ctx = {"request_id": request["request_id"], "user_id": request["user_id"]}
 
-        # Pre-input
+        # 사전 입력
         for check in [self.rate_limit, self.detect_jailbreak, self.sanitize_input]:
             res = check(request)
             self.audit({**ctx, "stage": res.stage, "allowed": res.allowed, "reason": res.reason})

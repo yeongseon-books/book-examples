@@ -36,7 +36,7 @@ Frontend Development 101 시리즈 2편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-html-and-css-basics/1_semantic_structure.html
+python ko/02-html-and-css-basics/step01_ep02.py
 ```
 
 ## 관련 글

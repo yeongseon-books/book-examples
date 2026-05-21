@@ -29,7 +29,7 @@ Frontend Development 101 시리즈 5편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-routing-and-pages/css.css
+python ko/05-routing-and-pages/step01_ep05.py
 ```
 
 ## 관련 글

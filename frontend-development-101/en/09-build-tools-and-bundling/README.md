@@ -23,7 +23,7 @@ Example code for Frontend Development 101 series, episode 9.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/09-build-tools-and-bundling/before_after.html
+python en/09-build-tools-and-bundling/step01_ep09.py
 ```
 
 ## Related Article

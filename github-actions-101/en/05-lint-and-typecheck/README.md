@@ -22,7 +22,7 @@ Example code for Github Actions 101 series, episode 5.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/05-lint-and-typecheck/.pre-commit-config.yaml
+python en/05-lint-and-typecheck/step01_demo.py
 ```
 
 ## Related Article

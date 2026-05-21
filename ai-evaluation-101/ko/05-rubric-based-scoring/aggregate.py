@@ -4,7 +4,7 @@ def aggregate_weighted(scores: dict) -> tuple[float, str]:
                "clarity": 0.15, "tone": 0.15}
     weighted = sum(scores[k] * weights[k] for k in weights)
 
-    # Correctness < 3 is an automatic FAIL
+    # 올바른 방식: ness < 3 is an automatic FAIL
     if scores["correctness"] < 3:
         return weighted, "FAIL"
     if weighted >= 4.0:

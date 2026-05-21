@@ -37,7 +37,7 @@ def agent_with_tools(
             tool_name = tool_call.function.name
             tool_args = tool_call.function.arguments
 
-            # Execute tool
+            # 도구 실행
             result = execute_tool(tool_name, tool_args)
 
             # Add result to conversation

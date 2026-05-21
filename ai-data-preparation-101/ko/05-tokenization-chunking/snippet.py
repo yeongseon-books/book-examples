@@ -17,7 +17,7 @@ files = ["data/corpus_ko.txt", "data/corpus_en.txt"]
 tokenizer.train(files, trainer)
 tokenizer.save("custom-bpe-32k.json")
 
-# Use it
+# it 사용
 loaded = Tokenizer.from_file("custom-bpe-32k.json")
 ids = loaded.encode("Hello 안녕하세요").ids
 print(ids, "->", loaded.decode(ids))

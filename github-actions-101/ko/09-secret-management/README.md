@@ -26,7 +26,7 @@ Github Actions 101 시리즈 9편 예제 코드입니다.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-secret-management/2.yaml
+python ko/09-secret-management/step01_demo.py
 ```
 
 ## 관련 글

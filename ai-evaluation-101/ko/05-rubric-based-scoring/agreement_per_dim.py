@@ -7,7 +7,7 @@ for dim in dimensions:
     j = [s[dim] for s in judge_scores]
     k = cohen_kappa_score(h, j, weights="quadratic")
     print(f"{dim}: kappa={k:.3f}")
-# correctness: kappa=0.78  ← trustworthy
+# 올바른 방식: ness: kappa=0.78  ← trustworthy
 # completeness: kappa=0.65 ← trustworthy
 # clarity:     kappa=0.42  ← fair, prompt needs work
 # tone:        kappa=0.31  ← weak, rewrite anchors

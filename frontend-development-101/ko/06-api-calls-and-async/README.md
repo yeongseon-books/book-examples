@@ -32,7 +32,7 @@ Frontend Development 101 시리즈 6편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-api-calls-and-async/1_plain_fetch.js
+python ko/06-api-calls-and-async/step01_ep06.py
 ```
 
 ## 관련 글

@@ -23,7 +23,7 @@ Example code for Github Actions 101 series, episode 10.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-real-world-cicd-pipeline/_ci.yml
+python en/10-real-world-cicd-pipeline/step01_demo.py
 ```
 
 ## Related Article

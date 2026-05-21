@@ -24,7 +24,7 @@ Example code for Kubernetes 101 series, episode 9.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/09-helm/chart-template.yaml
+python en/09-helm/step01.py
 ```
 
 ## Related Article
