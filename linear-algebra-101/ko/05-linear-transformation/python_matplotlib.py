@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+
 
 def plot_transformation(T, title):
     """
@@ -10,12 +11,12 @@ def plot_transformation(T, title):
     # 단위 정사각형 꼭짓점
     square = np.array([[0, 1, 1, 0, 0],
                        [0, 0, 1, 1, 0]])
-    
+
     # 변환 적용
     transformed = T @ square
-    
+
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
-    
+
     # 원본
     ax1.plot(square[0], square[1], 'b-o', linewidth=2, markersize=8)
     ax1.set_xlim(-2, 2)
@@ -25,7 +26,7 @@ def plot_transformation(T, title):
     ax1.axhline(0, color='k', linewidth=0.5)
     ax1.axvline(0, color='k', linewidth=0.5)
     ax1.set_title('Original')
-    
+
     # 변환 후
     ax2.plot(transformed[0], transformed[1], 'r-o', linewidth=2, markersize=8)
     ax2.plot(square[0], square[1], 'b--', alpha=0.3, linewidth=1)
@@ -36,7 +37,7 @@ def plot_transformation(T, title):
     ax2.axhline(0, color='k', linewidth=0.5)
     ax2.axvline(0, color='k', linewidth=0.5)
     ax2.set_title(title)
-    
+
     plt.tight_layout()
     return fig
 

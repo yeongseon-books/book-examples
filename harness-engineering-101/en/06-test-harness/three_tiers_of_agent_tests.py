@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-import pytest
 from dataclasses import dataclass
+
+import pytest
+
 
 # 1. Unit test — tool schema
 def test_create_user_input_validation():

@@ -1,6 +1,7 @@
 # ab/significance.py
 from statsmodels.stats.proportion import proportions_ztest
 
+
 def is_significantly_better(wins_a: int, wins_b: int,
                               total: int, alpha: float = 0.05) -> dict:
     # Drop ties from the denominator; compare wins_a vs wins_b

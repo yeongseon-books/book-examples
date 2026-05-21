@@ -2,7 +2,9 @@
 
 import time
 import uuid
+
 from fastapi import Request
+
 
 @app.middleware('http')
 async def tracing_middleware(request: Request, call_next):

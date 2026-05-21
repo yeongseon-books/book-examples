@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 
+
 @dataclass
 class InjectionCheckResult:
     is_injection: bool

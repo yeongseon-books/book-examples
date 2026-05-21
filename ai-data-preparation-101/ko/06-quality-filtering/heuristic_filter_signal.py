@@ -3,6 +3,7 @@
 import re
 from dataclasses import dataclass
 
+
 @dataclass
 class QualitySignals:
     n_chars: int

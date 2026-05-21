@@ -1,9 +1,10 @@
 """Generated from book-content article."""
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
-import uuid
+
 
 @dataclass
 class Span:

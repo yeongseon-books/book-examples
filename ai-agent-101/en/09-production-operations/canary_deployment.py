@@ -2,6 +2,7 @@
 
 import random
 
+
 class CanaryRouter:
     """Route a fraction of traffic to a new version."""
 

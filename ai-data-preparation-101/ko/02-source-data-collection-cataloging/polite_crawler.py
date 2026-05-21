@@ -1,9 +1,11 @@
 """Generated from book-content article."""
 
-from urllib.robotparser import RobotFileParser
-from urllib.parse import urljoin
 import time
+from urllib.parse import urljoin
+from urllib.robotparser import RobotFileParser
+
 import requests
+
 
 class PoliteScraper:
     def __init__(self, base_url: str, user_agent: str, rps: float = 1.0):

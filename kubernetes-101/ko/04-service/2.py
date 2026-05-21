@@ -2,6 +2,7 @@
 
 import subprocess
 
+
 def apply_and_get(path):
     subprocess.run(["kubectl", "apply", "-f", path], check=True)
     return subprocess.run(

@@ -16,9 +16,9 @@ def inject_examples(task_type: str, base_prompt: str) -> str:
     examples = few_shot_examples.get(task_type, [])
     if not examples:
         return base_prompt
-    
+
     example_text = "\n\nExamples:\n"
     for i, ex in enumerate(examples, 1):
         example_text += f"Example {i}:\nInput: {ex['input']}\nOutput: {ex['output']}\n\n"
-    
+
     return base_prompt + example_text

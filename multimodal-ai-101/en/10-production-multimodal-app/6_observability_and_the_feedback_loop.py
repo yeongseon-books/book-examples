@@ -1,6 +1,6 @@
 """Generated from book-content article."""
 
-from prometheus_client import Histogram, Counter
+from prometheus_client import Counter, Histogram
 
 inference_latency = Histogram(
     "multimodal_inference_seconds", "End-to-end inference time",

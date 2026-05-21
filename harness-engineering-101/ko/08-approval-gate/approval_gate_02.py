@@ -5,6 +5,4 @@ def needs_approval(action_type: str, payload: dict, confidence: float) -> bool:
         return True
     if action_type == "refund" and payload.get("amount", 0) >= 1000:
         return True
-    if confidence < 0.7:
-        return True
-    return False
+    return confidence < 0.7

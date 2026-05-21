@@ -1,5 +1,6 @@
 # 3_cache.py
 from flask import Flask, jsonify
+
 app = Flask(__name__)
 
 @app.get("/articles/1")

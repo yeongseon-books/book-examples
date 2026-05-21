@@ -1,6 +1,7 @@
 # ab/sample_size.py
 import statsmodels.stats.power as smp
 
+
 def required_sample_size(p_a: float, p_b: float,
                           alpha: float = 0.05, power: float = 0.8) -> int:
     """Per-group sample size to detect a difference between two proportions."""

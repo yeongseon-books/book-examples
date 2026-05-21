@@ -3,6 +3,7 @@
 import math
 from collections import deque
 
+
 class AnomalyDetector:
     def __init__(self, window: int = 60):
         self.window = window

@@ -2,6 +2,7 @@
 
 import json
 
+
 def execute_tool(tool_name: str, arguments: str) -> str:
     """Execute the requested tool and return results."""
     params = json.loads(arguments)

@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 
+
 class LLaVAProjector(nn.Module):
     def __init__(self, vision_dim: int = 1024, llm_dim: int = 4096):
         super().__init__()

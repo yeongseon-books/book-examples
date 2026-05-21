@@ -5,7 +5,7 @@ def build_dynamic_context(user_query: str, user_id: str) -> str:
     # Retrieve user information
     user = get_user_profile(user_id)
     recent_orders = get_recent_orders(user_id, limit=3)
-    
+
     context = f"""
 User information:
 - Name: {user['name']}

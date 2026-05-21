@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 
+
 class QFormer(nn.Module):
     def __init__(self, num_queries: int = 32, vision_dim: int = 1408,
                  hidden_dim: int = 768, num_layers: int = 12):

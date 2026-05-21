@@ -2,13 +2,14 @@
 
 from typing import Optional
 
+
 def get_weather(location: str) -> dict:
     """Weather lookup (with validation)"""
     try:
         response = requests.get(f"https://api.weather.com/{location}", timeout=5)
         response.raise_for_status()
         data = response.json()
-        
+
         # Validate and standardize response
         return {
             "success": True,
@@ -19,7 +20,7 @@ def get_weather(location: str) -> dict:
                 "humidity": data.get("humidity", None)
             }
         }
-    
+
     except Exception as e:
         return {
             "success": False,

@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-import pandas as pd
 from collections import Counter
+
+import pandas as pd
+
 
 def quick_quality_report(df: pd.DataFrame, text_col: str) -> dict:
     texts = df[text_col].dropna().astype(str)

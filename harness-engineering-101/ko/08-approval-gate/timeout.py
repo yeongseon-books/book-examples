@@ -2,6 +2,7 @@
 
 from datetime import datetime
 
+
 def resolve_timeout(action_id: str, requested_at: datetime, now: datetime, timeout_sec: int = 600) -> dict:
     elapsed = (now - requested_at).total_seconds()
     if elapsed < timeout_sec:

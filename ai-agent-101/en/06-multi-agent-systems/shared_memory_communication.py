@@ -3,13 +3,14 @@
 from threading import RLock
 from typing import Any, Dict, List
 
+
 class SharedMemory:
     """Shared memory."""
 
     def __init__(self):
-        self.data: Dict[str, Any] = {}
+        self.data: dict[str, Any] = {}
         self.lock = RLock()
-        self.access_log: List[Dict] = []
+        self.access_log: list[dict] = []
 
     def write(self, key: str, value: Any, agent_name: str) -> None:
         """Write data."""
@@ -52,7 +53,7 @@ class SharedMemory:
                     "timestamp": datetime.now().isoformat()
                 })
 
-    def get_history(self, key: str = None) -> List[Dict]:
+    def get_history(self, key: str = None) -> list[dict]:
         """View access history."""
         with self.lock:
             if key:

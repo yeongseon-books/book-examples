@@ -2,6 +2,7 @@
 
 import re
 
+
 def mask_secrets(text: str) -> str:
     """Mask API keys and PII."""
     text = re.sub(r"sk-[a-zA-Z0-9]{20,}", "[REDACTED_API_KEY]", text)

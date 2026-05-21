@@ -1,7 +1,8 @@
 # tests/conftest.py
 import pytest
-from sqlalchemy import create_engine
 from db import Base
+from sqlalchemy import create_engine
+
 
 @pytest.fixture
 def engine():

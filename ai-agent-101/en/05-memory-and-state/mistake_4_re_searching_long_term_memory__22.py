@@ -5,7 +5,7 @@ class Agent:
         self.user_id = user_id
         # Load once on session start
         self.preferences = long_term_memory.retrieve(user_id)
-    
+
     def run(self, user_message):
         # Use already-loaded preferences
         context = build_context(self.preferences, user_message)

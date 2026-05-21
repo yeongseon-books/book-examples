@@ -3,6 +3,7 @@
 import math
 from collections import Counter
 
+
 def kl_divergence(p: dict[str, float], q: dict[str, float], eps: float = 1e-9) -> float:
     """KL(P || Q): how much P diverges from Q."""
     total = 0.0

@@ -1,11 +1,12 @@
 """Generated from book-content article."""
 
-from dataclasses import dataclass
 import math
+from dataclasses import dataclass
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
 
 @dataclass
 class GPTConfig:

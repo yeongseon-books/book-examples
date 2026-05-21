@@ -2,6 +2,7 @@
 
 from collections import deque
 
+
 def bfs_order(graph: dict[str, list[str]], start: str) -> list[str]:
     q = deque([start])
     seen = {start}

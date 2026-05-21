@@ -1,6 +1,8 @@
 # pip install kenlm
-import kenlm
 import math
+
+import kenlm
+
 
 class PerplexityFilter:
     def __init__(self, model_path: str, max_perplexity: float = 1000.0):

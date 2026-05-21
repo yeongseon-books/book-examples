@@ -2,5 +2,6 @@
 
 import subprocess
 
+
 def apply(path):
     subprocess.run(["kubectl", "apply", "-f", path], check=True)

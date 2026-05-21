@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
 from typing import Any
+
 from pydantic import BaseModel
+
 
 class TaskSpec(BaseModel):
     """Task Harness: clear inputs and completion criteria."""

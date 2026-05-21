@@ -11,7 +11,8 @@ def encode(s: str) -> list[int]:
         print(f"dropped unsupported characters: {dropped}")
     return [stoi[c] for c in s if c in stoi]
 
-decode = lambda ids: "".join(itos[i] for i in ids)
+def decode(ids):
+    return "".join(itos[i] for i in ids)
 
 ids = encode(text)
 print(ids)

@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-import requests
 from typing import Any
+
+import requests
+
 
 class ToolExecutionError(Exception):
     """Tool execution failed."""

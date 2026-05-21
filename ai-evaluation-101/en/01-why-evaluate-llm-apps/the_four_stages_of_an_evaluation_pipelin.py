@@ -5,7 +5,7 @@ def run_evaluation(eval_set: list[dict], system_under_test) -> dict:
     predictions = [system_under_test(ex["input"]) for ex in eval_set]
 
     # 2. Score — score each response
-    scores = [score_one(ex, pred) for ex, pred in zip(eval_set, predictions)]
+    scores = [score_one(ex, pred) for ex, pred in zip(eval_set, predictions, strict=False)]
 
     # 3. Aggregate — roll up the scores
     summary = {

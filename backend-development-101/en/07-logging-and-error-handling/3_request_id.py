@@ -1,6 +1,8 @@
 # 3_request_id.py
+import logging
+import uuid
+
 from fastapi import FastAPI, Request
-import uuid, logging
 
 app = FastAPI()
 log = logging.getLogger("app")

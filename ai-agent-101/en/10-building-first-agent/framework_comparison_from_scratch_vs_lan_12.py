@@ -1,6 +1,6 @@
 """Generated from book-content article."""
 
-from crewai import Agent, Task, Crew
+from crewai import Agent, Crew, Task
 
 researcher = Agent(
     role="Researcher",

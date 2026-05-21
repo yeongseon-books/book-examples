@@ -2,6 +2,7 @@
 
 from itertools import product
 
+
 def imply(p: bool, q: bool) -> bool:
     return (not p) or q
 

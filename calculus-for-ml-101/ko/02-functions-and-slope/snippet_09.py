@@ -2,6 +2,7 @@
 
 import time
 
+
 def measure(fn, *args, repeat=3):
     best = float('inf')
     for _ in range(repeat):

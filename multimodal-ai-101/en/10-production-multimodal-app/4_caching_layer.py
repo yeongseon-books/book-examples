@@ -1,6 +1,7 @@
 """Generated from book-content article."""
 
 import hashlib
+
 import redis.asyncio as redis
 
 r = redis.from_url("redis://cache:6379")

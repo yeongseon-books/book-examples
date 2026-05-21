@@ -2,15 +2,16 @@
 
 import json
 
+
 def execute_tool(tool_name: str, arguments: str) -> str:
     """Execute the requested tool and return results."""
     params = json.loads(arguments)
-    
+
     if tool_name == "get_weather":
         # Call actual weather API
         weather_data = get_weather_api(params["location"])
         return json.dumps(weather_data)
-    
+
     return json.dumps({"error": "Unknown tool"})
 
 # Execute tool

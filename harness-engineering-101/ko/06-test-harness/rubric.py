@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 
+
 @dataclass
 class Rubric:
     """A bundle of scoring criteria."""

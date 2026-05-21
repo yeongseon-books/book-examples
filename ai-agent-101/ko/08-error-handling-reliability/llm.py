@@ -3,6 +3,7 @@
 import json
 from typing import Optional
 
+
 class LLMResponseError(Exception):
     """LLM response error."""
     pass

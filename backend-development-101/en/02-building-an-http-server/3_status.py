@@ -1,5 +1,6 @@
 # 3_status.py
 from fastapi import FastAPI, HTTPException
+
 app = FastAPI()
 
 @app.get("/items/{i}")

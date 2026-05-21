@@ -1,6 +1,7 @@
 # rag/context_recall.py
-from openai import OpenAI
 import json
+
+from openai import OpenAI
 
 client = OpenAI()
 

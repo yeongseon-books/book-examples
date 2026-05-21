@@ -2,6 +2,7 @@
 
 from pydantic import BaseModel, ValidationError
 
+
 class ReportResult(BaseModel):
     title: str
     summary: str

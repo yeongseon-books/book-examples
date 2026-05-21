@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
+import hashlib
 import json
 from pathlib import Path
-import hashlib
+
 
 def assert_snapshot(name: str, actual: dict, snapshot_dir: Path = Path("tests/snapshots")):
     """Compare against a saved snapshot."""

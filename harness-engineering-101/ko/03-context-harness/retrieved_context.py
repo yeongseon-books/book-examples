@@ -2,6 +2,7 @@
 
 from typing import Protocol
 
+
 class Retriever(Protocol):
     def search(self, query: str, top_k: int) -> list[dict]: ...
 

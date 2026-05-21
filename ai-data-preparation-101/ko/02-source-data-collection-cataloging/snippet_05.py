@@ -2,6 +2,7 @@
 
 import sqlite3
 
+
 def init_catalog(db_path: str = "catalog.db"):
     conn = sqlite3.connect(db_path)
     conn.executescript("""

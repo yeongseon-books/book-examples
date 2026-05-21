@@ -3,6 +3,7 @@
 import time
 from dataclasses import dataclass, field
 
+
 @dataclass
 class ResourceMeter:
     """Tracks resource use and enforces caps."""

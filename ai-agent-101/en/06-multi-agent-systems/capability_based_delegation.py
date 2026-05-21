@@ -2,6 +2,7 @@
 
 from typing import Set
 
+
 class CapabilityRegistry:
     """Capability registry."""
 
@@ -14,7 +15,7 @@ class CapabilityRegistry:
 
     def find_best_agent(
         self,
-        required_capabilities: Set[str],
+        required_capabilities: set[str],
         min_proficiency: float = 0.5
     ) -> Optional[str]:
         """Find the agent best matching the required capabilities."""

@@ -12,9 +12,9 @@ class HybridIndex:
         d_clip, i_clip = self.clip.search(self._clip_q(query), k=k * 3)
         d_text, i_text = self.text.search(self._text_q(query), k=k * 3)
         scores: dict[int, float] = {}
-        for d, i in zip(d_clip[0], i_clip[0]):
+        for d, i in zip(d_clip[0], i_clip[0], strict=False):
             scores[i] = scores.get(i, 0) + alpha * float(d)
-        for d, i in zip(d_text[0], i_text[0]):
+        for d, i in zip(d_text[0], i_text[0], strict=False):
             scores[i] = scores.get(i, 0) + (1 - alpha) * float(d)
         ranked = sorted(scores.items(), key=lambda x: -x[1])[:k]
         return [self.items[i] for i, _ in ranked]

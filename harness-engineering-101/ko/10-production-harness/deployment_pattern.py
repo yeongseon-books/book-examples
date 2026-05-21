@@ -14,6 +14,4 @@ class CanaryDeployer:
             return False
         if candidate_metrics.p95_latency_ms > baseline_metrics.p95_latency_ms * 1.2:
             return False
-        if candidate_metrics.avg_cost_usd > baseline_metrics.avg_cost_usd * 1.5:
-            return False
-        return True
+        return not candidate_metrics.avg_cost_usd > baseline_metrics.avg_cost_usd * 1.5

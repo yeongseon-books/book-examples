@@ -3,10 +3,10 @@
 def agent_loop(user_query: str) -> str:
     """Agent loop (result checked)"""
     decision = llm.decide_next_action(user_query)
-    
+
     if decision["action"] == "use_tool":
         tool_result = execute_tool(decision["tool"], decision["params"])
-        
+
         # Check result
         if tool_result["success"]:
             # Success: pass result to LLM for final answer

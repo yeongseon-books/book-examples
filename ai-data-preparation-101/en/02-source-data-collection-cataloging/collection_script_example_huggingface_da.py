@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-from datasets import load_dataset
 from datetime import datetime, timezone
+
+from datasets import load_dataset
 
 ds = load_dataset("ag_news", split="train")
 ds.to_csv("./data/raw/ag_news_train.csv")

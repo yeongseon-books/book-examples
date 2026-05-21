@@ -16,5 +16,5 @@ with torch.no_grad():
     out = model(**inputs)
 
 probs = out.logits_per_image.softmax(dim=-1)[0]
-for label, p in zip(labels, probs):
+for label, p in zip(labels, probs, strict=False):
     print(f"{label:>10}: {p:.3f}")

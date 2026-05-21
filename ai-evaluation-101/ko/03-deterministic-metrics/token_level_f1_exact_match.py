@@ -2,6 +2,7 @@
 
 from collections import Counter
 
+
 def token_f1(pred: str, expected: str) -> float:
     pred_tokens = Counter(pred.lower().split())
     exp_tokens = Counter(expected.lower().split())

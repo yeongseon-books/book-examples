@@ -1,7 +1,7 @@
 """Generated from book-content article."""
 
-from sklearn.metrics import precision_recall_curve, average_precision_score
 import matplotlib.pyplot as plt
+from sklearn.metrics import average_precision_score, precision_recall_curve
 
 precision, recall, th = precision_recall_curve(y_true, y_score)
 ap = average_precision_score(y_true, y_score)

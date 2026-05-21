@@ -1,5 +1,6 @@
 # 4_collection.py
 from flask import Flask, jsonify
+
 app = Flask(__name__)
 
 USERS = {42: {"name": "Yeongseon"}}

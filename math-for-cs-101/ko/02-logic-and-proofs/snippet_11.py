@@ -2,6 +2,7 @@
 
 from itertools import product
 
+
 def expr_a(is_admin, is_member, has_paid):
     return is_admin or (is_member and has_paid)
 

@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 
+
 @dataclass
 class ContextBudget:
     """Token budget allocation for the context window."""

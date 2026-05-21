@@ -1,8 +1,8 @@
 """Generated from book-content article."""
 
-from PIL import Image
-from paddleocr import PaddleOCR
 from openai import OpenAI
+from paddleocr import PaddleOCR
+from PIL import Image
 
 ocr = PaddleOCR(use_angle_cls=True, lang="korean")
 client = OpenAI()

@@ -1,5 +1,6 @@
 # 3_patch.py
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
+
 app = Flask(__name__)
 USERS = {42: {"id": 42, "name": "Y"}}
 

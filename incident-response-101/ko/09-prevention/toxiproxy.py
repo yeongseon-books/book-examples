@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-import requests
 import json
+
+import requests
 
 
 def setup_toxiproxy(proxy_name, listen, upstream):

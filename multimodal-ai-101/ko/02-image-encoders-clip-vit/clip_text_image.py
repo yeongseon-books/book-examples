@@ -3,6 +3,7 @@
 import torch
 import torch.nn.functional as F
 
+
 def clip_loss(image_emb: torch.Tensor, text_emb: torch.Tensor,
               temperature: float = 0.07) -> torch.Tensor:
     image_emb = F.normalize(image_emb, dim=-1)

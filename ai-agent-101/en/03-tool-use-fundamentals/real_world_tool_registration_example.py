@@ -1,6 +1,7 @@
 """Generated from book-content article."""
 
-from typing import Dict, Any
+from typing import Any, Dict
+
 import openai
 
 # Define tool schemas

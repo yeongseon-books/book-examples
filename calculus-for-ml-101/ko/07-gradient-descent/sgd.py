@@ -2,6 +2,7 @@
 
 import random
 
+
 def sgd(data, w0, lr=0.01, epochs=10):
     w = w0
     for _ in range(epochs):

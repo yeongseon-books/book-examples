@@ -3,6 +3,7 @@
 import secrets
 from dataclasses import dataclass, field
 
+
 @dataclass
 class PIITokenizer:
     mapping: dict[str, str] = field(default_factory=dict)

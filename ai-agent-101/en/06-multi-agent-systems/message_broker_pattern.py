@@ -1,16 +1,17 @@
 """Generated from book-content article."""
 
+import threading
 from collections import defaultdict, deque
 from collections.abc import Callable
 from typing import Dict, List
-import threading
+
 
 class MessageBroker:
     """A message broker."""
 
     def __init__(self):
-        self.queues: Dict[str, deque] = defaultdict(deque)
-        self.handlers: Dict[str, Callable] = {}
+        self.queues: dict[str, deque] = defaultdict(deque)
+        self.handlers: dict[str, Callable] = {}
         self.lock = threading.Lock()
         self.running = False
 
@@ -82,5 +83,6 @@ broker.send(Message(
 
 # Wait for processing
 import time
+
 time.sleep(1)
 broker.stop()

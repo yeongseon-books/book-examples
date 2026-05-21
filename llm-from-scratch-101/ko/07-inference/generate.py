@@ -1,7 +1,10 @@
 # generate.py
-import argparse, torch
+import argparse
+
+import torch
 from data import decode, encode
 from model import GPT, GPTConfig
+
 
 def main() -> None:
     parser = argparse.ArgumentParser()

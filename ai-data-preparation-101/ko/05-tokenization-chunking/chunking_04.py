@@ -2,6 +2,7 @@
 
 import re
 
+
 def sentence_chunk(text: str, max_tokens: int = 500,
                    token_count=count_tokens) -> list[str]:
     sentences = re.split(r"(?<=[.!?])\s+", text)

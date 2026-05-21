@@ -14,12 +14,11 @@ Existing step*.py files are preserved. New assets are added alongside them.
 
 from __future__ import annotations
 
+import os
 import re
 import sys
 from pathlib import Path
 from typing import Any
-import os
-
 
 BOOK_CONTENT_ROOT = Path(os.environ.get("BOOK_CONTENT_ROOT", "/data/GitHub/book-content/content"))
 BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
@@ -112,10 +111,7 @@ def should_materialize(lang: str, content: str) -> bool:
         return False
 
     # Skip output-like content in any language
-    if "├──" in content or "└──" in content:
-        return False
-
-    return True
+    return not ("├──" in content or "└──" in content)
 
 
 def extract_blocks_from_article(md_path: Path) -> list[dict[str, Any]]:
@@ -219,7 +215,7 @@ def materialize_episode(series: str, ep_slug: str, lang_dir: str = "ko") -> list
             if content.startswith("# "):
                 pass  # keep as-is
             else:
-                header = f'"""Generated from book-content article."""\n\n'
+                header = '"""Generated from book-content article."""\n\n'
                 content = header + content
 
         filepath.write_text(content + "\n", encoding="utf-8")

@@ -1,8 +1,9 @@
 # After: model wired in, URL from environment
 import os
+
 from alembic import context
+from app.models import Base  # ← import the model
 from sqlalchemy import engine_from_config, pool
-from app.models import Base   # ← import the model
 
 config = context.config
 

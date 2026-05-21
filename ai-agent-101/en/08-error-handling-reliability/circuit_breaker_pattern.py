@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-from enum import Enum
 import time
+from enum import Enum
+
 
 class CircuitState(Enum):
     CLOSED = "closed"      # normal
@@ -62,6 +63,6 @@ breaker = CircuitBreaker(failure_threshold=3, recovery_timeout=30)
 
 try:
     result = breaker.call(external_api_call, "param")
-except RuntimeError as e:
+except RuntimeError:
     # Circuit is open, use the fallback
     result = cached_value

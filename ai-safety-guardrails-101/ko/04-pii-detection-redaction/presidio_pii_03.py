@@ -1,6 +1,6 @@
 """Generated from book-content article."""
 
-from presidio_analyzer import PatternRecognizer, Pattern
+from presidio_analyzer import Pattern, PatternRecognizer
 
 custom_id = PatternRecognizer(
     supported_entity="EMPLOYEE_ID",

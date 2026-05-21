@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 
+
 @dataclass
 class HarnessStack:
     task: object          # Ep2 — TaskSpec

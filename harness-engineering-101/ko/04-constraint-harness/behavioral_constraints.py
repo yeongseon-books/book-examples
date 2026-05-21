@@ -3,6 +3,7 @@
 import re
 from typing import Protocol
 
+
 class OutputPolicy(Protocol):
     def check(self, output: str) -> tuple[bool, str]:
         """Returns (passed, reason)."""

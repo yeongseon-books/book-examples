@@ -19,7 +19,7 @@ def expand_rollback(service, canary_ratio, target_ratio):
     """
     if canary_ratio >= target_ratio:
         return {"status": "complete", "ratio": canary_ratio}
-    
+
     new_ratio = min(canary_ratio + 0.1, target_ratio)
     return {
         "service": service,

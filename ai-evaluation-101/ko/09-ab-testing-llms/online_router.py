@@ -1,6 +1,7 @@
 # ab/online_router.py
 import hashlib
 
+
 def assign_variant(user_id: str, experiment: str) -> str:
     """Stable A/B assignment by hashing user_id."""
     h = hashlib.sha256(f"{experiment}:{user_id}".encode()).hexdigest()

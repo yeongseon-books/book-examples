@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 
+
 class FeedForward(nn.Module):
     def __init__(self, n_embd: int) -> None:
         super().__init__()

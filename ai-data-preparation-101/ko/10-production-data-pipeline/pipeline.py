@@ -1,5 +1,10 @@
 # pipeline.py
-import yaml, hashlib, pathlib, pandas as pd
+import hashlib
+import pathlib
+
+import pandas as pd
+import yaml
+
 
 class Stage:
     name: str

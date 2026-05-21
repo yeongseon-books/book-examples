@@ -2,9 +2,7 @@
 
 def include_object(object, name, type_, reflected, compare_to):
     # Skip audit tables managed by an external system
-    if type_ == "table" and name.startswith("legacy_"):
-        return False
-    return True
+    return not (type_ == "table" and name.startswith("legacy_"))
 
 context.configure(
     connection=connection,

@@ -2,12 +2,13 @@
 from contextlib import asynccontextmanager
 
 import torch
+from data import decode, stoi
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
-from data import decode, stoi
 from model import GPT, GPTConfig
+from pydantic import BaseModel
+
 templates = Jinja2Templates(directory="templates"); state = {}
 
 class ChatBody(BaseModel):

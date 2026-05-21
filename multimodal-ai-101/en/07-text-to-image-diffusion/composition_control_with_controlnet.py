@@ -1,8 +1,8 @@
 """Generated from book-content article."""
 
-from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
-from diffusers.utils import load_image
 from controlnet_aux import OpenposeDetector
+from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
+from diffusers.utils import load_image
 
 openpose = OpenposeDetector.from_pretrained("lllyasviel/Annotators")
 control_image = openpose(load_image("samples/dancer.jpg"))

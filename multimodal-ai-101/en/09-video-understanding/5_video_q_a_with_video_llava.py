@@ -1,7 +1,7 @@
 """Generated from book-content article."""
 
-from transformers import VideoLlavaProcessor, VideoLlavaForConditionalGeneration
 import torch
+from transformers import VideoLlavaForConditionalGeneration, VideoLlavaProcessor
 
 processor = VideoLlavaProcessor.from_pretrained("LanguageBind/Video-LLaVA-7B-hf")
 model = VideoLlavaForConditionalGeneration.from_pretrained(

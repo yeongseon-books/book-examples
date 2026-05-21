@@ -3,6 +3,7 @@
 import pytesseract
 from PIL import Image
 
+
 def ocr_simple(img_path: str, lang: str = "kor+eng") -> str:
     img = Image.open(img_path)
     return pytesseract.image_to_string(img, lang=lang)

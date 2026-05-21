@@ -1,11 +1,14 @@
 """Generated from book-content article."""
 
 from collections import Counter
-from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+
+from nltk.translate.bleu_score import SmoothingFunction, sentence_bleu
 from rouge_score import rouge_scorer
 
+
 def exact_match_normalized(pred: str, expected: str) -> int:
-    normalize = lambda s: s.lower().strip().rstrip(".!?")
+    def normalize(s):
+        return s.lower().strip().rstrip(".!?")
     return int(normalize(pred) == normalize(expected))
 
 def token_f1(pred: str, expected: str) -> float:

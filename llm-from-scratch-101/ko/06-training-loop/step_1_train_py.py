@@ -1,12 +1,11 @@
 """Generated from book-content article."""
 
+import math
 from dataclasses import asdict
 from pathlib import Path
-import math
 
 import numpy as np
 import torch
-
 from model import GPT, GPTConfig
 
 batch_size = 32

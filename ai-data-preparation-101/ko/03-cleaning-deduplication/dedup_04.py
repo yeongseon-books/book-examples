@@ -2,6 +2,7 @@
 
 from datasketch import MinHash, MinHashLSH
 
+
 def make_minhash(text: str, num_perm: int = 128) -> MinHash:
     m = MinHash(num_perm=num_perm)
     # 5-gram word shingles

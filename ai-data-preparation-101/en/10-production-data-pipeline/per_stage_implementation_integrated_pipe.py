@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-import pandas as pd
 from datetime import datetime
+
+import pandas as pd
+
 
 # Stage 1: Ingest
 def stage_ingest(sources: list[str]) -> pd.DataFrame:

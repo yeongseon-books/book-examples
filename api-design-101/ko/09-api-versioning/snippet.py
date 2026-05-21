@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
+from datetime import datetime
+
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from datetime import datetime
 
 app = FastAPI()
 

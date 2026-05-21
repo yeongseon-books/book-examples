@@ -3,6 +3,7 @@
 import hashlib
 import secrets
 
+
 def redact(text: str, hits: list[dict]) -> str:
     """Full removal: safest, loses context"""
     out = text

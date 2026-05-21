@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 
+
 class MiniEmbedding(nn.Module):
     def __init__(self, vocab_size: int, n_embd: int) -> None:
         super().__init__()

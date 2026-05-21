@@ -1,9 +1,9 @@
 """Generated from book-content article."""
 
-from dataclasses import dataclass
-from datetime import datetime, timezone
 import json
 import re
+from dataclasses import dataclass
+from datetime import datetime, timezone
 
 BLOCKED_PATTERNS = [
     r"ignore\s+previous\s+instructions",

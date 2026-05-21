@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 from enum import Enum
 
+
 class FailureMode(Enum):
     TRANSIENT = "transient"
     DETERMINISTIC = "deterministic"

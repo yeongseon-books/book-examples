@@ -1,10 +1,11 @@
 """Generated from book-content article."""
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from typing import Any, Dict, Optional
-import uuid
+
 
 class MessageType(Enum):
     """Message types."""
@@ -22,9 +23,9 @@ class Message:
     content: Any
     correlation_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     timestamp: datetime = field(default_factory=datetime.now)
-    metadata: Dict = field(default_factory=dict)
+    metadata: dict = field(default_factory=dict)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         """Convert to dictionary."""
         return {
             "sender": self.sender,
@@ -37,7 +38,7 @@ class Message:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict) -> "Message":
+    def from_dict(cls, data: dict) -> "Message":
         """Create from a dictionary."""
         return cls(
             sender=data["sender"],
@@ -60,6 +61,7 @@ msg = Message(
 
 # JSON serialization (for network transport)
 import json
+
 serialized = json.dumps(msg.to_dict())
 
 # Deserialize on the receiving end

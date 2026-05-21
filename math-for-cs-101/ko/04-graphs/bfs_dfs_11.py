@@ -2,6 +2,7 @@
 
 from collections import deque
 
+
 def bfs(graph, start):
     seen, q, order = {start}, deque([start]), []
     while q:

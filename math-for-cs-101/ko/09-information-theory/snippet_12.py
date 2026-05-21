@@ -2,6 +2,7 @@
 
 import heapq
 
+
 def huffman_lengths(freqs):
     heap = [[f, [s, ""]] for s, f in freqs.items()]
     heapq.heapify(heap)

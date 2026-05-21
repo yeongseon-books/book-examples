@@ -2,6 +2,7 @@
 
 import time
 
+
 class LoadBalancingDelegator:
     """Load-based delegator."""
 

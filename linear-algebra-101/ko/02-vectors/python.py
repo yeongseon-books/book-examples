@@ -2,6 +2,7 @@
 
 import numpy as np
 
+
 def cosine_similarity(a, b):
     """
     코사인 유사도를 계산합니다.
@@ -10,11 +11,11 @@ def cosine_similarity(a, b):
     dot_product = np.dot(a, b)
     norm_a = np.linalg.norm(a)
     norm_b = np.linalg.norm(b)
-    
+
     # 영벡터 방지
     if norm_a == 0 or norm_b == 0:
         return 0.0
-    
+
     return dot_product / (norm_a * norm_b)
 
 # 예시: 두 문서 임베딩 비교

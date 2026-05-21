@@ -1,7 +1,8 @@
 # src/main.py
 from fastapi import FastAPI
-from src.api import users, orders
+from src.api import orders, users
 from src.observability import setup_logging, setup_metrics
+
 
 def create_app() -> FastAPI:
     app = FastAPI()

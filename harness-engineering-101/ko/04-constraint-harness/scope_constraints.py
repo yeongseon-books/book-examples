@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 
+
 @dataclass
 class ScopedDataAccess:
     """Restricts data access to the task's scope."""

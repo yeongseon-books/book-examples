@@ -2,6 +2,7 @@
 import pandera as pa
 from pandera.typing import Series
 
+
 class TextSchema(pa.DataFrameModel):
     id: Series[str] = pa.Field(unique=True)
     text: Series[str] = pa.Field(str_length={"min_value": 1})

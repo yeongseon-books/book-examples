@@ -1,7 +1,7 @@
 """Generated from book-content article."""
 
-from sklearn.metrics import roc_curve, roc_auc_score
 import numpy as np
+from sklearn.metrics import roc_auc_score, roc_curve
 
 y_true = np.array([1,0,1,1,0,0,1,0,1,0])
 y_score = np.array([0.91,0.12,0.82,0.45,0.31,0.72,0.88,0.28,0.79,0.21])

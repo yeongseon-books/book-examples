@@ -1,7 +1,7 @@
 """Generated from book-content article."""
 
-from sklearn.decomposition import PCA
 import numpy as np
+from sklearn.decomposition import PCA
 
 rng = np.random.default_rng(99)
 X = rng.normal(size=(150, 5))

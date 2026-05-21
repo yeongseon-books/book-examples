@@ -2,6 +2,7 @@
 
 import subprocess
 
+
 def current_context():
     res = subprocess.run(
         ["kubectl", "config", "current-context"],

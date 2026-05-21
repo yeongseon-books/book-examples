@@ -1,7 +1,9 @@
 # pagination_example.py
-from fastapi import FastAPI, Query, HTTPException
+import base64
+import json
+
+from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
-import base64, json
 
 app = FastAPI()
 

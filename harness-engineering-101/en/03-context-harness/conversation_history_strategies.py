@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-from typing import Literal
 from dataclasses import dataclass
+from typing import Literal
+
 
 @dataclass
 class Message:

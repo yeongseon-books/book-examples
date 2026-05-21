@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
-from openai import OpenAI
 import os
+
 from dotenv import load_dotenv
+from openai import OpenAI
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -24,7 +25,7 @@ class ResearchAgent:
         """Process a user question and return an answer."""
         self.memory.add("user", user_input)
 
-        for iteration in range(self.max_iterations):
+        for _iteration in range(self.max_iterations):
             response = client.chat.completions.create(
                 model=self.model,
                 messages=self.memory.to_openai(),

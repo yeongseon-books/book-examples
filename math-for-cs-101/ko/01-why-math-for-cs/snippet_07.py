@@ -1,6 +1,7 @@
 """Generated from book-content article."""
 
-from typing import Iterable
+from collections.abc import Iterable
+
 
 def unique_positive(values: Iterable[int]) -> list[int]:
     # 조건: 양의 정수만 남기고 중복 제거

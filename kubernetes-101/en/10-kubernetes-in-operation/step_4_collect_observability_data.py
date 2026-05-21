@@ -2,6 +2,7 @@
 
 import subprocess
 
+
 def top_pods(ns):
     res = subprocess.run(
         ["kubectl", "top", "pods", "-n", ns],

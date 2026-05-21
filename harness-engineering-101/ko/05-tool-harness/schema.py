@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-from pydantic import BaseModel, Field, model_validator
 from typing import Literal
+
+from pydantic import BaseModel, Field, model_validator
+
 
 class SendNotificationInput(BaseModel):
     """Send a notification."""

@@ -1,7 +1,7 @@
 """Generated from book-content article."""
 
 import numpy as np
-from scipy.spatial.distance import euclidean, cityblock, cosine, mahalanobis
+from scipy.spatial.distance import cityblock, cosine, euclidean, mahalanobis
 
 # 샘플 벡터
 v = np.array([1.0, 2.0, 3.0])

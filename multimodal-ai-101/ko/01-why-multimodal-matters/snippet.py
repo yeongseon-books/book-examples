@@ -2,6 +2,7 @@
 
 from PIL import Image
 
+
 def prepare_for_vlm(path: str, max_side: int = 1024) -> Image.Image:
     img = Image.open(path).convert("RGB")
     w, h = img.size

@@ -1,10 +1,12 @@
 # rag/with_ragas.py
+from datasets import Dataset
 from ragas import evaluate
 from ragas.metrics import (
-    context_recall, context_precision,
-    faithfulness, answer_relevancy,
+    answer_relevancy,
+    context_precision,
+    context_recall,
+    faithfulness,
 )
-from datasets import Dataset
 
 dataset = Dataset.from_dict({
     "question":     ["What is RAG?", ...],

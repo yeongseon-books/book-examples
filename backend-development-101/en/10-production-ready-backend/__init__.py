@@ -1,5 +1,7 @@
 # src/observability/__init__.py
-import logging, time
+import logging
+import time
+
 from prometheus_client import Counter, Histogram
 
 REQUESTS = Counter("http_requests_total", "Total requests", ["route", "status"])

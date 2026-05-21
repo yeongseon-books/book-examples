@@ -1,5 +1,5 @@
 # 4_protected.py
-from fastapi import FastAPI, Depends, HTTPException, Header
+from fastapi import Depends, FastAPI, Header, HTTPException
 
 app = FastAPI()
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from typing import Any
 
+
 @dataclass
 class TrajectoryStep:
     """A single step in a trajectory."""

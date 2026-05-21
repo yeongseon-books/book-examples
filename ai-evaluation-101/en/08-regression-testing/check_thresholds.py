@@ -1,6 +1,9 @@
 # regression/check_thresholds.py
-import json, sys
-from .thresholds import THRESHOLDS, FAIL_POLICY
+import json
+import sys
+
+from .thresholds import FAIL_POLICY, THRESHOLDS
+
 
 def check(report_path: str) -> int:
     with open(report_path) as f:

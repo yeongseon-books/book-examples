@@ -27,12 +27,21 @@ ignore = [
     "F401",   # unused import (교육용 re-export 패턴)
     "F403",   # star import used
     "F405",   # undefined name from star import
+    "F706",   # return outside function (materializer가 함수 내부만 추출한 결과)
+    "F811",   # redefined name (교육용 예제에서 재정의로 개념 설명)
+    "F821",   # undefined name (교육용 스니펫은 article 맥락에서 정의된 이름 참조)
     "W292",   # no newline at end of file
     "B008",   # function call in default arg (FastAPI pattern)
     "B011",   # assert False (교육용 테스트 패턴)
     "B023",   # function uses loop variable (교육용 예제)
     "SIM102", # collapsible if (가독성 우선)
     "SIM108", # ternary operator (가독성 우선)
+    "UP035",  # typing.List/Dict deprecated (교육용 코드에서 명시적 타입 힌트 보존)
+    "B904",   # raise from (교육용 예제에서 간결성 우선)
+    "B018",   # useless expression (교육용: 표현식 결과 시연)
+    "SIM105", # contextlib.suppress (교육용: try/except pass 패턴 명시)
+    "SIM117", # combine with statements (교육용: 단계별 with 분리)
+    "F601",   # membership test with list (교육용: 명시적 리스트 사용)
 ]
 
 [tool.ruff.lint.isort]

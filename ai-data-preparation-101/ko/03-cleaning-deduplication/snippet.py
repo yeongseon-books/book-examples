@@ -4,6 +4,7 @@ import re
 import unicodedata
 from html import unescape
 
+
 def clean_text(text: str) -> str:
     if not text:
         return ""

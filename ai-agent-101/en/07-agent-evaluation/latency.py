@@ -3,6 +3,7 @@
 import time
 from contextlib import contextmanager
 
+
 @contextmanager
 def measure_latency():
     """Latency-measuring context manager."""

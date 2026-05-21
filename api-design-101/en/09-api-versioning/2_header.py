@@ -1,5 +1,6 @@
 # 2_header.py
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
+
 app = Flask(__name__)
 
 @app.get("/users/<int:uid>")

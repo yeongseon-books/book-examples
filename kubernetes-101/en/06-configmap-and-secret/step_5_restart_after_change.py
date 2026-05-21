@@ -2,6 +2,7 @@
 
 import subprocess
 
+
 def restart(dep):
     subprocess.run(
         ["kubectl", "rollout", "restart", f"deployment/{dep}"],

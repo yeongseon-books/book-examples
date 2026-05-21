@@ -1,8 +1,8 @@
 # pip install tokenizers
 from tokenizers import Tokenizer
 from tokenizers.models import BPE
-from tokenizers.trainers import BpeTrainer
 from tokenizers.pre_tokenizers import ByteLevel
+from tokenizers.trainers import BpeTrainer
 
 tokenizer = Tokenizer(BPE(unk_token="<unk>"))
 tokenizer.pre_tokenizer = ByteLevel()

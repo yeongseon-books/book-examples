@@ -2,6 +2,7 @@
 
 from uuid import uuid4
 
+
 def estimate_cost(prompt_tokens: int, completion_tokens: int) -> float:
     return prompt_tokens * 0.00003 + completion_tokens * 0.00006
 

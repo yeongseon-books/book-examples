@@ -2,31 +2,31 @@
 
 class DynamicToolRegistry:
     """Dynamic tool registry."""
-    
+
     def __init__(self):
         self.tools: Dict[str, Dict[str, Any]] = {}
-    
+
     def register(self, tool_schema: Dict[str, Any]):
         """Register a tool."""
         tool_name = tool_schema["function"]["name"]
         self.tools[tool_name] = tool_schema
-    
+
     def unregister(self, tool_name: str):
         """Remove a tool."""
         if tool_name in self.tools:
             del self.tools[tool_name]
-    
+
     def get_tools(self, context: str = None) -> List[Dict[str, Any]]:
         """Return tools matching context."""
-        
+
         if context == "weather":
             # Weather-related tools only
             return [t for name, t in self.tools.items() if "weather" in name]
-        
+
         elif context == "database":
             # Database-related tools only
             return [t for name, t in self.tools.items() if "db" in name or "sql" in name]
-        
+
         else:
             # All tools
             return list(self.tools.values())

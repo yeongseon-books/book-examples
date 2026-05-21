@@ -1,8 +1,8 @@
 """Generated from book-content article."""
 
-from sklearn.model_selection import StratifiedKFold, cross_val_score
-from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import make_classification
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import StratifiedKFold, cross_val_score
 
 X, y = make_classification(n_samples=2000, n_features=20, weights=[0.8, 0.2], random_state=42)
 model = LogisticRegression(max_iter=1000)

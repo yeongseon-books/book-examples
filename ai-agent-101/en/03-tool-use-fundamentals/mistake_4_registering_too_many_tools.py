@@ -3,7 +3,7 @@
 def get_relevant_tools(user_query: str, all_tools: list) -> list:
     """Filter to query-relevant tools only."""
     query_lower = user_query.lower()
-    
+
     # Keyword-based filtering
     if "weather" in query_lower:
         return [t for t in all_tools if "weather" in t["function"]["name"]]

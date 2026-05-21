@@ -1,5 +1,6 @@
 # 1_path.py
 from fastapi import FastAPI
+
 app = FastAPI()
 
 @app.get("/users/{user_id}")

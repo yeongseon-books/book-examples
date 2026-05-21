@@ -4,6 +4,7 @@ import av
 import numpy as np
 from PIL import Image
 
+
 def sample_uniform_frames(path: str, n_frames: int = 8) -> list[Image.Image]:
     container = av.open(path)
     stream = container.streams.video[0]

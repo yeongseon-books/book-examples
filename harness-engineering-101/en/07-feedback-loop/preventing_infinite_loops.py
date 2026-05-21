@@ -3,6 +3,7 @@
 from collections import Counter
 from dataclasses import dataclass, field
 
+
 @dataclass
 class FeedbackLoop:
     """Manages the retry/reflect loop safely."""
@@ -19,10 +20,7 @@ class FeedbackLoop:
             return False
 
         recent_modes = Counter(f.mode for f in self.failure_history[-3:])
-        if any(count >= self.max_repetitions + 1 for count in recent_modes.values()):
-            return False
-
-        return True
+        return not any(count >= self.max_repetitions + 1 for count in recent_modes.values())
 
     def escalate(self) -> dict:
         return {

@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-from pydantic import BaseModel, Field
 from typing import Literal
+
+from pydantic import BaseModel, Field
+
 
 # Bad — too many responsibilities
 def manage_user(action: str, user_id: str, **kwargs):

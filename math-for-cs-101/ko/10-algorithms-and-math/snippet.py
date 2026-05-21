@@ -2,6 +2,7 @@
 
 from collections import deque
 
+
 def shortest(G, s, t):
     q, seen = deque([(s, 0)]), {s}
     while q:

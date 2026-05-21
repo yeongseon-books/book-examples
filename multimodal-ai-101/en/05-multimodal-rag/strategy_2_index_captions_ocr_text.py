@@ -1,8 +1,8 @@
 """Generated from book-content article."""
 
-from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
+from sentence_transformers import SentenceTransformer
 
 embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
 

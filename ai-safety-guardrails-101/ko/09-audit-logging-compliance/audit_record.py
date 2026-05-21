@@ -1,9 +1,10 @@
 """Generated from book-content article."""
 
-from dataclasses import dataclass, asdict
-from datetime import datetime, timezone
 import hashlib
 import uuid
+from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
+
 
 @dataclass
 class AuditRecord:

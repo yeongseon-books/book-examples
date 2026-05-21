@@ -1,8 +1,12 @@
 # finetune.py
-import json, torch, torch.nn.functional as F
+import json
 from dataclasses import asdict
+
+import torch
+import torch.nn.functional as F
 from data import encode
 from model import GPT, GPTConfig
+
 
 def load_rows(path="instructions.jsonl"):
     with open(path, encoding="utf-8") as f: return [json.loads(line) for line in f]

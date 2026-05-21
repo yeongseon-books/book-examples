@@ -2,6 +2,7 @@
 
 import math
 
+
 def npr(n, r):
     return math.factorial(n) // math.factorial(n-r)
 

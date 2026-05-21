@@ -1,6 +1,8 @@
 """Generated from book-content article."""
 
-import base64, json
+import base64
+import json
+
 
 def encode_cursor(last_item: dict) -> str:
     payload = {"created_at": last_item["created_at"], "id": last_item["id"]}

@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 class SingleHeadAttention(nn.Module):
     def __init__(self, n_embd: int, head_size: int, block_size: int) -> None:
         super().__init__()

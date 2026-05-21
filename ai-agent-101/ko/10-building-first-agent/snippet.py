@@ -1,8 +1,10 @@
 """Generated from book-content article."""
 
-from typing import Any
-from pydantic import BaseModel, Field
 import json
+from typing import Any
+
+from pydantic import BaseModel, Field
+
 
 class SearchInput(BaseModel):
     """Input schema for the search tool."""

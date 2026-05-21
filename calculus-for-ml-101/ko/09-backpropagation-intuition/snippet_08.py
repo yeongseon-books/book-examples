@@ -2,6 +2,7 @@
 
 import math
 
+
 def f(x):
     return math.sin(3 * x + 1)
 

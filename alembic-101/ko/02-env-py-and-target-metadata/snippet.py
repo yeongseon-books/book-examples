@@ -1,5 +1,6 @@
 # Before: scaffolded defaults (autogenerate produces empty files)
 from alembic import context
+
 config = context.config
 target_metadata = None  # ← leaving this empty disables autogenerate
 

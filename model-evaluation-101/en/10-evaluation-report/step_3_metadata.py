@@ -1,6 +1,10 @@
 """Generated from book-content article."""
 
-import hashlib, sys, sklearn
+import hashlib
+import sys
+
+import sklearn
+
 meta = {
     "python": sys.version.split()[0],
     "sklearn": sklearn.__version__,

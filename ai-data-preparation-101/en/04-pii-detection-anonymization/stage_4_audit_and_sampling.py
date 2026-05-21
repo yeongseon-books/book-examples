@@ -4,6 +4,7 @@ import json
 import random
 from datetime import datetime, timezone
 
+
 def anonymize_with_audit(rows: list[dict], audit_path: str,
                          sample_rate: float = 0.01) -> list[dict]:
     out = []

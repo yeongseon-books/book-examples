@@ -1,5 +1,6 @@
 # 1_get.py
-from flask import Flask, jsonify, abort
+from flask import Flask, abort, jsonify
+
 app = Flask(__name__)
 USERS = {42: {"id": 42, "name": "Y"}}
 

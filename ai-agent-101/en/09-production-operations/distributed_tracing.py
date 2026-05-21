@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
-from contextlib import contextmanager
-import uuid
 import time
+import uuid
+from contextlib import contextmanager
+
 
 class TraceContext:
     """Simple distributed tracing."""

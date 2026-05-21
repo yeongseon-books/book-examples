@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
-from dataclasses import dataclass
 from collections.abc import Callable
+from dataclasses import dataclass
 from typing import List
+
 
 @dataclass
 class TestCase:
@@ -22,10 +23,10 @@ class EvaluationResult:
 
 def evaluate_success_rate(
     agent,
-    test_cases: List[TestCase]
+    test_cases: list[TestCase]
 ) -> dict:
     """Measure task success rate."""
-    results: List[EvaluationResult] = []
+    results: list[EvaluationResult] = []
 
     for test in test_cases:
         try:

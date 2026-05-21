@@ -1,7 +1,7 @@
 """Generated from book-content article."""
 
-import sounddevice as sd
 import numpy as np
+import sounddevice as sd
 from faster_whisper import WhisperModel
 
 model = WhisperModel("base", device="cuda", compute_type="float16")

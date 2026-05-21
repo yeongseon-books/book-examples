@@ -1,5 +1,6 @@
 # 5_errors.py
-from flask import Flask, request, jsonify, abort
+from flask import Flask, abort, jsonify, request
+
 app = Flask(__name__)
 
 @app.post("/users")

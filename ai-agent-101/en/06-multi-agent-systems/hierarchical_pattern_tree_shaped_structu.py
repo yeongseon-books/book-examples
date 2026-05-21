@@ -2,6 +2,7 @@
 
 from typing import List, Optional
 
+
 class HierarchicalAgent:
     """A hierarchical agent."""
 
@@ -10,8 +11,8 @@ class HierarchicalAgent:
         self.role = role
         self.level = level  # 0 = top, increases downward
         self.client = OpenAI(api_key=api_key)
-        self.parent: Optional["HierarchicalAgent"] = None
-        self.children: List["HierarchicalAgent"] = []
+        self.parent: HierarchicalAgent | None = None
+        self.children: list[HierarchicalAgent] = []
 
     def add_child(self, child: "HierarchicalAgent") -> None:
         """Add a child agent."""
@@ -27,14 +28,14 @@ class HierarchicalAgent:
         # Internal node: split and delegate to children
         subtasks = self._split_task(task)
         results = []
-        for child, subtask in zip(self.children, subtasks):
+        for child, subtask in zip(self.children, subtasks, strict=False):
             result = child.execute(subtask)
             results.append(result)
 
         # Aggregate results
         return self._aggregate_results(task, results)
 
-    def _split_task(self, task: str) -> List[str]:
+    def _split_task(self, task: str) -> list[str]:
         """Split the task into subtasks for each child."""
         children_info = "\n".join([
             f"- {child.name}: {child.role}"
@@ -72,7 +73,7 @@ Respond with one subtask per line, in the same order as the child agents."""
         )
         return response.choices[0].message.content
 
-    def _aggregate_results(self, task: str, results: List[str]) -> str:
+    def _aggregate_results(self, task: str, results: list[str]) -> str:
         """Aggregate child results."""
         results_text = "\n\n".join([
             f"Result {i+1}: {r}" for i, r in enumerate(results)

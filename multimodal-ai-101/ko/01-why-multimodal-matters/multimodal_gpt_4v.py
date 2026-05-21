@@ -1,6 +1,7 @@
 """Generated from book-content article."""
 
 import base64
+
 from openai import OpenAI
 
 client = OpenAI()

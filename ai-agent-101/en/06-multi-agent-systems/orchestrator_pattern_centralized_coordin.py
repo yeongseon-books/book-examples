@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-from typing import List, Dict
+from typing import Dict, List
+
 from openai import OpenAI
+
 
 class WorkerAgent:
     """A specialized worker agent."""
@@ -28,13 +30,13 @@ class OrchestratorAgent:
 
     def __init__(self, api_key: str):
         self.client = OpenAI(api_key=api_key)
-        self.workers: Dict[str, WorkerAgent] = {}
+        self.workers: dict[str, WorkerAgent] = {}
 
     def register_worker(self, worker: WorkerAgent) -> None:
         """Register a worker."""
         self.workers[worker.name] = worker
 
-    def plan(self, request: str) -> List[Dict]:
+    def plan(self, request: str) -> list[dict]:
         """Decompose the request into subtasks."""
         worker_list = "\n".join([
             f"- {name}: {w.role}"
@@ -61,7 +63,7 @@ Respond in JSON format:
         import json
         return json.loads(response.choices[0].message.content)
 
-    def handle(self, request: str) -> Dict:
+    def handle(self, request: str) -> dict:
         """Handle the request."""
         subtasks = self.plan(request)
         results = {}

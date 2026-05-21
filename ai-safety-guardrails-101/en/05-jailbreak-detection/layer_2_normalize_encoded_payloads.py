@@ -2,6 +2,7 @@
 
 import base64
 import codecs
+import contextlib
 import re
 
 ZERO_WIDTH = re.compile(r"[\u200b-\u200f\u202a-\u202e\ufeff]")
@@ -20,8 +21,6 @@ def normalize(text: str) -> list[str]:
                 variants.append(decoded)
         except Exception:
             pass
-    try:
+    with contextlib.suppress(Exception):
         variants.append(codecs.decode(text, "rot_13"))
-    except Exception:
-        pass
     return variants

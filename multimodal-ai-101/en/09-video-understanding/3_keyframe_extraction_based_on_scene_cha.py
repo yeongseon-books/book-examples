@@ -3,6 +3,7 @@
 import av
 import numpy as np
 
+
 def extract_keyframes(path: str, threshold: float = 30.0) -> list:
     container = av.open(path)
     stream = container.streams.video[0]

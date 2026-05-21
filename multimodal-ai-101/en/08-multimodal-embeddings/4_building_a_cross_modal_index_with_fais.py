@@ -15,5 +15,5 @@ index.add(image_embeds)
 # 2. Text query -> embedding -> search
 query = embed_text(["a sunset over the ocean"]).cpu().numpy().astype("float32")
 scores, ids = index.search(query, k=3)
-for rank, (i, s) in enumerate(zip(ids[0], scores[0]), 1):
+for rank, (i, s) in enumerate(zip(ids[0], scores[0], strict=False), 1):
     print(f"{rank}. {image_paths[i]} (score={s:.3f})")

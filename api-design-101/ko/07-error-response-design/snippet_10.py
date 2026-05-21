@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
+import uuid
+
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-import uuid
 
 app = FastAPI()
 

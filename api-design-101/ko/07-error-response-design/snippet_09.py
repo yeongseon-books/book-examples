@@ -1,6 +1,8 @@
 """Generated from book-content article."""
 
-import hmac, time
+import hmac
+import time
+
 
 def constant_time_auth(email: str, password: str) -> bool:
     user = find_user(email)

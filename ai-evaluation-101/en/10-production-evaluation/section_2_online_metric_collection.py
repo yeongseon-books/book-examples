@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 
+
 @dataclass
 class TraceMetric:
     trace_id: str

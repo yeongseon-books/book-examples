@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 
+
 class GatedCrossAttention(nn.Module):
     def __init__(self, dim: int, num_heads: int = 8):
         super().__init__()

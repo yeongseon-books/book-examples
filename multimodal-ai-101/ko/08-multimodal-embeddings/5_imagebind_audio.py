@@ -1,9 +1,9 @@
 """Generated from book-content article."""
 
+import torch
+from imagebind import data
 from imagebind.models import imagebind_model
 from imagebind.models.imagebind_model import ModalityType
-from imagebind import data
-import torch
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model = imagebind_model.imagebind_huge(pretrained=True).eval().to(device)

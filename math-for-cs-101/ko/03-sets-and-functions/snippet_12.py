@@ -1,6 +1,7 @@
 """Generated from book-content article."""
 
-from typing import Callable
+from collections.abc import Callable
+
 
 def compose(f: Callable, g: Callable):
     return lambda x: f(g(x))

@@ -2,6 +2,7 @@
 
 import random
 
+
 def estimate_tail_prob(trials: int = 100000) -> float:
     cnt = 0
     for _ in range(trials):

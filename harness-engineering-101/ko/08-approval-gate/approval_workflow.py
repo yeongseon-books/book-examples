@@ -3,6 +3,7 @@
 import uuid
 from datetime import datetime, timezone
 
+
 class ApprovalWorkflow:
     def __init__(self, store, notifier):
         self.store = store

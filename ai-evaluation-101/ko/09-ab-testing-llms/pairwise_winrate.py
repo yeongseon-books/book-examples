@@ -1,6 +1,7 @@
 # ab/pairwise_winrate.py
-from openai import OpenAI
 import json
+
+from openai import OpenAI
 
 client = OpenAI()
 

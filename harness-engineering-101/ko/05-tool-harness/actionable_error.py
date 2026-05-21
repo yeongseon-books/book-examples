@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-from enum import Enum
 from dataclasses import dataclass
+from enum import Enum
+
 
 class ErrorCode(Enum):
     INVALID_INPUT = "invalid_input"

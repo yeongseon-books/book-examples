@@ -2,6 +2,7 @@
 
 import pytest
 
+
 # 1. Unit test: test each step independently
 def test_data_collection_step():
     step = DataCollectionStep()
@@ -25,7 +26,7 @@ def mock_llm():
         yield mock
 
 def test_workflow_with_mock(mock_llm):
-    result = run_workflow("test task")
+    run_workflow("test task")
     assert mock_llm.call_count == 3  # Expected call count
 
 # 4. Canary deployment: test with small user subset

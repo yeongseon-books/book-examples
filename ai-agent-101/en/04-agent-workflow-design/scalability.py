@@ -11,6 +11,7 @@ def process_items_sequential(items: List[str]) -> List[Any]:
 # Good: parallel processing
 import asyncio
 
+
 async def process_items_parallel(items: List[str]) -> List[Any]:
     """Parallel processing (fast)"""
     tasks = [async_process_item(item) for item in items]

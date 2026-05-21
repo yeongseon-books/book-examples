@@ -1,6 +1,7 @@
 # ab/effect_size.py
 import math
 
+
 def cohen_h(p1: float, p2: float) -> float:
     """Effect size (Cohen's h) between two proportions."""
     phi1 = 2 * math.asin(math.sqrt(p1))

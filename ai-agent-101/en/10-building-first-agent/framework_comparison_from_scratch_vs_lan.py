@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-from langgraph.graph import StateGraph, END
 from typing import TypedDict
+
+from langgraph.graph import END, StateGraph
+
 
 class AgentState(TypedDict):
     messages: list[dict[str, Any]]

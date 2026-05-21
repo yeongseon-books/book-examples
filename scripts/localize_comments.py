@@ -6,10 +6,9 @@ Preserves code structure and only modifies comment text.
 
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
-import os
-
 
 BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
 

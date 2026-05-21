@@ -1,6 +1,8 @@
 # tests/test_user_service.py
 from unittest.mock import MagicMock
+
 from services.user_service import UserService
+
 
 def test_register():
     repo = MagicMock()

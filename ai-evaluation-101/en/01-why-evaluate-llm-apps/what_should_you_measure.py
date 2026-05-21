@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 
+
 @dataclass
 class EvalResult:
     correctness: float  # are the facts right

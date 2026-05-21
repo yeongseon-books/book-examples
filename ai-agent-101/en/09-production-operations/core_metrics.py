@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-from collections import defaultdict
 import threading
+from collections import defaultdict
+
 
 class MetricsCollector:
     """Metrics collector."""

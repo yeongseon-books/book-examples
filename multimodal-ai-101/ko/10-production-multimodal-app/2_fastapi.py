@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
-from fastapi import FastAPI, UploadFile, File, Form
-from fastapi.responses import StreamingResponse
 import asyncio
+
+from fastapi import FastAPI, File, Form, UploadFile
+from fastapi.responses import StreamingResponse
 
 app = FastAPI()
 

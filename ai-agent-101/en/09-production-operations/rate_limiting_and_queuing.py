@@ -2,6 +2,7 @@
 
 from collections import deque
 
+
 class RateLimiter:
     """Sliding-window rate limiter."""
 

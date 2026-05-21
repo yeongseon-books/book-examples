@@ -6,11 +6,10 @@ and function docstrings to Korean. Does the same for en/ to ensure English.
 
 from __future__ import annotations
 
+import os
 import re
 import sys
 from pathlib import Path
-import os
-
 
 BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
 
@@ -67,7 +66,6 @@ def fix_docstrings(
     )
 
     # Fix function docstrings
-    func_map = FUNC_DOC_MAP_KO if to_korean else FUNC_DOC_MAP_EN
 
     def replace_func_doc(match: re.Match) -> str:
         indent = match.group(1)

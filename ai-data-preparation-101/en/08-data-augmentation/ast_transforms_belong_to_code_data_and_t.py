@@ -2,6 +2,7 @@
 
 import ast
 
+
 class VarRenamer(ast.NodeTransformer):
     def __init__(self, mapping: dict[str, str]):
         self.mapping = mapping

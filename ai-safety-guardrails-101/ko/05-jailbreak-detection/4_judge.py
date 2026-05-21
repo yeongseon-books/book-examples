@@ -16,6 +16,7 @@ USER REQUEST:
 
 import json
 
+
 def llm_judge(text: str) -> dict:
     resp = client.chat.completions.create(
         model="gpt-4o-mini",

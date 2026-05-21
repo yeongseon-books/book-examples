@@ -5,6 +5,6 @@ def backward(n):
     stack = [n]
     while stack:
         x = stack.pop()
-        for p, lg in zip(x.parents, x.local):
+        for p, lg in zip(x.parents, x.local, strict=False):
             p.grad += x.grad * lg
             stack.append(p)

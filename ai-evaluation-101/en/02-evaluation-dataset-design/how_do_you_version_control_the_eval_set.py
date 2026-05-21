@@ -3,6 +3,7 @@
 import json
 from pathlib import Path
 
+
 def save_eval_set(eval_set: list[EvalExample], path: Path):
     with path.open("w") as f:
         for ex in eval_set:

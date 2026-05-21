@@ -1,12 +1,13 @@
 """Generated from book-content article."""
 
-from typing import List, Dict
+from typing import Dict, List
+
 
 class ShortTermMemory:
     """Short-term memory: retained only during current session"""
 
     def __init__(self, system_prompt: str):
-        self.messages: List[Dict[str, str]] = [
+        self.messages: list[dict[str, str]] = [
             {"role": "system", "content": system_prompt}
         ]
 
@@ -18,7 +19,7 @@ class ShortTermMemory:
         """Add agent response"""
         self.messages.append({"role": "assistant", "content": content})
 
-    def get_context(self) -> List[Dict[str, str]]:
+    def get_context(self) -> list[dict[str, str]]:
         """Return current context"""
         return self.messages
 

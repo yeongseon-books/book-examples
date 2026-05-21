@@ -1,6 +1,8 @@
 """Generated from book-content article."""
 
-import json, time
+import json
+import time
+
 
 def with_stats(stage_fn):
     def wrapper(df, *args, **kwargs):

@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
+
 def get_batch(split: str, batch_size: int = 4, block_size: int = 8):
     data_path = Path("data") / ("train.bin" if split == "train" else "val.bin")
     data = np.memmap(data_path, dtype=np.uint16, mode="r")

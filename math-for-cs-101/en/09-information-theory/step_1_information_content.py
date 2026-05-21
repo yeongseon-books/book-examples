@@ -2,5 +2,6 @@
 
 import math
 
+
 def info(p):
     return -math.log2(p)

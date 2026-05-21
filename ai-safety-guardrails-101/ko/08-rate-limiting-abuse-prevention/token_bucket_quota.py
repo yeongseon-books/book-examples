@@ -1,6 +1,7 @@
 """Generated from book-content article."""
 
 import time
+
 import redis
 
 r = redis.Redis()

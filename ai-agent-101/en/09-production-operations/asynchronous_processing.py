@@ -3,6 +3,7 @@
 import asyncio
 from asyncio import Queue
 
+
 class AgentTaskQueue:
     """Async task queue."""
 

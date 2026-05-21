@@ -1,7 +1,8 @@
 """Generated from book-content article."""
 
-from sentence_transformers import SentenceTransformer
 import numpy as np
+from sentence_transformers import SentenceTransformer
+
 
 def semantic_chunk(text: str, threshold: float = 0.3) -> list[str]:
     model = SentenceTransformer("all-MiniLM-L6-v2")

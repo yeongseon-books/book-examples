@@ -1,9 +1,10 @@
 """Generated from book-content article."""
 
-import logging
 import json
+import logging
 from datetime import datetime
 from typing import Any
+
 
 class StructuredLogger:
     """Structured logger."""

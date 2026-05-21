@@ -14,7 +14,7 @@ KNOWN_PATTERNS = [
 
 COMPILED = [re.compile(p, re.IGNORECASE) for p in KNOWN_PATTERNS]
 
-def known_jailbreak(text: str) -> Tuple[bool, str]:
+def known_jailbreak(text: str) -> tuple[bool, str]:
     for pat in COMPILED:
         if pat.search(text):
             return True, pat.pattern

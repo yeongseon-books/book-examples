@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 
+
 @dataclass
 class Tool:
     name: str

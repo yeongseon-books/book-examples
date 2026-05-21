@@ -2,6 +2,7 @@
 
 from langdetect import detect
 
+
 def multilingual_check(text: str) -> bool:
     try:
         lang = detect(text)

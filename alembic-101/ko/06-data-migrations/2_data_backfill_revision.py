@@ -2,6 +2,7 @@
 
 from sqlalchemy import text
 
+
 def upgrade() -> None:
     bind = op.get_bind()
     batch = 1000

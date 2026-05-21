@@ -1,5 +1,6 @@
 # rubric/dashboard.py
 import pandas as pd
+
 df = pd.DataFrame(scored_responses)
 print(df[["correctness","completeness","clarity","tone"]].describe())
 #         correct  complete  clarity  tone

@@ -2,7 +2,6 @@
 
 from jinja2 import Template
 
-
 RUNBOOK_TEMPLATE = """
 # Runbook: {{ service_name }}
 

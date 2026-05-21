@@ -2,6 +2,7 @@
 
 import hashlib
 
+
 def make_ngrams(text: str, n: int = 13) -> set[str]:
     tokens = text.split()
     if len(tokens) < n:

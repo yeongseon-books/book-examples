@@ -1,7 +1,8 @@
 # dags/data_prep.py
+from datetime import datetime, timedelta
+
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
 
 default = {"owner": "ml-platform", "retries": 2, "retry_delay": timedelta(minutes=10)}
 

@@ -2,6 +2,7 @@
 
 from collections import deque
 
+
 def bfs(G, s):
     seen, q = {s}, deque([s])
     while q:

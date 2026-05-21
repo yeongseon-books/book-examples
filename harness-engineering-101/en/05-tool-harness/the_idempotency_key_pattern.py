@@ -3,6 +3,7 @@
 import hashlib
 from dataclasses import dataclass
 
+
 @dataclass
 class IdempotencyStore:
     """Stores results per idempotency key."""

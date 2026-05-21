@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
 from enum import Enum
+
 from pydantic import BaseModel, Field
+
 
 class Priority(str, Enum):
     HIGH = "high"

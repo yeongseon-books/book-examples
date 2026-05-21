@@ -2,7 +2,7 @@
 
 import torch
 from PIL import Image
-from transformers import LlavaForConditionalGeneration, AutoProcessor
+from transformers import AutoProcessor, LlavaForConditionalGeneration
 
 model_id = "llava-hf/llava-1.5-7b-hf"
 processor = AutoProcessor.from_pretrained(model_id)

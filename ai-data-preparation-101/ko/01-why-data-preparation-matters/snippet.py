@@ -1,10 +1,11 @@
 """Generated from book-content article."""
 
+import re
+
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
-import re
 
 categories = ["sci.space", "rec.autos"]
 train = fetch_20newsgroups(subset="train", categories=categories)

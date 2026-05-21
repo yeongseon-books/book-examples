@@ -1,6 +1,7 @@
 # 1_setup.py
-from sqlalchemy import create_engine, String
+from sqlalchemy import String, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
 
 class Base(DeclarativeBase): pass
 

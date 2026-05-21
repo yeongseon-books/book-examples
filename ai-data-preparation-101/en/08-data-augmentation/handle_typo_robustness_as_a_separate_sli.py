@@ -2,6 +2,7 @@
 
 import random
 
+
 def inject_typo(text: str, p: float = 0.08) -> str:
     chars = list(text)
     for i in range(len(chars) - 1):

@@ -1,6 +1,8 @@
 """Generated from book-content article."""
 
-import logging, json
+import json
+import logging
+
 log = logging.getLogger("app")
 
 log.error(json.dumps({

@@ -2,6 +2,7 @@
 
 from hashlib import sha256
 
+
 def chain_hash(prev_hash: str, record: dict) -> str:
     payload = prev_hash + str(sorted(record.items()))
     return sha256(payload.encode()).hexdigest()

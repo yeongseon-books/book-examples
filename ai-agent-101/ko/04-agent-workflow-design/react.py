@@ -1,9 +1,11 @@
 """Generated from book-content article."""
 
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
 import openai
 
-def react_agent(user_query: str, tools: List[Dict], max_steps: int = 10) -> str:
+
+def react_agent(user_query: str, tools: list[dict], max_steps: int = 10) -> str:
     """ReAct pattern: Thought → Action → Observation loop"""
 
     messages = [
@@ -11,7 +13,7 @@ def react_agent(user_query: str, tools: List[Dict], max_steps: int = 10) -> str:
         {"role": "user", "content": user_query}
     ]
 
-    for step in range(max_steps):
+    for _step in range(max_steps):
         # Request next action from LLM
         response = openai.chat.completions.create(
             model="gpt-4.1",

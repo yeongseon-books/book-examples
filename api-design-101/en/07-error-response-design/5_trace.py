@@ -1,6 +1,8 @@
 # 5_trace.py
 import uuid
-from flask import Flask, jsonify, g, request
+
+from flask import Flask, g, jsonify, request
+
 app = Flask(__name__)
 
 @app.before_request

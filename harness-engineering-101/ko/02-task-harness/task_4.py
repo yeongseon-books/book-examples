@@ -1,7 +1,9 @@
 """Generated from book-content article."""
 
-from pydantic import BaseModel, Field
 from typing import Any
+
+from pydantic import BaseModel, Field
+
 
 class TaskSpec(BaseModel):
     """Specification for an executable task."""

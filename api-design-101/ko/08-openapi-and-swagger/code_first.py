@@ -1,8 +1,10 @@
 """Generated from book-content article."""
 
+from enum import Enum
+
 from fastapi import FastAPI, Query
 from pydantic import BaseModel
-from enum import Enum
+
 
 class OrderStatus(str, Enum):
     pending = "pending"

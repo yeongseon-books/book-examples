@@ -2,6 +2,7 @@
 
 import math
 
+
 def model(x, w, b):
     return sigmoid(w * x + b)
 

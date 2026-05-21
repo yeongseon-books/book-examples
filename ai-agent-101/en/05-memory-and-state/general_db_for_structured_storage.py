@@ -1,16 +1,17 @@
 """Generated from book-content article."""
 
 import sqlite3
-from typing import Optional, List, Dict
 from datetime import datetime
+from typing import Dict, List, Optional
+
 
 class StructuredMemoryStore:
     """General DB-based structured memory"""
-    
+
     def __init__(self, db_path: str = "memory.db"):
         self.conn = sqlite3.connect(db_path)
         self._init_db()
-    
+
     def _init_db(self):
         """Create tables"""
         cursor = self.conn.cursor()
@@ -33,7 +34,7 @@ class StructuredMemoryStore:
             )
         """)
         self.conn.commit()
-    
+
     def set_preference(self, user_id: str, key: str, value: str):
         """Save user preference"""
         cursor = self.conn.cursor()
@@ -42,28 +43,28 @@ class StructuredMemoryStore:
             VALUES (?, ?, ?, ?)
         """, (user_id, key, value, datetime.now().isoformat()))
         self.conn.commit()
-    
-    def get_preference(self, user_id: str, key: str) -> Optional[str]:
+
+    def get_preference(self, user_id: str, key: str) -> str | None:
         """Retrieve user preference"""
         cursor = self.conn.cursor()
         cursor.execute("""
             SELECT value FROM user_preferences
             WHERE user_id = ? AND key = ?
         """, (user_id, key))
-        
+
         result = cursor.fetchone()
         return result[0] if result else None
-    
-    def get_all_preferences(self, user_id: str) -> Dict[str, str]:
+
+    def get_all_preferences(self, user_id: str) -> dict[str, str]:
         """Retrieve all user preferences"""
         cursor = self.conn.cursor()
         cursor.execute("""
             SELECT key, value FROM user_preferences
             WHERE user_id = ?
         """, (user_id,))
-        
+
         return {row[0]: row[1] for row in cursor.fetchall()}
-    
+
     def save_session_summary(self, user_id: str, session_id: str, summary: str):
         """Save session summary"""
         cursor = self.conn.cursor()
@@ -72,8 +73,8 @@ class StructuredMemoryStore:
             VALUES (?, ?, ?, ?)
         """, (user_id, session_id, summary, datetime.now().isoformat()))
         self.conn.commit()
-    
-    def get_recent_summaries(self, user_id: str, limit: int = 5) -> List[Dict]:
+
+    def get_recent_summaries(self, user_id: str, limit: int = 5) -> list[dict]:
         """Retrieve recent session summaries"""
         cursor = self.conn.cursor()
         cursor.execute("""
@@ -83,7 +84,7 @@ class StructuredMemoryStore:
             ORDER BY created_at DESC
             LIMIT ?
         """, (user_id, limit))
-        
+
         return [
             {"session_id": row[0], "summary": row[1], "created_at": row[2]}
             for row in cursor.fetchall()

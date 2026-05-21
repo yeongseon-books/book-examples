@@ -1,7 +1,7 @@
 """Generated from book-content article."""
 
-from transformers import VideoMAEImageProcessor, VideoMAEForVideoClassification
 import torch
+from transformers import VideoMAEForVideoClassification, VideoMAEImageProcessor
 
 processor = VideoMAEImageProcessor.from_pretrained("MCG-NJU/videomae-base-finetuned-kinetics")
 model = VideoMAEForVideoClassification.from_pretrained("MCG-NJU/videomae-base-finetuned-kinetics")

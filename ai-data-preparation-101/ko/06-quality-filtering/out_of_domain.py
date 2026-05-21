@@ -1,6 +1,7 @@
 # pip install fasttext-langdetect
 from ftlangdetect import detect
 
+
 def keep_languages(text: str, allowed: set[str], min_conf: float = 0.7) -> bool:
     sample = text[:1000]  # the head is enough
     result = detect(text=sample, low_memory=True)

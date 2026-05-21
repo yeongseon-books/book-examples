@@ -2,6 +2,7 @@
 
 from typing import List, Optional
 
+
 class PeerAgent:
     """A peer agent."""
 
@@ -9,8 +10,8 @@ class PeerAgent:
         self.name = name
         self.role = role
         self.client = OpenAI(api_key=api_key)
-        self.peers: List["PeerAgent"] = []
-        self.message_history: List[Dict] = []
+        self.peers: list[PeerAgent] = []
+        self.message_history: list[Dict] = []
 
     def add_peer(self, peer: "PeerAgent") -> None:
         """Add a peer."""

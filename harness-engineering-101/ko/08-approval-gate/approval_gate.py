@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 from typing import Literal
 
+
 @dataclass
 class ApprovalRequest:
     action_id: str

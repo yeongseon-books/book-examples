@@ -1,9 +1,10 @@
 """Generated from book-content article."""
 
-import time
 import random
+import time
 from collections.abc import Callable
-from typing import Type, Tuple
+from typing import Tuple, Type
+
 
 def retry_with_backoff(
     fn: Callable,
@@ -12,7 +13,7 @@ def retry_with_backoff(
     max_delay: float = 30.0,
     exponential_base: float = 2.0,
     jitter: bool = True,
-    retryable_exceptions: Tuple[Type[Exception], ...] = (Exception,)
+    retryable_exceptions: tuple[type[Exception], ...] = (Exception,)
 ):
     """Retry with exponential backoff."""
     last_exception = None

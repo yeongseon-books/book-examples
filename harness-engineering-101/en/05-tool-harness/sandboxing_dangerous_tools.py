@@ -4,6 +4,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+
 def execute_python_safely(code: str, timeout: float = 5.0) -> dict:
     """Execute Python code in an isolated environment."""
     with tempfile.TemporaryDirectory() as tmpdir:

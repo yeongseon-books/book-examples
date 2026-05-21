@@ -1,8 +1,8 @@
 """Generated from book-content article."""
 
 import torch
-from transformers import ViTModel, ViTImageProcessor
 from PIL import Image
+from transformers import ViTImageProcessor, ViTModel
 
 processor = ViTImageProcessor.from_pretrained("google/vit-base-patch16-224")
 model = ViTModel.from_pretrained("google/vit-base-patch16-224")

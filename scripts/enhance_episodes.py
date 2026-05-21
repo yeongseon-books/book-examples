@@ -19,7 +19,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-
 BOOK_CONTENT_ROOT = Path(os.environ.get("BOOK_CONTENT_ROOT", "/data/GitHub/book-content/content"))
 BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
 
@@ -209,7 +208,7 @@ def generate_readme(manifest: EpisodeManifest, ko: bool = True) -> str:
         else:
             content += f"- {title}의 핵심 개념을 이해합니다.\n"
 
-        content += f"""
+        content += """
 ## 자산 목록
 
 | 파일 | 설명 |
@@ -247,9 +246,9 @@ Example code for {series_upper} series, episode {ep_num}.
             en_title = extract_title(en_article)
             content += f"- Understand the core concepts of {en_title.split(':')[-1].strip() if ':' in en_title else en_title}.\n"
         else:
-            content += f"- Understand the core concepts covered in this episode.\n"
+            content += "- Understand the core concepts covered in this episode.\n"
 
-        content += f"""
+        content += """
 ## Assets
 
 | File | Description |

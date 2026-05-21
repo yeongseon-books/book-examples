@@ -1,19 +1,21 @@
 """Generated from book-content article."""
 
-from typing import Dict, Any, List
-import openai
 import json
+from typing import Any, Dict, List
+
+import openai
+
 
 def agent_with_tools(
     user_query: str,
-    tools: List[Dict[str, Any]],
+    tools: list[dict[str, Any]],
     max_iterations: int = 5
 ) -> str:
     """Agent loop with tool support."""
 
     messages = [{"role": "user", "content": user_query}]
 
-    for iteration in range(max_iterations):
+    for _iteration in range(max_iterations):
         # Call LLM
         response = openai.chat.completions.create(
             model="gpt-4.1",

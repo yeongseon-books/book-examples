@@ -10,5 +10,6 @@ for train_idx, test_idx in sss.split(X, y):
 
 # 검증
 import numpy as np
+
 print("train:", np.bincount(y_train) / len(y_train))
 print("test :", np.bincount(y_test) / len(y_test))

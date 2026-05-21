@@ -1,17 +1,18 @@
 """Generated from book-content article."""
 
+import hashlib
+import json
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional
-import hashlib
-import json
+
 
 @dataclass
 class DatasetCard:
     name: str
     version: str  # semver: 1.2.0
     source_type: str  # "first-party" | "public" | "scrape" | "vendor"
-    source_url: Optional[str]
+    source_url: str | None
     license: str  # "CC-BY-4.0" | "MIT" | "proprietary" | etc.
     snapshot_date: str  # ISO 8601
     row_count: int
@@ -19,9 +20,9 @@ class DatasetCard:
     sha256: str
     schema: dict
     description: str
-    consent_basis: Optional[str] = None  # GDPR/PIPA legal basis
+    consent_basis: str | None = None  # GDPR/PIPA legal basis
     pii_fields: list = field(default_factory=list)
-    retention_days: Optional[int] = None
+    retention_days: int | None = None
     owner: str = "unknown"
     tags: list = field(default_factory=list)
 

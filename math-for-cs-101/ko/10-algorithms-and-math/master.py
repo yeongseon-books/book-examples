@@ -2,6 +2,7 @@
 
 import math
 
+
 def master_case(a, b, k):
     alpha = math.log(a, b)
     if k < alpha:

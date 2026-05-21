@@ -3,16 +3,17 @@
 import signal
 from contextlib import contextmanager
 
+
 @contextmanager
 def timeout(seconds: int):
     """Limit function execution time."""
     def timeout_handler(signum, frame):
         raise TimeoutError(f"Operation timed out after {seconds} seconds")
-    
+
     # Set timeout
     signal.signal(signal.SIGALRM, timeout_handler)
     signal.alarm(seconds)
-    
+
     try:
         yield
     finally:

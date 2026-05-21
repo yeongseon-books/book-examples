@@ -3,6 +3,7 @@
 import json
 from typing import Optional
 
+
 class LLMResponseError(Exception):
     """LLM response error."""
     pass
@@ -26,6 +27,6 @@ def parse_llm_json(response_text: str) -> dict:
 response = '```json\n{"action": "search", "query": "Python"}\n```'
 try:
     parsed = parse_llm_json(response)
-except LLMResponseError as e:
+except LLMResponseError:
     # Branch into retry logic
     pass

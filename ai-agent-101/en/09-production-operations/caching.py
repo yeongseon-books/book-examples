@@ -4,6 +4,7 @@ import hashlib
 import json
 from typing import Optional
 
+
 class ResponseCache:
     """LLM response cache."""
 
@@ -19,7 +20,7 @@ class ResponseCache:
         }, sort_keys=True)
         return hashlib.sha256(payload.encode()).hexdigest()
 
-    def get(self, model: str, messages: list, temperature: float) -> Optional[str]:
+    def get(self, model: str, messages: list, temperature: float) -> str | None:
         # temperature > 0 is unsafe to cache
         if temperature > 0:
             return None

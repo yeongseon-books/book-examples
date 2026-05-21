@@ -1,7 +1,8 @@
 # pip install sentence-transformers faiss-cpu
-from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
+from sentence_transformers import SentenceTransformer
+
 
 def semantic_dedup(docs: list[str], threshold: float = 0.93) -> list[str]:
     model = SentenceTransformer("all-MiniLM-L6-v2")

@@ -2,6 +2,7 @@
 
 from collections.abc import Callable
 
+
 class VerifiableTask(TaskSpec):
     """Task with executable completion criteria."""
     verifier: Callable[[Any], bool] = Field(..., exclude=True)

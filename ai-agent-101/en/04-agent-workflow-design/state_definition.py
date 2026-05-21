@@ -1,8 +1,9 @@
 """Generated from book-content article."""
 
-from typing import Dict, Any, List
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Any, Dict, List
+
 
 @dataclass
 class AgentState:
@@ -10,14 +11,14 @@ class AgentState:
     task_id: str                        # Unique task ID
     goal: str                           # Final goal
     current_step: int                   # Current step number
-    completed_steps: List[Dict]         # Completed steps
-    pending_steps: List[str]            # Remaining steps
-    context: Dict[str, Any]            # Accumulated information
+    completed_steps: list[dict]         # Completed steps
+    pending_steps: list[str]            # Remaining steps
+    context: dict[str, Any]            # Accumulated information
     status: str                         # pending/running/completed/failed
     created_at: datetime
     updated_at: datetime
-    
-    def to_dict(self) -> Dict[str, Any]:
+
+    def to_dict(self) -> dict[str, Any]:
         """Serialize state to dictionary"""
         return {
             "task_id": self.task_id,
