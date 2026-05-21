@@ -11,6 +11,8 @@ Example code for Llm From Scratch 101 series, episode 9.
 | File | Description |
 |------|-------------|
 | `episode.py` | Example code |
+| `minimal_html_client_a_single_page_app.html` | Example code |
+| `server.py` | Example code |
 
 ## How to Run
 

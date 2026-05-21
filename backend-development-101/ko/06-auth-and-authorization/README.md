@@ -12,6 +12,14 @@ Backend Development 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_hash.py` | 예제 코드 |
+| `2_jwt.py` | 예제 코드 |
+| `3_verify.py` | 예제 코드 |
+| `4_protected.py` | 예제 코드 |
+| `5_role.py` | 예제 코드 |
+| `before_after.py` | 예제 코드 |
+| `fastapi.py` | 예제 코드 |
+| `middleware_request_id.py` | 예제 코드 |
 | `step01_auth_roles.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Backend Development 101 시리즈 6편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-auth-and-authorization/step01_auth_roles.py
+python ko/06-auth-and-authorization/1_hash.py
 ```
 
 ## 관련 글

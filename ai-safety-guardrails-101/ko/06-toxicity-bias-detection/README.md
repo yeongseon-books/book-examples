@@ -12,7 +12,15 @@ Ai Safety Guardrails 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `counterfactual.py` | 예제 코드 |
+| `counterfactual_05.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
+| `snippet_03.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
 | `step01_toxicity_bias_scorer.py` | 예제 코드 |
+| `threshold.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +28,7 @@ Ai Safety Guardrails 101 시리즈 6편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-toxicity-bias-detection/step01_toxicity_bias_scorer.py
+python ko/06-toxicity-bias-detection/counterfactual.py
 ```
 
 ## 관련 글

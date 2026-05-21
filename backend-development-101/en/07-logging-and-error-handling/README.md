@@ -10,6 +10,12 @@ Example code for Backend Development 101 series, episode 7.
 
 | File | Description |
 |------|-------------|
+| `1_setup.py` | Example code |
+| `2_json_log.py` | Example code |
+| `3_request_id.py` | Example code |
+| `4_global_handler.py` | Example code |
+| `5_levels.py` | Example code |
+| `before_after.py` | Example code |
 | `step01_logging_errors.py` | Example code |
 
 ## How to Run
@@ -18,7 +24,7 @@ Example code for Backend Development 101 series, episode 7.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/07-logging-and-error-handling/step01_logging_errors.py
+python en/07-logging-and-error-handling/1_setup.py
 ```
 
 ## Related Article

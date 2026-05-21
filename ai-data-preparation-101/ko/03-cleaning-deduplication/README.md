@@ -12,7 +12,13 @@ Ai Data Preparation 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `dedup.py` | 예제 코드 |
+| `dedup_04.py` | 예제 코드 |
+| `dedup_05.py` | 예제 코드 |
+| `diff_metric.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_clean_dedup.py` | 예제 코드 |
+| `train_eval_cross_dedup.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Ai Data Preparation 101 시리즈 3편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-cleaning-deduplication/step01_clean_dedup.py
+python ko/03-cleaning-deduplication/dedup.py
 ```
 
 ## 관련 글

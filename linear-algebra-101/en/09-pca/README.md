@@ -11,6 +11,10 @@ Example code for Linear Algebra 101 series, episode 9.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_generate_data.py` | Example code |
+| `step_3_svd.py` | Example code |
+| `step_4_project_onto_the_top_2_pcs.py` | Example code |
+| `step_5_reconstruction_error.py` | Example code |
 
 ## How to Run
 

@@ -11,7 +11,7 @@ out, w = scaled_dot_product_attention(q, k, v)
 print(out.shape, w.shape)
 
 
-# Expected output:
+# 예상 출력:
 # Attention weights shape: (1, 4, 8, 8)
 # Attention output shape: (1, 8, 64)
 # Weights sum per row: 1.0000 (softmax verified)

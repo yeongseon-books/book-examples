@@ -12,6 +12,12 @@ Calculus For Ml 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_gradient.py` | 예제 코드 |
+| `ml.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
+| `snippet_09.py` | 예제 코드 |
+| `snippet_10.py` | 예제 코드 |
 | `step01_partial_derivatives.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Calculus For Ml 101 시리즈 3편 예제 코드입니다.
 cd calculus-for-ml-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-partial-derivatives/step01_partial_derivatives.py
+python ko/03-partial-derivatives/2_gradient.py
 ```
 
 ## 관련 글

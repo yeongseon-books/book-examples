@@ -12,6 +12,10 @@ Ai Safety Guardrails 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `guardrail.py` | 예제 코드 |
+| `guardrail_04.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
 | `step01_guardrail_baseline.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Ai Safety Guardrails 101 시리즈 1편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-why-ai-safety-matters/step01_guardrail_baseline.py
+python ko/01-why-ai-safety-matters/guardrail.py
 ```
 
 ## 관련 글

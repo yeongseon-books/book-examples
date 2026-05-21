@@ -1,0 +1,29 @@
+// GET /users/42 → 404
+{
+  "type": "https://api.example.com/errors/user-not-found",
+  "title": "User not found",
+  "status": 404,
+  "code": "user.not_found",
+  "detail": "ID 42에 해당하는 사용자가 없습니다.",
+  "trace_id": "req_a1b2c3"
+}
+
+// POST /orders → 422
+{
+  "type": "https://api.example.com/errors/validation-failed",
+  "title": "Validation failed",
+  "status": 422,
+  "code": "validation_error",
+  "trace_id": "req_d4e5f6",
+  "errors": [{"field": "email", "code": "required", "detail": "이메일은 필수입니다."}]
+}
+
+// POST /login → 401
+{
+  "type": "https://api.example.com/errors/invalid-credentials",
+  "title": "Invalid credentials",
+  "status": 401,
+  "code": "auth.invalid_credentials",
+  "detail": "이메일 또는 비밀번호가 올바르지 않습니다.",
+  "trace_id": "req_g7h8i9"
+}

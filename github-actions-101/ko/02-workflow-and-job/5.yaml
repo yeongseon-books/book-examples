@@ -1,0 +1,5 @@
+  flaky:
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - run: pytest tests/flaky.py

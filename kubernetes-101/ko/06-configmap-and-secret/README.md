@@ -12,7 +12,13 @@ Kubernetes 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_configmap.py` | 예제 코드 |
+| `2_secret.py` | 예제 코드 |
+| `3.py` | 예제 코드 |
+| `4.py` | 예제 코드 |
+| `5.py` | 예제 코드 |
 | `config-secret.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01.py` | 예제 코드 |
 
 ## 실행 방법
@@ -21,7 +27,7 @@ Kubernetes 101 시리즈 6편 예제 코드입니다.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-configmap-and-secret/config-secret.yaml
+python ko/06-configmap-and-secret/1_configmap.py
 ```
 
 ## 관련 글

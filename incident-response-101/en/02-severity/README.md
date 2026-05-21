@@ -11,6 +11,8 @@ Example code for Incident Response 101 series, episode 2.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_2_mapping.py` | Example code |
+| `step_5_auto_routing.py` | Example code |
 
 ## How to Run
 

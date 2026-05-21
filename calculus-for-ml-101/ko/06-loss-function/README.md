@@ -12,6 +12,13 @@ Calculus For Ml 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_gradient.py` | 예제 코드 |
+| `binary_cross_entropy.py` | 예제 코드 |
+| `mse_gradient.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
+| `snippet_09.py` | 예제 코드 |
 | `step01_loss_function.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Calculus For Ml 101 시리즈 6편 예제 코드입니다.
 cd calculus-for-ml-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-loss-function/step01_loss_function.py
+python ko/06-loss-function/2_gradient.py
 ```
 
 ## 관련 글

@@ -17,7 +17,7 @@ for _ in range(20):
 print(float(np.abs(w - base).sum()))
 
 
-# Expected output:
+# 예상 출력:
 # Fine-tuning started (LoRA rank=8)
 # Epoch 1/3 | Train loss: 2.134 | Val loss: 2.089
 # Epoch 2/3 | Train loss: 1.567 | Val loss: 1.612

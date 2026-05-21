@@ -10,7 +10,12 @@ Example code for Github Actions 101 series, episode 10.
 
 | File | Description |
 |------|-------------|
+| `_ci.yml` | Example code |
+| `action.yml` | Example code |
+| `pr.yml` | Example code |
 | `step01_demo.py` | Example code |
+| `step_3_main_stage_build_docker_staging.yaml` | Example code |
+| `step_4_tag_stage_release_production.yaml` | Example code |
 
 ## How to Run
 
@@ -18,7 +23,7 @@ Example code for Github Actions 101 series, episode 10.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-real-world-cicd-pipeline/step01_demo.py
+python en/10-real-world-cicd-pipeline/_ci.yml
 ```
 
 ## Related Article

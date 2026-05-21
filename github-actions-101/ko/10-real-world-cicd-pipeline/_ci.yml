@@ -1,0 +1,17 @@
+# .github/workflows/_ci.yml in org/template-repo
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        type: string
+        default: "3.12"
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ inputs.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: ruff check . && mypy . && pytest -q

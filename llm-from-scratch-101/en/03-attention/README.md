@@ -11,6 +11,9 @@ Example code for Llm From Scratch 101 series, episode 3.
 | File | Description |
 |------|-------------|
 | `episode.py` | Example code |
+| `step_1_start_with_a_single_head_and_prin.py` | Example code |
+| `step_2_compare_masked_and_unmasked_score.py` | Example code |
+| `step_4_build_the_series_version_without_.py` | Example code |
 
 ## How to Run
 

@@ -12,6 +12,11 @@ Api Design 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_get.py` | 예제 코드 |
+| `2_post.py` | 예제 코드 |
+| `3_patch.py` | 예제 코드 |
+| `4_delete.py` | 예제 코드 |
+| `5_errors.py` | 예제 코드 |
 | `step01_method_status.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Api Design 101 시리즈 4편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-http-methods-and-status/step01_method_status.py
+python ko/04-http-methods-and-status/1_get.py
 ```
 
 ## 관련 글

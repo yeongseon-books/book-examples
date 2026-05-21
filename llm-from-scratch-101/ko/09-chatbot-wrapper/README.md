@@ -13,6 +13,8 @@ Llm From Scratch 101 시리즈 9편 예제 코드입니다.
 | 파일 | 설명 |
 |------|------|
 | `episode.py` | 예제 코드 |
+| `eventsource.html` | 예제 코드 |
+| `server.py` | 예제 코드 |
 
 ## 실행 방법
 

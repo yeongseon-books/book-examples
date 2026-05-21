@@ -12,6 +12,11 @@ Harness Engineering 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `4.py` | 예제 코드 |
+| `behavioral_constraints.py` | 예제 코드 |
+| `capability_constraints.py` | 예제 코드 |
+| `resource_constraints.py` | 예제 코드 |
+| `scope_constraints.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Harness Engineering 101 시리즈 4편 예제 코드입니다.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-constraint-harness/step01_example.py
+python ko/04-constraint-harness/4.py
 ```
 
 ## 관련 글

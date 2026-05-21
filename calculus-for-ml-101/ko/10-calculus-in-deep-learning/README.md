@@ -12,6 +12,15 @@ Calculus For Ml 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_gradient.py` | 예제 코드 |
+| `gradient_analytic_form.py` | 예제 코드 |
+| `optimizer_step_gradient.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
+| `snippet_10.py` | 예제 코드 |
 | `step01_training_loop.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +29,7 @@ Calculus For Ml 101 시리즈 10편 예제 코드입니다.
 cd calculus-for-ml-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-calculus-in-deep-learning/step01_training_loop.py
+python ko/10-calculus-in-deep-learning/2_gradient.py
 ```
 
 ## 관련 글

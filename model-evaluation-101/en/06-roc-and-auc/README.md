@@ -10,6 +10,7 @@ Example code for Model Evaluation 101 series, episode 6.
 
 | File | Description |
 |------|-------------|
+| `code_that_goes_from_curve_summary_to_dep.py` | Example code |
 | `step01_roc_pr_auc.py` | Example code |
 
 ## How to Run
@@ -18,7 +19,7 @@ Example code for Model Evaluation 101 series, episode 6.
 cd model-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/06-roc-and-auc/step01_roc_pr_auc.py
+python en/06-roc-and-auc/code_that_goes_from_curve_summary_to_dep.py
 ```
 
 ## Related Article

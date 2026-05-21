@@ -12,7 +12,11 @@ Ai Agent 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `plan_and_execute.py` | 예제 코드 |
+| `react.py` | 예제 코드 |
+| `reflexion.py` | 예제 코드 |
 | `step01_workflow_patterns.py` | 예제 코드 |
+| `workflow.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +24,7 @@ Ai Agent 101 시리즈 4편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-agent-workflow-design/step01_workflow_patterns.py
+python ko/04-agent-workflow-design/plan_and_execute.py
 ```
 
 ## 관련 글

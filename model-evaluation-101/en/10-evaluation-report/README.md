@@ -11,6 +11,11 @@ Example code for Model Evaluation 101 series, episode 10.
 | File | Description |
 |------|-------------|
 | `step01_evaluation_report.py` | Example code |
+| `step_1_collect_metrics.py` | Example code |
+| `step_2_slice_scores.py` | Example code |
+| `step_3_metadata.py` | Example code |
+| `step_4_serialize_the_report.py` | Example code |
+| `step_5_render_to_markdown.py` | Example code |
 
 ## How to Run
 

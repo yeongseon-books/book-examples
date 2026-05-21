@@ -12,6 +12,8 @@ Api Design 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `5_sdk.py` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01_docs_quality.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +22,7 @@ Api Design 101 시리즈 10편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-writing-good-api-docs/step01_docs_quality.py
+python ko/10-writing-good-api-docs/5_sdk.py
 ```
 
 ## 관련 글

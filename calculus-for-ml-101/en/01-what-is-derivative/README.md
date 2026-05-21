@@ -11,6 +11,7 @@ Example code for Calculus For Ml 101 series, episode 1.
 | File | Description |
 |------|-------------|
 | `step01_derivative.py` | Example code |
+| `step_5_loss_intuition.py` | Example code |
 
 ## How to Run
 

@@ -12,6 +12,13 @@ Api Design 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `cursor.json` | 예제 코드 |
+| `cursor.py` | 예제 코드 |
+| `offset.json` | 예제 코드 |
+| `pagination_example.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet.sql` | 예제 코드 |
+| `snippet_02.sql` | 예제 코드 |
 | `step01_pagination_filter.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Api Design 101 시리즈 6편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-pagination-and-filtering/step01_pagination_filter.py
+python ko/06-pagination-and-filtering/cursor.json
 ```
 
 ## 관련 글

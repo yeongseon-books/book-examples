@@ -12,7 +12,16 @@ Backend Development 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_path.py` | 예제 코드 |
+| `2_query.py` | 예제 코드 |
+| `3_body.py` | 예제 코드 |
+| `fastapi.py` | 예제 코드 |
+| `main.py` | 예제 코드 |
+| `middleware_request_id.py` | 예제 코드 |
+| `products.py` | 예제 코드 |
 | `step01_routing_controller.py` | 예제 코드 |
+| `user_controller.py` | 예제 코드 |
+| `users.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +29,7 @@ Backend Development 101 시리즈 3편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-routing-and-controllers/step01_routing_controller.py
+python ko/03-routing-and-controllers/1_path.py
 ```
 
 ## 관련 글

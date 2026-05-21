@@ -12,6 +12,12 @@ Api Design 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_lib_api.py` | 예제 코드 |
+| `2_web_api.py` | 예제 코드 |
+| `3_contract.py` | 예제 코드 |
+| `4_min_server.py` | 예제 코드 |
+| `5_call.py` | 예제 코드 |
+| `before_after.py` | 예제 코드 |
 | `step01_api_contract.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Api Design 101 시리즈 1편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-what-is-an-api/step01_api_contract.py
+python ko/01-what-is-an-api/1_lib_api.py
 ```
 
 ## 관련 글

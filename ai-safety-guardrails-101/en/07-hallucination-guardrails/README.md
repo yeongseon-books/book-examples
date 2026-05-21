@@ -10,6 +10,12 @@ Example code for Ai Safety Guardrails 101 series, episode 7.
 
 | File | Description |
 |------|-------------|
+| `claim_extraction.py` | Example code |
+| `enforce_citation_format.py` | Example code |
+| `nli_based_entailment_check.py` | Example code |
+| `nli_based_entailment_check_03.py` | Example code |
+| `putting_the_pipeline_together.py` | Example code |
+| `reinforce_with_an_llm_judge.py` | Example code |
 | `step01_grounding_check.py` | Example code |
 
 ## How to Run
@@ -18,7 +24,7 @@ Example code for Ai Safety Guardrails 101 series, episode 7.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/07-hallucination-guardrails/step01_grounding_check.py
+python en/07-hallucination-guardrails/claim_extraction.py
 ```
 
 ## Related Article

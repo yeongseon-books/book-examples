@@ -12,6 +12,10 @@ Ai Agent 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `long_term_memory.py` | 예제 코드 |
+| `short_term_memory.py` | 예제 코드 |
+| `state.py` | 예제 코드 |
+| `state_04.py` | 예제 코드 |
 | `step01_memory_state.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Ai Agent 101 시리즈 5편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-memory-and-state/step01_memory_state.py
+python ko/05-memory-and-state/long_term_memory.py
 ```
 
 ## 관련 글

@@ -11,6 +11,7 @@ Example code for Calculus For Ml 101 series, episode 3.
 | File | Description |
 |------|-------------|
 | `step01_partial_derivatives.py` | Example code |
+| `step_5_ml_weight_intuition.py` | Example code |
 
 ## How to Run
 

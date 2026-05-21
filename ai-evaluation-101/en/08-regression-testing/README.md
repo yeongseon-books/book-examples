@@ -10,7 +10,13 @@ Example code for Ai Evaluation 101 series, episode 8.
 
 | File | Description |
 |------|-------------|
+| `check_thresholds.py` | Example code |
+| `eval.yml` | Example code |
+| `golden_dataset.py` | Example code |
+| `response_1_pin_temperature_and_seed.py` | Example code |
 | `step01_regression_gate.py` | Example code |
+| `thresholds.py` | Example code |
+| `thresholds_06.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +24,7 @@ Example code for Ai Evaluation 101 series, episode 8.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/08-regression-testing/step01_regression_gate.py
+python en/08-regression-testing/check_thresholds.py
 ```
 
 ## Related Article

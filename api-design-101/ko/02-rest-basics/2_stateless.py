@@ -1,0 +1,3 @@
+# Stateless: 매 요청에 인증 정보를 포함
+GET /users/42
+Authorization: Bearer eyJhbGciOiJIUzI1NiIs...

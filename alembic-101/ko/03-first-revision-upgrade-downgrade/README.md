@@ -12,6 +12,13 @@ Alembic 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_upgrade.py` | 예제 코드 |
+| `3_downgrade.py` | 예제 코드 |
+| `5_sqlite_batch_mode.py` | 예제 코드 |
+| `6_op_execute.py` | 예제 코드 |
+| `revision.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_03.py` | 예제 코드 |
 | `step01_upgrade_downgrade.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Alembic 101 시리즈 3편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-first-revision-upgrade-downgrade/step01_upgrade_downgrade.py
+python ko/03-first-revision-upgrade-downgrade/2_upgrade.py
 ```
 
 ## 관련 글

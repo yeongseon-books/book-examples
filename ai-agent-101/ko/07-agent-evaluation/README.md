@@ -12,7 +12,11 @@ Ai Agent 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `end_to_end.py` | 예제 코드 |
+| `latency.py` | 예제 코드 |
+| `latency_03.py` | 예제 코드 |
 | `step01_eval_metrics.py` | 예제 코드 |
+| `trajectory.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +24,7 @@ Ai Agent 101 시리즈 7편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-agent-evaluation/step01_eval_metrics.py
+python ko/07-agent-evaluation/end_to_end.py
 ```
 
 ## 관련 글

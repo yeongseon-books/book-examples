@@ -10,7 +10,12 @@ Example code for Harness Engineering 101 series, episode 10.
 
 | File | Description |
 |------|-------------|
+| `capstone_example_refund_processing_agent.py` | Example code |
+| `deployment_pattern_gradual_rollout.py` | Example code |
+| `how_the_nine_harnesses_fit_together.py` | Example code |
+| `rollback_a_deploy_is_only_a_deploy_if_yo.py` | Example code |
 | `step01_example.py` | Example code |
+| `what_is_the_production_harness.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +23,7 @@ Example code for Harness Engineering 101 series, episode 10.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-production-harness/step01_example.py
+python en/10-production-harness/capstone_example_refund_processing_agent.py
 ```
 
 ## Related Article

@@ -13,7 +13,7 @@ ids = tok.encode(text)
 print(len(ids) > 0)
 
 
-# Expected output:
+# 예상 출력:
 # > Hello!
 # Bot: Hello! How can I help you today?
 # > Tell me a joke

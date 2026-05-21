@@ -10,6 +10,7 @@ Example code for Github Actions 101 series, episode 1.
 
 | File | Description |
 |------|-------------|
+| `ci.yml` | Example code |
 | `step01_demo.py` | Example code |
 
 ## How to Run
@@ -18,7 +19,7 @@ Example code for Github Actions 101 series, episode 1.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/01-what-is-github-actions/step01_demo.py
+python en/01-what-is-github-actions/ci.yml
 ```
 
 ## Related Article

@@ -11,6 +11,9 @@ Example code for Llm From Scratch 101 series, episode 6.
 | File | Description |
 |------|-------------|
 | `episode.py` | Example code |
+| `step_1_put_the_full_loop_in_one_train_py.py` | Example code |
+| `step_4_use_a_one_batch_overfit_test_as_a.py` | Example code |
+| `warmup_and_cosine_decay_soften_the_start.py` | Example code |
 
 ## How to Run
 

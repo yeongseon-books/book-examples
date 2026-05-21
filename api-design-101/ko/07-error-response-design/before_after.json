@@ -1,0 +1,8 @@
+// GET /users/42 → 404
+{"error": "not found"}
+
+// POST /orders → 422
+{"message": "validation failed", "details": "email is required"}
+
+// POST /login → 401
+"Unauthorized"

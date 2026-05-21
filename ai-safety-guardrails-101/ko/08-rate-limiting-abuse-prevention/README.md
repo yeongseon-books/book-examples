@@ -12,7 +12,13 @@ Ai Safety Guardrails 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `escalation.py` | 예제 코드 |
+| `ip.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_04.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
 | `step01_token_bucket.py` | 예제 코드 |
+| `token_bucket_quota.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Ai Safety Guardrails 101 시리즈 8편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-rate-limiting-abuse-prevention/step01_token_bucket.py
+python ko/08-rate-limiting-abuse-prevention/escalation.py
 ```
 
 ## 관련 글

@@ -10,7 +10,13 @@ Example code for Ai Safety Guardrails 101 series, episode 9.
 
 | File | Description |
 |------|-------------|
+| `append_only_storage.py` | Example code |
+| `auto_generated_compliance_reports.py` | Example code |
+| `capturing_decision_rationale.py` | Example code |
+| `pii_masking_and_separate_storage.py` | Example code |
+| `retention_and_automatic_deletion.py` | Example code |
 | `step01_append_only_audit_log.py` | Example code |
+| `what_to_record.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +24,7 @@ Example code for Ai Safety Guardrails 101 series, episode 9.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/09-audit-logging-compliance/step01_append_only_audit_log.py
+python en/09-audit-logging-compliance/append_only_storage.py
 ```
 
 ## Related Article

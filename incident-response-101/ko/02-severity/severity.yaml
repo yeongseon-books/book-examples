@@ -1,0 +1,13 @@
+severity_cadence:
+  SEV1:
+    internal_minutes: 15
+    exec_minutes: 30
+    external_minutes: 30
+  SEV2:
+    internal_minutes: 30
+    exec_minutes: 60
+    external_minutes: 60
+  SEV3:
+    internal_minutes: 60
+    exec_minutes: 180
+    external_minutes: null

@@ -10,7 +10,11 @@ Example code for Ai Safety Guardrails 101 series, episode 1.
 
 | File | Description |
 |------|-------------|
+| `section_1_what_a_guardrail_is.py` | Example code |
+| `section_5_a_minimum_first_guardrail.py` | Example code |
+| `section_6_a_runnable_day_one_guardrail_s.py` | Example code |
 | `step01_guardrail_baseline.py` | Example code |
+| `verification_drill.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +22,7 @@ Example code for Ai Safety Guardrails 101 series, episode 1.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/01-why-ai-safety-matters/step01_guardrail_baseline.py
+python en/01-why-ai-safety-matters/section_1_what_a_guardrail_is.py
 ```
 
 ## Related Article

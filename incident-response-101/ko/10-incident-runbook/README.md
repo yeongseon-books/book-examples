@@ -12,6 +12,12 @@ Incident Response 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_severity.py` | 예제 코드 |
+| `4.py` | 예제 코드 |
+| `6.py` | 예제 코드 |
+| `jinja2.py` | 예제 코드 |
+| `runbook.py` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Incident Response 101 시리즈 10편 예제 코드입니다.
 cd incident-response-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-incident-runbook/step01_example.py
+python ko/10-incident-runbook/1_severity.py
 ```
 
 ## 관련 글

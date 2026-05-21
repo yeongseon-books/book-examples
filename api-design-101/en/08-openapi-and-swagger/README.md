@@ -10,7 +10,11 @@ Example code for Api Design 101 series, episode 8.
 
 | File | Description |
 |------|-------------|
+| `3_codefirst.py` | Example code |
+| `before_after.yaml` | Example code |
+| `openapi.yaml` | Example code |
 | `step01_openapi_contract.py` | Example code |
+| `step_2_components_schemas.yaml` | Example code |
 
 ## How to Run
 
@@ -18,7 +22,7 @@ Example code for Api Design 101 series, episode 8.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/08-openapi-and-swagger/step01_openapi_contract.py
+python en/08-openapi-and-swagger/3_codefirst.py
 ```
 
 ## Related Article

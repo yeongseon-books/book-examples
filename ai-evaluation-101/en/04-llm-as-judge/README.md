@@ -10,6 +10,11 @@ Example code for Ai Evaluation 101 series, episode 4.
 
 | File | Description |
 |------|-------------|
+| `agreement.py` | Example code |
+| `debias_position.py` | Example code |
+| `judge_pairwise.py` | Example code |
+| `judge_reference.py` | Example code |
+| `judge_single.py` | Example code |
 | `step01_mock_judge.py` | Example code |
 
 ## How to Run
@@ -18,7 +23,7 @@ Example code for Ai Evaluation 101 series, episode 4.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/04-llm-as-judge/step01_mock_judge.py
+python en/04-llm-as-judge/agreement.py
 ```
 
 ## Related Article

@@ -1,0 +1,8 @@
+components:
+  schemas:
+    User:
+      type: object
+      required: [id, name]
+      properties:
+        id: {type: integer}
+        name: {type: string}

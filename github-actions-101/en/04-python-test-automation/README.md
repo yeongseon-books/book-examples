@@ -11,6 +11,11 @@ Example code for Github Actions 101 series, episode 4.
 | File | Description |
 |------|-------------|
 | `step01_demo.py` | Example code |
+| `step_1_python_cache.yaml` | Example code |
+| `step_2_run_pytest_and_report.yaml` | Example code |
+| `step_3_measure_coverage.yaml` | Example code |
+| `step_4_multi_version_matrix.yaml` | Example code |
+| `step_5_capture_on_failure.yaml` | Example code |
 
 ## How to Run
 

@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  title: Order API
+  version: "1.0"
+paths:
+  /orders:
+    get:
+      summary: 주문 목록 조회
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [pending, paid, shipped]
+      responses:
+        '200':
+          description: 주문 목록
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+components:
+  schemas:
+    Order:
+      type: object
+      required: [id, status, created_at]
+      properties:
+        id:
+          type: string
+          example: "ord_001"
+        status:
+          type: string
+          enum: [pending, paid, shipped]
+        created_at:
+          type: string
+          format: date-time
+  responses:
+    ValidationError:
+      description: 입력 검증 실패
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetail'

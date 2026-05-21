@@ -12,6 +12,11 @@ Example code for Kubernetes 101 series, episode 10.
 |------|-------------|
 | `ops.yaml` | Example code |
 | `step01.py` | Example code |
+| `step_1_add_probes.py` | Example code |
+| `step_2_rbac.py` | Example code |
+| `step_3_networkpolicy.py` | Example code |
+| `step_4_collect_observability_data.py` | Example code |
+| `step_5_runbook_snippet.py` | Example code |
 
 ## How to Run
 

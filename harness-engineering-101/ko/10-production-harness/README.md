@@ -12,6 +12,11 @@ Harness Engineering 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `9_harness.py` | 예제 코드 |
+| `capstone_example.py` | 예제 코드 |
+| `deployment_pattern.py` | 예제 코드 |
+| `production_harness.py` | 예제 코드 |
+| `rollback.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Harness Engineering 101 시리즈 10편 예제 코드입니다.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-production-harness/step01_example.py
+python ko/10-production-harness/9_harness.py
 ```
 
 ## 관련 글

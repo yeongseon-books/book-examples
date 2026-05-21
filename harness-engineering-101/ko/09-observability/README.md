@@ -12,7 +12,13 @@ Harness Engineering 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `alerting.py` | 예제 코드 |
+| `cost_latency.py` | 예제 코드 |
+| `observability.py` | 예제 코드 |
+| `replay.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
+| `trace.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Harness Engineering 101 시리즈 9편 예제 코드입니다.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-observability/step01_example.py
+python ko/09-observability/alerting.py
 ```
 
 ## 관련 글

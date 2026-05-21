@@ -11,6 +11,7 @@ Example code for Math For Cs 101 series, episode 2.
 | File | Description |
 |------|-------------|
 | `step01_logic_and_proofs.py` | Example code |
+| `step_3_direct_proof_sketch.py` | Example code |
 
 ## How to Run
 

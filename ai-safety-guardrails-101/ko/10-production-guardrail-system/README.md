@@ -12,6 +12,11 @@ Ai Safety Guardrails 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `ci.py` | 예제 코드 |
+| `pipeline_audit.json` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_03.py` | 예제 코드 |
+| `snippet_04.py` | 예제 코드 |
 | `step01_guardrail_pipeline.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Ai Safety Guardrails 101 시리즈 10편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-production-guardrail-system/step01_guardrail_pipeline.py
+python ko/10-production-guardrail-system/ci.py
 ```
 
 ## 관련 글

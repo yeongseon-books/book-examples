@@ -11,6 +11,7 @@ Example code for Calculus For Ml 101 series, episode 2.
 | File | Description |
 |------|-------------|
 | `step01_functions_and_slope.py` | Example code |
+| `step_5_sigmoid.py` | Example code |
 
 ## How to Run
 

@@ -12,6 +12,9 @@ Ai Agent 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `handoff.py` | 예제 코드 |
+| `orchestrator.py` | 예제 코드 |
+| `peer_to_peer.py` | 예제 코드 |
 | `step01_supervisor_handoff.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +23,7 @@ Ai Agent 101 시리즈 6편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-multi-agent-systems/step01_supervisor_handoff.py
+python ko/06-multi-agent-systems/handoff.py
 ```
 
 ## 관련 글

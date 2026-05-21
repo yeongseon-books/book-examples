@@ -12,7 +12,11 @@ Ai Agent 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `agent_loop.py` | 예제 코드 |
+| `memory.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_capstone_agent.py` | 예제 코드 |
+| `tool_registry.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +24,7 @@ Ai Agent 101 시리즈 10편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-building-first-agent/step01_capstone_agent.py
+python ko/10-building-first-agent/agent_loop.py
 ```
 
 ## 관련 글

@@ -11,6 +11,9 @@ Example code for Incident Response 101 series, episode 10.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_sev_map.py` | Example code |
+| `step_4_response_steps.py` | Example code |
+| `step_6_integrated_execution.py` | Example code |
 
 ## How to Run
 

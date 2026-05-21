@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "task_id": "syn-101",
+      "instruction": "Explain the refund and rebilling sequence when a customer upgrades from a monthly plan to an annual plan.",
+      "input": "The customer paid for a monthly plan 3 days ago and now wants the annual discount as well.",
+      "output": "First confirm whether the monthly charge is still within the refund-review window, then explain the annual-plan rebilling sequence separately.",
+      "source_type": "self_instruct",
+      "difficulty": "baseline",
+      "evidence": null,
+      "reasons": ["Adds a rare case where refund logic and upgrade flow appear together."]
+    },
+    {
+      "task_id": "syn-102",
+      "instruction": "Answer the API-latency question using only the outage notice.",
+      "input": "Summarize the cause of the 2026-05-01 slowdown for a support reply.",
+      "output": "According to the public outage notice, the direct cause was database connection-pool saturation.",
+      "source_type": "rag_eval",
+      "difficulty": "hard",
+      "evidence": "database connection-pool saturation",
+      "reasons": ["Creates a retrieval-evaluation sample that requires direct evidence." ]
+    }
+  ]
+}

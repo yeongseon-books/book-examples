@@ -12,6 +12,12 @@ Ai Safety Guardrails 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `citation.py` | 예제 코드 |
+| `claim.py` | 예제 코드 |
+| `judge.py` | 예제 코드 |
+| `nli_semantic_grounding.py` | 예제 코드 |
+| `nli_semantic_grounding_03.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_grounding_check.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Ai Safety Guardrails 101 시리즈 7편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-hallucination-guardrails/step01_grounding_check.py
+python ko/07-hallucination-guardrails/citation.py
 ```
 
 ## 관련 글

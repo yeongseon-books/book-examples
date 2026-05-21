@@ -12,6 +12,13 @@ Ai Safety Guardrails 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1.py` | 예제 코드 |
+| `2.py` | 예제 코드 |
+| `3.py` | 예제 코드 |
+| `4_judge.py` | 예제 코드 |
+| `jailbreak.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
 | `step01_jailbreak_detector.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Ai Safety Guardrails 101 시리즈 5편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-jailbreak-detection/step01_jailbreak_detector.py
+python ko/05-jailbreak-detection/1.py
 ```
 
 ## 관련 글

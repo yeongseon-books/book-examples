@@ -12,7 +12,14 @@ Model Evaluation 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `confusion_matrix.py` | 예제 코드 |
+| `confusion_matrix_07.py` | 예제 코드 |
+| `pr.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
 | `step01_accuracy_trap.py` | 예제 코드 |
+| `threshold_roc.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +27,7 @@ Model Evaluation 101 시리즈 3편 예제 코드입니다.
 cd model-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-limits-of-accuracy/step01_accuracy_trap.py
+python ko/03-limits-of-accuracy/confusion_matrix.py
 ```
 
 ## 관련 글

@@ -12,6 +12,11 @@ Harness Engineering 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `agent.py` | 예제 코드 |
+| `agent_05.py` | 예제 코드 |
+| `harness_agent_agent.py` | 예제 코드 |
+| `harness_agent_agent_02.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Harness Engineering 101 시리즈 1편 예제 코드입니다.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-what-is-harness-engineering/step01_example.py
+python ko/01-what-is-harness-engineering/agent.py
 ```
 
 ## 관련 글

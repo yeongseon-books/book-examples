@@ -10,6 +10,7 @@ Example code for Alembic 101 series, episode 1.
 
 | File | Description |
 |------|-------------|
+| `models.py` | Example code |
 | `step01_why_init.py` | Example code |
 
 ## How to Run
@@ -18,7 +19,7 @@ Example code for Alembic 101 series, episode 1.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/01-why-alembic-and-init/step01_why_init.py
+python en/01-why-alembic-and-init/models.py
 ```
 
 ## Related Article

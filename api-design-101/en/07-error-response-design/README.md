@@ -10,6 +10,11 @@ Example code for Api Design 101 series, episode 7.
 
 | File | Description |
 |------|-------------|
+| `1_envelope.py` | Example code |
+| `2_validation.py` | Example code |
+| `4_safe.py` | Example code |
+| `5_trace.py` | Example code |
+| `before_after.json` | Example code |
 | `step01_problem_json.py` | Example code |
 
 ## How to Run
@@ -18,7 +23,7 @@ Example code for Api Design 101 series, episode 7.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/07-error-response-design/step01_problem_json.py
+python en/07-error-response-design/1_envelope.py
 ```
 
 ## Related Article

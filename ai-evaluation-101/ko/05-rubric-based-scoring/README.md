@@ -12,6 +12,13 @@ Ai Evaluation 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3.py` | 예제 코드 |
+| `aggregate.py` | 예제 코드 |
+| `agreement_per_dim.py` | 예제 코드 |
+| `check_independence.py` | 예제 코드 |
+| `clarity.yaml` | 예제 코드 |
+| `dashboard.py` | 예제 코드 |
+| `judge_rubric.py` | 예제 코드 |
 | `step01_rubric_scoring.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Ai Evaluation 101 시리즈 5편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-rubric-based-scoring/step01_rubric_scoring.py
+python ko/05-rubric-based-scoring/3.py
 ```
 
 ## 관련 글

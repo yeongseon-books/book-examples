@@ -12,6 +12,10 @@ Example code for Kubernetes 101 series, episode 2.
 |------|-------------|
 | `pod.yaml` | Example code |
 | `step01.py` | Example code |
+| `step_1_pod_manifest.py` | Example code |
+| `step_2_apply.py` | Example code |
+| `step_3_describe.py` | Example code |
+| `step_4_logs.py` | Example code |
 
 ## How to Run
 

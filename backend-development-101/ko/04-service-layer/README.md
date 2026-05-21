@@ -12,6 +12,15 @@ Backend Development 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_service.py` | 예제 코드 |
+| `2_di.py` | 예제 코드 |
+| `3_tx.py` | 예제 코드 |
+| `4_external.py` | 예제 코드 |
+| `5_event.py` | 예제 코드 |
+| `before_after.py` | 예제 코드 |
+| `fastapi.py` | 예제 코드 |
+| `middleware_request_id.py` | 예제 코드 |
+| `order_service.py` | 예제 코드 |
 | `step01_service_layer.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +29,7 @@ Backend Development 101 시리즈 4편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-service-layer/step01_service_layer.py
+python ko/04-service-layer/1_service.py
 ```
 
 ## 관련 글

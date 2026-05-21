@@ -12,6 +12,14 @@ Math For Cs 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `b.py` | 예제 코드 |
+| `bfs_dfs.py` | 예제 코드 |
+| `bfs_dfs_11.py` | 예제 코드 |
+| `networkx.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
+| `snippet_10.py` | 예제 코드 |
 | `step01_graphs.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Math For Cs 101 시리즈 4편 예제 코드입니다.
 cd math-for-cs-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-graphs/step01_graphs.py
+python ko/04-graphs/b.py
 ```
 
 ## 관련 글

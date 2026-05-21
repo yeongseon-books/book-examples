@@ -11,6 +11,8 @@ Example code for Calculus For Ml 101 series, episode 4.
 | File | Description |
 |------|-------------|
 | `step01_gradient.py` | Example code |
+| `step_1_gradient_function.py` | Example code |
+| `step_4_magnitude.py` | Example code |
 
 ## How to Run
 

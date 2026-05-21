@@ -10,7 +10,12 @@ Example code for Ai Data Preparation 101 series, episode 2.
 
 | File | Description |
 |------|-------------|
+| `catalog_backend_filesystem_vs_metadata_d.py` | Example code |
+| `collection_script_example_huggingface_da.py` | Example code |
+| `metadata_every_dataset_should_carry.py` | Example code |
+| `provenance_chain_one_level_deeper.py` | Example code |
 | `step01_dataset_catalog.py` | Example code |
+| `web_scraping_robots_txt_and_rate_limitin.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +23,7 @@ Example code for Ai Data Preparation 101 series, episode 2.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/02-source-data-collection-cataloging/step01_dataset_catalog.py
+python en/02-source-data-collection-cataloging/catalog_backend_filesystem_vs_metadata_d.py
 ```
 
 ## Related Article

@@ -12,6 +12,18 @@ Linear Algebra 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1.py` | 예제 코드 |
+| `1_11.py` | 예제 코드 |
+| `2.py` | 예제 코드 |
+| `3.py` | 예제 코드 |
+| `3_13.py` | 예제 코드 |
+| `4.py` | 예제 코드 |
+| `5.py` | 예제 코드 |
+| `numpy.py` | 예제 코드 |
+| `python_numpy.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
+| `snippet_10.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +32,7 @@ Linear Algebra 101 시리즈 3편 예제 코드입니다.
 cd linear-algebra-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-matrices/step01_example.py
+python ko/03-matrices/1.py
 ```
 
 ## 관련 글

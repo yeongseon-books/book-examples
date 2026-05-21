@@ -13,6 +13,9 @@ Llm From Scratch 101 시리즈 6편 예제 코드입니다.
 | 파일 | 설명 |
 |------|------|
 | `episode.py` | 예제 코드 |
+| `step_1_train_py.py` | 예제 코드 |
+| `step_4.py` | 예제 코드 |
+| `warmup_cosine_decay.py` | 예제 코드 |
 
 ## 실행 방법
 

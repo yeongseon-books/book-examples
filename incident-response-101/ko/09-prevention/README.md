@@ -12,7 +12,10 @@ Incident Response 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3_guardrail.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
+| `toxiproxy.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +23,7 @@ Incident Response 101 시리즈 9편 예제 코드입니다.
 cd incident-response-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-prevention/step01_example.py
+python ko/09-prevention/3_guardrail.py
 ```
 
 ## 관련 글

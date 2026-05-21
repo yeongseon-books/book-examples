@@ -1,0 +1,6 @@
+# .github/workflows/check-spec.yml
+- name: Generate spec
+  run: python -c "from app.main import app; import json; print(json.dumps(app.openapi()))" > generated.json
+
+- name: Compare with committed spec
+  run: diff openapi.json generated.json || (echo "Spec drift detected" && exit 1)

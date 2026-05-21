@@ -11,6 +11,7 @@ Example code for Incident Response 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_4_kill_switch.py` | Example code |
 
 ## How to Run
 

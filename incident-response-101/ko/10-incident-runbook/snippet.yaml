@@ -1,0 +1,14 @@
+drill:
+  name: checkout-timeout-surge
+  objective:
+    - 10분 내 incident 선언
+    - 20분 내 첫 mitigation 실행
+    - 30분 내 외부 공지 발행
+  injects:
+    - t+00m: error_rate 7%
+    - t+05m: db latency spike
+    - t+10m: payment provider partial outage
+  success_criteria:
+    - role_assignment_completed: true
+    - timeline_entries_min: 12
+    - first_customer_update_minutes: 30

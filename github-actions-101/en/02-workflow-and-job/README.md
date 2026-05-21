@@ -11,6 +11,11 @@ Example code for Github Actions 101 series, episode 2.
 | File | Description |
 |------|-------------|
 | `step01_demo.py` | Example code |
+| `step_1_split_into_jobs.yaml` | Example code |
+| `step_2_order_with_needs.yaml` | Example code |
+| `step_3_multiple_environments_via_matrix.yaml` | Example code |
+| `step_4_pass_values_via_outputs.yaml` | Example code |
+| `step_5_failure_policy_continue_on_error.yaml` | Example code |
 
 ## How to Run
 

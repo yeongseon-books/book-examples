@@ -11,6 +11,8 @@ Example code for Incident Response 101 series, episode 5.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_4_split_fact_and_interpretation.py` | Example code |
+| `step_5_mark_anchors.py` | Example code |
 
 ## How to Run
 

@@ -11,6 +11,8 @@ Example code for Linear Algebra 101 series, episode 6.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_standard_basis.py` | Example code |
+| `step_5_coordinates_in_a_different_basis.py` | Example code |
 
 ## How to Run
 

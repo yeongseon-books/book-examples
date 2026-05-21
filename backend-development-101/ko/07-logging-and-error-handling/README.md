@@ -12,6 +12,14 @@ Backend Development 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_setup.py` | 예제 코드 |
+| `2_json_log.py` | 예제 코드 |
+| `3_request_id.py` | 예제 코드 |
+| `4_global_handler.py` | 예제 코드 |
+| `5_levels.py` | 예제 코드 |
+| `before_after.py` | 예제 코드 |
+| `fastapi.py` | 예제 코드 |
+| `middleware_request_id.py` | 예제 코드 |
 | `step01_logging_errors.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Backend Development 101 시리즈 7편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-logging-and-error-handling/step01_logging_errors.py
+python ko/07-logging-and-error-handling/1_setup.py
 ```
 
 ## 관련 글

@@ -11,6 +11,7 @@ Example code for Incident Response 101 series, episode 6.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_five_whys.py` | Example code |
 
 ## How to Run
 

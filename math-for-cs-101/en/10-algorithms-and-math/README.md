@@ -11,6 +11,10 @@ Example code for Math For Cs 101 series, episode 10.
 | File | Description |
 |------|-------------|
 | `step01_algorithms_and_math.py` | Example code |
+| `step_2_bfs_shortest_path.py` | Example code |
+| `step_3_randomized_estimate.py` | Example code |
+| `step_4_gradient_descent_min.py` | Example code |
+| `step_5_entropy_lower_bound.py` | Example code |
 
 ## How to Run
 

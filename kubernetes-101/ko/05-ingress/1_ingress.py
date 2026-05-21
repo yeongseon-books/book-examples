@@ -1,0 +1,18 @@
+"""
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata: {name: web}
+spec:
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service: {name: api, port: {number: 80}}
+      - path: /
+        pathType: Prefix
+        backend:
+          service: {name: web, port: {number: 80}}
+"""

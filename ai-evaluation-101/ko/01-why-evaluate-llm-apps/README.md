@@ -12,6 +12,12 @@ Ai Evaluation 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `10.py` | 예제 코드 |
+| `4.py` | 예제 코드 |
+| `llm.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_03.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
 | `step01_eval_basics.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Ai Evaluation 101 시리즈 1편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-why-evaluate-llm-apps/step01_eval_basics.py
+python ko/01-why-evaluate-llm-apps/10.py
 ```
 
 ## 관련 글

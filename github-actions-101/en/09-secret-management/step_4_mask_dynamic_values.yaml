@@ -1,0 +1,5 @@
+- name: Mask runtime token
+  run: |
+    TOKEN=$(curl -s https://auth.example.com/token | jq -r .token)
+    echo "::add-mask::$TOKEN"
+    echo "GENERATED_TOKEN=$TOKEN" >> "$GITHUB_ENV"

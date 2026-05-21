@@ -10,6 +10,12 @@ Example code for Ai Evaluation 101 series, episode 9.
 
 | File | Description |
 |------|-------------|
+| `effect_size.py` | Example code |
+| `online_analysis.py` | Example code |
+| `online_router.py` | Example code |
+| `pairwise_winrate.py` | Example code |
+| `sample_size.py` | Example code |
+| `significance.py` | Example code |
 | `step01_ab_welch.py` | Example code |
 
 ## How to Run
@@ -18,7 +24,7 @@ Example code for Ai Evaluation 101 series, episode 9.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/09-ab-testing-llms/step01_ab_welch.py
+python en/09-ab-testing-llms/effect_size.py
 ```
 
 ## Related Article

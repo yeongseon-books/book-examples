@@ -1,0 +1,7 @@
+{
+  "type": "https://api.example.com/errors/insufficient-funds",
+  "title": "Insufficient funds",
+  "status": 403,
+  "detail": "Account balance is 30, but transfer requires 50.",
+  "instance": "/transfers/txn_abc123"
+}

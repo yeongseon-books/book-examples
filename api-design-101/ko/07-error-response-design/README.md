@@ -12,6 +12,15 @@ Api Design 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `before_after.json` | 예제 코드 |
+| `before_after_02.json` | 예제 코드 |
+| `rfc_7807_problem_details_for_http_apis.json` | 예제 코드 |
+| `snippet.json` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_07.json` | 예제 코드 |
+| `snippet_09.py` | 예제 코드 |
+| `snippet_10.py` | 예제 코드 |
+| `snippet_11.json` | 예제 코드 |
 | `step01_problem_json.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +29,7 @@ Api Design 101 시리즈 7편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-error-response-design/step01_problem_json.py
+python ko/07-error-response-design/before_after.json
 ```
 
 ## 관련 글

@@ -12,7 +12,13 @@ Ai Evaluation 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_temperature_seed.py` | 예제 코드 |
+| `check_thresholds.py` | 예제 코드 |
+| `eval.yml` | 예제 코드 |
+| `golden_dataset.py` | 예제 코드 |
 | `step01_regression_gate.py` | 예제 코드 |
+| `thresholds.py` | 예제 코드 |
+| `thresholds_06.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Ai Evaluation 101 시리즈 8편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-regression-testing/step01_regression_gate.py
+python ko/08-regression-testing/1_temperature_seed.py
 ```
 
 ## 관련 글

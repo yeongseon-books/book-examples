@@ -11,6 +11,8 @@ Example code for Math For Cs 101 series, episode 8.
 | File | Description |
 |------|-------------|
 | `step01_calculus.py` | Example code |
+| `step_2_gradient.py` | Example code |
+| `step_5_mini_training_loop.py` | Example code |
 
 ## How to Run
 

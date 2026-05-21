@@ -1,0 +1,3 @@
+@media (max-width: 600px) {
+  main { grid-template-columns: 1fr; }
+}

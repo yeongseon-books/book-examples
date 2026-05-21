@@ -1,0 +1,6 @@
+# CI/CD
+stages:
+  - test
+  - migrate     # alembic upgrade head
+  - deploy      # rolling update
+  - smoke-test

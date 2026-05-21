@@ -11,6 +11,12 @@ Example code for Calculus For Ml 101 series, episode 10.
 | File | Description |
 |------|-------------|
 | `step01_training_loop.py` | Example code |
+| `step_1_model.py` | Example code |
+| `step_3_analytical_gradients.py` | Example code |
+| `step_4_one_update_step.py` | Example code |
+| `step_5_training_loop.py` | Example code |
+| `step_6_framework_code_uses_the_same_loop.py` | Example code |
+| `step_7_evaluation_follows_different_rule.py` | Example code |
 
 ## How to Run
 

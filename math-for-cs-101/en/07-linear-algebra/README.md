@@ -11,6 +11,7 @@ Example code for Math For Cs 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `step01_linear_algebra.py` | Example code |
+| `step_5_matrix_matrix.py` | Example code |
 
 ## How to Run
 

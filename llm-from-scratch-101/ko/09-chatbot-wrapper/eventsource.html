@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><body>
+<h1>Mini Bot</h1>
+<input id="prompt" size="50" placeholder="Question"><button id="send">Send</button>
+<pre id="out"></pre>
+<script>
+const promptEl=document.getElementById('prompt'),out=document.getElementById('out');let source=null;
+document.getElementById('send').onclick=()=>{if(source)source.close();out.textContent='';
+source=new EventSource(`/chat/stream?prompt=${encodeURIComponent(promptEl.value)}`);
+source.onmessage=e=>out.textContent+=e.data;source.onerror=()=>source.close();};
+</script></body></html>

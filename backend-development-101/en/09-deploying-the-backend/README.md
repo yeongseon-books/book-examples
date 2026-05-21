@@ -10,7 +10,11 @@ Example code for Backend Development 101 series, episode 9.
 
 | File | Description |
 |------|-------------|
+| `Dockerfile` | Example code |
+| `health.py` | Example code |
+| `main.py` | Example code |
 | `step01_health_readiness.py` | Example code |
+| `step_4_healthcheck_endpoint.yaml` | Example code |
 
 ## How to Run
 
@@ -18,7 +22,7 @@ Example code for Backend Development 101 series, episode 9.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/09-deploying-the-backend/step01_health_readiness.py
+python en/09-deploying-the-backend/Dockerfile
 ```
 
 ## Related Article

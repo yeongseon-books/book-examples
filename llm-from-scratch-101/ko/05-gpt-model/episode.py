@@ -10,7 +10,7 @@ idx = np.random.randint(0, 50, size=(2, 8))
 print(model.forward(idx).shape)
 
 
-# Expected output:
+# 예상 출력:
 # GPT model parameters: 1,234,944
 # Forward pass output shape: (1, 8, 5000)
 # Logits sample: [-0.12, 0.45, -0.89, 0.23, ...]

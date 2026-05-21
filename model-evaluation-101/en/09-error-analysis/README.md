@@ -11,6 +11,10 @@ Example code for Model Evaluation 101 series, episode 9.
 | File | Description |
 |------|-------------|
 | `step01_error_analysis.py` | Example code |
+| `step_1_data_and_model.py` | Example code |
+| `step_2_slice_scores.py` | Example code |
+| `step_3_error_types.py` | Example code |
+| `step_4_error_rate_per_confidence_bucket.py` | Example code |
 
 ## How to Run
 

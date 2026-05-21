@@ -18,7 +18,7 @@ for _ in range(30):
 print(round(cross_entropy(x @ w, y), 4))
 
 
-# Expected output:
+# 예상 출력:
 # Epoch 1/5 | Loss: 4.2341 | LR: 0.001
 # Epoch 2/5 | Loss: 3.1892 | LR: 0.001
 # Epoch 3/5 | Loss: 2.4567 | LR: 0.0005

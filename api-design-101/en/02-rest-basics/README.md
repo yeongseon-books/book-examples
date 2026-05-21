@@ -10,6 +10,11 @@ Example code for Api Design 101 series, episode 2.
 
 | File | Description |
 |------|-------------|
+| `1_client_server.py` | Example code |
+| `2_stateless.py` | Example code |
+| `3_cache.py` | Example code |
+| `4_uniform.py` | Example code |
+| `5_layered.py` | Example code |
 | `step01_rest_constraints.py` | Example code |
 
 ## How to Run
@@ -18,7 +23,7 @@ Example code for Api Design 101 series, episode 2.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/02-rest-basics/step01_rest_constraints.py
+python en/02-rest-basics/1_client_server.py
 ```
 
 ## Related Article

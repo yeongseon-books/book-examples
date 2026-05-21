@@ -12,6 +12,11 @@ Harness Engineering 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `context_5.py` | 예제 코드 |
+| `context_snapshot.py` | 예제 코드 |
+| `conversation_history.py` | 예제 코드 |
+| `retrieved_context.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Harness Engineering 101 시리즈 3편 예제 코드입니다.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-context-harness/step01_example.py
+python ko/03-context-harness/context_5.py
 ```
 
 ## 관련 글

@@ -12,6 +12,11 @@ Ai Data Preparation 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `snippet.py` | 예제 코드 |
+| `stage_1_regex.py` | 예제 코드 |
+| `stage_2_ner_pii.py` | 예제 코드 |
+| `stage_3.py` | 예제 코드 |
+| `stage_4.py` | 예제 코드 |
 | `step01_regex_redaction.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Ai Data Preparation 101 시리즈 4편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-pii-detection-anonymization/step01_regex_redaction.py
+python ko/04-pii-detection-anonymization/snippet.py
 ```
 
 ## 관련 글

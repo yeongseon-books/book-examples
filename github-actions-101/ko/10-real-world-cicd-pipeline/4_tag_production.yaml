@@ -1,0 +1,14 @@
+on:
+  push:
+    tags: ["v*"]
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: softprops/action-gh-release@v2
+  deploy-prod:
+    needs: release
+    environment: production  # required reviewers ON
+    runs-on: ubuntu-latest
+    steps:
+      - run: kubectl apply -f k8s/production/

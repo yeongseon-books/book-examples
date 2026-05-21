@@ -10,10 +10,12 @@ Example code for Frontend Development 101 series, episode 9.
 
 | File | Description |
 |------|-------------|
+| `before_after.html` | Example code |
 | `example.css` | Example code |
 | `example.html` | Example code |
 | `example.js` | Example code |
 | `step01_ep09.py` | Example code |
+| `vite.config.ts` | Example code |
 
 ## How to Run
 
@@ -21,7 +23,7 @@ Example code for Frontend Development 101 series, episode 9.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/09-build-tools-and-bundling/example.css
+python en/09-build-tools-and-bundling/before_after.html
 ```
 
 ## Related Article

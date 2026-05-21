@@ -13,6 +13,9 @@ Llm From Scratch 101 시리즈 4편 예제 코드입니다.
 | 파일 | 설명 |
 |------|------|
 | `episode.py` | 예제 코드 |
+| `feedforward_mlp.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `surprisingly.py` | 예제 코드 |
 
 ## 실행 방법
 

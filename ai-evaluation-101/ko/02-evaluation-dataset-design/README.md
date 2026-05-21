@@ -12,6 +12,12 @@ Ai Evaluation 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_production_trace.py` | 예제 코드 |
+| `2.py` | 예제 코드 |
+| `eval_set.py` | 예제 코드 |
+| `expected.py` | 예제 코드 |
+| `expected_05.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_dataset_mix.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Ai Evaluation 101 시리즈 2편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-evaluation-dataset-design/step01_dataset_mix.py
+python ko/02-evaluation-dataset-design/1_production_trace.py
 ```
 
 ## 관련 글

@@ -12,7 +12,12 @@ Ai Evaluation 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `answer_relevance.py` | 예제 코드 |
+| `context_precision.py` | 예제 코드 |
+| `context_recall.py` | 예제 코드 |
+| `faithfulness.py` | 예제 코드 |
 | `step01_rag_metrics.py` | 예제 코드 |
+| `with_ragas.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +25,7 @@ Ai Evaluation 101 시리즈 6편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-rag-evaluation/step01_rag_metrics.py
+python ko/06-rag-evaluation/answer_relevance.py
 ```
 
 ## 관련 글

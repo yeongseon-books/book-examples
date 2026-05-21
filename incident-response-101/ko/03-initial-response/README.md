@@ -12,6 +12,7 @@ Incident Response 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `snippet.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +21,7 @@ Incident Response 101 시리즈 3편 예제 코드입니다.
 cd incident-response-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-initial-response/step01_example.py
+python ko/03-initial-response/snippet.py
 ```
 
 ## 관련 글

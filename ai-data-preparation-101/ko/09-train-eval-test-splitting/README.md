@@ -12,7 +12,14 @@ Ai Data Preparation 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `contamination.py` | 예제 코드 |
+| `contamination_llm.py` | 예제 코드 |
+| `split.py` | 예제 코드 |
+| `split_02.py` | 예제 코드 |
+| `split_03.py` | 예제 코드 |
+| `split_04.py` | 예제 코드 |
 | `step01_stratified_split.py` | 예제 코드 |
+| `temporal_group_stratify.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +27,7 @@ Ai Data Preparation 101 시리즈 9편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-train-eval-test-splitting/step01_stratified_split.py
+python ko/09-train-eval-test-splitting/contamination.py
 ```
 
 ## 관련 글

@@ -11,6 +11,7 @@ Example code for Math For Cs 101 series, episode 1.
 | File | Description |
 |------|-------------|
 | `step01_complexity_demo.py` | Example code |
+| `step_2_check_the_invariant.py` | Example code |
 
 ## How to Run
 

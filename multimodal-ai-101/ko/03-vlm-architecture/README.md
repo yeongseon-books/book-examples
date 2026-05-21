@@ -12,6 +12,10 @@ Multimodal Ai 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_llava_mlp_projection.py` | 예제 코드 |
+| `2_blip_2_q_former_token.py` | 예제 코드 |
+| `3_flamingo_llm_cross_attention_layer.py` | 예제 코드 |
+| `llava.py` | 예제 코드 |
 | `step01_vlm_architecture.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Multimodal Ai 101 시리즈 3편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-vlm-architecture/step01_vlm_architecture.py
+python ko/03-vlm-architecture/1_llava_mlp_projection.py
 ```
 
 ## 관련 글

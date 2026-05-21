@@ -12,6 +12,11 @@ Alembic 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_import.py` | 예제 코드 |
+| `2_target_metadata.py` | 예제 코드 |
+| `3_url_override.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_03.py` | 예제 코드 |
 | `step01_env_target_metadata.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Alembic 101 시리즈 2편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-env-py-and-target-metadata/step01_env_target_metadata.py
+python ko/02-env-py-and-target-metadata/1_import.py
 ```
 
 ## 관련 글

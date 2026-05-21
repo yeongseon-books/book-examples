@@ -1,0 +1,6 @@
+# GitHub Actions: 예제 코드 검증
+- name: Validate doc examples
+  run: |
+    for f in docs/examples/*.py; do
+      python "$f" || exit 1
+    done

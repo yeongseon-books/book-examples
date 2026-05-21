@@ -11,6 +11,11 @@ Example code for Linear Algebra 101 series, episode 10.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_linear_regression_normal_equation.py` | Example code |
+| `step_2_one_neural_network_layer.py` | Example code |
+| `step_3_cosine_similarity_embeddings.py` | Example code |
+| `step_4_one_gradient_step.py` | Example code |
+| `step_5_compress_features_with_pca.py` | Example code |
 
 ## How to Run
 

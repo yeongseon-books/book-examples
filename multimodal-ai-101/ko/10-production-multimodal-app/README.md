@@ -12,6 +12,10 @@ Multimodal Ai 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_fastapi.py` | 예제 코드 |
+| `3_inference_worker_vllm_triton.py` | 예제 코드 |
+| `4_caching_layer.py` | 예제 코드 |
+| `6_observability_feedback_loop.py` | 예제 코드 |
 | `step01_production_app.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Multimodal Ai 101 시리즈 10편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-production-multimodal-app/step01_production_app.py
+python ko/10-production-multimodal-app/2_fastapi.py
 ```
 
 ## 관련 글

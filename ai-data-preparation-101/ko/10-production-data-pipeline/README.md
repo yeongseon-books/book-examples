@@ -12,6 +12,11 @@ Ai Data Preparation 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `data_prep.py` | 예제 코드 |
+| `observability_stage.py` | 예제 코드 |
+| `pipeline.py` | 예제 코드 |
+| `schema_validation.py` | 예제 코드 |
+| `stage.py` | 예제 코드 |
 | `step01_pipeline_orchestrator.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Ai Data Preparation 101 시리즈 10편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-production-data-pipeline/step01_pipeline_orchestrator.py
+python ko/10-production-data-pipeline/data_prep.py
 ```
 
 ## 관련 글

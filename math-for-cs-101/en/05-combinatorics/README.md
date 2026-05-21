@@ -11,6 +11,7 @@ Example code for Math For Cs 101 series, episode 5.
 | File | Description |
 |------|-------------|
 | `step01_combinatorics.py` | Example code |
+| `step_1_factorial.py` | Example code |
 
 ## How to Run
 

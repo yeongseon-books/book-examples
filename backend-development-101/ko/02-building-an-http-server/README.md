@@ -12,6 +12,13 @@ Backend Development 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_socket_server.py` | 예제 코드 |
+| `2_fastapi.py` | 예제 코드 |
+| `3_status.py` | 예제 코드 |
+| `4_headers.py` | 예제 코드 |
+| `before_after.py` | 예제 코드 |
+| `fastapi.py` | 예제 코드 |
+| `middleware_request_id.py` | 예제 코드 |
 | `step01_status_headers.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Backend Development 101 시리즈 2편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-building-an-http-server/step01_status_headers.py
+python ko/02-building-an-http-server/1_socket_server.py
 ```
 
 ## 관련 글

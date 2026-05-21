@@ -10,6 +10,11 @@ Example code for Api Design 101 series, episode 4.
 
 | File | Description |
 |------|-------------|
+| `1_get.py` | Example code |
+| `2_post.py` | Example code |
+| `3_patch.py` | Example code |
+| `4_delete.py` | Example code |
+| `5_errors.py` | Example code |
 | `step01_method_status.py` | Example code |
 
 ## How to Run
@@ -18,7 +23,7 @@ Example code for Api Design 101 series, episode 4.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/04-http-methods-and-status/step01_method_status.py
+python en/04-http-methods-and-status/1_get.py
 ```
 
 ## Related Article

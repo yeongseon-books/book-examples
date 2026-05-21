@@ -1,0 +1,11 @@
+{
+  "type": "https://api.example.com/errors/validation-failed",
+  "title": "Validation failed",
+  "status": 422,
+  "code": "validation_error",
+  "errors": [
+    {"field": "name", "code": "required", "detail": "이름은 필수입니다."},
+    {"field": "email", "code": "invalid_format", "detail": "유효한 이메일 형식이 아닙니다."},
+    {"field": "items[0].quantity", "code": "out_of_range", "detail": "1 이상이어야 합니다."}
+  ]
+}

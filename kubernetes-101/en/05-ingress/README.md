@@ -12,6 +12,11 @@ Example code for Kubernetes 101 series, episode 5.
 |------|-------------|
 | `ingress.yaml` | Example code |
 | `step01.py` | Example code |
+| `step_1_ingress_manifest.py` | Example code |
+| `step_2_apply.py` | Example code |
+| `step_3_create_a_tls_secret.py` | Example code |
+| `step_4_apply_tls.py` | Example code |
+| `step_5_verify.py` | Example code |
 
 ## How to Run
 

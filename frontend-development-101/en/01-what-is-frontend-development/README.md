@@ -14,6 +14,8 @@ Example code for Frontend Development 101 series, episode 1.
 | `example.html` | Example code |
 | `example.js` | Example code |
 | `step01_ep01.py` | Example code |
+| `step_1_index_html.html` | Example code |
+| `step_3_app_js.js` | Example code |
 
 ## How to Run
 

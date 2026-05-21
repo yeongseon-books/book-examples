@@ -12,6 +12,10 @@ Alembic 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3_sqlite_batch.py` | 예제 코드 |
+| `4_offline.py` | 예제 코드 |
+| `render_as_batch.py` | 예제 코드 |
+| `sqlite_batch_mode.sql` | 예제 코드 |
 | `step01_online_offline_batch.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Alembic 101 시리즈 7편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-online-vs-offline-and-batch/step01_online_offline_batch.py
+python ko/07-online-vs-offline-and-batch/3_sqlite_batch.py
 ```
 
 ## 관련 글

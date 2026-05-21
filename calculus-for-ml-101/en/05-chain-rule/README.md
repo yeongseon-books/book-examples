@@ -11,6 +11,10 @@ Example code for Calculus For Ml 101 series, episode 5.
 | File | Description |
 |------|-------------|
 | `step01_chain_rule.py` | Example code |
+| `step_1_composition.py` | Example code |
+| `step_2_inner_and_outer_derivatives.py` | Example code |
+| `step_4_numerical_check.py` | Example code |
+| `step_5_multi_stage_composition.py` | Example code |
 
 ## How to Run
 

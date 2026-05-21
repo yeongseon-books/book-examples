@@ -1,0 +1,39 @@
+# .github/workflows/agent-tests.yml
+"""
+name: Agent Tests
+on: [pull_request]
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pytest tests/unit -x --timeout=60
+
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pytest tests/integration -x --timeout=300
+        env:
+          USE_MOCK_LLM: "true"
+
+  eval:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'run-eval')
+    steps:
+      - run: python scripts/run_eval.py --dataset eval/v1 --threshold 0.85
+"""
+
+def run_eval_suite(dataset_path: str, threshold: float) -> bool:
+    """Run the full eval and compare to threshold."""
+    examples = load_dataset(dataset_path)
+    results = []
+    for ex in examples:
+        output = run_agent(ex.input)
+        score = rubric_score(output, ex.expected)
+        results.append((ex.id, score))
+
+    avg = sum(s for _, s in results) / len(results)
+    failed = [(eid, s) for eid, s in results if s < 0.7]
+
+    print(f"Average: {avg:.3f}, Threshold: {threshold}")
+    print(f"Failed (<0.7): {len(failed)}")
+    return avg >= threshold

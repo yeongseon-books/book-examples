@@ -1,0 +1,4 @@
+- name: dump logs on failure
+  if: failure()
+  run: |
+    cat pytest.log || true

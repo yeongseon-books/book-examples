@@ -10,6 +10,8 @@ Example code for Api Design 101 series, episode 6.
 
 | File | Description |
 |------|-------------|
+| `1_offset.py` | Example code |
+| `2_cursor.py` | Example code |
 | `step01_pagination_filter.py` | Example code |
 
 ## How to Run
@@ -18,7 +20,7 @@ Example code for Api Design 101 series, episode 6.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/06-pagination-and-filtering/step01_pagination_filter.py
+python en/06-pagination-and-filtering/1_offset.py
 ```
 
 ## Related Article

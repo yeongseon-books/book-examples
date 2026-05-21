@@ -1,0 +1,7 @@
+{
+  "type": "https://example.com/errors/user-not-found",
+  "title": "User not found",
+  "status": 404,
+  "code": "user.not_found",
+  "detail": "User 42 does not exist."
+}

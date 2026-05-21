@@ -10,7 +10,13 @@ Example code for Ai Data Preparation 101 series, episode 3.
 
 | File | Description |
 |------|-------------|
+| `cleaning_diff_metrics.py` | Example code |
+| `cleaning_six_basic_transforms.py` | Example code |
+| `stage_1_exact_dedup.py` | Example code |
+| `stage_2_minhash_lsh.py` | Example code |
+| `stage_3_semantic_dedup_optional.py` | Example code |
 | `step01_clean_dedup.py` | Example code |
+| `train_eval_cross_dedup_the_step_that_mat.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +24,7 @@ Example code for Ai Data Preparation 101 series, episode 3.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/03-cleaning-deduplication/step01_clean_dedup.py
+python en/03-cleaning-deduplication/cleaning_diff_metrics.py
 ```
 
 ## Related Article

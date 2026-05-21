@@ -10,7 +10,10 @@ Example code for Ai Data Preparation 101 series, episode 7.
 
 | File | Description |
 |------|-------------|
+| `a_reproducible_synthetic_data_batch_work.py` | Example code |
+| `distillation_the_branch_with_an_extra_po.py` | Example code |
 | `step01_self_instruct_mock.py` | Example code |
+| `the_generated_artifact_should_look_like_.json` | Example code |
 
 ## How to Run
 
@@ -18,7 +21,7 @@ Example code for Ai Data Preparation 101 series, episode 7.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/07-synthetic-data-generation/step01_self_instruct_mock.py
+python en/07-synthetic-data-generation/a_reproducible_synthetic_data_batch_work.py
 ```
 
 ## Related Article

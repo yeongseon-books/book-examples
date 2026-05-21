@@ -1,0 +1,15 @@
+on:
+  push:
+    branches: [main]
+jobs:
+  ci:
+    uses: org/template-repo/.github/workflows/_ci.yml@v1
+  docker:
+    needs: ci
+    uses: org/template-repo/.github/workflows/_docker.yml@v1
+  deploy-staging:
+    needs: docker
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - run: kubectl apply -f k8s/staging/

@@ -10,7 +10,11 @@ Example code for Alembic 101 series, episode 5.
 
 | File | Description |
 |------|-------------|
+| `alembic_merge.py` | Example code |
+| `branch_labels_and_depends_on.py` | Example code |
 | `step01_branch_merge.py` | Example code |
+| `step_4_when_there_is_a_cross_branch_depe.py` | Example code |
+| `step_5_an_intentional_long_running_branc.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +22,7 @@ Example code for Alembic 101 series, episode 5.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/05-branches-and-merges/step01_branch_merge.py
+python en/05-branches-and-merges/alembic_merge.py
 ```
 
 ## Related Article

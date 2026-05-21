@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "task_id": "syn-101",
+      "instruction": "고객이 월간 플랜에서 연간 플랜으로 전환할 때 환불과 재청구 순서를 설명하세요.",
+      "input": "고객은 월간 플랜 결제 후 3일째이며 연간 플랜 할인도 적용받고 싶어 합니다.",
+      "output": "먼저 현재 월간 플랜 환불 가능 여부를 확인한 뒤, 연간 플랜을 별도로 재청구하는 순서를 안내해야 합니다.",
+      "source_type": "self_instruct",
+      "difficulty": "baseline",
+      "evidence": null,
+      "reasons": ["환불과 업그레이드가 동시에 등장하는 희귀 케이스를 추가합니다."]
+    },
+    {
+      "task_id": "syn-102",
+      "instruction": "장애 공지 문서만 근거로 API 지연 원인을 설명하세요.",
+      "input": "2026-05-01 장애 당시 지연 원인을 요약해 달라는 문의입니다.",
+      "output": "공개된 장애 공지에 따르면 데이터베이스 connection pool 포화가 직접 원인이었습니다.",
+      "source_type": "rag_eval",
+      "difficulty": "hard",
+      "evidence": "데이터베이스 connection pool 포화가 원인이었다.",
+      "reasons": ["FAQ 근거를 직접 요구하는 retrieval 평가 샘플입니다."]
+    }
+  ]
+}

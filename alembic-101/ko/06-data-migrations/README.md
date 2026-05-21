@@ -12,6 +12,14 @@ Alembic 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_schema_revision.py` | 예제 코드 |
+| `2_data_backfill_revision.py` | 예제 코드 |
+| `3_schema_tighten_revision.py` | 예제 코드 |
+| `5.py` | 예제 코드 |
+| `batch.py` | 예제 코드 |
+| `op_execute.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
 | `step01_data_backfill.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Alembic 101 시리즈 6편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-data-migrations/step01_data_backfill.py
+python ko/06-data-migrations/1_schema_revision.py
 ```
 
 ## 관련 글

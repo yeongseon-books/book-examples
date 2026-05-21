@@ -12,7 +12,13 @@ Ai Evaluation 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `dashboard.py` | 예제 코드 |
+| `efficiency.py` | 예제 코드 |
+| `end_to_end.py` | 예제 코드 |
+| `recovery.py` | 예제 코드 |
 | `step01_agent_trajectory.py` | 예제 코드 |
+| `step_level.py` | 예제 코드 |
+| `tool_confusion.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Ai Evaluation 101 시리즈 7편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-agent-evaluation/step01_agent_trajectory.py
+python ko/07-agent-evaluation/dashboard.py
 ```
 
 ## 관련 글

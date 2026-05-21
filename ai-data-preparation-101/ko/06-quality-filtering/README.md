@@ -12,6 +12,11 @@ Ai Data Preparation 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `cheap_expensive.py` | 예제 코드 |
+| `classifier_filter.py` | 예제 코드 |
+| `heuristic_filter_signal.py` | 예제 코드 |
+| `out_of_domain.py` | 예제 코드 |
+| `perplexity_filter.py` | 예제 코드 |
 | `step01_heuristic_filter.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Ai Data Preparation 101 시리즈 6편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-quality-filtering/step01_heuristic_filter.py
+python ko/06-quality-filtering/cheap_expensive.py
 ```
 
 ## 관련 글

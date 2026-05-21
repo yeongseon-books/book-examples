@@ -1,0 +1,9 @@
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "deploy target"
+        required: true
+        default: staging
+        type: choice
+        options: [staging, production]

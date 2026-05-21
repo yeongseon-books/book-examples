@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: "git sha to roll back to"
+        required: true
+jobs:
+  rollback:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./deploy.sh ${{ inputs.sha }}

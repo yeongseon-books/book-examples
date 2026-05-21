@@ -12,6 +12,14 @@ Github Actions 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3_main_staging.yaml` | 예제 코드 |
+| `4_tag_production.yaml` | 예제 코드 |
+| `_ci.yml` | 예제 코드 |
+| `action.yml` | 예제 코드 |
+| `job_matrix.yaml` | 예제 코드 |
+| `pr.yml` | 예제 코드 |
+| `secret.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01_demo.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Github Actions 101 시리즈 10편 예제 코드입니다.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-real-world-cicd-pipeline/step01_demo.py
+python ko/10-real-world-cicd-pipeline/3_main_staging.yaml
 ```
 
 ## 관련 글

@@ -10,7 +10,9 @@ Example code for Llm From Scratch 101 series, episode 8.
 
 | File | Description |
 |------|-------------|
+| `creating_a_tiny_dataset_are_50_rows_enou.json` | Example code |
 | `episode.py` | Example code |
+| `finetune.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +20,7 @@ Example code for Llm From Scratch 101 series, episode 8.
 cd llm-from-scratch-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/08-finetuning/episode.py
+python en/08-finetuning/creating_a_tiny_dataset_are_50_rows_enou.json
 ```
 
 ## Related Article

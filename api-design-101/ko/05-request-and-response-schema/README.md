@@ -12,6 +12,15 @@ Api Design 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_json.py` | 예제 코드 |
+| `2_validate.py` | 예제 코드 |
+| `3_response.py` | 예제 코드 |
+| `4_time.py` | 예제 코드 |
+| `5_money.py` | 예제 코드 |
+| `before_after.json` | 예제 코드 |
+| `envelope.json` | 예제 코드 |
+| `envelope_10.json` | 예제 코드 |
+| `fastapi_schema.py` | 예제 코드 |
 | `step01_schema_validation.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +29,7 @@ Api Design 101 시리즈 5편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-request-and-response-schema/step01_schema_validation.py
+python ko/05-request-and-response-schema/1_json.py
 ```
 
 ## 관련 글

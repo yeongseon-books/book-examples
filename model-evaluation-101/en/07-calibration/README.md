@@ -11,6 +11,9 @@ Example code for Model Evaluation 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `step01_calibration_demo.py` | Example code |
+| `step_1_data_and_model.py` | Example code |
+| `step_2_reliability_curve.py` | Example code |
+| `step_4_platt_scaling.py` | Example code |
 
 ## How to Run
 

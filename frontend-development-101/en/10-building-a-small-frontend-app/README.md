@@ -10,9 +10,11 @@ Example code for Frontend Development 101 series, episode 10.
 
 | File | Description |
 |------|-------------|
+| `App.tsx` | Example code |
 | `example.css` | Example code |
 | `example.html` | Example code |
 | `example.js` | Example code |
+| `notes.ts` | Example code |
 | `step01_ep10.py` | Example code |
 
 ## How to Run
@@ -21,7 +23,7 @@ Example code for Frontend Development 101 series, episode 10.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-building-a-small-frontend-app/example.css
+python en/10-building-a-small-frontend-app/App.tsx
 ```
 
 ## Related Article

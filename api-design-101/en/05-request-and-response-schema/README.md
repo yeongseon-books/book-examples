@@ -10,6 +10,12 @@ Example code for Api Design 101 series, episode 5.
 
 | File | Description |
 |------|-------------|
+| `1_json.py` | Example code |
+| `2_validate.py` | Example code |
+| `3_response.py` | Example code |
+| `4_time.py` | Example code |
+| `5_money.py` | Example code |
+| `before_after.json` | Example code |
 | `step01_schema_validation.py` | Example code |
 
 ## How to Run
@@ -18,7 +24,7 @@ Example code for Api Design 101 series, episode 5.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/05-request-and-response-schema/step01_schema_validation.py
+python en/05-request-and-response-schema/1_json.py
 ```
 
 ## Related Article

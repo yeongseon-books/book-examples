@@ -12,7 +12,13 @@ Kubernetes 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_ingress.py` | 예제 코드 |
+| `2.py` | 예제 코드 |
+| `3_tls.py` | 예제 코드 |
+| `4_tls.py` | 예제 코드 |
+| `5.py` | 예제 코드 |
 | `ingress.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01.py` | 예제 코드 |
 
 ## 실행 방법
@@ -21,7 +27,7 @@ Kubernetes 101 시리즈 5편 예제 코드입니다.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-ingress/ingress.yaml
+python ko/05-ingress/1_ingress.py
 ```
 
 ## 관련 글

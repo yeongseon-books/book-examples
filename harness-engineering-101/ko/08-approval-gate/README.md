@@ -12,7 +12,13 @@ Harness Engineering 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `approval_gate.py` | 예제 코드 |
+| `approval_gate_02.py` | 예제 코드 |
+| `approval_workflow.py` | 예제 코드 |
+| `decision_logging.py` | 예제 코드 |
+| `dry_run_vs_commit.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
+| `timeout.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Harness Engineering 101 시리즈 8편 예제 코드입니다.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-approval-gate/step01_example.py
+python ko/08-approval-gate/approval_gate.py
 ```
 
 ## 관련 글

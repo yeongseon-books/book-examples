@@ -11,6 +11,11 @@ Example code for Model Evaluation 101 series, episode 8.
 | File | Description |
 |------|-------------|
 | `step01_cross_validation_demo.py` | Example code |
+| `step_1_data_and_model.py` | Example code |
+| `step_2_stratified_k_fold.py` | Example code |
+| `step_3_groupkfold_synthetic_groups.py` | Example code |
+| `step_4_timeseriessplit.py` | Example code |
+| `step_5_multiple_metrics.py` | Example code |
 
 ## How to Run
 

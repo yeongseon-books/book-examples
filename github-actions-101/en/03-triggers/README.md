@@ -11,6 +11,11 @@ Example code for Github Actions 101 series, episode 3.
 | File | Description |
 |------|-------------|
 | `step01_demo.py` | Example code |
+| `step_1_separate_push_and_pr.yaml` | Example code |
+| `step_2_cut_cost_with_paths_filters.yaml` | Example code |
+| `step_3_schedule_cron_for_nightlies.yaml` | Example code |
+| `step_4_workflow_dispatch_for_manual_runs.yaml` | Example code |
+| `step_5_concurrency_to_prevent_duplicates.yaml` | Example code |
 
 ## How to Run
 

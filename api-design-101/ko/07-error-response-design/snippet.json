@@ -1,0 +1,11 @@
+{
+  "type": "https://api.example.com/errors/validation-failed",
+  "title": "Validation failed",
+  "status": 422,
+  "code": "validation_error",
+  "trace_id": "req_7f3a2b1c",
+  "errors": [
+    {"field": "email", "code": "invalid_format", "detail": "유효한 이메일 형식이 아닙니다."},
+    {"field": "age", "code": "out_of_range", "detail": "0 이상 150 이하여야 합니다."}
+  ]
+}

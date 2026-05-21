@@ -11,6 +11,11 @@ Example code for Github Actions 101 series, episode 6.
 | File | Description |
 |------|-------------|
 | `step01_demo.py` | Example code |
+| `step_1_upload.yaml` | Example code |
+| `step_2_download.yaml` | Example code |
+| `step_3_bundle_by_patterns.yaml` | Example code |
+| `step_4_auto_publish_a_release.yaml` | Example code |
+| `step_5_retention_policy.yaml` | Example code |
 
 ## How to Run
 

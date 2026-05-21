@@ -12,6 +12,10 @@ Multimodal Ai 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_pyav_frame.py` | 예제 코드 |
+| `3_scene_change_keyframe.py` | 예제 코드 |
+| `4_video_encoder_videomae_timesformer_x_c.py` | 예제 코드 |
+| `5_video_q_a_with_video_llava.py` | 예제 코드 |
 | `step01_video_understanding.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Multimodal Ai 101 시리즈 9편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-video-understanding/step01_video_understanding.py
+python ko/09-video-understanding/2_pyav_frame.py
 ```
 
 ## 관련 글

@@ -12,6 +12,11 @@ Ai Safety Guardrails 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `outbound_re_check_rag.py` | 예제 코드 |
+| `presidio_pii.py` | 예제 코드 |
+| `presidio_pii_03.py` | 예제 코드 |
+| `regex_pii.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_pii_redaction.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Ai Safety Guardrails 101 시리즈 4편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-pii-detection-redaction/step01_pii_redaction.py
+python ko/04-pii-detection-redaction/outbound_re_check_rag.py
 ```
 
 ## 관련 글

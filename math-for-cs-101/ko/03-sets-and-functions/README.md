@@ -12,6 +12,13 @@ Math For Cs 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `api.py` | 예제 코드 |
+| `b.py` | 예제 코드 |
+| `python.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
+| `snippet_12.py` | 예제 코드 |
+| `snippet_13.py` | 예제 코드 |
 | `step01_sets_and_functions.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Math For Cs 101 시리즈 3편 예제 코드입니다.
 cd math-for-cs-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-sets-and-functions/step01_sets_and_functions.py
+python ko/03-sets-and-functions/api.py
 ```
 
 ## 관련 글

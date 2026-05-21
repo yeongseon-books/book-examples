@@ -12,6 +12,12 @@ Github Actions 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2.yaml` | 예제 코드 |
+| `3_github_token.yaml` | 예제 코드 |
+| `4.yaml` | 예제 코드 |
+| `job_matrix.yaml` | 예제 코드 |
+| `secret.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01_demo.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Github Actions 101 시리즈 9편 예제 코드입니다.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-secret-management/step01_demo.py
+python ko/09-secret-management/2.yaml
 ```
 
 ## 관련 글

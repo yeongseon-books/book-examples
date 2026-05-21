@@ -12,6 +12,11 @@ Example code for Kubernetes 101 series, episode 9.
 |------|-------------|
 | `chart-template.yaml` | Example code |
 | `step01.py` | Example code |
+| `step_1_create_the_chart.py` | Example code |
+| `step_2_values_yaml.py` | Example code |
+| `step_3_install.py` | Example code |
+| `step_4_upgrade.py` | Example code |
+| `step_5_rollback.py` | Example code |
 
 ## How to Run
 

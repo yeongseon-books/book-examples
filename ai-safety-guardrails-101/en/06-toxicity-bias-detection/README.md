@@ -10,7 +10,13 @@ Example code for Ai Safety Guardrails 101 series, episode 6.
 
 | File | Description |
 |------|-------------|
+| `bias_belongs_in_offline_audits.py` | Example code |
+| `bias_belongs_in_offline_audits_05.py` | Example code |
+| `moderating_streaming_output.py` | Example code |
+| `protected_attributes_and_demographic_par.py` | Example code |
 | `step01_toxicity_bias_scorer.py` | Example code |
+| `toxicity_classifier_options.py` | Example code |
+| `wiring_the_inline_guardrail.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +24,7 @@ Example code for Ai Safety Guardrails 101 series, episode 6.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/06-toxicity-bias-detection/step01_toxicity_bias_scorer.py
+python en/06-toxicity-bias-detection/bias_belongs_in_offline_audits.py
 ```
 
 ## Related Article

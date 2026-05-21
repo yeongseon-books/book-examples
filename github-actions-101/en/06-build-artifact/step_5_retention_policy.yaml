@@ -1,0 +1,5 @@
+- uses: actions/upload-artifact@v7
+  with:
+    name: nightly-build
+    path: dist/
+    retention-days: 7

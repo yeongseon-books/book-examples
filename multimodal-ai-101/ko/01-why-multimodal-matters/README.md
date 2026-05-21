@@ -12,6 +12,9 @@ Multimodal Ai 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `clip_cross_modal.py` | 예제 코드 |
+| `multimodal_gpt_4v.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_why_multimodal.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +23,7 @@ Multimodal Ai 101 시리즈 1편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-why-multimodal-matters/step01_why_multimodal.py
+python ko/01-why-multimodal-matters/clip_cross_modal.py
 ```
 
 ## 관련 글

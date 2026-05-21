@@ -12,7 +12,12 @@ Ai Agent 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `snippet.py` | 예제 코드 |
+| `snippet_04.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
 | `step01_observability_cost.py` | 예제 코드 |
+| `structured_logging.py` | 예제 코드 |
+| `tracing.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +25,7 @@ Ai Agent 101 시리즈 9편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-production-operations/step01_observability_cost.py
+python ko/09-production-operations/snippet.py
 ```
 
 ## 관련 글

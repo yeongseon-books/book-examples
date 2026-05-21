@@ -10,7 +10,13 @@ Example code for Backend Development 101 series, episode 8.
 
 | File | Description |
 |------|-------------|
+| `before_after.py` | Example code |
+| `conftest.py` | Example code |
 | `step01_testable_app.py` | Example code |
+| `test_api.py` | Example code |
+| `test_basic.py` | Example code |
+| `test_user_service.py` | Example code |
+| `test_with_db.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +24,7 @@ Example code for Backend Development 101 series, episode 8.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/08-testing-the-backend/step01_testable_app.py
+python en/08-testing-the-backend/before_after.py
 ```
 
 ## Related Article

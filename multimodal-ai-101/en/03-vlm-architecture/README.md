@@ -10,6 +10,10 @@ Example code for Multimodal Ai 101 series, episode 3.
 
 | File | Description |
 |------|-------------|
+| `first_inference_with_llava.py` | Example code |
+| `school_1_llava_simple_mlp_projection.py` | Example code |
+| `school_2_blip_2_q_former_for_token_compr.py` | Example code |
+| `school_3_flamingo_inserting_cross_attent.py` | Example code |
 | `step01_vlm_architecture.py` | Example code |
 
 ## How to Run
@@ -18,7 +22,7 @@ Example code for Multimodal Ai 101 series, episode 3.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/03-vlm-architecture/step01_vlm_architecture.py
+python en/03-vlm-architecture/first_inference_with_llava.py
 ```
 
 ## Related Article

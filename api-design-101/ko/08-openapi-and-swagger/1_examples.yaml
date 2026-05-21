@@ -1,0 +1,11 @@
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "ord_abc123"
+        status:
+          type: string
+          example: "paid"

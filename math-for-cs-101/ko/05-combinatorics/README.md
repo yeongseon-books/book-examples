@@ -12,6 +12,14 @@ Math For Cs 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `b.py` | 예제 코드 |
+| `itertools.py` | 예제 코드 |
+| `python.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_09.py` | 예제 코드 |
+| `snippet_12.py` | 예제 코드 |
+| `snippet_13.py` | 예제 코드 |
 | `step01_combinatorics.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Math For Cs 101 시리즈 5편 예제 코드입니다.
 cd math-for-cs-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-combinatorics/step01_combinatorics.py
+python ko/05-combinatorics/b.py
 ```
 
 ## 관련 글

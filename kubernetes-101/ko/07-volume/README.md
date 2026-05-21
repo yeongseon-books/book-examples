@@ -12,6 +12,11 @@ Kubernetes 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_pvc.py` | 예제 코드 |
+| `2.py` | 예제 코드 |
+| `3.py` | 예제 코드 |
+| `4.py` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01.py` | 예제 코드 |
 | `volume.yaml` | 예제 코드 |
 
@@ -21,7 +26,7 @@ Kubernetes 101 시리즈 7편 예제 코드입니다.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-volume/step01.py
+python ko/07-volume/1_pvc.py
 ```
 
 ## 관련 글

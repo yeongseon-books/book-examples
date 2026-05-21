@@ -10,6 +10,7 @@ Example code for Frontend Development 101 series, episode 4.
 
 | File | Description |
 |------|-------------|
+| `before_after.html` | Example code |
 | `example.css` | Example code |
 | `example.html` | Example code |
 | `example.js` | Example code |
@@ -21,7 +22,7 @@ Example code for Frontend Development 101 series, episode 4.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/04-components-and-state/example.css
+python en/04-components-and-state/before_after.html
 ```
 
 ## Related Article

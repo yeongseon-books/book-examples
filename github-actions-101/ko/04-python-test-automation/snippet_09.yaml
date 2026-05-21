@@ -1,0 +1,4 @@
+- name: Record build metadata
+  run: |
+    echo "sha=${GITHUB_SHA}" >> build-info.txt
+    echo "ref=${GITHUB_REF}" >> build-info.txt

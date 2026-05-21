@@ -12,7 +12,16 @@ Ai Safety Guardrails 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `false_positive.py` | 예제 코드 |
+| `judge.py` | 예제 코드 |
+| `openai_moderation_api.py` | 예제 코드 |
+| `openai_moderation_api_02.py` | 예제 코드 |
+| `self_hosting.py` | 예제 코드 |
+| `self_hosting_04.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
 | `step01_output_filter_pipeline.py` | 예제 코드 |
+| `ux.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +29,7 @@ Ai Safety Guardrails 101 시리즈 3편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-output-filtering/step01_output_filter_pipeline.py
+python ko/03-output-filtering/false_positive.py
 ```
 
 ## 관련 글

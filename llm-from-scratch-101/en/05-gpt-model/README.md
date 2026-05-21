@@ -10,7 +10,10 @@ Example code for Llm From Scratch 101 series, episode 5.
 
 | File | Description |
 |------|-------------|
+| `class_gpt_nn_module_an_80_line_model.py` | Example code |
 | `episode.py` | Example code |
+| `initializing_the_model_and_counting_para.py` | Example code |
+| `sanity_check_forward_pass_before_trainin.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +21,7 @@ Example code for Llm From Scratch 101 series, episode 5.
 cd llm-from-scratch-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/05-gpt-model/episode.py
+python en/05-gpt-model/class_gpt_nn_module_an_80_line_model.py
 ```
 
 ## Related Article

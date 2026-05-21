@@ -12,10 +12,23 @@ Frontend Development 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_semantic_structure.html` | 예제 코드 |
+| `2_apply_the_box_model.css` | 예제 코드 |
+| `3_flexbox_row.css` | 예제 코드 |
+| `4_grid_regions.css` | 예제 코드 |
+| `5_media_query.css` | 예제 코드 |
+| `before_after.html` | 예제 코드 |
+| `before_after_02.html` | 예제 코드 |
+| `css.css` | 예제 코드 |
 | `example.css` | 예제 코드 |
 | `example.html` | 예제 코드 |
 | `example.js` | 예제 코드 |
+| `html.html` | 예제 코드 |
+| `javascript.js` | 예제 코드 |
+| `presentational_vs_container.js` | 예제 코드 |
 | `step01_ep02.py` | 예제 코드 |
+| `vite.config.ts` | 예제 코드 |
+| `vite.json` | 예제 코드 |
 
 ## 실행 방법
 
@@ -23,7 +36,7 @@ Frontend Development 101 시리즈 2편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-html-and-css-basics/example.css
+python ko/02-html-and-css-basics/1_semantic_structure.html
 ```
 
 ## 관련 글

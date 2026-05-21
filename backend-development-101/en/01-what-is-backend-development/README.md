@@ -10,6 +10,11 @@ Example code for Backend Development 101 series, episode 1.
 
 | File | Description |
 |------|-------------|
+| `1_app.py` | Example code |
+| `2_routes.py` | Example code |
+| `3_input.py` | Example code |
+| `before_after.py` | Example code |
+| `server.py` | Example code |
 | `step01_http_basics.py` | Example code |
 
 ## How to Run
@@ -18,7 +23,7 @@ Example code for Backend Development 101 series, episode 1.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/01-what-is-backend-development/step01_http_basics.py
+python en/01-what-is-backend-development/1_app.py
 ```
 
 ## Related Article

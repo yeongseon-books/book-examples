@@ -11,6 +11,7 @@ Example code for Incident Response 101 series, episode 9.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_3_guardrail.py` | Example code |
 
 ## How to Run
 

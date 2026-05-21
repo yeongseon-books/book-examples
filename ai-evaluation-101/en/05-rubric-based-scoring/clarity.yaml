@@ -1,0 +1,12 @@
+# rubric/clarity.yaml
+dimension: Clarity
+anchors:
+  5: |
+    Short and clear. Understood on first read.
+    Example: "Set the API key in the OPENAI_API_KEY environment variable."
+  3: |
+    Understandable, but you have to re-read. Slightly verbose or vague.
+    Example: "Configure the authentication credential appropriately in your environment settings."
+  1: |
+    Incomprehensible. Jargon dump or rambling.
+    Example: "Leverage implicit context propagation for credential provisioning..."

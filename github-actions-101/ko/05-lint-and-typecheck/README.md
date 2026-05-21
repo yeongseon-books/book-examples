@@ -12,6 +12,14 @@ Github Actions 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `.pre-commit-config.yaml` | 예제 코드 |
+| `1_ruff.yaml` | 예제 코드 |
+| `3.toml` | 예제 코드 |
+| `5.yaml` | 예제 코드 |
+| `job_matrix.yaml` | 예제 코드 |
+| `secret.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
+| `snippet_09.yaml` | 예제 코드 |
 | `step01_demo.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Github Actions 101 시리즈 5편 예제 코드입니다.
 cd github-actions-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-lint-and-typecheck/step01_demo.py
+python ko/05-lint-and-typecheck/.pre-commit-config.yaml
 ```
 
 ## 관련 글

@@ -12,6 +12,10 @@ Alembic 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_schema_add.py` | 예제 코드 |
+| `3_not_null.py` | 예제 코드 |
+| `4_old_column_drop.py` | 예제 코드 |
+| `5_deploy_pipeline.yaml` | 예제 코드 |
 | `step01_deploy_ordering.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Alembic 101 시리즈 9편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-deploy-ordering-and-blue-green/step01_deploy_ordering.py
+python ko/09-deploy-ordering-and-blue-green/1_schema_add.py
 ```
 
 ## 관련 글

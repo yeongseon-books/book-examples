@@ -1,0 +1,6 @@
+deploy-staging:
+  needs: build
+  environment: staging
+  runs-on: ubuntu-latest
+  steps:
+    - run: kubectl apply -f k8s/staging/

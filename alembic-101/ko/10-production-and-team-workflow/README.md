@@ -12,6 +12,10 @@ Alembic 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3.py` | 예제 코드 |
+| `health.py` | 예제 코드 |
+| `migrate.yml` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_team_workflow.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Alembic 101 시리즈 10편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-production-and-team-workflow/step01_team_workflow.py
+python ko/10-production-and-team-workflow/3.py
 ```
 
 ## 관련 글

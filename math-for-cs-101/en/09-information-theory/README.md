@@ -11,6 +11,7 @@ Example code for Math For Cs 101 series, episode 9.
 | File | Description |
 |------|-------------|
 | `step01_information_theory.py` | Example code |
+| `step_1_information_content.py` | Example code |
 
 ## How to Run
 

@@ -1,0 +1,42 @@
+# .github/workflows/migrate.yml
+- name: alembic check
+  run: alembic check
+- name: upgrade then downgrade
+  run: |
+    set -euo pipefail
+    alembic upgrade head
+    alembic downgrade -1
+    alembic upgrade head
+- name: head count guard
+  run: |
+    set -euo pipefail
+    HEADS=$(alembic heads | python3 -c "import sys; print(sum(1 for line in sys.stdin if line.strip()))")
+    [ "$HEADS" = "1" ] || { echo "Fail: multi-head detected ($HEADS)"; exit 1; }
+- name: SQL preview
+  run: alembic upgrade head --sql > migration_preview.sql
+- name: fresh DB smoke
+  run: |
+    set -euo pipefail
+    DB_FILE=$(mktemp /tmp/alembic-smoke-XXXX.db)
+    trap 'rm -f "$DB_FILE"' EXIT
+    export DATABASE_URL="sqlite:///$DB_FILE"
+    alembic upgrade head
+    python3 - <<'PY'
+    import os
+    import sqlite3
+
+    db_path = os.environ["DATABASE_URL"].removeprefix("sqlite:///")
+    conn = sqlite3.connect(db_path)
+    try:
+        count = conn.execute(
+            "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='alembic_version'"
+        ).fetchone()[0]
+        assert count == 1, f"alembic_version missing in {db_path}"
+        print(f"Pass: fresh DB reached head at {db_path}")
+    finally:
+        conn.close()
+PY
+- uses: actions/upload-artifact@v4
+  with:
+    name: migration-preview
+    path: migration_preview.sql

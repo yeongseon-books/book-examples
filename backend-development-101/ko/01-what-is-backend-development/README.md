@@ -12,6 +12,14 @@ Backend Development 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_app.py` | 예제 코드 |
+| `2_routes.py` | 예제 코드 |
+| `3_input.py` | 예제 코드 |
+| `before_after.py` | 예제 코드 |
+| `fastapi.py` | 예제 코드 |
+| `middleware_request_id.py` | 예제 코드 |
+| `server.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_http_basics.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Backend Development 101 시리즈 1편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-what-is-backend-development/step01_http_basics.py
+python ko/01-what-is-backend-development/1_app.py
 ```
 
 ## 관련 글

@@ -12,6 +12,7 @@ Alembic 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `models.py` | 예제 코드 |
 | `step01_why_init.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +21,7 @@ Alembic 101 시리즈 1편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-why-alembic-and-init/step01_why_init.py
+python ko/01-why-alembic-and-init/models.py
 ```
 
 ## 관련 글

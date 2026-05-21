@@ -11,6 +11,10 @@ Example code for Linear Algebra 101 series, episode 3.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_build_a_matrix.py` | Example code |
+| `step_3_matrix_multiplication.py` | Example code |
+| `step_4_identity_matrix.py` | Example code |
+| `step_5_inverse.py` | Example code |
 
 ## How to Run
 

@@ -10,10 +10,17 @@ Example code for Frontend Development 101 series, episode 2.
 
 | File | Description |
 |------|-------------|
+| `before_after.html` | Example code |
+| `before_after_02.html` | Example code |
 | `example.css` | Example code |
 | `example.html` | Example code |
 | `example.js` | Example code |
 | `step01_ep02.py` | Example code |
+| `step_1_semantic_structure.html` | Example code |
+| `step_2_apply_the_box_model.css` | Example code |
+| `step_3_flexbox_row.css` | Example code |
+| `step_4_grid_regions.css` | Example code |
+| `step_5_media_query.css` | Example code |
 
 ## How to Run
 
@@ -21,7 +28,7 @@ Example code for Frontend Development 101 series, episode 2.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/02-html-and-css-basics/example.css
+python en/02-html-and-css-basics/before_after.html
 ```
 
 ## Related Article

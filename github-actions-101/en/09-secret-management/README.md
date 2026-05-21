@@ -11,6 +11,9 @@ Example code for Github Actions 101 series, episode 9.
 | File | Description |
 |------|-------------|
 | `step01_demo.py` | Example code |
+| `step_2_use_it_inside_a_workflow.yaml` | Example code |
+| `step_3_github_token_least_privilege.yaml` | Example code |
+| `step_4_mask_dynamic_values.yaml` | Example code |
 
 ## How to Run
 

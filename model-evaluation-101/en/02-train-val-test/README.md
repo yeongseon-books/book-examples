@@ -11,6 +11,11 @@ Example code for Model Evaluation 101 series, episode 2.
 | File | Description |
 |------|-------------|
 | `step01_split_demo.py` | Example code |
+| `step_1_basic_split.py` | Example code |
+| `step_2_demonstrate_leakage.py` | Example code |
+| `step_3_time_series_split.py` | Example code |
+| `step_4_group_split.py` | Example code |
+| `step_5_train_after_splitting.py` | Example code |
 
 ## How to Run
 

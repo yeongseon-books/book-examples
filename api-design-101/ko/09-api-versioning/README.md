@@ -12,6 +12,7 @@ Api Design 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `snippet.py` | 예제 코드 |
 | `step01_versioning_strategy.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +21,7 @@ Api Design 101 시리즈 9편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-api-versioning/step01_versioning_strategy.py
+python ko/09-api-versioning/snippet.py
 ```
 
 ## 관련 글

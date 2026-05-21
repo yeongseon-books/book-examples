@@ -12,7 +12,14 @@ Multimodal Ai 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `blip_style_captioning.py` | 예제 코드 |
+| `cloud_api.py` | 예제 코드 |
+| `ocr.py` | 예제 코드 |
+| `ocr_vlm_hybrid.py` | 예제 코드 |
+| `paddleocr_layout.py` | 예제 코드 |
 | `step01_caption_ocr.py` | 예제 코드 |
+| `tesseract.py` | 예제 코드 |
+| `vlm_caption.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +27,7 @@ Multimodal Ai 101 시리즈 4편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-captioning-ocr-pipelines/step01_caption_ocr.py
+python ko/04-captioning-ocr-pipelines/blip_style_captioning.py
 ```
 
 ## 관련 글

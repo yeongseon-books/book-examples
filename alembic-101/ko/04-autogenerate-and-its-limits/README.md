@@ -12,6 +12,13 @@ Alembic 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3.py` | 예제 코드 |
+| `4_rename.py` | 예제 코드 |
+| `compare_type_compare_server_default.py` | 예제 코드 |
+| `include_object_include_name.py` | 예제 코드 |
+| `models.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_04.py` | 예제 코드 |
 | `step01_autogenerate_limits.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Alembic 101 시리즈 4편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-autogenerate-and-its-limits/step01_autogenerate_limits.py
+python ko/04-autogenerate-and-its-limits/3.py
 ```
 
 ## 관련 글

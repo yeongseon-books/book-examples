@@ -14,6 +14,7 @@ Example code for Frontend Development 101 series, episode 8.
 | `example.html` | Example code |
 | `example.js` | Example code |
 | `step01_ep08.py` | Example code |
+| `tailwind.config.js` | Example code |
 
 ## How to Run
 

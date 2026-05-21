@@ -10,6 +10,8 @@ Example code for Backend Development 101 series, episode 10.
 
 | File | Description |
 |------|-------------|
+| `main.py` | Example code |
+| `settings.py` | Example code |
 | `step01_production_architecture.py` | Example code |
 
 ## How to Run
@@ -18,7 +20,7 @@ Example code for Backend Development 101 series, episode 10.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-production-ready-backend/step01_production_architecture.py
+python en/10-production-ready-backend/main.py
 ```
 
 ## Related Article

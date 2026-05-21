@@ -1,0 +1,15 @@
+toxicity_policy:
+  version: "2026-05-14"
+  thresholds:
+    toxicity: 0.85
+    severe_toxicity: 0.50
+    insult: 0.85
+    threat: 0.50
+  fallback_message: "요청을 처리할 수 없습니다. 표현을 바꿔 다시 시도해 주세요."
+  block_logging:
+    store_raw_text: false
+    store_hash: true
+    sample_for_review_percent: 3
+  escalation:
+    severe_toxicity: "human_review"
+    threat: "security_alert"

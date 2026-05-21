@@ -10,6 +10,6 @@ out = emb(idx) + positional_encoding(3, 16)[None, :, :]
 print(out.shape)
 
 
-# Expected output:
+# 예상 출력:
 # Embedding shape: (1, 8, 64)
 # First token embedding[:5]: [0.0234, -0.1567, 0.0891, 0.2103, -0.0445]

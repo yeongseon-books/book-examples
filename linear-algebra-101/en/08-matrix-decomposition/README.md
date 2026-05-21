@@ -11,6 +11,9 @@ Example code for Linear Algebra 101 series, episode 8.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_lu_decomposition.py` | Example code |
+| `step_2_qr_decomposition.py` | Example code |
+| `step_4_svd.py` | Example code |
 
 ## How to Run
 

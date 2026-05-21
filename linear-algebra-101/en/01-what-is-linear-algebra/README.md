@@ -11,6 +11,9 @@ Example code for Linear Algebra 101 series, episode 1.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_build_a_vector.py` | Example code |
+| `step_2_build_a_matrix.py` | Example code |
+| `step_4_a_rotation_matrix.py` | Example code |
 
 ## How to Run
 

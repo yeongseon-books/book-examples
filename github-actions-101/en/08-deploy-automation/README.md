@@ -11,6 +11,10 @@ Example code for Github Actions 101 series, episode 8.
 | File | Description |
 |------|-------------|
 | `step01_demo.py` | Example code |
+| `step_2_auto_deploy_to_staging.yaml` | Example code |
+| `step_3_production_approval_gate.yaml` | Example code |
+| `step_4_oidc_for_aws_short_lived_credenti.yaml` | Example code |
+| `step_5_rollback_workflow.yaml` | Example code |
 
 ## How to Run
 

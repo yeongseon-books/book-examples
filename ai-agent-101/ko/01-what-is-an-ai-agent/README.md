@@ -12,7 +12,11 @@ Ai Agent 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `snippet.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
 | `step01_manual_loop.py` | 예제 코드 |
+| `tool_use.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +24,7 @@ Ai Agent 101 시리즈 1편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-what-is-an-ai-agent/step01_manual_loop.py
+python ko/01-what-is-an-ai-agent/snippet.py
 ```
 
 ## 관련 글

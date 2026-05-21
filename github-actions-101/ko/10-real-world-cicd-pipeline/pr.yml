@@ -1,0 +1,8 @@
+# .github/workflows/pr.yml
+on:
+  pull_request:
+jobs:
+  ci:
+    uses: org/template-repo/.github/workflows/_ci.yml@v1
+    with:
+      python-version: "3.12"

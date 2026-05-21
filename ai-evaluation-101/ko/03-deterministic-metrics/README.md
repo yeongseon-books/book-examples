@@ -12,7 +12,14 @@ Ai Evaluation 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `bleu_n_gram.py` | 예제 코드 |
+| `exact_match.py` | 예제 코드 |
+| `rouge_recall.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
 | `step01_deterministic_metrics.py` | 예제 코드 |
+| `token_level_f1_exact_match.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +27,7 @@ Ai Evaluation 101 시리즈 3편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-deterministic-metrics/step01_deterministic_metrics.py
+python ko/03-deterministic-metrics/bleu_n_gram.py
 ```
 
 ## 관련 글

@@ -11,6 +11,9 @@ Example code for Llm From Scratch 101 series, episode 4.
 | File | Description |
 |------|-------------|
 | `episode.py` | Example code |
+| `feedforward_is_just_a_2_layer_mlp.py` | Example code |
+| `implementing_a_single_block_in_pytorch_2.py` | Example code |
+| `stacking_blocks_n_times.py` | Example code |
 
 ## How to Run
 

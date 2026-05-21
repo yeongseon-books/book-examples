@@ -10,6 +10,7 @@ Example code for Model Evaluation 101 series, episode 3.
 
 | File | Description |
 |------|-------------|
+| `one_diagnostic_script_instead_of_five_di.py` | Example code |
 | `step01_accuracy_trap.py` | Example code |
 
 ## How to Run
@@ -18,7 +19,7 @@ Example code for Model Evaluation 101 series, episode 3.
 cd model-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/03-limits-of-accuracy/step01_accuracy_trap.py
+python en/03-limits-of-accuracy/one_diagnostic_script_instead_of_five_di.py
 ```
 
 ## Related Article

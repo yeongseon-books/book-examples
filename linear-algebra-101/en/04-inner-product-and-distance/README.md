@@ -11,6 +11,7 @@ Example code for Linear Algebra 101 series, episode 4.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_1_prepare_vectors.py` | Example code |
 
 ## How to Run
 

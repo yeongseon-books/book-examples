@@ -12,6 +12,12 @@ Ai Safety Guardrails 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `direct_injection.py` | 예제 코드 |
+| `llm_judge.py` | 예제 코드 |
+| `red_team.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
 | `step01_prompt_injection_detector.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Ai Safety Guardrails 101 시리즈 2편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-prompt-injection-defense/step01_prompt_injection_detector.py
+python ko/02-prompt-injection-defense/direct_injection.py
 ```
 
 ## 관련 글

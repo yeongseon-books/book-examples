@@ -10,6 +10,7 @@ Example code for Api Design 101 series, episode 3.
 
 | File | Description |
 |------|-------------|
+| `4_collection.py` | Example code |
 | `step01_resource_url.py` | Example code |
 
 ## How to Run
@@ -18,7 +19,7 @@ Example code for Api Design 101 series, episode 3.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/03-resource-design/step01_resource_url.py
+python en/03-resource-design/4_collection.py
 ```
 
 ## Related Article

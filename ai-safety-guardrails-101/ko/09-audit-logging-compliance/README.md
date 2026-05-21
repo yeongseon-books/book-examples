@@ -12,6 +12,12 @@ Ai Safety Guardrails 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `append_only.py` | 예제 코드 |
+| `audit_record.py` | 예제 코드 |
+| `decision_rationale.py` | 예제 코드 |
+| `pii.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
 | `step01_append_only_audit_log.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +26,7 @@ Ai Safety Guardrails 101 시리즈 9편 예제 코드입니다.
 cd ai-safety-guardrails-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-audit-logging-compliance/step01_append_only_audit_log.py
+python ko/09-audit-logging-compliance/append_only.py
 ```
 
 ## 관련 글

@@ -11,6 +11,9 @@ Example code for Calculus For Ml 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `step01_gradient_descent.py` | Example code |
+| `step_1_loss_and_gradient.py` | Example code |
+| `step_3_training_loop.py` | Example code |
+| `step_4_sgd.py` | Example code |
 
 ## How to Run
 

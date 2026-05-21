@@ -12,7 +12,12 @@ Kubernetes 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_pod.py` | 예제 코드 |
+| `2.py` | 예제 코드 |
+| `3.py` | 예제 코드 |
+| `4.py` | 예제 코드 |
 | `pod.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01.py` | 예제 코드 |
 
 ## 실행 방법
@@ -21,7 +26,7 @@ Kubernetes 101 시리즈 2편 예제 코드입니다.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-pod/pod.yaml
+python ko/02-pod/1_pod.py
 ```
 
 ## 관련 글

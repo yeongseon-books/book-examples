@@ -12,7 +12,13 @@ Ai Data Preparation 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `ast_transform.py` | 예제 코드 |
+| `baseline_held_out.py` | 예제 코드 |
+| `concrete_augmentation_workflow_paraphras.py` | 예제 코드 |
+| `guardrail.py` | 예제 코드 |
+| `held_out_evaluation_stop_go.py` | 예제 코드 |
 | `step01_light_augmentation.py` | 예제 코드 |
+| `typo_robustness_slice.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Ai Data Preparation 101 시리즈 8편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-data-augmentation/step01_light_augmentation.py
+python ko/08-data-augmentation/ast_transform.py
 ```
 
 ## 관련 글

@@ -1,0 +1,47 @@
+"""Generated from book-content article."""
+
+import time
+import random
+from collections.abc import Callable
+from typing import Type, Tuple
+
+def retry_with_backoff(
+    fn: Callable,
+    max_attempts: int = 3,
+    initial_delay: float = 1.0,
+    max_delay: float = 30.0,
+    exponential_base: float = 2.0,
+    jitter: bool = True,
+    retryable_exceptions: Tuple[Type[Exception], ...] = (Exception,)
+):
+    """Retry with exponential backoff."""
+    last_exception = None
+
+    for attempt in range(max_attempts):
+        try:
+            return fn()
+        except retryable_exceptions as e:
+            last_exception = e
+            if attempt == max_attempts - 1:
+                break
+
+            delay = min(initial_delay * (exponential_base ** attempt), max_delay)
+            if jitter:
+                delay = delay * (0.5 + random.random())
+
+            print(f"attempt {attempt + 1} failed: {e}. retrying in {delay:.1f}s")
+            time.sleep(delay)
+
+    raise last_exception
+
+# Example usage
+def call_flaky_api():
+    response = requests.get("https://api.example.com/data", timeout=5)
+    response.raise_for_status()
+    return response.json()
+
+result = retry_with_backoff(
+    call_flaky_api,
+    max_attempts=5,
+    retryable_exceptions=(requests.Timeout, requests.ConnectionError)
+)

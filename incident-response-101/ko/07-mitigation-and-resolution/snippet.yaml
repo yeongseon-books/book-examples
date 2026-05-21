@@ -1,0 +1,6 @@
+recovery_gates:
+  error_ratio_below: 0.01
+  p95_latency_below_ms: 800
+  sustained_minutes: 15
+  customer_updates_sent: true
+  postmortem_ticket_created: true

@@ -1,0 +1,6 @@
+  build:
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    steps:
+      - uses: actions/checkout@v6
+      - run: python -m build

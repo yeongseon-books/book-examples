@@ -12,6 +12,10 @@ Multimodal Ai 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `controlnet.py` | 예제 코드 |
+| `dall_e_api.py` | 예제 코드 |
+| `diffusers_30.py` | 예제 코드 |
+| `inpainting_image_to_image.py` | 예제 코드 |
 | `step01_text_to_image.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Multimodal Ai 101 시리즈 7편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-text-to-image-diffusion/step01_text_to_image.py
+python ko/07-text-to-image-diffusion/controlnet.py
 ```
 
 ## 관련 글

@@ -10,7 +10,19 @@ Example code for Ai Agent 101 series, episode 8.
 
 | File | Description |
 |------|-------------|
+| `circuit_breaker_pattern.py` | Example code |
+| `fallback_and_graceful_degradation.py` | Example code |
+| `llm_response_errors.py` | Example code |
+| `mistake_1_retrying_every_error.py` | Example code |
+| `mistake_2_infinite_retries.py` | Example code |
+| `mistake_3_single_path_dependency_without.py` | Example code |
+| `mistake_4_silently_swallowing_errors.py` | Example code |
+| `mistake_5_exposing_raw_errors_to_users.py` | Example code |
+| `retry_pattern.py` | Example code |
+| `safe_tool_execution.py` | Example code |
 | `step01_retry_fallback.py` | Example code |
+| `tool_call_errors.py` | Example code |
+| `user_input_errors.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +30,7 @@ Example code for Ai Agent 101 series, episode 8.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/08-error-handling-reliability/step01_retry_fallback.py
+python en/08-error-handling-reliability/circuit_breaker_pattern.py
 ```
 
 ## Related Article

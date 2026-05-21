@@ -12,7 +12,13 @@ Backend Development 101 시리즈 9편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `Dockerfile` | 예제 코드 |
+| `fastapi.py` | 예제 코드 |
+| `health.py` | 예제 코드 |
+| `main.py` | 예제 코드 |
+| `middleware_request_id.py` | 예제 코드 |
 | `step01_health_readiness.py` | 예제 코드 |
+| `step_4_healthcheck_endpoint.yaml` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Backend Development 101 시리즈 9편 예제 코드입니다.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/09-deploying-the-backend/step01_health_readiness.py
+python ko/09-deploying-the-backend/Dockerfile
 ```
 
 ## 관련 글

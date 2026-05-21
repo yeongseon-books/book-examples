@@ -13,6 +13,9 @@ Llm From Scratch 101 시리즈 3편 예제 코드입니다.
 | 파일 | 설명 |
 |------|------|
 | `episode.py` | 예제 코드 |
+| `step_1_head.py` | 예제 코드 |
+| `step_2_mask.py` | 예제 코드 |
+| `step_4_nn_linear_reshape.py` | 예제 코드 |
 
 ## 실행 방법
 

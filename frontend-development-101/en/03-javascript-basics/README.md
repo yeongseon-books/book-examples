@@ -10,10 +10,15 @@ Example code for Frontend Development 101 series, episode 3.
 
 | File | Description |
 |------|-------------|
+| `before_after.js` | Example code |
 | `example.css` | Example code |
 | `example.html` | Example code |
 | `example.js` | Example code |
 | `step01_ep03.py` | Example code |
+| `step_1_html_skeleton.html` | Example code |
+| `step_3_a_render_function.js` | Example code |
+| `step_4_events.js` | Example code |
+| `step_5_delete_via_event_delegation.js` | Example code |
 
 ## How to Run
 
@@ -21,7 +26,7 @@ Example code for Frontend Development 101 series, episode 3.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/03-javascript-basics/example.css
+python en/03-javascript-basics/before_after.js
 ```
 
 ## Related Article

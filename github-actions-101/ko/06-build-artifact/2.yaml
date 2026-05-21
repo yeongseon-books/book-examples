@@ -1,0 +1,9 @@
+deploy:
+  needs: build
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/download-artifact@v8
+      with:
+        name: dist
+        path: dist/
+    - run: ls dist/

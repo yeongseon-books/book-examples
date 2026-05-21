@@ -11,6 +11,7 @@ Example code for Math For Cs 101 series, episode 6.
 | File | Description |
 |------|-------------|
 | `step01_probability.py` | Example code |
+| `step_5_variance.py` | Example code |
 
 ## How to Run
 

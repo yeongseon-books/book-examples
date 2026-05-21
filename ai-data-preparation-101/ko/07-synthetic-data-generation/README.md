@@ -12,7 +12,10 @@ Ai Data Preparation 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `distillation_branch.py` | 예제 코드 |
+| `snippet.json` | 예제 코드 |
 | `step01_self_instruct_mock.py` | 예제 코드 |
+| `synthetic_batch_workflow.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +23,7 @@ Ai Data Preparation 101 시리즈 7편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-synthetic-data-generation/step01_self_instruct_mock.py
+python ko/07-synthetic-data-generation/distillation_branch.py
 ```
 
 ## 관련 글

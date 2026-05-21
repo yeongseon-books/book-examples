@@ -1,0 +1,25 @@
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #0f766e;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --radius-md: 12px;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 35%);
+  color: var(--text);
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}

@@ -11,6 +11,10 @@ Example code for Kubernetes 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `step01.py` | Example code |
+| `step_1_pvc.py` | Example code |
+| `step_2_use_it_in_a_pod.py` | Example code |
+| `step_3_apply.py` | Example code |
+| `step_4_inspect.py` | Example code |
 | `volume.yaml` | Example code |
 
 ## How to Run

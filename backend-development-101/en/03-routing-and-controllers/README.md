@@ -10,7 +10,14 @@ Example code for Backend Development 101 series, episode 3.
 
 | File | Description |
 |------|-------------|
+| `1_path.py` | Example code |
+| `2_query.py` | Example code |
+| `3_body.py` | Example code |
+| `main.py` | Example code |
+| `products.py` | Example code |
 | `step01_routing_controller.py` | Example code |
+| `user_controller.py` | Example code |
+| `users.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +25,7 @@ Example code for Backend Development 101 series, episode 3.
 cd backend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/03-routing-and-controllers/step01_routing_controller.py
+python en/03-routing-and-controllers/1_path.py
 ```
 
 ## Related Article

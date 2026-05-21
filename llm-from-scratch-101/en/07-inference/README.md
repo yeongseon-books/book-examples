@@ -11,6 +11,8 @@ Example code for Llm From Scratch 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `episode.py` | Example code |
+| `generate.py` | Example code |
+| `model.py` | Example code |
 
 ## How to Run
 

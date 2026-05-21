@@ -12,6 +12,16 @@ Api Design 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_examples.yaml` | 예제 코드 |
+| `2.yaml` | 예제 코드 |
+| `3.yaml` | 예제 코드 |
+| `check-spec.yml` | 예제 코드 |
+| `code_first.py` | 예제 코드 |
+| `contract_testing.py` | 예제 코드 |
+| `deprecation.yaml` | 예제 코드 |
+| `openapi_3.yaml` | 예제 코드 |
+| `schema_first.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01_openapi_contract.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +30,7 @@ Api Design 101 시리즈 8편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-openapi-and-swagger/step01_openapi_contract.py
+python ko/08-openapi-and-swagger/1_examples.yaml
 ```
 
 ## 관련 글

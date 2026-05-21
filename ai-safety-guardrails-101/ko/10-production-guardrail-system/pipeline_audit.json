@@ -1,0 +1,10 @@
+{
+  "request_id": "req_01J9Y3J5M2A4G1K8H0T3V7X9",
+  "stage": "post-output.moderation",
+  "allowed": false,
+  "reason": "self_harm_instructions",
+  "model": "gpt-4o-mini",
+  "latency_ms": 84,
+  "guardrail_overhead_ms": 121,
+  "fallback": "generic_block_message"
+}

@@ -11,6 +11,9 @@ Example code for Model Evaluation 101 series, episode 1.
 | File | Description |
 |------|-------------|
 | `step01_leakage_demo.py` | Example code |
+| `step_1_imbalanced_data.py` | Example code |
+| `step_4_threshold_sensitivity.py` | Example code |
+| `step_5_cost_weighting.py` | Example code |
 
 ## How to Run
 

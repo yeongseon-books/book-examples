@@ -1,0 +1,15 @@
+components:
+  schemas:
+    BaseEntity:
+      type: object
+      properties:
+        id: {type: string, readOnly: true}
+        created_at: {type: string, format: date-time, readOnly: true}
+    Order:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          required: [status]
+          properties:
+            status: {type: string, enum: [pending, paid, shipped]}
+            total_amount: {type: integer}

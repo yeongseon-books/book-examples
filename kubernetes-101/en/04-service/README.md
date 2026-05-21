@@ -12,6 +12,10 @@ Example code for Kubernetes 101 series, episode 4.
 |------|-------------|
 | `service.yaml` | Example code |
 | `step01.py` | Example code |
+| `step_1_service_manifest.py` | Example code |
+| `step_2_apply_and_read.py` | Example code |
+| `step_3_dns_check.py` | Example code |
+| `step_4_switch_to_nodeport.py` | Example code |
 
 ## How to Run
 

@@ -10,7 +10,10 @@ Example code for Llm From Scratch 101 series, episode 1.
 
 | File | Description |
 |------|-------------|
+| `data_prep_downloading_and_encoding_tinys.py` | Example code |
 | `episode.py` | Example code |
+| `the_simplest_approach_character_level_to.py` | Example code |
+| `trying_gpt_2_tokenizer_with_tiktoken.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +21,7 @@ Example code for Llm From Scratch 101 series, episode 1.
 cd llm-from-scratch-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/01-tokenizer/episode.py
+python en/01-tokenizer/data_prep_downloading_and_encoding_tinys.py
 ```
 
 ## Related Article

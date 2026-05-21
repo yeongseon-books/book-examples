@@ -12,6 +12,9 @@ Api Design 101 시리즈 3편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `collection_vs_item.py` | 예제 코드 |
+| `resource_operations.py` | 예제 코드 |
+| `singleton_resource.py` | 예제 코드 |
 | `step01_resource_url.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +23,7 @@ Api Design 101 시리즈 3편 예제 코드입니다.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/03-resource-design/step01_resource_url.py
+python ko/03-resource-design/collection_vs_item.py
 ```
 
 ## 관련 글

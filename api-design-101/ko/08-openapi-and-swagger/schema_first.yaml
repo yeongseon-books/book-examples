@@ -1,0 +1,5 @@
+- name: Validate spec
+  run: npx @redocly/cli lint openapi.yaml
+
+- name: Check breaking changes
+  run: npx oasdiff breaking openapi.yaml openapi-main.yaml

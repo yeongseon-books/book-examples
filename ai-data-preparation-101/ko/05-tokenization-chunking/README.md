@@ -12,7 +12,13 @@ Ai Data Preparation 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `chunking.py` | 예제 코드 |
+| `chunking_04.py` | 예제 코드 |
+| `chunking_05.py` | 예제 코드 |
+| `chunking_06.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_token_chunk.py` | 예제 코드 |
+| `tiktoken.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +26,7 @@ Ai Data Preparation 101 시리즈 5편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-tokenization-chunking/step01_token_chunk.py
+python ko/05-tokenization-chunking/chunking.py
 ```
 
 ## 관련 글

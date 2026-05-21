@@ -12,10 +12,19 @@ Frontend Development 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_plain_fetch.js` | 예제 코드 |
+| `before_after.js` | 예제 코드 |
+| `before_after_02.js` | 예제 코드 |
+| `css.css` | 예제 코드 |
 | `example.css` | 예제 코드 |
 | `example.html` | 예제 코드 |
 | `example.js` | 예제 코드 |
+| `html.html` | 예제 코드 |
+| `javascript.js` | 예제 코드 |
+| `presentational_vs_container.js` | 예제 코드 |
 | `step01_ep06.py` | 예제 코드 |
+| `vite.config.ts` | 예제 코드 |
+| `vite.json` | 예제 코드 |
 
 ## 실행 방법
 
@@ -23,7 +32,7 @@ Frontend Development 101 시리즈 6편 예제 코드입니다.
 cd frontend-development-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-api-calls-and-async/example.css
+python ko/06-api-calls-and-async/1_plain_fetch.js
 ```
 
 ## 관련 글

@@ -10,6 +10,7 @@ Example code for Api Design 101 series, episode 10.
 
 | File | Description |
 |------|-------------|
+| `5_sdk.py` | Example code |
 | `step01_docs_quality.py` | Example code |
 
 ## How to Run
@@ -18,7 +19,7 @@ Example code for Api Design 101 series, episode 10.
 cd api-design-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/10-writing-good-api-docs/step01_docs_quality.py
+python en/10-writing-good-api-docs/5_sdk.py
 ```
 
 ## Related Article

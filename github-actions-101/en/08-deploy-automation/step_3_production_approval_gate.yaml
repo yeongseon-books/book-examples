@@ -1,0 +1,8 @@
+deploy-production:
+  needs: deploy-staging
+  environment:
+    name: production
+    url: https://app.example.com
+  runs-on: ubuntu-latest
+  steps:
+    - run: kubectl apply -f k8s/production/

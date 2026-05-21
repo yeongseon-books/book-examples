@@ -12,7 +12,12 @@ Multimodal Ai 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_image_embedding.py` | 예제 코드 |
+| `2_caption_ocr.py` | 예제 코드 |
+| `3_hybrid_image_vector_text_vector.py` | 예제 코드 |
+| `multimodal_rag.py` | 예제 코드 |
 | `step01_multimodal_rag.py` | 예제 코드 |
+| `vlm.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +25,7 @@ Multimodal Ai 101 시리즈 5편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-multimodal-rag/step01_multimodal_rag.py
+python ko/05-multimodal-rag/1_image_embedding.py
 ```
 
 ## 관련 글

@@ -12,6 +12,14 @@ Alembic 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_revision.py` | 예제 코드 |
+| `2_revision.py` | 예제 코드 |
+| `3_rename_expand_contract.py` | 예제 코드 |
+| `3_rename_expand_contract_09.py` | 예제 코드 |
+| `3_rename_expand_contract_10.py` | 예제 코드 |
+| `downgrade.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
 | `step01_downgrade_policy.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Alembic 101 시리즈 8편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-downgrade-strategy/step01_downgrade_policy.py
+python ko/08-downgrade-strategy/1_revision.py
 ```
 
 ## 관련 글

@@ -12,7 +12,12 @@ Kubernetes 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_service.py` | 예제 코드 |
+| `2.py` | 예제 코드 |
+| `3_dns.py` | 예제 코드 |
+| `4_nodeport.py` | 예제 코드 |
 | `service.yaml` | 예제 코드 |
+| `snippet.yaml` | 예제 코드 |
 | `step01.py` | 예제 코드 |
 
 ## 실행 방법
@@ -21,7 +26,7 @@ Kubernetes 101 시리즈 4편 예제 코드입니다.
 cd kubernetes-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-service/service.yaml
+python ko/04-service/1_service.py
 ```
 
 ## 관련 글

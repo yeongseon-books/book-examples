@@ -12,6 +12,11 @@ Ai Data Preparation 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `datasetcard.py` | 예제 코드 |
+| `polite_crawler.py` | 예제 코드 |
+| `provenance.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
 | `step01_dataset_catalog.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Ai Data Preparation 101 시리즈 2편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-source-data-collection-cataloging/step01_dataset_catalog.py
+python ko/02-source-data-collection-cataloging/datasetcard.py
 ```
 
 ## 관련 글

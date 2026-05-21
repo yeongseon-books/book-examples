@@ -12,6 +12,10 @@ Ai Data Preparation 101 시리즈 1편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `snippet.py` | 예제 코드 |
+| `snippet_02.py` | 예제 코드 |
+| `snippet_03.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
 | `step01_quality_report.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Ai Data Preparation 101 시리즈 1편 예제 코드입니다.
 cd ai-data-preparation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/01-why-data-preparation-matters/step01_quality_report.py
+python ko/01-why-data-preparation-matters/snippet.py
 ```
 
 ## 관련 글

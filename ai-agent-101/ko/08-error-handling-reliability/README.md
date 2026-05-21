@@ -12,7 +12,12 @@ Ai Agent 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `circuit_breaker.py` | 예제 코드 |
+| `fallback_graceful_degradation.py` | 예제 코드 |
+| `llm.py` | 예제 코드 |
+| `retry.py` | 예제 코드 |
 | `step01_retry_fallback.py` | 예제 코드 |
+| `tool_recoverable.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +25,7 @@ Ai Agent 101 시리즈 8편 예제 코드입니다.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-error-handling-reliability/step01_retry_fallback.py
+python ko/08-error-handling-reliability/circuit_breaker.py
 ```
 
 ## 관련 글

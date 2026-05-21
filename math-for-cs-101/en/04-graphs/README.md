@@ -11,6 +11,8 @@ Example code for Math For Cs 101 series, episode 4.
 | File | Description |
 |------|-------------|
 | `step01_graphs.py` | Example code |
+| `step_4_bfs.py` | Example code |
+| `step_5_tree_check.py` | Example code |
 
 ## How to Run
 

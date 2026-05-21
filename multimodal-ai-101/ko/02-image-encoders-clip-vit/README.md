@@ -12,7 +12,11 @@ Multimodal Ai 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1_zero_shot.py` | 예제 코드 |
+| `2_image_embedding_vector_db.py` | 예제 코드 |
+| `clip_text_image.py` | 예제 코드 |
 | `step01_image_encoder.py` | 예제 코드 |
+| `vit_token_sequence.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +24,7 @@ Multimodal Ai 101 시리즈 2편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-image-encoders-clip-vit/step01_image_encoder.py
+python ko/02-image-encoders-clip-vit/1_zero_shot.py
 ```
 
 ## 관련 글

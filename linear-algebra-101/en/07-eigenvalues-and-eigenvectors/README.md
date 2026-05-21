@@ -11,6 +11,10 @@ Example code for Linear Algebra 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `step01_example.py` | Example code |
+| `step_2_eigenvalues_eigenvectors.py` | Example code |
+| `step_3_verify.py` | Example code |
+| `step_4_symmetric_matrix.py` | Example code |
+| `step_5_power_iteration_and_stability.py` | Example code |
 
 ## How to Run
 

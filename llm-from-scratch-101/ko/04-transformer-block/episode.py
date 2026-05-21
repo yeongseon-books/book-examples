@@ -9,7 +9,7 @@ blk = TransformerBlock(16, 2)
 print(blk(x).shape)
 
 
-# Expected output:
+# 예상 출력:
 # TransformerBlock output shape: (1, 8, 64)
 # LayerNorm applied: mean≈0.0, std≈1.0
 # Residual connection: ✓

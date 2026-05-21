@@ -1,0 +1,5 @@
+paths:
+  /v1/orders:
+    get:
+      deprecated: true
+      summary: "사용 중단 예정 — /v2/orders를 사용하세요"

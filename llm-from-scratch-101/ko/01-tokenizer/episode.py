@@ -9,7 +9,7 @@ ids = tok.encode("hello")
 print(ids, tok.decode(ids))
 
 
-# Expected output:
+# 예상 출력:
 # Vocabulary size: 5000
 # Encoded: 'hello world' → [142, 867]
 # Decoded: [142, 867] → 'hello world'

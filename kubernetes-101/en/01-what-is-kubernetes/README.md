@@ -12,6 +12,11 @@ Example code for Kubernetes 101 series, episode 1.
 |------|-------------|
 | `pod.yaml` | Example code |
 | `step01.py` | Example code |
+| `step_1_show_context.py` | Example code |
+| `step_2_list_nodes.py` | Example code |
+| `step_3_list_namespaces.py` | Example code |
+| `step_4_system_pods.py` | Example code |
+| `step_5_cluster_health.py` | Example code |
 
 ## How to Run
 

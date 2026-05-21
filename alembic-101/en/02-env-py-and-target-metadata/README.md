@@ -10,7 +10,12 @@ Example code for Alembic 101 series, episode 2.
 
 | File | Description |
 |------|-------------|
+| `before_after.py` | Example code |
+| `before_after_03.py` | Example code |
 | `step01_env_target_metadata.py` | Example code |
+| `step_1_make_sure_model_imports_work.py` | Example code |
+| `step_2_set_target_metadata.py` | Example code |
+| `step_3_override_url_from_the_environment.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +23,7 @@ Example code for Alembic 101 series, episode 2.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/02-env-py-and-target-metadata/step01_env_target_metadata.py
+python en/02-env-py-and-target-metadata/before_after.py
 ```
 
 ## Related Article

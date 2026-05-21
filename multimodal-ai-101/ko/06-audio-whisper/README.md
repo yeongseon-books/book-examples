@@ -12,7 +12,14 @@ Multimodal Ai 101 시리즈 6편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `30_chunking_timestamping.py` | 예제 코드 |
+| `api.py` | 예제 코드 |
+| `openai_api.py` | 예제 코드 |
+| `openai_whisper_30.py` | 예제 코드 |
+| `production_faster_whisper.py` | 예제 코드 |
+| `srt.py` | 예제 코드 |
 | `step01_audio_encoder.py` | 예제 코드 |
+| `streaming.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +27,7 @@ Multimodal Ai 101 시리즈 6편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/06-audio-whisper/step01_audio_encoder.py
+python ko/06-audio-whisper/30_chunking_timestamping.py
 ```
 
 ## 관련 글

@@ -12,7 +12,16 @@ Math For Cs 101 시리즈 2편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3.py` | 예제 코드 |
+| `b.py` | 예제 코드 |
+| `python_sympy.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
+| `snippet_09.py` | 예제 코드 |
+| `snippet_11.py` | 예제 코드 |
 | `step01_logic_and_proofs.py` | 예제 코드 |
+| `sympy.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +29,7 @@ Math For Cs 101 시리즈 2편 예제 코드입니다.
 cd math-for-cs-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/02-logic-and-proofs/step01_logic_and_proofs.py
+python ko/02-logic-and-proofs/3.py
 ```
 
 ## 관련 글

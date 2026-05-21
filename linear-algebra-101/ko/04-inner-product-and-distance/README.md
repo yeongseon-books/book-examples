@@ -12,6 +12,13 @@ Linear Algebra 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `1.py` | 예제 코드 |
+| `numpy.py` | 예제 코드 |
+| `python_scipy_spatial_distance.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_09.py` | 예제 코드 |
+| `snippet_10.py` | 예제 코드 |
+| `snippet_11.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +27,7 @@ Linear Algebra 101 시리즈 4편 예제 코드입니다.
 cd linear-algebra-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-inner-product-and-distance/step01_example.py
+python ko/04-inner-product-and-distance/1.py
 ```
 
 ## 관련 글

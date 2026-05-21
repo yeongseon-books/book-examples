@@ -12,6 +12,10 @@ Alembic 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `4_cross_branch_dependency.py` | 예제 코드 |
+| `5_branch.py` | 예제 코드 |
+| `alembic_merge.py` | 예제 코드 |
+| `branch_labels_depends_on.py` | 예제 코드 |
 | `step01_branch_merge.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +24,7 @@ Alembic 101 시리즈 5편 예제 코드입니다.
 cd alembic-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-branches-and-merges/step01_branch_merge.py
+python ko/05-branches-and-merges/4_cross_branch_dependency.py
 ```
 
 ## 관련 글

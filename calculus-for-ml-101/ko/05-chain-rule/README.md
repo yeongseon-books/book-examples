@@ -12,6 +12,14 @@ Calculus For Ml 101 시리즈 5편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_gradient.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_02.py` | 예제 코드 |
+| `snippet_04.py` | 예제 코드 |
+| `snippet_05.py` | 예제 코드 |
+| `snippet_06.py` | 예제 코드 |
+| `snippet_08.py` | 예제 코드 |
+| `snippet_09.py` | 예제 코드 |
 | `step01_chain_rule.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +28,7 @@ Calculus For Ml 101 시리즈 5편 예제 코드입니다.
 cd calculus-for-ml-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/05-chain-rule/step01_chain_rule.py
+python ko/05-chain-rule/2_gradient.py
 ```
 
 ## 관련 글

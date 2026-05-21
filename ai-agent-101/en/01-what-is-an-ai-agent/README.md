@@ -10,7 +10,10 @@ Example code for Ai Agent 101 series, episode 1.
 
 | File | Description |
 |------|-------------|
+| `before_after.py` | Example code |
 | `step01_manual_loop.py` | Example code |
+| `step_1_define_a_tool.py` | Example code |
+| `step_2_run_one_loop_manually.py` | Example code |
 
 ## How to Run
 
@@ -18,7 +21,7 @@ Example code for Ai Agent 101 series, episode 1.
 cd ai-agent-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/01-what-is-an-ai-agent/step01_manual_loop.py
+python en/01-what-is-an-ai-agent/before_after.py
 ```
 
 ## Related Article

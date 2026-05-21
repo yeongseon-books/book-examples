@@ -12,6 +12,15 @@ Linear Algebra 101 시리즈 7편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2.py` | 예제 코드 |
+| `3.py` | 예제 코드 |
+| `4.py` | 예제 코드 |
+| `5.py` | 예제 코드 |
+| `numpy.py` | 예제 코드 |
+| `python_numpy_linalg_eig.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
+| `snippet_07.py` | 예제 코드 |
+| `snippet_10.py` | 예제 코드 |
 | `step01_example.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +29,7 @@ Linear Algebra 101 시리즈 7편 예제 코드입니다.
 cd linear-algebra-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/07-eigenvalues-and-eigenvectors/step01_example.py
+python ko/07-eigenvalues-and-eigenvectors/2.py
 ```
 
 ## 관련 글

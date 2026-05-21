@@ -11,6 +11,9 @@ Example code for Calculus For Ml 101 series, episode 6.
 | File | Description |
 |------|-------------|
 | `step01_loss_function.py` | Example code |
+| `step_2_mse_gradient.py` | Example code |
+| `step_3_binary_cross_entropy.py` | Example code |
+| `step_4_compare_losses.py` | Example code |
 
 ## How to Run
 

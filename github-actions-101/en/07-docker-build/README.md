@@ -11,6 +11,10 @@ Example code for Github Actions 101 series, episode 7.
 | File | Description |
 |------|-------------|
 | `step01_demo.py` | Example code |
+| `step_2_log_in_to_ghcr.yaml` | Example code |
+| `step_3_build_and_push_with_build_push_ac.yaml` | Example code |
+| `step_4_multi_platform.yaml` | Example code |
+| `step_5_permissions_top_level.yaml` | Example code |
 
 ## How to Run
 

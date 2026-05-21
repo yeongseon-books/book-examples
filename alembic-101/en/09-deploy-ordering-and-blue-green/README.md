@@ -11,6 +11,10 @@ Example code for Alembic 101 series, episode 9.
 | File | Description |
 |------|-------------|
 | `step01_deploy_ordering.py` | Example code |
+| `step_1_schema_add.py` | Example code |
+| `step_3_tighten_to_not_null.py` | Example code |
+| `step_4_drop_the_old_column.py` | Example code |
+| `step_5_align_the_deploy_pipeline.yaml` | Example code |
 
 ## How to Run
 

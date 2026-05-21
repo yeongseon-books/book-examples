@@ -1,0 +1,4 @@
+- run: pytest --cov=src --cov-report=xml
+- uses: codecov/codecov-action@v4
+  with:
+    files: coverage.xml

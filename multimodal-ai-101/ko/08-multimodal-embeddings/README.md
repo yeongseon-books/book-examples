@@ -12,6 +12,11 @@ Multimodal Ai 101 시리즈 8편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `3_openclip_embedding.py` | 예제 코드 |
+| `4_faiss_cross_modal_index.py` | 예제 코드 |
+| `4_faiss_cross_modal_index_04.py` | 예제 코드 |
+| `5_imagebind_audio.py` | 예제 코드 |
+| `6_1_embedding_bm25_ensemble.py` | 예제 코드 |
 | `step01_multimodal_embeddings.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Multimodal Ai 101 시리즈 8편 예제 코드입니다.
 cd multimodal-ai-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/08-multimodal-embeddings/step01_multimodal_embeddings.py
+python ko/08-multimodal-embeddings/3_openclip_embedding.py
 ```
 
 ## 관련 글

@@ -11,6 +11,10 @@ Example code for Calculus For Ml 101 series, episode 8.
 | File | Description |
 |------|-------------|
 | `step01_optimization.py` | Example code |
+| `step_1_momentum.py` | Example code |
+| `step_2_rmsprop.py` | Example code |
+| `step_3_adam_toy.py` | Example code |
+| `step_4_schedule.py` | Example code |
 
 ## How to Run
 

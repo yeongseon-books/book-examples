@@ -10,6 +10,11 @@ Example code for Harness Engineering 101 series, episode 7.
 
 | File | Description |
 |------|-------------|
+| `composing_reflect_messages.py` | Example code |
+| `failure_memory.py` | Example code |
+| `preventing_infinite_loops.py` | Example code |
+| `retry_vs_reflect.py` | Example code |
+| `self_critique_pattern.py` | Example code |
 | `step01_example.py` | Example code |
 
 ## How to Run
@@ -18,7 +23,7 @@ Example code for Harness Engineering 101 series, episode 7.
 cd harness-engineering-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python en/07-feedback-loop/step01_example.py
+python en/07-feedback-loop/composing_reflect_messages.py
 ```
 
 ## Related Article

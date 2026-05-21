@@ -12,6 +12,11 @@ Ai Evaluation 101 시리즈 4편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `agreement.py` | 예제 코드 |
+| `debias_position.py` | 예제 코드 |
+| `judge_pairwise.py` | 예제 코드 |
+| `judge_reference.py` | 예제 코드 |
+| `judge_single.py` | 예제 코드 |
 | `step01_mock_judge.py` | 예제 코드 |
 
 ## 실행 방법
@@ -20,7 +25,7 @@ Ai Evaluation 101 시리즈 4편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/04-llm-as-judge/step01_mock_judge.py
+python ko/04-llm-as-judge/agreement.py
 ```
 
 ## 관련 글

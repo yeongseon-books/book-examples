@@ -12,7 +12,17 @@ Ai Evaluation 101 시리즈 10편 예제 코드입니다.
 
 | 파일 | 설명 |
 |------|------|
+| `2_online_metric.py` | 예제 코드 |
+| `4_shadow_mode_canary.py` | 예제 코드 |
+| `6.py` | 예제 코드 |
+| `7_production_failure.py` | 예제 코드 |
+| `baseline.py` | 예제 코드 |
+| `kl_divergence.py` | 예제 코드 |
+| `output_drift.py` | 예제 코드 |
+| `snippet.py` | 예제 코드 |
 | `step01_continuous_eval.py` | 예제 코드 |
+| `stratified_sampling.py` | 예제 코드 |
+| `uniform_sampling.py` | 예제 코드 |
 
 ## 실행 방법
 
@@ -20,7 +30,7 @@ Ai Evaluation 101 시리즈 10편 예제 코드입니다.
 cd ai-evaluation-101
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python ko/10-production-evaluation/step01_continuous_eval.py
+python ko/10-production-evaluation/2_online_metric.py
 ```
 
 ## 관련 글
