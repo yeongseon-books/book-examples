@@ -292,7 +292,10 @@ def process_series(series: str, dry_run: bool = False) -> dict[str, Any]:
     episodes = get_series_episodes(series)
 
     for ep_slug in episodes:
-        ep_num = int(ep_slug.split("-")[0])
+        try:
+            ep_num = int(ep_slug.split("-")[0])
+        except ValueError:
+            ep_num = episodes.index(ep_slug) + 1
         ko_article = BOOK_CONTENT_ROOT / series / "ko" / f"{ep_slug}.md"
         en_article = BOOK_CONTENT_ROOT / series / "en" / f"{ep_slug}.md"
 

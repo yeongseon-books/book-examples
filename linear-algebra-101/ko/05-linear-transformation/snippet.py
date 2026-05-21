@@ -16,8 +16,6 @@ H = np.array([[1.0, 0.5], [0.0, 1.0]])
 M = H @ R @ S
 out = M @ pts
 
-print('transform matrix M:
-', M)
-print('transformed points:
-', out.T)
+print('transform matrix M:\n', M)
+print('transformed points:\n', out.T)
 print('det(M) =', np.linalg.det(M))
