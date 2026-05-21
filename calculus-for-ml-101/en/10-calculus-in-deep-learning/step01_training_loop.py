@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Training loop."""
+"""Calculus For Ml 101 - Episode 10: calculus in deep learning example."""
 
 import math
 

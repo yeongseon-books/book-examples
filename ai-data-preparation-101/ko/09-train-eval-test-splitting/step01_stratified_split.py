@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Stratified split."""
+"""Ai Data Preparation 101 - 9편: train eval test splitting 예제."""
 
 from collections import defaultdict
 

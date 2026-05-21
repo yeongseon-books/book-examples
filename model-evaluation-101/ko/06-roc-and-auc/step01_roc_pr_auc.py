@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Roc pr auc."""
+"""Model Evaluation 101 - 6편: roc and auc 예제."""
 
 from __future__ import annotations
 

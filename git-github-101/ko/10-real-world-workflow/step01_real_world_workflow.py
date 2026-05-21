@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Real world workflow."""
+"""Git Github 101 - 10편: real world workflow 예제."""
 
 from __future__ import annotations
 

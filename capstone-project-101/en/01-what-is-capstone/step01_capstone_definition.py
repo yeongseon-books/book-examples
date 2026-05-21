@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Capstone definition."""
+"""Capstone Project 101 - Episode 1: what is capstone example."""
 
 from __future__ import annotations
 

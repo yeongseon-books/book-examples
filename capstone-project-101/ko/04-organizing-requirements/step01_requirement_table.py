@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Requirement table."""
+"""Capstone Project 101 - 4편: organizing requirements 예제."""
 
 from __future__ import annotations
 

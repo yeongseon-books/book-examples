@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Dataset catalog."""
+"""Ai Data Preparation 101 - Episode 2: source data collection cataloging example."""
 
 import hashlib
 import json

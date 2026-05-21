@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Branch basics."""
+"""Git Github 101 - Episode 4: branch basics example."""
 
 from __future__ import annotations
 

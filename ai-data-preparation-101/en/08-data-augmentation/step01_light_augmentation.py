@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Light augmentation."""
+"""Ai Data Preparation 101 - Episode 8: data augmentation example."""
 
 import random
 

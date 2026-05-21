@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Resource url."""
+"""Api Design 101 - Episode 3: resource design example."""
 
 from __future__ import annotations
 

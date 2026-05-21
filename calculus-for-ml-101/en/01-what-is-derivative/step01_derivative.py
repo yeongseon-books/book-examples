@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Derivative."""
+"""Calculus For Ml 101 - Episode 1: what is derivative example."""
 
 
 def numerical_derivative_1d(func, x: float, h: float = 1e-5) -> float:

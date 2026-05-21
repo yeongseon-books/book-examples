@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Docs quality."""
+"""Api Design 101 - Episode 10: writing good api docs example."""
 
 from __future__ import annotations
 

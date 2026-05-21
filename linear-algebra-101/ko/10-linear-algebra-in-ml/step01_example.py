@@ -1,4 +1,4 @@
-"""Linear Algebra 101 - Episode 1: Example."""
+"""Linear Algebra 101 - 10편: linear algebra in ml 예제."""
 
 import numpy as np
 from common import fit_linear_regression_normal_eq, fit_logistic_regression_gd

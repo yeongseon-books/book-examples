@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Combinatorics."""
+"""Math For Cs 101 - Episode 5: combinatorics example."""
 
 import math
 

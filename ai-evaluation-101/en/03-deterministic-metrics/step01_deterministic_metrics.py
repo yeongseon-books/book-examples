@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Deterministic metrics."""
+"""Ai Evaluation 101 - Episode 3: deterministic metrics example."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Problem json."""
+"""Api Design 101 - 7편: error response design 예제."""
 
 from __future__ import annotations
 

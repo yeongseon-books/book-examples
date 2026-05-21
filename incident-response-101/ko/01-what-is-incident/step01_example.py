@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - 1편: what is incident 예제."""
 
 from common import Incident, SeverityClassifier
 

@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Role split."""
+"""Capstone Project 101 - Episode 5: splitting team roles example."""
 
 from __future__ import annotations
 

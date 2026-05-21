@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Files dirs."""
+"""Linux Cli 101 - Episode 2: files and directories example."""
 
 from __future__ import annotations
 

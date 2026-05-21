@@ -1,4 +1,4 @@
-"""에피소드 07: request_id와 글로벌 예외 처리 예제입니다."""
+"""Backend Development 101 - 7편: logging and error handling 예제."""
 
 import logging
 import sys

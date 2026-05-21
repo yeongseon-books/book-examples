@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Information theory."""
+"""Math For Cs 101 - Episode 9: information theory example."""
 
 from common import entropy, huffman_code_lengths, kl_divergence
 

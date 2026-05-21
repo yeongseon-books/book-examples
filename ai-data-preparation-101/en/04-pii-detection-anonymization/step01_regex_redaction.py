@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Regex redaction."""
+"""Ai Data Preparation 101 - Episode 4: pii detection anonymization example."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Gradient descent."""
+"""Calculus For Ml 101 - 7편: gradient descent 예제."""
 
 
 def loss(w: float) -> float:
@@ -20,6 +20,6 @@ def train(w0: float, lr: float = 0.1, steps: int = 60) -> float:
 
 
 def run_demo() -> dict[str, float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     w = train(0.0)
     return {"w": w, "loss": loss(w)}

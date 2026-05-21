@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - 6편: training loop 예제."""
 
 import numpy as np
 from common import cross_entropy

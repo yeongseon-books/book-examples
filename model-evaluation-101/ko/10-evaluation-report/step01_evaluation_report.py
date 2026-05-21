@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Evaluation report."""
+"""Model Evaluation 101 - 10편: evaluation report 예제."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Real world workflow."""
+"""Git Github 101 - Episode 10: real world workflow example."""
 
 from __future__ import annotations
 

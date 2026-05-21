@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Fbeta demo."""
+"""Model Evaluation 101 - 5편: f1 score 예제."""
 
 from __future__ import annotations
 

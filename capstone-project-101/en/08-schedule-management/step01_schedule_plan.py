@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Schedule plan."""
+"""Capstone Project 101 - Episode 8: schedule management example."""
 
 from __future__ import annotations
 

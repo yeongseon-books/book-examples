@@ -1,4 +1,4 @@
-"""Episode 06: supervisor와 worker handoff 예제입니다."""
+"""Ai Agent 101 - 6편: multi agent systems 예제."""
 
 
 def supervisor(task: str) -> dict[str, str]:

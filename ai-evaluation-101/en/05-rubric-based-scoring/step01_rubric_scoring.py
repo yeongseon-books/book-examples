@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Rubric scoring."""
+"""Ai Evaluation 101 - Episode 5: rubric based scoring example."""
 
 import sys
 from pathlib import Path

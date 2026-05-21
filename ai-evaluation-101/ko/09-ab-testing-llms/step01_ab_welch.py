@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Ab welch."""
+"""Ai Evaluation 101 - 9편: ab testing llms 예제."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep08."""
+"""Frontend Development 101 - 8편: styling and design system 예제."""
 
 from __future__ import annotations
 
@@ -10,6 +10,6 @@ TOKENS = (
 
 
 def run_demo() -> list[str]:
-    """Run demo."""
+    """데모를 실행합니다."""
     checker = DesignTokenChecker(TOKENS)
     return checker.require_keys(["color.primary", "spacing.gutter", "font.body"])

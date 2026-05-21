@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Team workflow."""
+"""Alembic 101 - Episode 10: production and team workflow example."""
 
 from __future__ import annotations
 

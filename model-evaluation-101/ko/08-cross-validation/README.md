@@ -1,0 +1,28 @@
+# Model Evaluation 101 (8/10): 교차 검증 이해하기
+
+Model Evaluation 101 시리즈 8편 예제 코드입니다.
+
+## 학습 목표
+
+- 테스트 세트 점수 하나만으로 모델을 고르면 왜 불안정할까요?
+- K-Fold는 어떤 아이디어 위에서 동작할까요?
+- 왜 분류 문제에서는 stratified가 기본 선택이 될까요?
+
+## 자산 목록
+
+| 파일 | 설명 |
+|------|------|
+| `step01_cross_validation_demo.py` | 예제 코드 |
+
+## 실행 방법
+
+```bash
+cd model-evaluation-101
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python ko/08-cross-validation/step01_cross_validation_demo.py
+```
+
+## 관련 글
+
+- [본문 보기](https://github.com/yeongseon-books/book-content/blob/main/content/model-evaluation-101/ko/08-cross-validation.md)

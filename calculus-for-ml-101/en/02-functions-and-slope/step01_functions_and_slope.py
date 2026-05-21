@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Functions and slope."""
+"""Calculus For Ml 101 - Episode 2: functions and slope example."""
 
 import math
 

@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - Episode 8: postmortem example."""
 
 from common import Incident, IncidentTimeline, PostmortemGenerator, PreventionTracker
 

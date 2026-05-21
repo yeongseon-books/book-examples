@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - 9편: chatbot wrapper 예제."""
 
 from common import CharTokenizer
 

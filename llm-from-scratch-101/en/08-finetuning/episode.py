@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - Episode 8: finetuning example."""
 
 import numpy as np
 

@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Merge conflict."""
+"""Git Github 101 - Episode 5: merge and conflict example."""
 
 from __future__ import annotations
 

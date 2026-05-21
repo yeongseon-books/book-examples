@@ -1,4 +1,4 @@
-"""Episode 05: SQLAlchemy repository and transaction flow."""
+"""Backend Development 101 - Episode 5: database layer example."""
 
 import sys
 from pathlib import Path

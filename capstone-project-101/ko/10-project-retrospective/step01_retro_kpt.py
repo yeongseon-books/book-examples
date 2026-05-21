@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Retro kpt."""
+"""Capstone Project 101 - 10편: project retrospective 예제."""
 
 from __future__ import annotations
 

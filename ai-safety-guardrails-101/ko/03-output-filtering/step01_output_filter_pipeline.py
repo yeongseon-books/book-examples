@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Output filter pipeline."""
+"""Ai Safety Guardrails 101 - 3편: output filtering 예제."""
 
 import sys
 from pathlib import Path

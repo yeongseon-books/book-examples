@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Training loop."""
+"""Calculus For Ml 101 - 10편: calculus in deep learning 예제."""
 
 import math
 
@@ -34,7 +34,7 @@ def train(
 
 
 def run_demo() -> dict[str, float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     data = [(0.0, 0.0), (1.0, 1.0)]
     w, b = train(data)
     return {"p0": model(0.0, w, b), "p1": model(1.0, w, b)}

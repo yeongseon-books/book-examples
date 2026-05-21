@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Split demo."""
+"""Model Evaluation 101 - Episode 2: train val test example."""
 
 from __future__ import annotations
 

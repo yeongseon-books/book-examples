@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Process."""
+"""Linux Cli 101 - Episode 7: process management example."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Episode 01: Minimal backend responsibility example."""
+"""Backend Development 101 - Episode 1: what is backend development example."""
 
 from fastapi import FastAPI
 

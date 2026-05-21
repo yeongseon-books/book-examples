@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Threshold tradeoff."""
+"""Model Evaluation 101 - Episode 4: precision and recall example."""
 
 from __future__ import annotations
 

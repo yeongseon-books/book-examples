@@ -1,4 +1,4 @@
-"""에피소드 09: 배포를 위한 health/readiness 및 환경 설정 예제입니다."""
+"""Backend Development 101 - 9편: deploying the backend 예제."""
 
 import os
 

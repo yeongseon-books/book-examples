@@ -1,4 +1,4 @@
-"""Episode 01: Observe-Think-Act-Check 수동 루프 예제입니다."""
+"""Ai Agent 101 - 1편: what is an ai agent 예제."""
 
 import sys
 from pathlib import Path

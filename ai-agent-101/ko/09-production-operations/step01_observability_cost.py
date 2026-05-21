@@ -1,4 +1,4 @@
-"""Episode 09: logging/trace/cost 추적 예제입니다."""
+"""Ai Agent 101 - 9편: production operations 예제."""
 
 import sys
 from pathlib import Path

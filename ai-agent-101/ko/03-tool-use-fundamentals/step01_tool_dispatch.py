@@ -1,4 +1,4 @@
-"""Episode 03: 함수 스키마 검증과 디스패치 예제입니다."""
+"""Ai Agent 101 - 3편: tool use fundamentals 예제."""
 
 import sys
 from pathlib import Path

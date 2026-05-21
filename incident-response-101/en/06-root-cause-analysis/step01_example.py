@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - Episode 6: root cause analysis example."""
 
 from common import RCAFramework
 

@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Clean dedup."""
+"""Ai Data Preparation 101 - 3편: cleaning deduplication 예제."""
 
 import sys
 from pathlib import Path

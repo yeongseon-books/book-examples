@@ -1,4 +1,4 @@
-"""Kubernetes 101 - Episode 1."""
+"""Kubernetes 101 - 4편: service 예제."""
 
 from __future__ import annotations
 

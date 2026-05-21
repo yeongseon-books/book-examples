@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Why multimodal."""
+"""Multimodal Ai 101 - 1편: why multimodal matters 예제."""
 
 from common import synthetic_image
 

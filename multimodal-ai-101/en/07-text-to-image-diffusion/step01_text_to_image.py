@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Text to image."""
+"""Multimodal Ai 101 - Episode 7: text to image diffusion example."""
 
 from common import MockDiffusion
 

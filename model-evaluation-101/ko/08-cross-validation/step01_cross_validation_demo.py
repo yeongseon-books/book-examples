@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Cross validation demo."""
+"""Model Evaluation 101 - 8편: cross validation 예제."""
 
 from __future__ import annotations
 

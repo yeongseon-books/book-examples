@@ -1,4 +1,4 @@
-"""Harness Engineering 101 - Episode 1: Example."""
+"""Harness Engineering 101 - 7편: feedback loop 예제."""
 
 from __future__ import annotations
 

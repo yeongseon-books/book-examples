@@ -1,4 +1,4 @@
-"""Episode 07: success-rate and trajectory metrics example."""
+"""Ai Agent 101 - Episode 7: agent evaluation example."""
 
 
 def evaluate(results: list[dict[str, object]]) -> dict[str, float]:

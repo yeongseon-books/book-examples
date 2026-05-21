@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Jailbreak detector."""
+"""Ai Safety Guardrails 101 - Episode 5: jailbreak detection example."""
 
 import sys
 from pathlib import Path

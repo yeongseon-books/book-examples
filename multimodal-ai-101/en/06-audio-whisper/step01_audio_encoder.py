@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Audio encoder."""
+"""Multimodal Ai 101 - Episode 6: audio whisper example."""
 
 from common import MockAudioEncoder, synthetic_audio
 

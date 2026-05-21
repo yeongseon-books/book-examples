@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep09."""
+"""Frontend Development 101 - 9편: build tools and bundling 예제."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from common import BundleSimulator
 
 
 def run_demo() -> dict[str, int]:
-    """Run demo."""
+    """데모를 실행합니다."""
     sim = BundleSimulator()
     bundle = sim.concat(["const a = 1;", "const b = 2;", "console.log(a+b);"])
     mini = sim.minify(bundle)

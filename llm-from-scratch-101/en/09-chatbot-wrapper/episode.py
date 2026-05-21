@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - Episode 9: chatbot wrapper example."""
 
 from common import CharTokenizer
 

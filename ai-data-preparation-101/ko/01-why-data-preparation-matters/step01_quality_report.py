@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Quality report."""
+"""Ai Data Preparation 101 - 1편: why data preparation matters 예제."""
 
 import sys
 from pathlib import Path

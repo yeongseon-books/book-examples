@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Caption ocr."""
+"""Multimodal Ai 101 - Episode 4: captioning ocr pipelines example."""
 
 from common import MockOCR, MockVLM, synthetic_image
 

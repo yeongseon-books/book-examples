@@ -1,4 +1,4 @@
-"""Github Actions 101 - Episode 1: Demo."""
+"""Github Actions 101 - 1편: what is github actions 예제."""
 
 from common import WorkflowParser, WorkflowValidator, load_workflow
 

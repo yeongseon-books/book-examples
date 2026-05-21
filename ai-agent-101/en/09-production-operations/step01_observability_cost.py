@@ -1,4 +1,4 @@
-"""Episode 09: logging/trace/cost tracking example."""
+"""Ai Agent 101 - Episode 9: production operations example."""
 
 import sys
 from pathlib import Path

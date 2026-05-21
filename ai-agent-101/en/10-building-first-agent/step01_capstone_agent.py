@@ -1,4 +1,4 @@
-"""Episode 10: capstone agent combining core concepts."""
+"""Ai Agent 101 - Episode 10: building first agent example."""
 
 import sys
 from pathlib import Path

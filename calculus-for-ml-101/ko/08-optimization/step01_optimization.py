@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Optimization."""
+"""Calculus For Ml 101 - 8편: optimization 예제."""
 
 import math
 
@@ -36,7 +36,7 @@ def cosine_lr(step: int, total: int, lr0: float = 0.1) -> float:
 
 
 def run_demo() -> dict[str, float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     w, m, v = 2.0, 0.0, 0.0
     target = 0.0
     for t in range(1, 121):

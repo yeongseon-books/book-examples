@@ -1,4 +1,4 @@
-"""Kubernetes 101 - Episode 1."""
+"""Kubernetes 101 - Episode 7: volume example."""
 
 from __future__ import annotations
 

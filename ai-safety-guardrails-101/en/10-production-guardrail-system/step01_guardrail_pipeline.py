@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Guardrail pipeline."""
+"""Ai Safety Guardrails 101 - Episode 10: production guardrail system example."""
 
 import sys
 from pathlib import Path

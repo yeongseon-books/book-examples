@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Team workflow."""
+"""Alembic 101 - 10편: production and team workflow 예제."""
 
 from __future__ import annotations
 

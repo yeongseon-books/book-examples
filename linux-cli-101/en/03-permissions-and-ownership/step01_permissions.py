@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Permissions."""
+"""Linux Cli 101 - Episode 3: permissions and ownership example."""
 
 from __future__ import annotations
 

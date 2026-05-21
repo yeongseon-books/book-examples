@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Branch basics."""
+"""Git Github 101 - 4편: branch basics 예제."""
 
 from __future__ import annotations
 

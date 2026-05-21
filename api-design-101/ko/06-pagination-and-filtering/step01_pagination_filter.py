@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Pagination filter."""
+"""Api Design 101 - 6편: pagination and filtering 예제."""
 
 from __future__ import annotations
 

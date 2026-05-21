@@ -1,4 +1,4 @@
-"""Linear Algebra 101 - Episode 1: Example."""
+"""Linear Algebra 101 - 5편: linear transformation 예제."""
 
 import numpy as np
 

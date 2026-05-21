@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Pipeline orchestrator."""
+"""Ai Data Preparation 101 - 10편: production data pipeline 예제."""
 
 import sys
 from pathlib import Path

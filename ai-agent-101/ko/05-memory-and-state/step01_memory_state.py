@@ -1,4 +1,4 @@
-"""Episode 05: sliding window 메모리와 체크포인트 예제입니다."""
+"""Ai Agent 101 - 5편: memory and state 예제."""
 
 
 class SlidingMemory:

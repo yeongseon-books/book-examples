@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Rest constraints."""
+"""Api Design 101 - Episode 2: rest basics example."""
 
 from __future__ import annotations
 

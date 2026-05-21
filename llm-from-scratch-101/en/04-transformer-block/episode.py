@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - Episode 4: transformer block example."""
 
 import numpy as np
 from common import TransformerBlock

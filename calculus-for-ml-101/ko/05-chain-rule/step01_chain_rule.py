@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Chain rule."""
+"""Calculus For Ml 101 - 5편: chain rule 예제."""
 
 
 def numerical_derivative_1d(func, x: float, h: float = 1e-5) -> float:
@@ -27,6 +27,6 @@ def dh_chain(x: float) -> float:
 
 
 def run_demo() -> dict[str, float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     x = 1.0
     return {"chain": dh_chain(x), "numeric": numerical_derivative_1d(h, x)}

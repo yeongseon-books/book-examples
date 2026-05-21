@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Graphs."""
+"""Math For Cs 101 - Episode 4: graphs example."""
 
 
 def has_cycle_directed(graph):

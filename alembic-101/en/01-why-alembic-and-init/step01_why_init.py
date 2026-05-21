@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Why init."""
+"""Alembic 101 - Episode 1: why alembic and init example."""
 
 from __future__ import annotations
 

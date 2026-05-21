@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Caption ocr."""
+"""Multimodal Ai 101 - 4편: captioning ocr pipelines 예제."""
 
 from common import MockOCR, MockVLM, synthetic_image
 

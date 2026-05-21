@@ -1,4 +1,4 @@
-"""Linear Algebra 101 - Episode 1: Example."""
+"""Linear Algebra 101 - 8편: matrix decomposition 예제."""
 
 import numpy as np
 

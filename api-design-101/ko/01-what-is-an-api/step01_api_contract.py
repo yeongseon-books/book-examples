@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Api contract."""
+"""Api Design 101 - 1편: what is an api 예제."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Audio encoder."""
+"""Multimodal Ai 101 - 6편: audio whisper 예제."""
 
 from common import MockAudioEncoder, synthetic_audio
 

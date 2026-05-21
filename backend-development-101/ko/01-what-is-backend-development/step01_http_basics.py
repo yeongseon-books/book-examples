@@ -1,4 +1,4 @@
-"""에피소드 01: 백엔드의 최소 책임(요청/응답) 예제입니다."""
+"""Backend Development 101 - 1편: what is backend development 예제."""
 
 from fastapi import FastAPI
 

@@ -1,4 +1,4 @@
-"""Episode 02: HTTP server with status codes and headers."""
+"""Backend Development 101 - Episode 2: building an http server example."""
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse

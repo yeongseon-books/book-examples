@@ -1,4 +1,4 @@
-"""Episode 06: supervisor-to-worker handoff example."""
+"""Ai Agent 101 - Episode 6: multi agent systems example."""
 
 
 def supervisor(task: str) -> dict[str, str]:

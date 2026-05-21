@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Combinatorics."""
+"""Math For Cs 101 - 5편: combinatorics 예제."""
 
 import math
 

@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Derivative."""
+"""Calculus For Ml 101 - 1편: what is derivative 예제."""
 
 
 def numerical_derivative_1d(func, x: float, h: float = 1e-5) -> float:
@@ -12,7 +12,7 @@ def square(x: float) -> float:
 
 
 def run_demo() -> dict[str, float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     slope_at_2 = numerical_derivative_1d(square, 2.0)
     return {"slope_at_2": slope_at_2}
 

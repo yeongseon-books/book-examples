@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Rubric scoring."""
+"""Ai Evaluation 101 - 5편: rubric based scoring 예제."""
 
 import sys
 from pathlib import Path

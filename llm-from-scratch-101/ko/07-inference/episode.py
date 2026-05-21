@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - 7편: inference 예제."""
 
 import numpy as np
 from common import sample_topk

@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Mock judge."""
+"""Ai Evaluation 101 - Episode 4: llm as judge example."""
 
 import sys
 from pathlib import Path

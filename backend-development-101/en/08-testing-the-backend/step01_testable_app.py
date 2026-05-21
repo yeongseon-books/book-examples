@@ -1,4 +1,4 @@
-"""Episode 08: Test-friendly app with dependency override."""
+"""Backend Development 101 - Episode 8: testing the backend example."""
 
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel

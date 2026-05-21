@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Mock judge."""
+"""Ai Evaluation 101 - 4편: llm as judge 예제."""
 
 import sys
 from pathlib import Path

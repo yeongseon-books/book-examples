@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep03."""
+"""Frontend Development 101 - Episode 3: javascript basics example."""
 
 from __future__ import annotations
 

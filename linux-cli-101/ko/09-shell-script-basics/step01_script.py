@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Script."""
+"""Linux Cli 101 - 9편: shell script basics 예제."""
 
 from __future__ import annotations
 

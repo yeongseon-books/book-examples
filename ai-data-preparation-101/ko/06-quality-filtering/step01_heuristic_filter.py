@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Heuristic filter."""
+"""Ai Data Preparation 101 - 6편: quality filtering 예제."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Pii redaction."""
+"""Ai Safety Guardrails 101 - Episode 4: pii detection redaction example."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Commit message."""
+"""Git Github 101 - Episode 9: good commit message example."""
 
 from __future__ import annotations
 

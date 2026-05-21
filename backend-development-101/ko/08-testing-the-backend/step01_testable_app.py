@@ -1,4 +1,4 @@
-"""에피소드 08: 의존성 오버라이드가 가능한 테스트 친화 앱 예제입니다."""
+"""Backend Development 101 - 8편: testing the backend 예제."""
 
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel

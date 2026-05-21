@@ -1,4 +1,4 @@
-"""Linear Algebra 101 - Episode 1: Example."""
+"""Linear Algebra 101 - Episode 3: matrices example."""
 
 import numpy as np
 

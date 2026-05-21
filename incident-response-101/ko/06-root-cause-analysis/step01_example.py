@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - 6편: root cause analysis 예제."""
 
 from common import RCAFramework
 

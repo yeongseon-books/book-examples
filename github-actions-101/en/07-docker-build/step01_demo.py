@@ -1,4 +1,4 @@
-"""Github Actions 101 - Episode 1: Demo."""
+"""Github Actions 101 - Episode 7: docker build example."""
 
 from common import WorkflowParser, WorkflowValidator, load_workflow
 

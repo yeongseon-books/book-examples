@@ -1,4 +1,4 @@
-"""Episode 10: Production-ready structure with cache, queue, and observability."""
+"""Backend Development 101 - Episode 10: production ready backend example."""
 
 import sys
 from pathlib import Path

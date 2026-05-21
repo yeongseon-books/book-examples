@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Search trio."""
+"""Linux Cli 101 - Episode 5: grep find xargs example."""
 
 from __future__ import annotations
 

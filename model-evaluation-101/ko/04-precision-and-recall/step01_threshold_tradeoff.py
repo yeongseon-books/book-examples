@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Threshold tradeoff."""
+"""Model Evaluation 101 - 4편: precision and recall 예제."""
 
 from __future__ import annotations
 

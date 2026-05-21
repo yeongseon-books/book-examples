@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep04."""
+"""Frontend Development 101 - 4편: components and state 예제."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ def render_counter(props: dict[str, object], state: dict[str, object]) -> str:
 
 
 def run_demo() -> str:
-    """Run demo."""
+    """데모를 실행합니다."""
     comp = ComponentSim(props={"step": 1}, state={"count": 0}, renderer=render_counter)
     comp.set_state({"count": int(comp.state["count"]) + int(comp.props["step"])})
     return comp.render()

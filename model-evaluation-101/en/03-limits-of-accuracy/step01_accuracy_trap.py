@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Accuracy trap."""
+"""Model Evaluation 101 - Episode 3: limits of accuracy example."""
 
 from __future__ import annotations
 

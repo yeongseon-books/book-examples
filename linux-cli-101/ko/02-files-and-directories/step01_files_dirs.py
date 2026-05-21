@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Files dirs."""
+"""Linux Cli 101 - 2편: files and directories 예제."""
 
 from __future__ import annotations
 

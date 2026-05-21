@@ -1,4 +1,4 @@
-"""Episode 07: Request ID and global exception handling."""
+"""Backend Development 101 - Episode 7: logging and error handling example."""
 
 import logging
 import sys

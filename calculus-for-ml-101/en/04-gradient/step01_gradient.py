@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Gradient."""
+"""Calculus For Ml 101 - Episode 4: gradient example."""
 
 import numpy as np
 

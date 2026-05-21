@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Sets and functions."""
+"""Math For Cs 101 - 3편: sets and functions 예제."""
 
 from common import is_injective
 

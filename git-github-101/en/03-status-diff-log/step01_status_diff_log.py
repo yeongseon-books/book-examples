@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Status diff log."""
+"""Git Github 101 - Episode 3: status diff log example."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Roc pr auc."""
+"""Model Evaluation 101 - Episode 6: roc and auc example."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Episode 02: context priority assembly example."""
+"""Ai Agent 101 - Episode 2: context engineering example."""
 
 
 def build_context(

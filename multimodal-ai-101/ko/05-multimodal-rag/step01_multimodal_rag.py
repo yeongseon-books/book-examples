@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Multimodal rag."""
+"""Multimodal Ai 101 - 5편: multimodal rag 예제."""
 
 from common import MultimodalRAG
 

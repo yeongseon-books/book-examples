@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Dataset mix."""
+"""Ai Evaluation 101 - 2편: evaluation dataset design 예제."""
 
 import sys
 from pathlib import Path

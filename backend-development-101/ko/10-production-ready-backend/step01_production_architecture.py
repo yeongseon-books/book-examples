@@ -1,4 +1,4 @@
-"""에피소드 10: 캐시/큐/관측을 포함한 운영형 구조 예제입니다."""
+"""Backend Development 101 - 10편: production ready backend 예제."""
 
 import sys
 from pathlib import Path

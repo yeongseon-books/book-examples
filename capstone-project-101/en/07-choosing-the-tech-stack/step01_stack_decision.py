@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Stack decision."""
+"""Capstone Project 101 - Episode 7: choosing the tech stack example."""
 
 from __future__ import annotations
 

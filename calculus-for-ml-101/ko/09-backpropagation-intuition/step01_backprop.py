@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Backprop."""
+"""Calculus For Ml 101 - 9편: backpropagation intuition 예제."""
 
 
 class Node:
@@ -33,7 +33,7 @@ def backward(n: Node) -> None:
 
 
 def run_demo() -> dict[str, float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     a, b, c = Node(2.0), Node(3.0), Node(4.0)
     y = mul(add(a, b), c)
     backward(y)

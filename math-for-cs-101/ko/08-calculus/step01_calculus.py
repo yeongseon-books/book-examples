@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Calculus."""
+"""Math For Cs 101 - 8편: calculus 예제."""
 
 import numpy as np
 

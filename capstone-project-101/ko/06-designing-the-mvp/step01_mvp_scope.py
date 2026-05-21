@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Mvp scope."""
+"""Capstone Project 101 - 6편: designing the mvp 예제."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Toxicity bias scorer."""
+"""Ai Safety Guardrails 101 - Episode 6: toxicity bias detection example."""
 
 import sys
 from pathlib import Path

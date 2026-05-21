@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Branch merge."""
+"""Alembic 101 - Episode 5: branches and merges example."""
 
 from __future__ import annotations
 

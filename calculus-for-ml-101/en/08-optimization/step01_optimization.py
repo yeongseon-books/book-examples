@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Optimization."""
+"""Calculus For Ml 101 - Episode 8: optimization example."""
 
 import math
 

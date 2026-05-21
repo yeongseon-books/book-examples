@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Eval basics."""
+"""Ai Evaluation 101 - 1편: why evaluate llm apps 예제."""
 
 import sys
 from pathlib import Path

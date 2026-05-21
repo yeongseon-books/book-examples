@@ -1,4 +1,4 @@
-"""Episode 08: retry and fallback reliability example."""
+"""Ai Agent 101 - Episode 8: error handling reliability example."""
 
 import sys
 from pathlib import Path

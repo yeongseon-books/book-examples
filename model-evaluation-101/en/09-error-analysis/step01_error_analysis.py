@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Error analysis."""
+"""Model Evaluation 101 - Episode 9: error analysis example."""
 
 from __future__ import annotations
 

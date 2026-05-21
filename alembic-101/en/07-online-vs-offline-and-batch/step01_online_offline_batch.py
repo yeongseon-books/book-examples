@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Online offline batch."""
+"""Alembic 101 - Episode 7: online vs offline and batch example."""
 
 from __future__ import annotations
 

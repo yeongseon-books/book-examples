@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - 4편: communication 예제."""
 
 from common import CommsTemplateRenderer, Incident
 

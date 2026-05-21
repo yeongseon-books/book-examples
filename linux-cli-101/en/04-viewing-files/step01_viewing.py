@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Viewing."""
+"""Linux Cli 101 - Episode 4: viewing files example."""
 
 from __future__ import annotations
 

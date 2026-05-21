@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Token chunk."""
+"""Ai Data Preparation 101 - 5편: tokenization chunking 예제."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Api contract."""
+"""Api Design 101 - Episode 1: what is an api example."""
 
 from __future__ import annotations
 

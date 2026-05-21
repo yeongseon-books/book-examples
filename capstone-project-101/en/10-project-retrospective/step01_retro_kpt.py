@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Retro kpt."""
+"""Capstone Project 101 - Episode 10: project retrospective example."""
 
 from __future__ import annotations
 

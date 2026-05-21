@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Probability."""
+"""Math For Cs 101 - Episode 6: probability example."""
 
 import random
 

@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Text to image."""
+"""Multimodal Ai 101 - 7편: text to image diffusion 예제."""
 
 from common import MockDiffusion
 

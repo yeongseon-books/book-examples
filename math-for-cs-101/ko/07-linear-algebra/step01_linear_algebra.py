@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Linear algebra."""
+"""Math For Cs 101 - 7편: linear algebra 예제."""
 
 import numpy as np
 

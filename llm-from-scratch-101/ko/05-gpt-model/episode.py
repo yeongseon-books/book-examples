@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - 5편: gpt model 예제."""
 
 import numpy as np
 from common import TinyGPT, TinyGPTConfig

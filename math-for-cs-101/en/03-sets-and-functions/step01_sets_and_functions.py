@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Sets and functions."""
+"""Math For Cs 101 - Episode 3: sets and functions example."""
 
 from common import is_injective
 

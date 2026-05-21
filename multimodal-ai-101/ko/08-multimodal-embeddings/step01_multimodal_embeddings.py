@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Multimodal embeddings."""
+"""Multimodal Ai 101 - 8편: multimodal embeddings 예제."""
 
 from common import MockImageEncoder, MockTextEncoder, cosine_sim, synthetic_image
 

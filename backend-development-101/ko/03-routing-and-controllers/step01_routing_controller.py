@@ -1,4 +1,4 @@
-"""에피소드 03: routing과 controller 역할 분리 예제입니다."""
+"""Backend Development 101 - 3편: routing and controllers 예제."""
 
 from fastapi import APIRouter, FastAPI
 from pydantic import BaseModel

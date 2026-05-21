@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Vlm architecture."""
+"""Multimodal Ai 101 - Episode 3: vlm architecture example."""
 
 from common import MockVLM, synthetic_image
 

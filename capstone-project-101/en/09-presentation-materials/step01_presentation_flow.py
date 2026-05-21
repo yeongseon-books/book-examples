@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Presentation flow."""
+"""Capstone Project 101 - Episode 9: presentation materials example."""
 
 from __future__ import annotations
 

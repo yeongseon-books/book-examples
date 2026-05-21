@@ -1,4 +1,4 @@
-"""Episode 10: 전체 개념을 결합한 capstone 에이전트 예제입니다."""
+"""Ai Agent 101 - 10편: building first agent 예제."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep01."""
+"""Frontend Development 101 - 1편: what is frontend development 예제."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ HTML_SAMPLE = """<!doctype html><html lang="ko"><body><header><main><h1>Hi</h1><
 
 
 def run_demo() -> dict[str, object]:
-    """Run demo."""
+    """데모를 실행합니다."""
     analyzer = HTMLAnalyzer(HTML_SAMPLE)
     return {
         "semantic_ok": analyzer.has_semantic_tags({"header", "main", "footer"}),

@@ -1,4 +1,4 @@
-"""Linear Algebra 101 - Episode 1: Example."""
+"""Linear Algebra 101 - Episode 6: basis and dimension example."""
 
 import numpy as np
 from common import gram_schmidt

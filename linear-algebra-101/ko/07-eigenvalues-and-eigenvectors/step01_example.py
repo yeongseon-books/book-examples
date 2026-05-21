@@ -1,4 +1,4 @@
-"""Linear Algebra 101 - Episode 1: Example."""
+"""Linear Algebra 101 - 7편: eigenvalues and eigenvectors 예제."""
 
 import numpy as np
 from common import power_iteration

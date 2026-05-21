@@ -1,4 +1,4 @@
-"""에피소드 05: SQLAlchemy repository와 트랜잭션 예제입니다."""
+"""Backend Development 101 - 5편: database layer 예제."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Upgrade downgrade."""
+"""Alembic 101 - Episode 3: first revision upgrade downgrade example."""
 
 from __future__ import annotations
 

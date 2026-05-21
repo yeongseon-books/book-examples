@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Schedule plan."""
+"""Capstone Project 101 - 8편: schedule management 예제."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Episode 06: Authentication and role-based authorization."""
+"""Backend Development 101 - Episode 6: auth and authorization example."""
 
 import sys
 from pathlib import Path

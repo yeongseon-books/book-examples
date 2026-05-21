@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Stratified split."""
+"""Ai Data Preparation 101 - Episode 9: train eval test splitting example."""
 
 from collections import defaultdict
 

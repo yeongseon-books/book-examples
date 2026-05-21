@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Video understanding."""
+"""Multimodal Ai 101 - 9편: video understanding 예제."""
 
 from common import MockImageEncoder, VideoSummarizer, synthetic_image
 

@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Data backfill."""
+"""Alembic 101 - 6편: data migrations 예제."""
 
 from __future__ import annotations
 

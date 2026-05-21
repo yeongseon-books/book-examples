@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Eval basics."""
+"""Ai Evaluation 101 - Episode 1: why evaluate llm apps example."""
 
 import sys
 from pathlib import Path

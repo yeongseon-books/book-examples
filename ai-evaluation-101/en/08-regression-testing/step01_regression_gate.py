@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Regression gate."""
+"""Ai Evaluation 101 - Episode 8: regression testing example."""
 
 import sys
 from pathlib import Path

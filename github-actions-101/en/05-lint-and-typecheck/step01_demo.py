@@ -1,4 +1,4 @@
-"""Github Actions 101 - Episode 1: Demo."""
+"""Github Actions 101 - Episode 5: lint and typecheck example."""
 
 from common import WorkflowParser, WorkflowValidator, load_workflow
 

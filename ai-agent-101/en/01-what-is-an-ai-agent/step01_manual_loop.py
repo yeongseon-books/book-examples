@@ -1,4 +1,4 @@
-"""Episode 01: manual Observe-Think-Act-Check loop."""
+"""Ai Agent 101 - Episode 1: what is an ai agent example."""
 
 import sys
 from pathlib import Path

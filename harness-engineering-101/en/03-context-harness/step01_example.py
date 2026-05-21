@@ -1,4 +1,4 @@
-"""Harness Engineering 101 - Episode 1: Example."""
+"""Harness Engineering 101 - Episode 3: context harness example."""
 
 from __future__ import annotations
 

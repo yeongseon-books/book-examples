@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - Episode 9: prevention example."""
 
 from common import PreventionTracker
 

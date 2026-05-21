@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Gradient descent."""
+"""Calculus For Ml 101 - Episode 7: gradient descent example."""
 
 
 def loss(w: float) -> float:

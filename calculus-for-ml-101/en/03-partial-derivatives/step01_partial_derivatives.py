@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Partial derivatives."""
+"""Calculus For Ml 101 - Episode 3: partial derivatives example."""
 
 
 def numerical_partial(func, x: list[float], i: int, h: float = 1e-5) -> float:

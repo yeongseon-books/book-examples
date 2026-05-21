@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Issue project."""
+"""Git Github 101 - Episode 8: issue and project example."""
 
 from __future__ import annotations
 

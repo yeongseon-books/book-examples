@@ -1,4 +1,4 @@
-"""Episode 04: Business rules in a service layer."""
+"""Backend Development 101 - Episode 4: service layer example."""
 
 from collections.abc import Mapping
 from dataclasses import dataclass

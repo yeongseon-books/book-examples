@@ -1,4 +1,4 @@
-"""Episode 07: success rate와 trajectory 메트릭 예제입니다."""
+"""Ai Agent 101 - 7편: agent evaluation 예제."""
 
 
 def evaluate(results: list[dict[str, object]]) -> dict[str, float]:

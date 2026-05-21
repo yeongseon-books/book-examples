@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Stack decision."""
+"""Capstone Project 101 - 7편: choosing the tech stack 예제."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Autogenerate limits."""
+"""Alembic 101 - 4편: autogenerate and its limits 예제."""
 
 from __future__ import annotations
 

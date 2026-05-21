@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - 8편: finetuning 예제."""
 
 import numpy as np
 

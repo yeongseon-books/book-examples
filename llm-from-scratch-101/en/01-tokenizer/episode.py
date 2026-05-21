@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - Episode 1: tokenizer example."""
 
 import numpy as np
 from common import CharTokenizer

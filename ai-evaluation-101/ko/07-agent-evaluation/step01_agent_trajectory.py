@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Agent trajectory."""
+"""Ai Evaluation 101 - 7편: agent evaluation 예제."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep02."""
+"""Frontend Development 101 - 2편: html and css basics 예제."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ CSS_SAMPLE = """:root { --color-primary: #1d72ff; } .card { color: var(--color-p
 
 
 def run_demo() -> dict[str, object]:
-    """Run demo."""
+    """데모를 실행합니다."""
     analyzer = CSSAnalyzer(CSS_SAMPLE)
     return {
         "specificity": analyzer.selector_specificity(".card"),

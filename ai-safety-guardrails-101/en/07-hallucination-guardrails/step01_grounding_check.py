@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Grounding check."""
+"""Ai Safety Guardrails 101 - Episode 7: hallucination guardrails example."""
 
 import sys
 from pathlib import Path

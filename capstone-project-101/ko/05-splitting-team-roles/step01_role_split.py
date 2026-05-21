@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Role split."""
+"""Capstone Project 101 - 5편: splitting team roles 예제."""
 
 from __future__ import annotations
 

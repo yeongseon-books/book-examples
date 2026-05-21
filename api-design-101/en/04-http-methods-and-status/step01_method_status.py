@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Method status."""
+"""Api Design 101 - Episode 4: http methods and status example."""
 
 from __future__ import annotations
 

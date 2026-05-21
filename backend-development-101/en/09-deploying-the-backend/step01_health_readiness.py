@@ -1,4 +1,4 @@
-"""Episode 09: Deployment-oriented health/readiness configuration."""
+"""Backend Development 101 - Episode 9: deploying the backend example."""
 
 import os
 

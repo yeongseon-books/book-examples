@@ -1,4 +1,4 @@
-"""Llm From Scratch 101 - Episode."""
+"""Llm From Scratch 101 - Episode 3: attention example."""
 
 import numpy as np
 from common import scaled_dot_product_attention

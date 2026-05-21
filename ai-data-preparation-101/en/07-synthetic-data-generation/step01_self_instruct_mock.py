@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Self instruct mock."""
+"""Ai Data Preparation 101 - Episode 7: synthetic data generation example."""
 
 import random
 

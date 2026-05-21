@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Production app."""
+"""Multimodal Ai 101 - 10편: production multimodal app 예제."""
 
 from common import MultimodalApp, synthetic_audio
 

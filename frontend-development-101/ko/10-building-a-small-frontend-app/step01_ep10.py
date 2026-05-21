@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep10."""
+"""Frontend Development 101 - 10편: building a small frontend app 예제."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ def render_note(props: dict[str, object], state: dict[str, object]) -> str:
 
 
 def run_demo() -> dict[str, object]:
-    """Run demo."""
+    """데모를 실행합니다."""
     router = RouterSim({"/": lambda _: "notes", "/notes/:id": lambda p: p["id"]})
     fetch = MockFetch({"/notes": {"items": [{"id": "1", "title": "A"}]}})
     data = fetch.get("/notes")

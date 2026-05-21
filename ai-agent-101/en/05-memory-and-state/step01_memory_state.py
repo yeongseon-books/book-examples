@@ -1,4 +1,4 @@
-"""Episode 05: sliding window memory and checkpoint example."""
+"""Ai Agent 101 - Episode 5: memory and state example."""
 
 
 class SlidingMemory:

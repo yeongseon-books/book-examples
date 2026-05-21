@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Partial derivatives."""
+"""Calculus For Ml 101 - 3편: partial derivatives 예제."""
 
 
 def numerical_partial(func, x: list[float], i: int, h: float = 1e-5) -> float:
@@ -21,5 +21,5 @@ def partials(x: list[float]) -> tuple[float, float]:
 
 
 def run_demo() -> dict[str, tuple[float, float]]:
-    """Run demo."""
+    """데모를 실행합니다."""
     return {"partials_at_2_1": partials([2.0, 1.0])}

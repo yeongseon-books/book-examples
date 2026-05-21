@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Prompt injection detector."""
+"""Ai Safety Guardrails 101 - 2편: prompt injection defense 예제."""
 
 import sys
 from pathlib import Path

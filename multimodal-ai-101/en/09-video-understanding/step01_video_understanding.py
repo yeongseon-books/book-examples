@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Video understanding."""
+"""Multimodal Ai 101 - Episode 9: video understanding example."""
 
 from common import MockImageEncoder, VideoSummarizer, synthetic_image
 

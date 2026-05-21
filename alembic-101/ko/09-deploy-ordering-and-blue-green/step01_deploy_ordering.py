@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Deploy ordering."""
+"""Alembic 101 - 9편: deploy ordering and blue green 예제."""
 
 from __future__ import annotations
 

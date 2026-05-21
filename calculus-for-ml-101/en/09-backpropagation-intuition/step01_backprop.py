@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Backprop."""
+"""Calculus For Ml 101 - Episode 9: backpropagation intuition example."""
 
 
 class Node:

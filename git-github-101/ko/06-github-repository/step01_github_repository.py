@@ -1,4 +1,4 @@
-"""Git Github 101 - Episode 1: Github repository."""
+"""Git Github 101 - 6편: github repository 예제."""
 
 from __future__ import annotations
 

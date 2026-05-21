@@ -1,4 +1,4 @@
-"""에피소드 02: status code와 header를 다루는 HTTP 서버 예제입니다."""
+"""Backend Development 101 - 2편: building an http server 예제."""
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse

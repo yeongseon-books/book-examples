@@ -1,4 +1,4 @@
-"""Linear Algebra 101 - Episode 1: Example."""
+"""Linear Algebra 101 - Episode 9: pca example."""
 
 import numpy as np
 from common import pca_fit, text_histogram

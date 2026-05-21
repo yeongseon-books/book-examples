@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Upgrade downgrade."""
+"""Alembic 101 - 3편: first revision upgrade downgrade 예제."""
 
 from __future__ import annotations
 

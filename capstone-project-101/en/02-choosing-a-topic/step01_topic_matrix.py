@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Topic matrix."""
+"""Capstone Project 101 - Episode 2: choosing a topic example."""
 
 from __future__ import annotations
 

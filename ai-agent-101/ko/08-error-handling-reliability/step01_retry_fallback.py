@@ -1,4 +1,4 @@
-"""Episode 08: retry와 fallback 안정성 예제입니다."""
+"""Ai Agent 101 - 8편: error handling reliability 예제."""
 
 import sys
 from pathlib import Path

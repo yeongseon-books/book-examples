@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Schema validation."""
+"""Api Design 101 - 5편: request and response schema 예제."""
 
 from __future__ import annotations
 

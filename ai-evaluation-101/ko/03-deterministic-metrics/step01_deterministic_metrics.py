@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Deterministic metrics."""
+"""Ai Evaluation 101 - 3편: deterministic metrics 예제."""
 
 import sys
 from pathlib import Path

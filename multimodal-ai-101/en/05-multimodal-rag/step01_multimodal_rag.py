@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Multimodal rag."""
+"""Multimodal Ai 101 - Episode 5: multimodal rag example."""
 
 from common import MultimodalRAG
 

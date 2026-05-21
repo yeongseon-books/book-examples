@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - Episode 7: mitigation and resolution example."""
 
 from common import MitigationTracker
 

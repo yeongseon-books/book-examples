@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Logic and proofs."""
+"""Math For Cs 101 - Episode 2: logic and proofs example."""
 
 
 def implies(p, q):

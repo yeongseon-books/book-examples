@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Problem card."""
+"""Capstone Project 101 - Episode 3: defining the problem example."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Chain rule."""
+"""Calculus For Ml 101 - Episode 5: chain rule example."""
 
 
 def numerical_derivative_1d(func, x: float, h: float = 1e-5) -> float:

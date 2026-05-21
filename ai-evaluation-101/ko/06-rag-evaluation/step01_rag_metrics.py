@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Rag metrics."""
+"""Ai Evaluation 101 - 6편: rag evaluation 예제."""
 
 import sys
 from pathlib import Path

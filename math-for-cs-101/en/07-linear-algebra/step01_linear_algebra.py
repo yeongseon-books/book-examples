@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Linear algebra."""
+"""Math For Cs 101 - Episode 7: linear algebra example."""
 
 import numpy as np
 

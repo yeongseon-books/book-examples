@@ -1,4 +1,4 @@
-"""에피소드 06: 인증과 권한(역할 기반) 예제입니다."""
+"""Backend Development 101 - 6편: auth and authorization 예제."""
 
 import sys
 from pathlib import Path

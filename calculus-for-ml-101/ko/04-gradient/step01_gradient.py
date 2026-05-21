@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Gradient."""
+"""Calculus For Ml 101 - 4편: gradient 예제."""
 
 import numpy as np
 
@@ -19,7 +19,7 @@ def step(w: np.ndarray, lr: float = 0.1) -> np.ndarray:
 
 
 def run_demo() -> dict[str, np.ndarray | float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     w0 = np.array([0.0, 0.0])
     g = gradient(w0)
     return {"grad": g, "norm": float(np.linalg.norm(g)), "next_loss": loss(step(w0))}

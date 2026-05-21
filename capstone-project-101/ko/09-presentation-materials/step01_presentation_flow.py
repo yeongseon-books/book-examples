@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Presentation flow."""
+"""Capstone Project 101 - 9편: presentation materials 예제."""
 
 from __future__ import annotations
 

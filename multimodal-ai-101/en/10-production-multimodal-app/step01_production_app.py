@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Production app."""
+"""Multimodal Ai 101 - Episode 10: production multimodal app example."""
 
 from common import MultimodalApp, synthetic_audio
 

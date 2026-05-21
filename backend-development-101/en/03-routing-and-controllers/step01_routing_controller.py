@@ -1,4 +1,4 @@
-"""Episode 03: Router and controller separation."""
+"""Backend Development 101 - Episode 3: routing and controllers example."""
 
 from fastapi import APIRouter, FastAPI
 from pydantic import BaseModel

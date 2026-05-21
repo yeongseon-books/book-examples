@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep09."""
+"""Frontend Development 101 - Episode 9: build tools and bundling example."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Leakage demo."""
+"""Model Evaluation 101 - Episode 1: why evaluation is hard example."""
 
 from __future__ import annotations
 

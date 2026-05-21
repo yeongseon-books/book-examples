@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Guardrail baseline."""
+"""Ai Safety Guardrails 101 - Episode 1: why ai safety matters example."""
 
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Episode 02: 컨텍스트 우선순위 조립 예제입니다."""
+"""Ai Agent 101 - 2편: context engineering 예제."""
 
 
 def build_context(

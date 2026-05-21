@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Pipe redirect."""
+"""Linux Cli 101 - 6편: pipe and redirection 예제."""
 
 from __future__ import annotations
 

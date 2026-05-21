@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Env target metadata."""
+"""Alembic 101 - Episode 2: env py and target metadata example."""
 
 from __future__ import annotations
 

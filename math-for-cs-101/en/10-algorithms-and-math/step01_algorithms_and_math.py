@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Algorithms and math."""
+"""Math For Cs 101 - Episode 10: algorithms and math example."""
 
 
 def hash_mod(key, bucket_count):

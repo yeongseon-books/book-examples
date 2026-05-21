@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Branch merge."""
+"""Alembic 101 - 5편: branches and merges 예제."""
 
 from __future__ import annotations
 

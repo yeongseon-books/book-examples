@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep06."""
+"""Frontend Development 101 - 6편: api calls and async 예제."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ JS_SAMPLE = """async function load(){ const r = await fetch('/api/users'); retur
 
 
 def run_demo() -> dict[str, object]:
-    """Run demo."""
+    """데모를 실행합니다."""
     mock = MockFetch({"/api/users": {"status": "success", "data": [{"id": 1}]}})
     js = JSAnalyzer(JS_SAMPLE)
     return {

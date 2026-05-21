@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Multimodal embeddings."""
+"""Multimodal Ai 101 - Episode 8: multimodal embeddings example."""
 
 from common import MockImageEncoder, MockTextEncoder, cosine_sim, synthetic_image
 

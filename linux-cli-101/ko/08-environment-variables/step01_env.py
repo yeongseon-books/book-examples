@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Env."""
+"""Linux Cli 101 - 8편: environment variables 예제."""
 
 from __future__ import annotations
 

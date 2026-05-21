@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Cli shell."""
+"""Linux Cli 101 - Episode 1: what is cli and shell example."""
 
 from __future__ import annotations
 

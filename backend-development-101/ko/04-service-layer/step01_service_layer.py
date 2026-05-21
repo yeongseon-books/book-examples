@@ -1,4 +1,4 @@
-"""에피소드 04: service layer로 비즈니스 규칙을 모으는 예제입니다."""
+"""Backend Development 101 - 4편: service layer 예제."""
 
 from collections.abc import Mapping
 from dataclasses import dataclass

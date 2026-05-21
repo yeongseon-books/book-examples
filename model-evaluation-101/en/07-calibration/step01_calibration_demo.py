@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Calibration demo."""
+"""Model Evaluation 101 - Episode 7: calibration example."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Image encoder."""
+"""Multimodal Ai 101 - Episode 2: image encoders clip vit example."""
 
 from common import MockImageEncoder, synthetic_image
 

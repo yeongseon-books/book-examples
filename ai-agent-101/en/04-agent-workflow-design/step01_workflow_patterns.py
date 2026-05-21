@@ -1,4 +1,4 @@
-"""Episode 04: linear/branching/parallel workflow example."""
+"""Ai Agent 101 - Episode 4: agent workflow design example."""
 
 
 def run_workflow(task: str, confidence: float) -> dict[str, object]:

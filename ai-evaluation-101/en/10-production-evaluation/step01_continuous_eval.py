@@ -1,4 +1,4 @@
-"""Ai Evaluation 101 - Episode 1: Continuous eval."""
+"""Ai Evaluation 101 - Episode 10: production evaluation example."""
 
 import sys
 from pathlib import Path

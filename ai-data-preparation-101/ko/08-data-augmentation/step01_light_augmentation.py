@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Light augmentation."""
+"""Ai Data Preparation 101 - 8편: data augmentation 예제."""
 
 import random
 

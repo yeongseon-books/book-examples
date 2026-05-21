@@ -1,4 +1,4 @@
-"""Model Evaluation 101 - Episode 1: Calibration demo."""
+"""Model Evaluation 101 - 7편: calibration 예제."""
 
 from __future__ import annotations
 

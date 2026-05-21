@@ -1,4 +1,4 @@
-"""Github Actions 101 - Episode 1: Demo."""
+"""Github Actions 101 - Episode 8: deploy automation example."""
 
 from common import WorkflowParser, WorkflowValidator, load_workflow
 

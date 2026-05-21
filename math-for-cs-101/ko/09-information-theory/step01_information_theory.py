@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Information theory."""
+"""Math For Cs 101 - 9편: information theory 예제."""
 
 from common import entropy, huffman_code_lengths, kl_divergence
 

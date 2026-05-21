@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Ssh sim."""
+"""Linux Cli 101 - Episode 10: ssh and remote example."""
 
 from __future__ import annotations
 

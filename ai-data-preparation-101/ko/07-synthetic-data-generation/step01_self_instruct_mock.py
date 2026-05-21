@@ -1,4 +1,4 @@
-"""Ai Data Preparation 101 - Episode 1: Self instruct mock."""
+"""Ai Data Preparation 101 - 7편: synthetic data generation 예제."""
 
 import random
 

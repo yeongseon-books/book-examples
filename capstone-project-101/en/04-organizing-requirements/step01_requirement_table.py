@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Requirement table."""
+"""Capstone Project 101 - Episode 4: organizing requirements example."""
 
 from __future__ import annotations
 

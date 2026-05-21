@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - 7편: mitigation and resolution 예제."""
 
 from common import MitigationTracker
 

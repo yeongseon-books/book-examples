@@ -1,4 +1,4 @@
-"""Math For Cs 101 - Episode 1: Complexity demo."""
+"""Math For Cs 101 - 1편: why math for cs 예제."""
 
 
 def operation_count_linear(n):

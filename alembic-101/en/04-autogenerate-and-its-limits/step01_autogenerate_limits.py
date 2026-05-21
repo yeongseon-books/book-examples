@@ -1,4 +1,4 @@
-"""Alembic 101 - Episode 1: Autogenerate limits."""
+"""Alembic 101 - Episode 4: autogenerate and its limits example."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Openapi contract."""
+"""Api Design 101 - 8편: openapi and swagger 예제."""
 
 from __future__ import annotations
 

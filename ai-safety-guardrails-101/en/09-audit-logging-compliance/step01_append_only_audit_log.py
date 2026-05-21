@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Append only audit log."""
+"""Ai Safety Guardrails 101 - Episode 9: audit logging compliance example."""
 
 import sys
 from pathlib import Path

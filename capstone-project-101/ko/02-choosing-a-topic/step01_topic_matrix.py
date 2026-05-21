@@ -1,4 +1,4 @@
-"""Capstone Project 101 - Episode 1: Topic matrix."""
+"""Capstone Project 101 - 2편: choosing a topic 예제."""
 
 from __future__ import annotations
 

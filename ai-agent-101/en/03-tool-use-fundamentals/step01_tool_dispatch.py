@@ -1,4 +1,4 @@
-"""Episode 03: schema-style tool dispatch example."""
+"""Ai Agent 101 - Episode 3: tool use fundamentals example."""
 
 import sys
 from pathlib import Path

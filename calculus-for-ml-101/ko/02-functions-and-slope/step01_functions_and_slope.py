@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Functions and slope."""
+"""Calculus For Ml 101 - 2편: functions and slope 예제."""
 
 import math
 
@@ -24,7 +24,7 @@ def sigmoid(x: float) -> float:
 
 
 def run_demo() -> dict[str, float]:
-    """Run demo."""
+    """데모를 실행합니다."""
     return {
         "linear_slope": 2.0,
         "relu_neg": relu(-1.0),

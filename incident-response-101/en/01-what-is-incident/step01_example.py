@@ -1,4 +1,4 @@
-"""Incident Response 101 - Episode 1: Example."""
+"""Incident Response 101 - Episode 1: what is incident example."""
 
 from common import Incident, SeverityClassifier
 

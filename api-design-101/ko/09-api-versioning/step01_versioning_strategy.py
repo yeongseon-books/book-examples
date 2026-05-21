@@ -1,4 +1,4 @@
-"""Api Design 101 - Episode 1: Versioning strategy."""
+"""Api Design 101 - 9편: api versioning 예제."""
 
 from __future__ import annotations
 

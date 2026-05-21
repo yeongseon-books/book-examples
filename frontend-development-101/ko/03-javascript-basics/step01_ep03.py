@@ -1,4 +1,4 @@
-"""Frontend Development 101 - Episode 1: Ep03."""
+"""Frontend Development 101 - 3편: javascript basics 예제."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ JS_SAMPLE = """const todos = []; let count = 0; function App() { return todos.le
 
 
 def run_demo() -> dict[str, object]:
-    """Run demo."""
+    """데모를 실행합니다."""
     analyzer = JSAnalyzer(JS_SAMPLE)
     return {
         "decls": analyzer.declaration_counts(),

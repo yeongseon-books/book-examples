@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Token bucket."""
+"""Ai Safety Guardrails 101 - 8편: rate limiting abuse prevention 예제."""
 
 import sys
 from pathlib import Path

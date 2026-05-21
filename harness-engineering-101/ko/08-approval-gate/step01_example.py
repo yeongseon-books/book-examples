@@ -1,4 +1,4 @@
-"""Harness Engineering 101 - Episode 1: Example."""
+"""Harness Engineering 101 - 8편: approval gate 예제."""
 
 from __future__ import annotations
 

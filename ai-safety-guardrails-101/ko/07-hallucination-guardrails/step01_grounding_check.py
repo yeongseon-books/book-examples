@@ -1,4 +1,4 @@
-"""Ai Safety Guardrails 101 - Episode 1: Grounding check."""
+"""Ai Safety Guardrails 101 - 7편: hallucination guardrails 예제."""
 
 import sys
 from pathlib import Path

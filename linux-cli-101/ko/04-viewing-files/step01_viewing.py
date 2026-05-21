@@ -1,4 +1,4 @@
-"""Linux Cli 101 - Episode 1: Viewing."""
+"""Linux Cli 101 - 4편: viewing files 예제."""
 
 from __future__ import annotations
 

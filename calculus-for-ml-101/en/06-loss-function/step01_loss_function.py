@@ -1,4 +1,4 @@
-"""Calculus For Ml 101 - Episode 1: Loss function."""
+"""Calculus For Ml 101 - Episode 6: loss function example."""
 
 import math
 

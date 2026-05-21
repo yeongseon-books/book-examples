@@ -1,4 +1,4 @@
-"""Multimodal Ai 101 - Episode 1: Why multimodal."""
+"""Multimodal Ai 101 - Episode 1: why multimodal matters example."""
 
 from common import synthetic_image
 
