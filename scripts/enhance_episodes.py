@@ -20,8 +20,8 @@ from pathlib import Path
 from typing import Any
 
 
-BOOK_CONTENT_ROOT = Path("/data/GitHub/book-content/content")
-BOOK_EXAMPLES_ROOT = Path("/data/GitHub/book-examples")
+BOOK_CONTENT_ROOT = Path(os.environ.get("BOOK_CONTENT_ROOT", "/data/GitHub/book-content/content"))
+BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
 
 # Map of language tags to file extensions
 LANG_EXT_MAP = {

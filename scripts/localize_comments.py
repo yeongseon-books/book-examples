@@ -8,9 +8,10 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
+import os
 
 
-BOOK_EXAMPLES_ROOT = Path("/data/GitHub/book-examples")
+BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
 
 # Common comment translations (English → Korean)
 COMMENT_TRANSLATIONS = {

@@ -9,9 +9,10 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+import os
 
 
-BOOK_EXAMPLES_ROOT = Path("/data/GitHub/book-examples")
+BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
 
 # Korean docstring templates based on common patterns
 KO_MODULE_TEMPLATE = '"""{series_name} - {ep_num}편: {ep_title} 예제."""'

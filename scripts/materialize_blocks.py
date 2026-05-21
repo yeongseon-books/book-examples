@@ -18,10 +18,11 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+import os
 
 
-BOOK_CONTENT_ROOT = Path("/data/GitHub/book-content/content")
-BOOK_EXAMPLES_ROOT = Path("/data/GitHub/book-examples")
+BOOK_CONTENT_ROOT = Path(os.environ.get("BOOK_CONTENT_ROOT", "/data/GitHub/book-content/content"))
+BOOK_EXAMPLES_ROOT = Path(os.environ.get("BOOK_EXAMPLES_ROOT", "/data/GitHub/book-examples"))
 
 # Languages that represent standalone files
 FILE_LANGS = {
